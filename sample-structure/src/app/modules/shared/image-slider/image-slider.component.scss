@@ -1,0 +1,11 @@
+.header{
+    font-weight:400;
+}
+.header:after { // title under-line
+  content: "";
+  display: block;
+  width: 10%;
+  margin: 0 auto;
+  padding-top: 10px;
+  border-bottom: 3px solid black;
+}

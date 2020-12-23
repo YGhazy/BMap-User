@@ -1,0 +1,18 @@
+  <!-- Header - set the background image for the header in the line below -->
+<header class="py-5 bg-image-full" style="background-size: auto; background-position: bottom; background-image: url('../../../assets/img/background.jpg'); ">
+  <img class="img-fluid d-block mx-auto" src="https://www.boltss.com/img/logo1.png" alt="">
+</header>
+
+<!-- Content section -->
+<!--Dynamic section fetched from .ts-->
+<section class="py-5" *ngIf="content"> <!--Display if content's available-->
+  <div class="container">
+    <h1>{{content.title}}</h1>
+    <p>{{content.body}}</p>
+  </div>
+</section>
+
+<hr />
+<app-image-slider></app-image-slider>
+
+<app-modal></app-modal>

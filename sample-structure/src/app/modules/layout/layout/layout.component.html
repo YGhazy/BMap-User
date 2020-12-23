@@ -1,0 +1,15 @@
+<!--Layout component includes Header, Footer, and router outlet (Component routing) selectors
+  (And any shared modules throughout the project's layout -depending on requirements
+  --->
+<!-- * Wrap layout within a flex box for design adjustments *-->
+<div class="d-flex flex-column min-vh-100">
+  <!--Header-->
+  <app-header></app-header>
+
+  <!--Modules/Components-->
+  <router-outlet></router-outlet>
+
+  <!--Footer-->
+  <app-footer></app-footer>
+
+</div>
