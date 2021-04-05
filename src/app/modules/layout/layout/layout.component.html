@@ -1,0 +1,156 @@
+<!--Layout component includes Header, Footer, and router outlet (Component routing) selectors
+  (And any shared modules throughout the project's layout -depending on requirements
+  --->
+<!-- * Wrap layout within a flex box for design adjustments *-->
+<div class="site-wrap">
+
+  <!--Mobile menu section-->
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body">
+      <ul class="site-nav-wrap">
+        <li><a  class="nav-link clickableLink">Home</a></li>
+        <li class="has-children">
+          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem0"></span>
+          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem0">Company</a>
+          <ul class="collapse" id="collapseItem0">
+            <li><a routerLink="/layout/about" class="nav-link clickableLink">Team</a></li>
+            <li><a routerLink="/layout/blogs" class="nav-link clickableLink">Blogs</a></li>
+            <!--<li><a href="#testimonials-section" class="nav-link clickableLink">Testimonials</a></li>-->
+            <li><a routerLink="/layout/faq" class="nav-link clickableLink">FAQ</a></li>
+          </ul>
+        </li>
+        <li class="has-children">
+          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem1"></span>
+          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem1">Services</a>
+          <ul class="collapse" id="collapseItem1">
+            <li><a routerLink="/layout/doctor-solutions" class="nav-link clickableLink">Doctor Solutions</a></li>
+            <li><a routerLink="/layout/salon-solutions" class="nav-link clickableLink">Salon Solutions</a></li>
+            <li><a routerLink="/layout/e-commerce" class="nav-link clickableLink">E-Commerce</a></li>
+            <li><a routerLink="/layout/food-and-beverages" class="nav-link clickableLink">Food and Beverages</a></li>
+          </ul>
+        </li>
+        <li class="has-children">
+          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem2"></span>
+          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem2">Products</a>
+          <ul class="collapse" id="collapseItem2">
+            <li><a routerLink="/layout/e-payment"  class="nav-link clickableLink">E-Payment</a></li>
+            <li><a routerLink="/layout/pos" class="nav-link clickableLink">POS</a></li>
+            <li><a routerLink="/layout/qr-code" class="nav-link clickableLink">QR Code</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/layout/contact" class="nav-link clickableLink">Contact Us</a></li>
+        <li><a routerLink="/layout/careers" class="nav-link clickableLink">Careers</a></li>
+        <li class="social"><a href="https://www.facebook.com/Just2Pay-104584741329783/about/?ref=page_internal" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
+        <li class="social"><a href="https://www.instagram.com/just_2_pay/" target="_blank" class="nav-link clickableLink"><span class="icon-instagram p-0"></span></a></li>
+        <li class="social"><a href="https://twitter.com/PayJust2" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
+        <li class="social"><a href="https://www.linkedin.com/company/just2pay/" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
+        <li class="social"><a href="https://www.youtube.com/channel/UCvLbrLomZ_1LrOL-klgHtlg" target="_blank" class="nav-link clickableLink"><span class="icon-youtube p-0"></span></a></li>
+      </ul>
+    </div>
+  </div>
+  <!--End of mobile menu section-->
+
+  <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+
+    <div class="container">
+      <div class="row align-items-center">
+
+        <div class="col-6 col-xl-2">
+          <h1 class="mb-0 site-logo"><a routerLink="/layout" class="h2 mb-0"><div class="logo-image"></div></a></h1>
+        </div>
+        <div class="col-12 col-md-10 d-none d-xl-block">
+          <nav class="site-navigation position-relative text-right" role="navigation">
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <li><a class="nav-link" style="cursor: pointer;">Home</a></li>
+              <li><a class="nav-link" style="cursor: pointer;">About Us</a></li>
+
+              <li class="has-children">
+                <a  class="nav-link">Our services</a>
+                <ul class="dropdown">
+                  <li><a routerLink="/layout/bills-payment" class="nav-link">Bill Payment</a></li>
+                  <li><a routerLink="/layout/e-payment" class="nav-link">E-Payment</a></li>
+                  <li><a routerLink="/layout/pos" class="nav-link">POS</a></li>
+                  <li><a routerLink="/layout/qr-code" class="nav-link">QR Code</a></li>
+                </ul>
+              </li>
+              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section">Contact Us</a></li>
+              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section"> login</a></li>
+              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section"> العربية</a></li>
+
+            </ul>
+          </nav>
+        </div>
+
+        <!--Mobile navigation button-->
+        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!--Router outlet section-->
+  <router-outlet></router-outlet>
+
+  <!--Footer section-->
+  <footer class="site-footer">
+    <!--debug: Scroll destination currently placed here-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-4 pr-4">
+              <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
+              <div class="ml-2">
+
+                <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
+                <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
+                <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
+              </div>
+            </div>
+            <div class="col-md-4 ml-auto ">
+              <h2 class="footer-heading mb-2"> Links</h2>
+              <div class="row p-2">
+                <ul class="col-4">
+                  <li><a  class="smoothscroll "> Home</a></li>
+                  <li><a  class="smoothscroll">Services</a></li>
+                  <li><a  class="smoothscroll">About Us</a></li>
+
+                </ul>
+
+              </div>
+            </div>
+
+            <div class="col-md-4 ml-auto ">
+              <h2 class="footer-heading mb-2">
+                Contact Us
+              </h2>
+              <div class="row p-2">
+                <ul class="col-4 list-group">
+                  <li><a  class="smoothscroll ">+201133223344</a></li>
+                  <li><a  class="smoothscroll"> Bmap@gmail.com</a></li>
+                  <li><a  class="smoothscroll">Dubai</a></li>
+
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class=" text-center  d-flex justify-content-between">
+          <p>
+            Copyright &copy; 2021, All rights reserved | <a style="text-decoration:none;">BMap</a>
+          </p>
+          <p>
+            <a>Terms</a>  | <a>Policy</a>
+          </p>
+      </div>
+    </div>
+  </footer>
+</div>

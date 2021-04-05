@@ -1,0 +1,372 @@
+
+body, html {
+    height: 100%;
+  }
+
+.background {
+    /* The image used */
+    /*background-image: url(../../../../assets/img/background.png);*/
+  
+    /* Full height */
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first-card{
+   top: 10%;
+   width: 35%;
+   border-radius: 5%;
+   height: 75vh ;
+   font-size: 1.5rem;
+   line-height: 2.1;
+   text-align: center;
+   font-family: 'Tajawal', sans-serif;
+   color: #0059b3;
+   z-index: 2;
+
+    .card-text{
+        padding: 0.5rem;
+        margin: 0 auto;
+        width: 75%;
+    }
+
+}
+
+.card-image{
+    width: 50%;
+    padding: 0.5rem;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.second-card{
+    top: 15%;
+    right: 5%;
+    width: 35%;
+    border-radius: 5%;
+    height: 65vh ;
+    font-size: 3rem;
+    line-height: 2.1;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color: #ffff;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.47);
+
+    .card-text{
+        padding: 1.5rem;
+        margin: 0 auto;
+        text-align: center;
+        width: 75%;
+    }
+
+    p {
+        font-size: 0.7rem;
+    }
+
+    .button {
+        left: 15%;
+    }
+
+
+}
+
+
+$size: 30vmin;
+$baseColor: green;
+$accent: blue;
+$ease: cubic-bezier(.33,.45,.3,1);
+@mixin full($unit) {
+  position: absolute;
+  top: $unit;
+  right: $unit;
+  bottom: $unit;
+  left: $unit;
+}
+@function accent-from($i) {
+  @return adjust-hue(lighten($accent, 10), -35deg + (2deg * (5 - $i)));
+}
+@function accent-to($i) {
+  @return adjust-hue($accent, 10deg + (4deg * ($i - 1)));
+}
+$accentTo: rgba(accent-to(5), .66);
+$baseColor: if( lightness($baseColor) > 80, $baseColor, lighten($baseColor, 80 - lightness($baseColor)) );
+.button {
+  appearance: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: $size;
+  width: 1em;
+  height: 1em;
+  opacity: 0;
+  animation: buttonIn .5s $ease forwards .5s;
+  @keyframes buttonIn {
+    from {
+      opacity: 0;
+      transform: scale3d(1.1,1.15,1);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  background: none;
+  border-radius: 50%;
+  &:before,
+  &:after {
+    content: '';
+    border-radius: inherit;
+  }
+}
+.print {
+  $size: 40%;
+  position: relative;
+  width: $size;
+  height: 0;
+  padding-bottom: $size * 1.1122;
+  display: inline-block;
+  z-index: 1;
+  transform: scale3d(1.05, 1.05, 1);
+  color: rgba(accent-from(5), .5);
+  svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  path {
+    stroke-width: 4;
+    fill: none;
+    stroke-linecap: round;
+    stroke-dasharray: 1;
+    transition: 2s $ease;
+    will-change: stroke-dashoffset, stroke, color, opacity;
+  }
+  $glow: lighten($accent, 85 - lightness($accent));
+  &--under {
+    margin-right: -40%;
+    mix-blend-mode: lighten;
+    filter: drop-shadow(0 0 .033em currentColor);
+    // opacity: 0;
+    stroke-dashoffset: .5;
+    transition: 2s $ease;
+    animation: printPulse 2s linear infinite 1.25s;
+    @keyframes printPulse {
+      0% {
+        opacity: 1
+      }
+      50% {
+        opacity: .33
+      }
+      100% {
+        opacity: 1
+      }
+    }
+    path {
+      opacity: 0;
+      animation: printIn .2s $ease forwards .2s;
+      @keyframes printIn {
+        from {
+          opacity: 0;
+          stroke-dashoffset: .5;
+        }
+        to {
+          opacity: 1;
+          stroke-dashoffset: 0;
+        }
+      }
+      @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+          stroke: lighten(accent-from($i), 22.5);
+        }
+      }
+    }
+  }
+  &--over {
+    filter: drop-shadow(-0.0075em -0.0075em 0.005em rgba(0, 0, 51, 0.1)) // dark bevel
+    drop-shadow(0.0075em 0.0075em 0.005em rgba(255, 255, 255,.25)) // light bevel
+    drop-shadow(0 0 0.04em currentColor) // glow
+    ;
+    opacity: 0;
+    transition: transform 2s $ease, color 0s .4s, opacity .5s $ease,;
+    path {
+      opacity: 0;
+      stroke-dashoffset: 1;
+      transition: stroke .5s $ease, opacity 0s .5s, stroke-dashoffset 0s .5s;
+      @for $i from 1 through 5 {
+        &:nth-of-type(#{$i}) {
+          stroke: accent-from($i);
+        }
+      }
+    }
+  }
+}
+.button:active,
+.button.test {
+  .print {
+    /*transform: scale3d(1,1,1) translateZ(0);*/
+    &--over {
+      color: $accentTo;
+      opacity: .66;
+      transition: 1.5s $ease 4.5s, opacity .25s $ease, transform 2s $ease,;
+      &:after {
+        // opacity: 1;
+        transition: opacity 2s $ease 5.25s;
+      }
+      path {
+        opacity: 1;
+        stroke-dashoffset: 0;
+        @for $i from 1 through 5 {
+          &:nth-of-type(#{$i}) {
+            $delay: .25s + (.1s * $i);
+            stroke: accent-to($i);
+            transition: opacity .25s $ease $delay, stroke-dashoffset 4s + (.2s * $i) $ease $delay, stroke 1s + (.2s * $i) $ease 1.75s + (.1s * (5 - $i)) + 2.5, color 1s + (.2s * $i) $ease 1.75s + (.1s * (5 - $i)) + 2.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media only screen and (max-width: 1600px) {
+   
+   
+
+
+  }
+
+
+
+/* Responsive Grid Media Queries - 1280, 1024, 768, 480
+ 1280-1024 - desktop (default grid)
+ 1024-768 - tablet landscape
+ 768-480 - tablet
+ 480-less - phone landscape & smaller
+*/
+@media all and (min-width: 1025px)
+{
+  .first-card {
+    top: 10%;
+    width: 35%;
+    border-radius: 5%;
+    height: 75vh;
+    font-size: 1rem;
+    line-height: 2.1;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color: #0059b3;
+    z-index: 2;
+
+    .card-text {
+      padding: 0.5rem;
+      margin: 0 auto;
+      width: 75%;
+    }
+  }
+
+  .second-card {
+    top: 15%;
+    right: 5%;
+    width: 35%;
+    border-radius: 5%;
+    height: 65vh;
+    font-size: 2rem;
+    line-height: 2.1;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color: #ffff;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.47);
+
+    .card-text {
+      padding: 0.6rem;
+      margin: 0 auto;
+      text-align: center;
+      width: 75%;
+    }
+
+    p {
+      font-size: 0.5rem;
+    }
+
+    h1 {
+      margin-top: -3%;
+    }
+
+    .button {
+      left: 24%;
+    }
+  }
+}
+
+/*@media all and (min-width: 768px) and (max-width: 1024px)
+{
+  .first-card {
+    top: 10%;
+    width: 35%;
+    border-radius: 5%;
+    height: 60vh;
+    font-size: 1rem;
+    line-height: 2.1;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color: #0059b3;
+    z-index: 2;
+
+    .card-text {
+      padding: 0.5rem;
+      margin: 0 auto;
+      width: 75%;
+    }
+  }
+
+  .second-card {
+    top: 15%;
+    right: 5%;
+    width: 35%;
+    border-radius: 5%;
+    height: 65vh;
+    font-size: 2rem;
+    line-height: 2.1;
+    text-align: center;
+    font-family: 'Tajawal', sans-serif;
+    color: #ffff;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    background-color: rgba(0, 0, 0, 0.47);
+
+    .card-text {
+      padding: 0.6rem;
+      margin: 0 auto;
+      text-align: center;
+      width: 75%;
+    }
+
+    p {
+      font-size: 0.5rem;
+      color:red !important;
+    }
+
+    .button {
+      left: 24%;
+    }
+  }
+}
+*/

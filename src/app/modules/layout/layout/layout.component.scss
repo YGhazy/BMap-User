@@ -1,0 +1,36 @@
+.imgContainer {
+  width: 130px;
+  img{
+      width:100%;
+  }
+}
+.icon-facebook, .icon-linkedin, .icon-twitter {
+  color: #9c9ca8;
+  /*margin-left: 10px;*/
+  border: 1px solid #9c9ca8;
+  border-radius: 50%;
+  padding: 4px 5px 4px 5px;
+  font-size: 14px;
+}
+.icon-facebook {
+  padding: 4px 6px 4px 6px;
+}
+.icon-facebook:hover, .icon-linkedin:hover, .icon-twitter:hover {
+  border: 1px solid #9c9ca8cc;
+  color: #9c9ca8cc;
+}
+a{
+  text-decoration:none;
+
+}
+
+footer {
+  li ,a{
+    list-style: none;
+    cursor: pointer;
+  }
+
+  a:hover ,li:hover {
+    color: #9c9ca8cc;
+  }
+}
