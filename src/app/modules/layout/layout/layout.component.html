@@ -16,40 +16,16 @@
         <li><a  class="nav-link clickableLink">Home</a></li>
         <li class="has-children">
           <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem0"></span>
-          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem0">Company</a>
+          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem0">Services</a>
           <ul class="collapse" id="collapseItem0">
-            <li><a routerLink="/layout/about" class="nav-link clickableLink">Team</a></li>
-            <li><a routerLink="/layout/blogs" class="nav-link clickableLink">Blogs</a></li>
-            <!--<li><a href="#testimonials-section" class="nav-link clickableLink">Testimonials</a></li>-->
-            <li><a routerLink="/layout/faq" class="nav-link clickableLink">FAQ</a></li>
+            <li><!--<a  class="nav-link clickableLink">Service</a>--></li>
           </ul>
         </li>
-        <li class="has-children">
-          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem1"></span>
-          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem1">Services</a>
-          <ul class="collapse" id="collapseItem1">
-            <li><a routerLink="/layout/doctor-solutions" class="nav-link clickableLink">Doctor Solutions</a></li>
-            <li><a routerLink="/layout/salon-solutions" class="nav-link clickableLink">Salon Solutions</a></li>
-            <li><a routerLink="/layout/e-commerce" class="nav-link clickableLink">E-Commerce</a></li>
-            <li><a routerLink="/layout/food-and-beverages" class="nav-link clickableLink">Food and Beverages</a></li>
-          </ul>
-        </li>
-        <li class="has-children">
-          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem2"></span>
-          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem2">Products</a>
-          <ul class="collapse" id="collapseItem2">
-            <li><a routerLink="/layout/e-payment"  class="nav-link clickableLink">E-Payment</a></li>
-            <li><a routerLink="/layout/pos" class="nav-link clickableLink">POS</a></li>
-            <li><a routerLink="/layout/qr-code" class="nav-link clickableLink">QR Code</a></li>
-          </ul>
-        </li>
-        <li><a routerLink="/layout/contact" class="nav-link clickableLink">Contact Us</a></li>
-        <li><a routerLink="/layout/careers" class="nav-link clickableLink">Careers</a></li>
-        <li class="social"><a href="https://www.facebook.com/Just2Pay-104584741329783/about/?ref=page_internal" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
-        <li class="social"><a href="https://www.instagram.com/just_2_pay/" target="_blank" class="nav-link clickableLink"><span class="icon-instagram p-0"></span></a></li>
-        <li class="social"><a href="https://twitter.com/PayJust2" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
-        <li class="social"><a href="https://www.linkedin.com/company/just2pay/" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
-        <li class="social"><a href="https://www.youtube.com/channel/UCvLbrLomZ_1LrOL-klgHtlg" target="_blank" class="nav-link clickableLink"><span class="icon-youtube p-0"></span></a></li>
+
+        <li><a  class="nav-link clickableLink">Contact Us</a></li>
+        <li class="social"><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
+        <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
+        <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
       </ul>
     </div>
   </div>
@@ -66,21 +42,19 @@
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li><a class="nav-link" style="cursor: pointer;">Home</a></li>
-              <li><a class="nav-link" style="cursor: pointer;">About Us</a></li>
+              <li><a (click)="route('home')" class="nav-link" style="cursor: pointer;">Home</a></li>
+              <li><a (click)="route('about-us')" class="nav-link" style="cursor: pointer;">About Us</a></li>
 
               <li class="has-children">
                 <a  class="nav-link">Our services</a>
                 <ul class="dropdown">
-                  <li><a routerLink="/layout/bills-payment" class="nav-link">Bill Payment</a></li>
-                  <li><a routerLink="/layout/e-payment" class="nav-link">E-Payment</a></li>
-                  <li><a routerLink="/layout/pos" class="nav-link">POS</a></li>
-                  <li><a routerLink="/layout/qr-code" class="nav-link">QR Code</a></li>
+                  <li><a  class="nav-link">Service</a></li>
+
                 </ul>
               </li>
-              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section">Contact Us</a></li>
-              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section"> login</a></li>
-              <li><a routerLink="/layout/contact" class="nav-link" href="#contact-section"> العربية</a></li>
+              <li><a (click)="route('contact')" class="nav-link" >Contact Us</a></li>
+              <li><a (click)="route('login')" class="nav-link" > login</a></li>
+              <li><a (click)="changeLanguage()" class="nav-link" > العربية</a></li>
 
             </ul>
           </nav>

@@ -8,10 +8,15 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
+import { ServiceComponent } from '../service/service.component';
+import { ContactComponent } from '../contact/contact.component';
+import { RegisterComponent } from '../register/register.component';
 
 
 @NgModule({
-  declarations: [LayoutComponent, HomeComponent],
+  declarations: [LayoutComponent, HomeComponent, ServiceComponent,
+    ContactComponent,
+    RegisterComponent,],
   imports: [
     CommonModule,
     FormsModule,
