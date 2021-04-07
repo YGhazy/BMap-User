@@ -1,0 +1,78 @@
+.aboutBG {
+  background: url(../../../assets/images/aboutHome.png) no-repeat 0 0;
+  background-position:center;
+  background-size:contain;
+  height:100vh;
+}
+.aboutContent{
+    display:flex;
+    align-content:center;
+    flex-direction:column;
+    justify-content:center;
+}
+.background{
+    background-position:bottom;
+    background-size:cover;
+}
+.subscribe {
+  background-color: #1351c3;
+  color: #ffffff;
+  border-radius: 16px;
+  width: 100vw;
+}
+#subscribeContainer{
+    position:absolute;
+    bottom:-30px;
+}
+
+main{
+    position:relative;
+}
+input {
+  width: 215px;
+  border-radius: 20px;
+  position: relative;
+  border-radius: 20px !important;
+  z-index: 0!important;
+  color: #1351c3 !important;
+  padding-right:110px;
+}
+.btn {
+    z-index:2!important;
+  position: absolute;
+  right: 7px;
+  top: 5px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  height: 35px;
+  border-radius: 20px!important;
+  background-color: #1351c3!important;
+  color:#fff !important;
+}
+.site-block-subscribe .form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #1351c3 !important;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.site-block-subscribe .form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #7c7c7c !important;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.site-block-subscribe .form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #7c7c7c !important;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.site-block-subscribe .form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #7c7c7c !important;
+  font-weight: 200;
+  font-style: italic;
+}
