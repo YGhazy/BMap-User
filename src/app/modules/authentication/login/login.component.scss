@@ -1,0 +1,78 @@
+.background {
+  background: url(../../../../assets/images/login.png) no-repeat 0 0;
+  background-size: cover;
+  height: 100vh;
+  background-origin: content-box;
+  background-position: center;
+  position:relative;
+
+}
+.logo {
+  position: absolute;
+  top: 17px;
+  left: 50px;
+
+  width: 150px;
+
+  img {
+    width: 100%;
+  }
+}
+input {
+  border-radius: 7px !important;
+  border: solid 2px #dedede !important;
+  width: 100%;
+  position: relative;
+  z-index: 0 !important;
+  padding-left: 35px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+  color: #4a4a4a;
+}
+.form-control {
+  text-align: left;
+}
+
+.fa {
+  color: #d5d5d5;
+  left: 13px;
+  top: 25px;
+  position: absolute;
+  z-index: 2!important;
+}
+.fa-envelope {
+  font-size: 15px;
+}
+    
+.fa-lock {
+  font-size: 18px;
+}
+
+.form-control::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #d5d5d5 !important;
+  font-weight: 200 !important;
+  font-size: 13px;
+}
+
+.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #d5d5d5 !important;
+  font-weight: 200 !important;
+  font-size: 13px;
+}
+
+.form-control:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #d5d5d5 !important;
+  font-weight: 200 !important;
+  font-size: 13px;
+}
+
+.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  color: #d5d5d5 !important;
+  font-size: 13px;
+  font-weight: 200 !important;
+}
