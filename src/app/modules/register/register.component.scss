@@ -2,7 +2,6 @@
   background: url(../../../assets/images/login.png) no-repeat 0 0;
   background-size: cover;
   height: 100vh;
-  background-origin: content-box;
   background-position: center;
   position: relative;
 }
@@ -21,7 +20,7 @@
 input {
   border-radius: 7px !important;
   border: solid 2px #dedede !important;
-  width: 80%;
+  width: 100%;
   position: relative;
   z-index: 0 !important;
   padding-left: 35px;
@@ -30,12 +29,33 @@ input {
   height: 50px;
   color: #4a4a4a;
 }
+select {
+  border-radius: 7px !important;
+  border: solid 2px #dedede !important;
+  width: 100%;
+  position: relative;
+  z-index: 0 !important;
 
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+  color: #4a4a4a;
+}
+.option *{
+  border-radius: 7px !important;
+  border: solid 2px #dedede !important;
+
+  z-index: 0 !important;
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+  color: #4a4a4a;
+}
 .form-control {
   text-align: left;
 }
 
-.fa {
+.fa:not(.arrow) {
   color: #d5d5d5;
   left: 13px;
   top: 25px;
@@ -77,4 +97,224 @@ input {
   color: #d5d5d5 !important;
   font-size: 13px;
   font-weight: 200 !important;
+}
+
+span {
+  font-weight: 600;
+  color: #287cff;
+}
+
+h1 {
+  color: #000;
+}
+
+p {
+  color: #848686;
+}
+
+button {
+  border-radius: 7px;
+  background-image: linear-gradient(to right, #6ba4ff 2%, #2177ff 100%);
+  border: none;
+  color: #fff;
+  padding: 8px 66px;
+}
+
+button:active, button:focus, button:hover {
+  outline-style: none;
+  border: none;
+  background-image: linear-gradient(to right, #6ba4ffff 2%, #2177ffcf 100%);
+}
+
+h4 {
+  font-size: 15px;
+}
+
+#footerContent {
+  text-align: center;
+
+
+  span {
+    cursor: pointer;
+  }
+
+    span:hover, span:focus {
+      color: #287cffcc;
+      outline:none;
+    }
+  }
+
+  #forget:hover {
+    color: #4a4a4acc;
+  }
+
+  #forget {
+    color: #4a4a4a;
+    cursor: pointer;
+  }
+
+  .fa-eye, .fa-eye-slash , .arrow{
+    right: 13px;
+    left: auto !important;
+    cursor: pointer;
+  }
+  //loading
+  .part6 {
+    background: #6ba4ffff;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+  }
+
+  .part6.p1 {
+    animation: part6p1 2s ease-in-out infinite;
+  }
+
+  .part6.p2 {
+    animation: part6p2 2s .1s ease-in-out infinite;
+  }
+
+  .part6.p3 {
+    animation: part6p3 2s .2s ease-in-out infinite;
+  }
+
+  @keyframes part6p1 {
+    10% {
+      margin-left: -10%;
+      z-index: 1
+    }
+
+    30% {
+      margin-left: 47%;
+    }
+
+    70% {
+      margin-left: 70%;
+    }
+
+    90% {
+      margin-left: 110%;
+    }
+  }
+
+  @keyframes part6p2 {
+    10% {
+      margin-left: -10%;
+    }
+
+    30% {
+      margin-left: 37%
+    }
+
+    70% {
+      margin-left: 60%
+    }
+
+    90% {
+      margin-left: 110%;
+    }
+  }
+
+  @keyframes part6p3 {
+    10% {
+      margin-left: -10%;
+    }
+
+    30% {
+      margin-left: 27%
+    }
+
+    70% {
+      margin-left: 50%
+    }
+
+    90% {
+      margin-left: 110%;
+    }
+  }
+
+  .alert {
+    font-size: 12px;
+  }
+
+
+
+.input-wrapper {
+  position: relative;
+  min-width: 5.625rem;
+  padding: .5rem 0 1.5rem;
+
+  .input {
+    position: relative;
+    margin: 0;
+    outline: 0;
+
+    input {
+      width: 100%;
+      height: 1.5rem;
+      line-height: 1.3125rem;
+      border: none;
+      border-bottom: 1px solid #a8a8a8;
+      text-overflow: ellipsis;
+      white-space: normal;
+      overflow: hidden;
+      color: #323232;
+      margin-top: 4px;
+      padding-bottom: 2px;
+      outline: 0;
+      cursor: pointer;
+      font-size: inherit;
+
+      &:focus {
+        border-bottom: 2px solid #0079cc;
+      }
+
+      &:disabled {
+        cursor: default;
+        color: #93a1aa;
+        border-bottom: solid 1px #93a1aa;
+      }
+
+      &:disabled + .dropdown-arrow {
+        color: #93a1aa;
+      }
+    }
+
+    .dropdown-arrow {
+      position: absolute;
+      color: inherit;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+    }
+
+    &.required label:after {
+      color: red;
+      content: "*";
+      position: relative;
+      left: 5px;
+      bottom: 5px;
+    }
+  }
+}
+.typeBusinessText {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  text-align: left;
+  margin-left: 9%;
+  margin-top: 2%;
+}
+
+.typeBusinessText:hover {
+  cursor: pointer;
+}
+.dropdown-options-container {
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.24);
+  display: block;
+  overflow: auto;
 }

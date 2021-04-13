@@ -3,14 +3,13 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\models",
+    "\\src\\app\\models\\auth-models",
+    "\\src\\app\\models\\Request",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\shared",
-    "\\src\\app\\modules\\shared\\partners",
-    "\\src\\assets",
-    "\\src\\assets\\images",
-    "\\src\\assets\\images\\covers",
-    "\\src\\assets\\images\\landing services icons"
+    "\\src\\app\\modules\\authentication",
+    "\\src\\app\\modules\\authentication\\login",
+    "\\src\\app\\modules\\layout"
   ],
-  "SelectedNode": "\\src\\assets\\images\\landing services icons",
   "PreviewInSolutionExplorer": false
 }

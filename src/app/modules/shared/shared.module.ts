@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ModalComponent } from './modal/modal.component';
 
@@ -11,7 +10,6 @@ import { ModalComponent } from './modal/modal.component';
 //Components that shall be re-used between modules should be exported.
 @NgModule({
   declarations: [
-    ImageSliderComponent,
     ModalComponent,
     ],
   imports: [
@@ -21,7 +19,6 @@ import { ModalComponent } from './modal/modal.component';
     ModalModule.forRoot()
   ]
   , exports: [
-    ImageSliderComponent,
     ModalComponent,
     
 
