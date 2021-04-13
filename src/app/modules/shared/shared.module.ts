@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ModalComponent } from './modal/modal.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 //Shared Components and imported modules between the project are imported here
 //Components that shall be re-used between modules should be exported.
@@ -17,7 +18,7 @@ import { ModalComponent } from './modal/modal.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    SlickCarouselModule,
+    CarouselModule ,
     ModalModule.forRoot()
   ]
   , exports: [

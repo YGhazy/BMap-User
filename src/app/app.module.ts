@@ -7,10 +7,7 @@ import { AppRoutingModule, routes } from './app-routing.module'; // Default Angu
 import { AppComponent } from './app.component';
 import { LayoutModule } from './modules/layout/layout.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { ServiceComponent } from './modules/service/service.component';
-import { ContactComponent } from './modules/contact/contact.component';
-import { RegisterComponent } from './modules/register/register.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,13 +16,14 @@ import { RegisterComponent } from './modules/register/register.component';
 
   ],
   imports: [
+    BrowserModule,
     FormsModule,
     RouterModule,
     LayoutModule, // Layout Module imported
-    BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     SlickCarouselModule, // Slick Carousel import
     RouterModule.forRoot(routes, { useHash: true }),
   ],

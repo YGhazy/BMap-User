@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { langHelper } from '../../../services/utilities/langHelper';
+import { langHelper } from 'src/app/services/helpers-and-utilities/language-helper';
 
 @Component({
   selector: 'app-layout',

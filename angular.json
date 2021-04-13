@@ -39,6 +39,8 @@
               "src/assets/css/jquery.fancybox.min.css",
               "src/assets/css/aos.css",
               "src/assets/fonts/icomoon/style.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/assets/fonts/flaticon/font/flaticon.css"
             ],
             "scripts": [

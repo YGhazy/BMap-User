@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; //View Child for accessing children components
 import { Router } from '@angular/router';
-import { content } from '../../models/http-models/content';
-import { HomeService } from '../../services/home-service';
 import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
@@ -12,7 +10,7 @@ import { ModalComponent } from '../shared/modal/modal.component';
 export class HomeComponent implements OnInit {
 
   //Declare services
-  constructor(private router: Router, private HomeService: HomeService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }

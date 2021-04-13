@@ -1,87 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GalleryItem } from '../../../models/http-models/gallery-item';
-import { GalleryItemService } from '../../../services/gallery-item-service';
 import { ModalComponent } from '../modal/modal.component';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Bank } from 'src/app/models/http-models/bank';
+import { BankService } from 'src/app/services/bank.service';
 
 @Component({
-  selector: 'app-image-slider',
+  selector: 'app-bank-slider',
   templateUrl: './image-slider.component.html',
   styleUrls: ['./image-slider.component.scss']
 })
 export class ImageSliderComponent implements OnInit {
 
   //Models
-  galleryItems: Array<GalleryItem> = new Array<GalleryItem>();
+  bankList: Bank[];
 
   //Carousel options
-  slideConfig = {
-    centerMode: false,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    infinite: true,
-    autoplay: true,
-    arrows: true,
+  carouselOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
     dots: false,
-    swipe: true,
-    autoplaySpeed: 2000,
-    //responsive: [
-    //  {
-    //    breakpoint: 900,
-    //    settings: {
-    //    }
-    //  }
-    //]
-  };
-
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
   //Declare services
-  constructor(private router: Router, private GalleryService: GalleryItemService) { }
-
+  constructor(private router: Router, private bankService: BankService) { }
 
   ngOnInit(): void {
+    //fetch available banks
+    this.FetchBanks();
+  }
 
-    //Fetch Slider objects Via Observable (Http-request)
-    //this.GalleryService.GetGalleryItems().subscribe(res => {
-    //  if (res.succeeded) { // API method sucessful
-    //    this.galleryItems = res.data;
-    //  }
-    //}, error => {
-    //  const errors: string[] = error.error.errors[0];
-    //});
-
-    //Dummy Content Filled for static purposes
-    this.galleryItems = [
-      {
-        id: 0,
-        title: 'Bolt Solutions #1',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        imagePath: '2b5295b3e047b2324d0d1f2e75dee684.jpg'
-      },
-      {
-        id: 1,
-        title: 'Bolt Solutions #2',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        imagePath: '2b5295b3e047b2324d0d1f2e75dee684.jpg'
-      },
-      {
-        id: 2,
-        title: 'Bolt Solutions #3',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        imagePath: '2b5295b3e047b2324d0d1f2e75dee684.jpg'
-      },
-      {
-        id: 3,
-        title: 'Bolt Solutions #4',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        imagePath: '2b5295b3e047b2324d0d1f2e75dee684.jpg'
-      },
-      {
-        id: 4,
-        title: 'Bolt Solutions #5',
-        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        imagePath: '2b5295b3e047b2324d0d1f2e75dee684.jpg'
+  FetchBanks(){
+    this.bankService.GetAllBanks().subscribe(res => {
+      if(res.succeeded){
+        this.bankList = res.data;
+        console.log(this.bankList);
       }
-    ];
+    },error => {
+      console.log(error);
+    });
   }
 
   //Route to item page via id
