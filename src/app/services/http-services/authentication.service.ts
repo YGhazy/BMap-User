@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Observable } from 'rxjs';
+import { LoginModel } from '../../models/auth-models/LoginModel';
+import { ApiResponse } from '../../models/http-models/api-response';
+import { API_CONSTANTS } from '../shared-services/api-constants';
 import { BaseService } from '../shared-services/base-service';
 
 
@@ -41,6 +45,10 @@ export class AuthenticationService extends BaseService {
       catch {
           return false;
       }
+  }
+
+  login(model: LoginModel): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.Login, model);
   }
 
   //isInRole(roleName: string): boolean {

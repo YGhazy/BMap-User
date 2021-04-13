@@ -1,22 +1,23 @@
-//API End-Point links are defined here for http-services to call.
 export const API_CONSTANTS = {
-  //HomePage
-  //Get
-  HOMEPAGE_GET_CONTENTS: "GetHomeContents",
 
-  //Gallery Items
-  //Get
-  GALLERY_GET_ITEMS: "GetGalleryItems",
-  GALLERY_GET_ITEM_BY_ID: "GetGalleryItem/", //{id}
-    //Post
-  GALLERY_CREATE_GALLERY_ITEM: "CreateGalleryItem",
+    //Banks
+    GetAllBanks: '/Banks/GetAllBanks',
+    //Customers
+    Register: '/Customers/Register',
+    EditCustomer: '/Customers/EditCustomer',
+    EditProfilePicture: '/Customers/EditProfilePicture',
+    //Services
+    GetAllServices: '/Services/GetAllServices',
+    //Service Types
+    GetAllServiceTypesByServiceID: '/ServiceTypes/GetAllServiceTypesByServiceID/',
+    //Contact
+    CreateContactRequest: '/Contact/CreateContactRequest',
+    //Newsletter
+    AddNewslettersubscriber : '/Contact/AddNewslettersubscriber',
+    //Users
+    Login: '/Users/Login',
+  ChangeAccountPassword: "/Users/ChangePasswordAccount",
 
-  //Image Handler
-  IMAGE_HANDLER_UPLOAD_USER_IMAGE: "/UploadUserImage",
-  IMAGE_HANDLER_UPLOAD_ADMIN_IMAGE: "/UploadAdminImage",
-  IMAGE_HANDLER_REMOVE_USER_IMAGE: "/RemoveUserImage/",
-  IMAGE_HANDLER_REMOVE_ADMIN_IMAGE: "/RemoveAdminImage/",
-  //Login
-  Login: "Users/Login",
-  Register: "Users/CreateAdminAccount"
+
+
 }

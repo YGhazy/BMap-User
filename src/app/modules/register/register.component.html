@@ -2,48 +2,149 @@
   <div class="row">
     <div class="col-12 col-md-6 background">
       <div class="logo">
-
         <img src="../../../../assets/images/bmap logo 2.png" />
       </div>
 
     </div>
 
-    <div class="col-12 col-md-6 ">
+    <div class="col-12 col-md-6 d-flex justify-content-between flex-column">
       <div class="container p-5">
         <h1>Welcome to <span>BMAP</span></h1>
         <p>
           We make it easy for everyone to invest
           in banking services
         </p>
-        <form action="#" method="post" class=" d-flex align-items-center justify-content-center flex-column pt-2">
-          <div class="input-group py-2">
+        <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
 
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="Next1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="first Name" aria-label="Email">
+            </div>
+
+            <div class="input-group py-2 " *ngIf="Next1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="first Middle" aria-label="Email">
+            </div>
+          </div>
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="Next1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="second Name" aria-label="Email">
+            </div>
+
+            <div class="input-group py-2 " *ngIf="Next1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="last Name" aria-label="Email">
+            </div>
+          </div>
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="Next1">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="E-mail" aria-label="Email">
+            </div>
+
+            <div class="input-group py-2 " *ngIf="Next1">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="last Name" aria-label="Email">
+            </div>
+          </div>
+
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="Next1">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+              <input type="{{inputType}}" class="form-control border-secondary" formControlName="password" placeholder="Password" aria-label="Password">
+              <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+            </div>
+
+            <div class="input-group py-2" *ngIf="Next1">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+
+              <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword" placeholder="Confirm Password" aria-label="Confirm Password">
+              <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
+            </div>
+
+          </div>
+
+          <div class="input-group" (mouseleave)="hideOption()" *ngIf="Next2">
+
+            <input class="textInputStatusValue customInput" type="text" placeholder="options" value="{{stValue}}" readonly (click)="showOption()" />
+            <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true" (click)="showOption()"></i>
+            <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true" (click)="showOption()"></i>
+
+            <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType" style="max-height: 200px; overflow-y: scroll;">
+              <!-- -->
+              <div class="valueOfStatus" *ngFor="let status_item of status_values">
+                <p class="typeBusinessText" (click)="getItemValue(status_item.id)"> {{status_item.value}}</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="input-group py-2" *ngIf="Next2">
             <i class="fa fa-user-o" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="User Name" aria-label="Email">
-
+            <input type="text" class="form-control border-secondary" placeholder="User Name" formControlName="userName" aria-label="Email">
           </div>
-          <div class="input-group py-2">
+          <div class="input-group py-2" *ngIf="Next2">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <input type="text" class="form-control border-secondary" placeholder="User Name" formControlName="userName" aria-label="Email">
+          </div>
+          <div class="input-group py-2" *ngIf="Next2">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-
-            <input type="text" class="form-control border-secondary" placeholder="Email" aria-label="Email">
-
+            <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Email" aria-label="Email">
           </div>
-          <div class="input-group py-2">
-            <i class="fa fa-lock" aria-hidden="true"></i>
 
-            <input type="text" class="form-control border-secondary" placeholder="Password" aria-label="Password">
-
+          <div class="input-group py-2" *ngIf="Next2">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+            <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Email" aria-label="Email">
           </div>
-          <div class="input-group py-2">
-            <i class="fa fa-lock" aria-hidden="true"></i>
 
-            <input type="text" class="form-control border-secondary" placeholder="Confirm Password" aria-label="Confirm Password">
-
-          </div>
         </form>
-      </div>
 
+
+      </div>
+      <div>
+
+        <button class=" mx-5" (click)="Back('1')" *ngIf="!isLoading && !Next1">
+          Back
+        </button>
+        <button class=" mx-5 float-right" (click)="Next('1')" *ngIf="!isLoading">
+          Next
+        </button>
+      </div>
+      <div *ngIf="!isLoading">
+      </div>
+      <div id="footerContent" class="text-center ">
+        <h4>
+          have an account, <span routerLink="/login"> Sign in</span>?
+        </h4>
+
+      </div>
     </div>
 
   </div>
 </section>
+
+<!--
+"first": "string",
+"firstMiddle": "string",
+"secondMiddle": "string",
+"last": "string",
+"email": "string",
+"phoneNumber": "string",
+
+"0": "string",
+
+"nationalID": "string",
+"dateOfBirth": "2021-04-11T20:52:50.369Z",
+"jobTitle": "string",
+"type": "string",      drop down
+
+"city": "string",1/2
+"province": "string",
+"country": "string",
+"street": "string",
+
+"nationalIdFront": "string",
+"nationalIdBack": "string",
+"profilePicture": "string",
+"password": "string"-->

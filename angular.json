@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sample-structure": {
+    "BMap": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sample-structure",
+            "outputPath": "dist/BMap",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -85,18 +85,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "sample-structure:build"
+            "browserTarget": "BMap:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "sample-structure:build:production"
+              "browserTarget": "BMap:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sample-structure:build"
+            "browserTarget": "BMap:build"
           }
         },
         "test": {
@@ -133,18 +133,18 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "sample-structure:serve"
+            "devServerTarget": "BMap:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "sample-structure:serve:production"
+              "devServerTarget": "BMap:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "sample-structure",
+  "defaultProject": "BMap",
   "cli": {
     "analytics": "33831cdd-e914-4af8-963f-20a4ed502236"
   }

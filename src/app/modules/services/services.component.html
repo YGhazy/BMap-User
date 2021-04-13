@@ -1,0 +1,16 @@
+<div class=" site-blocks-cover background"
+     style="background-image: url(./assets/images/covers/contact.png);">
+</div>
+
+<section *ngIf="ServicesList" class="d-flex justify-content-center flex-wrap">
+  <div class="card" *ngFor="let service of ServicesList">
+    <div>
+    <img src={{service.header}}/>
+
+    </div>
+    {{service.nameEN}}
+
+  </div>
+  <div >
+  </div>
+</section>

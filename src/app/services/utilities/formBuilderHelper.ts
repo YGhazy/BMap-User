@@ -7,6 +7,7 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms';
 export class formBuilderHelper  {
 
   controllers;
+  emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   //General form builder controllers and validators
 
@@ -15,15 +16,25 @@ export class formBuilderHelper  {
     this.controllers = {
       userName: [Validators.required],
       firstName: [Validators.required],
+      firstMiddleName: [Validators.required],
+      SecondMiddleName: [Validators.required],
+      lastName: [Validators.required],
       nationality: [Validators.required],
       phoneNumber: [Validators.required, Validators.pattern("[0-9]{7,}")],
       nationalID: [Validators.required],
-      email: [Validators.email, Validators.required],
+      password: [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
+      confirmPassword: [Validators.required],
+      gender: [Validators.required],
+      city: [Validators.required],
+      province: [Validators.required],
+      country: [Validators.required],
+      street: [Validators.required],
+      mail: [Validators.required, Validators.pattern(this.emailValidationPattern)],
       accountNumber: [Validators.required, Validators.pattern("[0-9]{16}")],
       name: [Validators.required, Validators.pattern("[A-Za-z]*[\u0600-\u06FF]*$")], //arabic & english letters
-      ewalletAmount: [Validators.required, Validators.pattern("[0-9]{2,6}")],
-      rejectChequeReason: [Validators.required]
+
     }
+
 
   }
 

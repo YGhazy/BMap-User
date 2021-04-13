@@ -1,8 +1,8 @@
+/*$spCol:  ;*/
 .background {
   background: url(../../../../assets/images/login.png) no-repeat 0 0;
   background-size: cover;
   height: 100vh;
-  background-origin: content-box;
   background-position: center;
   position:relative;
 
@@ -75,4 +75,142 @@ input {
   color: #d5d5d5 !important;
   font-size: 13px;
   font-weight: 200 !important;
+}
+
+span {
+  font-weight: 600;
+  color: #287cff;
+}
+h1 {
+  color:#000;
+}
+p {
+  color: #848686;
+}
+
+button {
+  border-radius: 7px;
+  background-image: linear-gradient(to right, #6ba4ff 2%, #2177ff 100%);
+  border: none;
+  color: #fff;
+  padding: 8px 66px;
+}
+
+button:active, button:focus, button:hover {
+  outline-style: none;
+  border: none;
+  background-image: linear-gradient(to right, #6ba4ffff 2%, #2177ffcf 100%);
+}
+
+  h4 {
+    font-size: 15px;
+  }
+#footerContent {
+  text-align: center;
+
+
+  span {
+    cursor: pointer;
+  }
+
+  span:hover, span:focus {
+    color: #287cffcc;
+    outline: none;
+  }
+}
+#forget:hover {
+  color: #4a4a4acc;
+}
+#forget {
+  color: #4a4a4a;
+  cursor: pointer;
+}
+.fa-eye, .fa-eye-slash{
+    right:13px;
+    left:auto;
+    cursor:pointer;
+}
+
+
+//loading
+
+
+.part6 {
+  background: #6ba4ffff;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+}
+
+.part6.p1 {
+  animation: part6p1 2s ease-in-out infinite;
+}
+
+.part6.p2 {
+  animation: part6p2 2s .1s ease-in-out infinite;
+}
+
+.part6.p3 {
+  animation: part6p3 2s .2s ease-in-out infinite;
+}
+
+@keyframes part6p1 {
+  10% {
+    margin-left: -10%;
+    z-index: 1
+  }
+
+  30% {
+    margin-left: 47%;
+  }
+
+  70% {
+    margin-left: 70%;
+  }
+
+  90% {
+    margin-left: 110%;
+  }
+}
+
+@keyframes part6p2 {
+  10% {
+    margin-left: -10%;
+  }
+
+  30% {
+    margin-left: 37%
+  }
+
+  70% {
+    margin-left: 60%
+  }
+
+  90% {
+    margin-left: 110%;
+  }
+}
+
+@keyframes part6p3 {
+  10% {
+    margin-left: -10%;
+  }
+
+  30% {
+    margin-left: 27%
+  }
+
+  70% {
+    margin-left: 50%
+  }
+
+  90% {
+    margin-left: 110%;
+  }
+}
+
+.alert {
+  font-size: 12px;
 }

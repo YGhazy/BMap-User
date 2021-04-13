@@ -13,16 +13,11 @@
     </div>
     <div class="site-mobile-menu-body">
       <ul class="site-nav-wrap">
-        <li><a  class="nav-link clickableLink">Home</a></li>
-        <li class="has-children">
-          <span class="arrow-collapse collapsed" data-toggle="collapse" data-target="#collapseItem0"></span>
-          <a class="nav-link" data-toggle="collapse" data-target="#collapseItem0">Services</a>
-          <ul class="collapse" id="collapseItem0">
-            <li><!--<a  class="nav-link clickableLink">Service</a>--></li>
-          </ul>
-        </li>
+        <li><a class="nav-link clickableLink">Home</a></li>
+        <li><a class="nav-link clickableLink">Services</a></li>
 
-        <li><a  class="nav-link clickableLink">Contact Us</a></li>
+
+        <li><a class="nav-link clickableLink">Contact Us</a></li>
         <li class="social"><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
         <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
         <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
@@ -42,16 +37,9 @@
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right" role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-              <li><a (click)="route('home')" class="nav-link" style="cursor: pointer;">Home</a></li>
-              <li><a (click)="route('about-us')" class="nav-link" style="cursor: pointer;">About Us</a></li>
-
-              <li class="has-children">
-                <a  class="nav-link">Our services</a>
-                <ul class="dropdown">
-                  <li><a  class="nav-link">Service</a></li>
-
-                </ul>
-              </li>
+              <li><a (click)="route('home')" class="nav-link" >Home</a></li>
+              <li><a (click)="route('about-us')" class="nav-link" >About Us</a></li>
+              <li><a (click)="route('services')" class="nav-link" >Our services</a></li>
               <li><a (click)="route('contact')" class="nav-link" >Contact Us</a></li>
               <li><a (click)="route('login')" class="nav-link" > login</a></li>
               <li><a (click)="changeLanguage()" class="nav-link" > العربية</a></li>
