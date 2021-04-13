@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginModel } from '../../../models/auth-models/LoginModel';
-import { AuthenticationService } from '../../../services/http-services/authentication.service';
+import { AuthenticationService } from '../../../services/authentication.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   LoginForm;
   isLoading: boolean  =false
   constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router) {
-    this.LoginForm = this.formBuilderHelper.createFormBuilder({ mail: '', password: '' })
+    this.LoginForm = this.formBuilderHelper.CreateFormBuilder({ mail: '', password: '' })
 
   }
 

@@ -21,6 +21,7 @@ export class ImageSliderComponent implements OnInit {
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
+    autoplay: true,
     dots: false,
     navSpeed: 700,
     navText: ['', ''],
@@ -35,10 +36,10 @@ export class ImageSliderComponent implements OnInit {
         items: 3
       },
       940: {
-        items: 4
+        items: 5
       }
     },
-    nav: true
+    nav: false
   }
   //Declare services
   constructor(private router: Router, private bankService: BankService) { }

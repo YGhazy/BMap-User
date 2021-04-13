@@ -1,24 +1,21 @@
-<section class="mb-5">
+<section>
   <div class="text-center" style="overflow-x:hidden;">
     <div>
-      <h1 class="text-center" >We serve you with a variety of banks</h1>
-      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
-        at
-        its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
-        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
-        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
-        will
-        uncover many web sites still in </p>
-      <div>
-        <owl-carousel-o [options]="carouselOptions" *ngIf="bankList">
-          <ng-container *ngFor="let bank of bankList">
-            <ng-template carouselSlide [id]="bank.id">
-              <img [src]="bank.image" [alt]="bank.name" [title]="bank.name">
-            </ng-template>
-          </ng-container>
+      <h1 class="text-center">We serve you with a variety of banks</h1>
+      <p style="margin: 0 auto; max-width: 40%;">It is a long established fact that a reader will be distracted by the readable content
+        of a page when looking
+        at its layout. </p>
+      <owl-carousel-o [options]="carouselOptions" *ngIf="bankList">
+        <ng-container *ngFor="let bank of bankList">
+          <ng-template carouselSlide id="owl-slide-{{bank.id}}">
+            <div class="imageContainer" style="margin: 0 auto;">
+              <img [src]="bank.image" [alt]="bank.name" class="carouselImage" [title]="bank.name">
+            </div>
 
-        </owl-carousel-o>
-      </div>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
     </div>
   </div>
 </section>
