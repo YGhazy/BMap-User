@@ -2,5 +2,25 @@
   background: url(../../../assets/images/aboutHome.png) no-repeat 0 0;
   background-position: bottom;
   background-size: cover;
-  height: 100vh;
+  height: 70vh;
+}
+h1 {
+  font-size: 32px;
+  color: #2f2f2f;
+}
+h4 {
+  font-size: 23px;
+  color: #2f2f2f;
+}
+img{
+    width:100%;
+}
+.card{
+    border:none;
+    transition:all 1s ease-in-out;
+    cursor:pointer;
+
+}
+.card:hover, .card:focus, .card:active {
+  transform: scale(1.1);
 }
