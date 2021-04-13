@@ -21,6 +21,7 @@ export class AccountService extends BaseService {
         super(httpClient);
     }
 
+
     ChangePassword(account: ChangePasswordModel): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.ChangeAccountPassword, account);
     }

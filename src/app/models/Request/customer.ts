@@ -1,8 +1,9 @@
-export interface RegisterModel {
+import { ServiceRequest } from "./service-request";
+
+export interface Customer {
+  id: number,
   gender: string,
-  email: string,
-  phoneNumber: string,
-  nationalID: string,
+  nationalId: string,
   dateOfBirth: Date,
   jobTitle: string,
   type: string,
@@ -15,8 +16,10 @@ export interface RegisterModel {
   nationalIdBack: string,
   profilePicture: string,
   first: string,
-  firstMiddle: string,
+  firstMiddle: string,l
   secondMiddle: string,
   last: string,
-  password: string
+  isDeleted: boolean,
+  userId: string,
+  serviceRequests: ServiceRequest[];
 }

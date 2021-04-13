@@ -2,36 +2,90 @@
   <div class="row">
     <div class="col-12 col-md-6 background">
       <div class="logo">
+        <img src="../../../../assets/images/bmap logo 2.png" />
+      </div>
+    </div>
 
-      <img src="../../../../assets/images/bmap logo 2.png"/>
+    <div class="col-12 col-md-6 d-flex justify-content-between flex-column">
+      <div class=" align-items-start d-flex justify-content-around flex-column h-100">
+
+        <div>
+
+          <h1 class=" px-5">Welcome to <span>BMAP</span></h1>
+          <p class=" px-5">
+            We make it easy for everyone to invest
+            in banking services
+          </p>
+          <form [formGroup]="LoginForm" class="px-5 d-flex flex-column pt-2">
+            <div class="input-group py-2 d-flex flex-column" >
+              <div>
+
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+
+                  <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Email" aria-label="Email">
+                </div>
+
+            <div *ngIf="f.mail.invalid
+                       && (f.mail.dirty
+                       || f.mail.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="f.mail.errors.required">
+                test
+              </div>
+              <div *ngIf="f.mail.errors.pattern">
+                pattern
+              </div>
+            </div>
+            </div>
+
+            <div class="input-group  py-2 d-flex flex-column">
+              <div>
+
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="{{inputType}}" formControlName="password" class="form-control border-secondary" placeholder="Password" aria-label="Password">
+                <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+              </div>
+
+              <div *ngIf="f.password.invalid
+                       && (f.password.dirty
+                       || f.password.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="f.password.errors.required">
+                  test
+                </div>
+                <div *ngIf="f.password.errors.pattern">
+                  pattern
+                </div>
+              </div>
+            </div>
+              <div>
+                <h4 class="text-right" id="forget">
+                  Forget Password?
+                </h4>
+              </div>
+              <div class=" px-5 col-4" *ngIf="isLoading">
+
+                <div style="height:8px;width:100px">
+                  <div class="part6 p1"></div>
+                  <div class="part6 p2"></div>
+                  <div class="part6 p3"></div>
+                </div>
+              </div>
+</form>
+        </div>
+        <button class=" mx-5" (click)="login()" *ngIf="!isLoading">
+          Login
+        </button>
+
+      </div>
+      <div *ngIf="!isLoading">
+      </div>
+        <div id="footerContent">
+          <h4>
+            Don't have an account, <span routerLink="/register">Create Account</span>?
+          </h4>
+
+        </div>
       </div>
 
     </div>
-
-    <div class="col-12 col-md-6 ">
-      <div class="container p-5">
-        <h1>Welcome to <span>BMAP</span></h1>
-        <p>
-          We make it easy for everyone to invest
-          in banking services
-        </p>
-        <form action="#" method="post" class=" d-flex align-items-center justify-content-center flex-column pt-2">
-          <div class="input-group py-2">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-
-            <input type="text" class="form-control border-secondary" placeholder="Email" aria-label="Email">
-
-          </div>
-          <div class="input-group py-2">
-            <i class="fa fa-lock" aria-hidden="true"></i>
-
-            <input type="text" class="form-control border-secondary" placeholder="Password" aria-label="Password">
-
-          </div>
-        </form>
-      </div>
-
-    </div>
-
-  </div>
 </section>
+
