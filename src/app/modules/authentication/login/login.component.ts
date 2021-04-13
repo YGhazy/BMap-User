@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   LoginForm;
   isLoading: boolean  =false
   constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router) {
-    this.LoginForm = this.formBuilderHelper.CreateFormBuilder({ mail: '', password: '' })
+    this.LoginForm = this.formBuilderHelper.CreateFormBuilder({ email: '', password: '' })
 
   }
 

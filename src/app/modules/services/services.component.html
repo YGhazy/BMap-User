@@ -1,16 +1,25 @@
 <div class=" site-blocks-cover background"
-     style="background-image: url(./assets/images/covers/contact.png);">
+     style="    background-image: url(./assets/images/covers/services.png);">
 </div>
 
-<section *ngIf="ServicesList" class="d-flex justify-content-center flex-wrap">
-  <div class="card" *ngFor="let service of ServicesList">
+<section >
+  <h1>Our Services For Our Awesome Clients</h1>
+  <div *ngIf="ServicesList" class="d-flex justify-content-around flex-wrap my-5">
+    <div class="card col-12 col-md-4" *ngFor="let service of ServicesList">
+
+  <div  (click)="ToService(service.id)">
     <div>
     <img src={{service.header}}/>
 
     </div>
+    <h4 class="mt-1">
+
     {{service.nameEN}}
+    </h4>
 
   </div>
-  <div >
+
+    </div>
   </div>
+
 </section>
