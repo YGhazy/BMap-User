@@ -1,0 +1,21 @@
+<section>
+  <div class="text-center" style="overflow-x:hidden;">
+    <div>
+      <h1 class="text-center">We serve you with a variety of banks</h1>
+      <p style="margin: 0 auto; max-width: 40%;">It is a long established fact that a reader will be distracted by the readable content
+        of a page when looking
+        at its layout. </p>
+      <owl-carousel-o [options]="carouselOptions" *ngIf="bankList">
+        <ng-container *ngFor="let bank of bankList">
+          <ng-template carouselSlide id="owl-slide-{{bank.id}}">
+            <div class="imageContainer" style="margin: 0 auto;">
+              <img [src]="bank.image" [alt]="bank.name" class="carouselImage" [title]="bank.name">
+            </div>
+
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterModel } from '../../models/auth-models/RegisterModel';
-import { AuthenticationService } from '../../services/http-services/authentication.service';
+import { AuthenticationService } from '../../services/authentication.service';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
 
 @Component({

@@ -11,12 +11,13 @@ import { HomeComponent } from '../home/home.component';
 import { ServiceComponent } from '../service/service.component';
 import { ContactComponent } from '../contact/contact.component';
 import { RegisterComponent } from '../register/register.component';
+import { AboutUsComponent } from '../about-us/about-us.component';
 
 
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
     ContactComponent,
-    RegisterComponent,],
+    RegisterComponent, AboutUsComponent],
   imports: [
     CommonModule,
     FormsModule,

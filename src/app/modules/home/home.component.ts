@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; //View Child for accessing children components
 import { Router } from '@angular/router';
-import { content } from '../../models/http-models/content';
 import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
