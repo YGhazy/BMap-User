@@ -23,14 +23,16 @@ a{
   text-decoration:none;
 
 }
-
+.nav-link{
+cursor:pointer;
+    }
 footer {
-  li ,a{
+  li, a {
     list-style: none;
     cursor: pointer;
   }
 
-  a:hover ,li:hover {
+  a:hover, li:hover {
     color: #9c9ca8cc;
   }
 }

@@ -12,6 +12,7 @@ import { ContactComponent } from './modules/contact/contact.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { TokenInterceptor } from './services/http-services/token-interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ServicesComponent } from './modules/services/services.component';
 
 export function tokenGetter() {
   return localStorage.getItem("access_token");
@@ -19,6 +20,7 @@ export function tokenGetter() {
 @NgModule({
   declarations: [
     AppComponent,
+    ServicesComponent,
 
 
   ],

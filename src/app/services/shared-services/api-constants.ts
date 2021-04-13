@@ -16,6 +16,8 @@ export const API_CONSTANTS = {
     AddNewslettersubscriber : '/Contact/AddNewslettersubscriber',
     //Users
     Login: '/Users/Login',
-    ChangeAccountPassword: "/Users/ChangePasswordAccount",
+  ChangeAccountPassword: "/Users/ChangePasswordAccount",
+
+
 
 }
