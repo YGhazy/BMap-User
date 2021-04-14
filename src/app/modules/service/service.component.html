@@ -1,5 +1,37 @@
-<div class=" site-blocks-cover background"
-     style="    background-image: url(./assets/images/covers/contact.png);">
 
-
+<div id="centerdiv" *ngIf="!service"> <!--  preloader-->
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
 </div>
+
+<div *ngIf="service">
+       <!--style=" background-image: url({{service[0].header}});"-->
+  <div class="site-blocks-cover background "
+       style=" background-image: url(./assets/images/covers/service.png);"
+       *ngIf="service">
+
+  </div>
+  <section class="container pt-2 mb-5">
+    <h1>
+      {{service[0].nameEN}}
+    </h1>
+    <p>
+      {{service[0].descriptionEN}}
+
+    </p>
+    <div class="text-right">
+
+    <button class=" mx-5" >
+      Request
+    </button>
+    </div>
+  </section>
+</div>
+
+

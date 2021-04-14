@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
     //this.isAttemptingLogin = true;
     const loginModel: LoginModel = {
-      email: this.LoginForm.value.mail,
+      email: this.LoginForm.value.email,
       password: this.LoginForm.value.password
     }
     console.log(loginModel)
