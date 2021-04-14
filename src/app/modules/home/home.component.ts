@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core'; //View Child for accessing children components
 import { Router } from '@angular/router';
-import { CreateNewsletterSubscription } from 'src/app/models/Request/create-newsletter-subscription';
-import { NewsletterService } from 'src/app/services/newsletter.service';
+import { NewsletterSubscription } from '../../models/http-models/newsletter-subscription';
+import { NewsletterService } from '../../services/newsletter.service';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
+import { langHelper } from '../../services/utilities/language-helper';
 import { ModalComponent } from '../shared/modal/modal.component';
 
 @Component({
@@ -12,29 +13,36 @@ import { ModalComponent } from '../shared/modal/modal.component';
 })
 export class HomeComponent implements OnInit {
   SubscribeForm;
-  subscriptionRes: boolean;
+  isSucceeded: boolean = false;
+  errorMsg: string = "";
+  langVar;
   //Declare services
-  constructor(private formBuilderHelper: formBuilderHelper, private router: Router, private newsletterService: NewsletterService) {
+  constructor(private formBuilderHelper: formBuilderHelper, private router: Router, private NewsletterService: NewsletterService, private langHelper: langHelper) {
     this.SubscribeForm = this.formBuilderHelper.CreateFormBuilder({ email: '' })
 
   }
 
   ngOnInit(): void {
+    this.langVar = this.langHelper.initializeMode()
   }
 
   Subscribe() {
-    var currentDate = new Date;
-    const subscriptionModel: CreateNewsletterSubscription = {
+    this.errorMsg = "";
+    const model: NewsletterSubscription = {
       email: this.SubscribeForm.value.email,
-      subscriptionDate: currentDate
+      subscriptionDate: new Date()
     }
-    this.newsletterService.SubscribeNewsletter(subscriptionModel).subscribe(res => {
-      if(res.succeeded){
-        this.subscriptionRes = true;
-      }
+    this.NewsletterService.SubscribeNewsletter(model).subscribe(res => {
+      console.log (res.data);
+      this.isSucceeded = true
+      this.errorMsg="Sent successfuly"
     }, error => {
-      this.subscriptionRes = false;
       console.log(error);
+        this.errorMsg ="you are already subscribed to our newsletter !"
     });
+  }
+
+  get f() {
+    return this.SubscribeForm.controls;
   }
 }

@@ -11,14 +11,12 @@
 </div>
 
 <div *ngIf="ServicesList">
-
   <div class=" site-blocks-cover background"
        style=" background-image: url(./assets/images/covers/services.png);">
   </div>
-
   <section class="mx-5 my-2">
-    <h1 class="pb-4">Our Services For Our Awesome Clients</h1>
-    <div class="d-flex justify-content-around flex-wrap my-5">
+    <h1 class="pb-4" >Our Services For Our Awesome Clients</h1>
+    <div class="d-flex justify-content-around flex-wrap my-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
       <div class="card col-12 col-md-4" *ngFor="let service of ServicesList" (click)="ToService(service.id)">
         <div>
           <img src={{service.header}} />

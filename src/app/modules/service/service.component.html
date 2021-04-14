@@ -14,20 +14,20 @@
        <!--style=" background-image: url({{service[0].header}});"-->
   <div class="site-blocks-cover background "
        style=" background-image: url(./assets/images/covers/service.png);"
-       *ngIf="service">
+       *ngIf="service" data-aos="fade">
 
   </div>
-  <section class="container pt-2 mb-5">
-    <h1>
+  <section class="container pt-2 mb-5" >
+    <h1 data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
       {{service[0].nameEN}}
     </h1>
-    <p>
+    <p data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
       {{service[0].descriptionEN}}
 
     </p>
     <div class="text-right">
 
-    <button class=" mx-5" >
+    <button class=" mx-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700" >
       Request
     </button>
     </div>
