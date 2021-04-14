@@ -12,33 +12,36 @@ import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
 })
 export class RegisterComponent implements OnInit {
   //handling show/hide password
+  signupForm;
   inputType: string = "password";
   inputConfirmType: string = "password";
   pView: string = "-slash";
   pViewConfirmPassword: string = "-slash";
-  signupForm;
-  Next1: boolean=true
-  Next2: boolean=false
-  Next3: boolean = false
-  isLoading: boolean = false
-
+  currentPage: number = 1; // current page indicator 'replaced next1/2/3 booleans'
+  isLoading: boolean = false;
   flag: boolean = false;
+  //dropdown variables
+  stValue: string;
+  genderValue: string;
   showOptions: boolean = false;
   show: boolean = true;
-  stValue: string;
-  ItemValue: any;
+
   constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router) {
     this.signupForm = this.formBuilderHelper.CustomizeFormbuilderValidator({
-       mail: '', password: '', confirmPassword: '',
+      mail: '', password: '', confirmPassword: '',
       firstMiddleName: '', firstName: '', SecondMiddleName: '',
-      lastName: '', phoneNumber: '', nationalID:'',gender:''
+      lastName: '', phoneNumber: '', nationalID: '', gender: ''
 
     }, this.checkPasswords)
 
   }
-  status_values = [
+  accountType_values = [
     { id: 0, value: "Individual" },
     { id: 1, value: "Company" },
+  ];
+  gender_values = [
+    { id: 0, value: "Male" },
+    { id: 1, value: "Female" },
   ];
   ngOnInit(): void {
   }
@@ -57,13 +60,16 @@ export class RegisterComponent implements OnInit {
     }
 
   }
-  getItemValue(id: any) {
-    this.ItemValue = this.status_values.find(b => b.id == id);
-    console.log("status value ", this.ItemValue);
-    this.stValue = this.ItemValue.value;
+  getAccountTypeValue(id: any) {
+    this.stValue = this.accountType_values.find(b => b.id == id).value;
     this.showOptions = false;
     this.show = true;
+  }
 
+  getGenderValue(id: any) {
+    this.genderValue = this.gender_values.find(b => b.id == id).value;
+    this.showOptions = false;
+    this.show = true;
   }
 
   hideOption() {
@@ -74,7 +80,7 @@ export class RegisterComponent implements OnInit {
   }
 
   Register() {
-    
+
     const RegisterModel: RegisterModel = {
       gender: "",
       email: this.signupForm.mail.value,
@@ -112,41 +118,19 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  Back(index) {
-    if (index == '1') {
+  //Page navigation
 
-      this.Next1 = true
-      this.Next2 = false
-      this.Next3 = false
-    }
-    else if (index == '2') {
-
-      this.Next1 = false
-      this.Next2 = true
-      this.Next3 = false
+  Back() {
+    if(this.currentPage > 1){
+      this.currentPage = this.currentPage - 1;
     }
   }
-  Next(index) {
-    if (index == '1') {
-
-    this.Next1 = false
-    this.Next2= true
-    this.Next3 = false
+  Next() {
+    if(this.currentPage < 3){
+      this.currentPage = this.currentPage + 1;
     }
-   else if (index == '2') {
-
-      this.Next1 = false
-      this.Next2 = false
-      this.Next3 = true
-    }
-    //else if (index == '3') {
-
-    //  this.Next1 = false
-    //  this.Next2 = false
-    //  this.Next3 = true
-    //}
-
   }
+  
   viewPassword() {
     if (this.inputType != 'text') {
       this.inputType = 'text';

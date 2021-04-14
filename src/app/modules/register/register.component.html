@@ -17,98 +17,149 @@
         <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
 
           <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="Next1">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="first Name" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="First Name"
+                aria-label="Email">
             </div>
 
-            <div class="input-group py-2 " *ngIf="Next1">
+            <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="first Middle" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="First Middle"
+                aria-label="Email">
             </div>
           </div>
           <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="Next1">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="second Name" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail"
+                placeholder="Second Middle" aria-label="Email">
             </div>
 
-            <div class="input-group py-2 " *ngIf="Next1">
+            <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="last Name" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Last Name"
+                aria-label="Email">
             </div>
           </div>
           <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="Next1">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="E-mail" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="E-mail"
+                aria-label="Email">
             </div>
 
-            <div class="input-group py-2 " *ngIf="Next1">
+            <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-phone" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="last Name" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Phone Number"
+                aria-label="Email">
             </div>
           </div>
 
           <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="Next1">
-              <i class="fa fa-lock" aria-hidden="true"></i>
-              <input type="{{inputType}}" class="form-control border-secondary" formControlName="password" placeholder="Password" aria-label="Password">
-              <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="Date of Birth" formControlName="dob"
+                aria-label="Email">
             </div>
-
-            <div class="input-group py-2" *ngIf="Next1">
-              <i class="fa fa-lock" aria-hidden="true"></i>
-
-              <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword" placeholder="Confirm Password" aria-label="Confirm Password">
-              <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
-            </div>
-
-          </div>
-
-          <div class="input-group" (mouseleave)="hideOption()" *ngIf="Next2">
-
-            <input class="textInputStatusValue customInput" type="text" placeholder="options" value="{{stValue}}" readonly (click)="showOption()" />
-            <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true" (click)="showOption()"></i>
-            <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true" (click)="showOption()"></i>
-
-            <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType" style="max-height: 200px; overflow-y: scroll;">
-              <!-- -->
-              <div class="valueOfStatus" *ngFor="let status_item of status_values">
-                <p class="typeBusinessText" (click)="getItemValue(status_item.id)"> {{status_item.value}}</p>
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input class="textInputStatusValue customInput" type="text" placeholder="Gender" value="{{genderValue}}"
+                readonly (click)="showOption()" />
+                <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true"
+                (click)="showOption()"></i>
+              <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true"
+                (click)="showOption()"></i>
+  
+              <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType"
+                style="max-height: 200px; overflow-y: scroll;">
+                <!-- -->
+                <div class="valueOfStatus" *ngFor="let gender of gender_values">
+                  <p class="typeBusinessText" (click)="getGenderValue(gender.id)"> {{gender.value}}</p>
+                </div>
               </div>
             </div>
+          </div>
 
+          <!--Second registeration page-->
+          <div class="input-group" (mouseleave)="hideOption()" *ngIf="currentPage == 2">
+            <input class="textInputStatusValue customInput" type="text" placeholder="Account Type" value="{{stValue}}"
+              readonly (click)="showOption()" />
+            <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true"
+              (click)="showOption()"></i>
+            <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true"
+              (click)="showOption()"></i>
+
+            <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType"
+              style="max-height: 200px; overflow-y: scroll;">
+              <!-- -->
+              <div class="valueOfStatus" *ngFor="let accountType of accountType_values">
+                <p class="typeBusinessText" (click)="getAccountTypeValue(accountType.id)"> {{accountType.value}}</p>
+              </div>
+            </div>
           </div>
-          <div class="input-group py-2" *ngIf="Next2">
-            <i class="fa fa-user-o" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="User Name" formControlName="userName" aria-label="Email">
-          </div>
-          <div class="input-group py-2" *ngIf="Next2">
-            <i class="fa fa-user-o" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="User Name" formControlName="userName" aria-label="Email">
-          </div>
-          <div class="input-group py-2" *ngIf="Next2">
+          <div class="input-group py-2" *ngIf="currentPage == 2">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Email" aria-label="Email">
+            <input type="text" class="form-control border-secondary" placeholder="National ID"
+              formControlName="NationalID" aria-label="Email">
           </div>
-
-          <div class="input-group py-2" *ngIf="Next2">
+          <div class="input-group py-2" *ngIf="currentPage == 2">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" formControlName="mail" placeholder="Email" aria-label="Email">
+            <input type="text" class="form-control border-secondary" placeholder="Job Title" formControlName="JobTitle"
+              aria-label="Email">
           </div>
 
+          <!--Third registeration page-->
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="Address"
+                aria-label="Email">
+            </div>
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+              <i class="fa fa-user-o" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="Province"
+                aria-label="Email">
+            </div>
+          </div>
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="City" formControlName="City"
+                aria-label="Email">
+            </div>
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="Country"
+                aria-label="Email">
+            </div>
+          </div>
+          <div class=" d-flex w-100">
+            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+              <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
+                placeholder="Password" aria-label="Password">
+              <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+            </div>
+            <div class="input-group py-2" *ngIf="currentPage == 3">
+              <i class="fa fa-lock" aria-hidden="true"></i>
+
+              <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
+                placeholder="Confirm Password" aria-label="Confirm Password">
+              <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
+            </div>
+          </div>
         </form>
-
-
       </div>
       <div>
-
-        <button class=" mx-5" (click)="Back('1')" *ngIf="!isLoading && !Next1">
+        <button class=" mx-5" (click)="Back()" *ngIf="!isLoading">
           Back
         </button>
-        <button class=" mx-5 float-right" (click)="Next('1')" *ngIf="!isLoading">
+        <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
           Next
+        </button>
+        <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage == 3">
+          Register
         </button>
       </div>
       <div *ngIf="!isLoading">
@@ -117,13 +168,10 @@
         <h4>
           have an account, <span routerLink="/login"> Sign in</span>?
         </h4>
-
       </div>
     </div>
-
   </div>
 </section>
-
 <!--
 "first": "string",
 "firstMiddle": "string",
