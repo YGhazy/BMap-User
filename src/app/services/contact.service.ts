@@ -7,6 +7,7 @@ import { ContactRequest } from '../models/http-models/contact-request';
 import { Customer } from '../models/http-models/customer';
 import { DeleteObjectModel } from '../models/http-models/delete-object-model';
 import { EditImageModel } from '../models/http-models/edit-image-model';
+import { CreateContactRequestModel } from '../models/Request/create-contact-model';
 import { API_CONSTANTS } from './common/api-constants';
 import { BaseService } from './common/base-service';
 
@@ -20,7 +21,7 @@ export class ContactService extends BaseService {
         super(httpClient);
     }
 
-    CreateContactRequest(request: ContactRequest): Observable<ApiResponse> {
+    CreateContactRequest(request: CreateContactRequestModel): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.AddContactRequest, request);
     }
 }
