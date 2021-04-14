@@ -1,40 +1,40 @@
 <section>
   <div class="row">
-    <div class="col-12 col-md-6 background" data-aos="fade" >
+    <div class="col-12 col-md-6 background" data-aos="fade">
       <div class="logo">
         <img src="../../../../assets/images/bmap logo 2.png" />
       </div>
     </div>
 
-    <div class="col-12 col-md-6 d-flex justify-content-between flex-column" >
+    <div class="col-12 col-md-6 d-flex justify-content-between flex-column">
       <div class=" align-items-start d-flex justify-content-around flex-column h-100">
 
         <div>
 
-          <h1 class=" px-5" data-aos="fade-down" >Welcome to <span>BMAP</span></h1>
+          <h1 class=" px-5" data-aos="fade-down">Welcome to <span>BMAP</span></h1>
           <p class=" px-5" data-aos="fade-down">
             We make it easy for everyone to invest
             in banking services
           </p>
           <form [formGroup]="LoginForm" class="px-5 d-flex flex-column pt-2" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
-            <div class="input-group py-2 d-flex flex-column" >
+            <div class="input-group py-2 d-flex flex-column">
               <div>
 
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
 
-                  <input type="text" class="form-control border-secondary" formControlName="email" placeholder="Email" aria-label="Email">
-                </div>
+                <input type="text" class="form-control border-secondary" formControlName="email" placeholder="Email" aria-label="Email">
+              </div>
 
-            <div *ngIf="f.email.invalid
+              <div *ngIf="f.email.invalid
                        && (f.email.dirty
                        || f.email.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-              <div *ngIf="f.email.errors.required">
-                test
+                <div *ngIf="f.email.errors.required">
+                  test
+                </div>
+                <div *ngIf="f.email.errors.pattern">
+                  pattern
+                </div>
               </div>
-              <div *ngIf="f.email.errors.pattern">
-                pattern
-              </div>
-            </div>
             </div>
 
             <div class="input-group  py-2 d-flex flex-column">
@@ -56,36 +56,39 @@
                 </div>
               </div>
             </div>
-              <div>
-                <h4 class="text-right" id="forget">
-                  Forget Password?
-                </h4>
-              </div>
-              <div class=" px-5 col-4" *ngIf="isLoading">
+            <div>
+              <h4 class="text-right" id="forget">
+                Forget Password?
+              </h4>
+            </div>
+            <div class=" px-5 col-4" *ngIf="isLoading">
 
-                <div style="height:8px;width:100px">
-                  <div class="part6 p1"></div>
-                  <div class="part6 p2"></div>
-                  <div class="part6 p3"></div>
-                </div>
+              <div style="height:8px;width:100px">
+                <div class="part6 p1"></div>
+                <div class="part6 p2"></div>
+                <div class="part6 p3"></div>
               </div>
-</form>
+            </div>
+          </form>
         </div>
-        <button class=" mx-5" (click)="login()" *ngIf="!isLoading" data-aos="fade-up" data-aos-delay="500" data-aos-duration="700">
+        <div>
+
+        <button class=" mx-5" (click)="login()" *ngIf="!isLoading">
           Login
         </button>
+        </div>
 
       </div>
       <div *ngIf="!isLoading">
       </div>
-        <div id="footerContent" >
-          <h4 >
-            Don't have an account, <span routerLink="/register">Create Account</span>?
-          </h4>
+      <div id="footerContent">
+        <h4>
+          Don't have an account, <span routerLink="/register">Create Account</span>?
+        </h4>
 
-        </div>
       </div>
-
     </div>
+
+  </div>
 </section>
 

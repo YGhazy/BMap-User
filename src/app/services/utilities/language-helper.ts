@@ -29,32 +29,36 @@ export class langHelper {
     if (this.currentLang == 'en') {
       return {
         dir: "ltr",
-        lang: "ع",
+        lang: "العربية",
         benefits: "Benefits & Features",
         textAlign: "text-left",
+        rowReverse: "",
         menuStyle: "",
         menuCloseStyle: "",
         navFloat: "float-right",
         quickLinks: "Quick Links",
         followUs: "Follow Us",
         copyRights1: "Copyright © 2021, All rights reserved",
-        copyRights2: "Bolt Solutions",
 
+        send: "Send",
+        subscribeNw:"Subscribe Now"
 
       }
     }
     else {
       return {
         dir: "rtl",
-        lang: "EN",
+        lang: "English",
         font:"cairoFont",
         navFloat: "",
+        rowReverse: "row-reverse",
         menuStyle: "arabicMenu",
         menuCloseStyle: "arabicCloseButton",
         textAlign: "text-right",
         flexDIr: "flex-row-reverse",
-        benefits: "الفوائد و المميزات",
-       
+        subscribeNw:"اشترك الان",
+        send:"ارسال"
+
 
 
       }
