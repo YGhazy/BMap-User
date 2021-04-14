@@ -3,13 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\models",
-    "\\src\\app\\models\\auth-models",
-    "\\src\\app\\models\\Request",
-    "\\src\\app\\modules",
-    "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\login",
-    "\\src\\app\\modules\\layout"
+    "\\src\\app\\services",
+    "\\src\\app\\services\\http-services"
   ],
+  "SelectedNode": "\\src\\app\\services\\http-services\\auth-guard.service.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-md-6 background" data-aos="fade">
       <div class="logo">
-        <img src="../../../../assets/images/bmap logo 2.png" />
+        <img src="../../../../assets/images/bmap logo 2.png" routerLink="/home" style="cursor: pointer;"/>
       </div>
 
     </div>
@@ -19,27 +19,34 @@
           <div class=" d-flex w-100">
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="First Name"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="firstName"
+                placeholder="First Name" aria-label="firstName">
+              <!-- <div
+                *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.firstName.errors.required">
+                  First name is required
+                </div>
+              </div> -->
             </div>
 
             <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="First Middle"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
+                placeholder="First Middle" aria-label="firstMiddleName">
             </div>
           </div>
           <div class=" d-flex w-100">
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email"
-                placeholder="Second Middle" aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
+                placeholder="Second Middle" aria-label="secondMiddle">
             </div>
 
             <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="Last Name"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="lastName"
+                placeholder="Last Name" aria-label="lastName">
             </div>
           </div>
           <div class=" d-flex w-100">
@@ -51,40 +58,41 @@
 
             <div class="input-group py-2 " *ngIf="currentPage == 1">
               <i class="fa fa-phone" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="Phone Number"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
+                placeholder="Phone Number" aria-label="phoneNumber">
             </div>
           </div>
 
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Date of Birth" formControlName="dob"
-                aria-label="Email">
-            </div>
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-                <input class="textInputStatusValue customInput" type="text" placeholder="Gender" value="{{genderValue}}"
-                readonly (click)="showOption()" />
-                <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true"
-                (click)="showOption()"></i>
-              <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true"
-                (click)="showOption()"></i>
-  
-              <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType"
-                style="max-height: 200px; overflow-y: scroll;">
-                <!-- -->
-                <div class="valueOfStatus" *ngFor="let gender of gender_values">
-                  <p class="typeBusinessText" (click)="getGenderValue(gender.id)"> {{gender.value}}</p>
-                </div>
-              </div>
-            </div>
+
+          <div class="input-group py-2" *ngIf="currentPage == 1">
+            <i class="fa fa-user-o" aria-hidden="true"></i>
+            <input type="text" class="form-control border-secondary" placeholder="Date of Birth"
+              formControlName="dateOfBirth" aria-label="dateOfBirth">
+          </div>
+          <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1">
+            <label>Gender</label>
+            <input type="text" class="form-control border-secondary" style="display: none;" placeholder="gender"
+              [(ngModel)]="selectedGender" formControlName="gender">
+            <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
+              class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
+              <path
+                d="M20,11V4h-7l2.793,2.793l-4.322,4.322C10.49,10.416,9.294,10,8,10c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6 c0-1.294-0.416-2.49-1.115-3.471l4.322-4.322L20,11z M8,20c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S10.206,20,8,20z">
+              </path>
+            </svg>
+            <svg (click)="SelectGender('female')" [ngClass]="{'highlighted': selectedGender === 'female'}"
+              class="genderIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
+              <path
+                d="M12,2C8.691,2,6,4.691,6,8c0,2.967,2.167,5.432,5,5.91V17H8v2h3v2.988h2V19h3v-2h-3v-3.09c2.833-0.479,5-2.943,5-5.91 C18,4.691,15.309,2,12,2z M12,12c-2.206,0-4-1.794-4-4s1.794-4,4-4c2.206,0,4,1.794,4,4S14.206,12,12,12z">
+              </path>
+            </svg>
           </div>
 
           <!--Second registeration page-->
           <div class="input-group" (mouseleave)="hideOption()" *ngIf="currentPage == 2">
-            <input class="textInputStatusValue customInput" type="text" placeholder="Account Type" value="{{stValue}}"
-              readonly (click)="showOption()" />
+            <input class="textInputStatusValue customInput" type="text" placeholder="Account Type" [(ngModel)]="stValue"
+              readonly (click)="showOption()" formControlName="accountType" />
             <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true"
               (click)="showOption()"></i>
             <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true"
@@ -101,37 +109,37 @@
           <div class="input-group py-2" *ngIf="currentPage == 2">
             <i class="fa fa-envelope" aria-hidden="true"></i>
             <input type="text" class="form-control border-secondary" placeholder="National ID"
-              formControlName="NationalID" aria-label="Email">
+              formControlName="nationalID" aria-label="nationalID">
           </div>
           <div class="input-group py-2" *ngIf="currentPage == 2">
             <i class="fa fa-envelope" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="Job Title" formControlName="JobTitle"
-              aria-label="Email">
+            <input type="text" class="form-control border-secondary" placeholder="Job Title" formControlName="jobTitle"
+              aria-label="jobTitle">
           </div>
 
           <!--Third registeration page-->
           <div class=" d-flex w-100">
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="Address"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="address"
+                aria-label="address">
             </div>
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="Province"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="province"
+                aria-label="province">
             </div>
           </div>
           <div class=" d-flex w-100">
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="City" formControlName="City"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" placeholder="City" formControlName="city"
+                aria-label="city">
             </div>
             <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="Country"
-                aria-label="Email">
+              <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="country"
+                aria-label="country">
             </div>
           </div>
           <div class=" d-flex w-100">
@@ -158,9 +166,12 @@
         <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
           Next
         </button>
-        <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage == 3">
+        <button type="submit" class=" mx-5 float-right" (click)="Register()" [disabled]="!signupForm.valid"
+          *ngIf="!isLoading && currentPage == 3">
           Register
         </button>
+        <label style="color: #31d190;" *ngIf="registerationResult == true">Your registeration request have been submitted successfully.</label>
+     <label style="color: #2c3e50" *ngIf="registerationResult == false">Error submitting request, please try again shortly.</label>
       </div>
       <div *ngIf="!isLoading">
       </div>
