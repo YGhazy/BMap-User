@@ -8,7 +8,7 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms';
 export class formBuilderHelper  {
 
   controllers;
-
+  emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(private formBuilder: FormBuilder) {
 
     this.controllers = {
@@ -26,13 +26,17 @@ export class formBuilderHelper  {
       contactMessage: [Validators.required, Validators.min(10)],
       image: [Validators.required],
       userName: [Validators.required ,  Validators.min(1) , Validators.max(50) , Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")],
-      email: [Validators.email, Validators.required],
       newPassword: [Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
       password: [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
       ConfirmPassword: [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
       ENValidation: [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.max(40)],
       ARValidation: [Validators.required, Validators.pattern('^[\u0600-\u06ff ]+$'), Validators.max(40)],
-      
+      gender: [Validators.required],
+      city: [Validators.required],
+      province: [Validators.required],
+      country: [Validators.required],
+      street: [Validators.required],
+      email: [Validators.required, Validators.pattern(this.emailValidationPattern)]
     }
   }
 

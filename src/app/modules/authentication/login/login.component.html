@@ -25,13 +25,13 @@
                   <input type="text" class="form-control border-secondary" formControlName="email" placeholder="Email" aria-label="Email">
                 </div>
 
-            <div *ngIf="f.mail.invalid
-                       && (f.mail.dirty
-                       || f.mail.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-              <div *ngIf="f.mail.errors.required">
+            <div *ngIf="f.email.invalid
+                       && (f.email.dirty
+                       || f.email.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="f.email.errors.required">
                 test
               </div>
-              <div *ngIf="f.mail.errors.pattern">
+              <div *ngIf="f.email.errors.pattern">
                 pattern
               </div>
             </div>
