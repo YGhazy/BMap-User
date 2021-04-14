@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ServicesService } from '../../services/ServicesService';
 
 @Component({
@@ -7,8 +8,8 @@ import { ServicesService } from '../../services/ServicesService';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit {
-  ServicesList:any
-  constructor(private ServicesService: ServicesService) { }
+  ServicesList: any
+  constructor(private ServicesService: ServicesService, private router: Router) { }
 
   ngOnInit(): void {
     this.ServicesService.GetAllServices().subscribe(res => {
@@ -19,4 +20,8 @@ export class ServicesComponent implements OnInit {
     });
   }
 
+  ToService(selectedServiceID) {
+    this.router.navigateByUrl('service')
+    localStorage.setItem('selectedServiceID', selectedServiceID)
+  }
 }
