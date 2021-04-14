@@ -12,13 +12,16 @@ import { ServiceComponent } from '../service/service.component';
 import { ContactComponent } from '../contact/contact.component';
 import { RegisterComponent } from '../register/register.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ServicesComponent } from '../services/services.component';
 
 
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
-    ContactComponent,
+    ContactComponent, ServicesComponent,
     RegisterComponent, AboutUsComponent],
   imports: [
+    BrowserModule, 
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
