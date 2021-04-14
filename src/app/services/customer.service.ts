@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RegisterModel } from '../models/auth-models/RegisterModel';
 import { ApiResponse } from '../models/http-models/api-response';
 import { Customer } from '../models/http-models/customer';
 import { DeleteObjectModel } from '../models/http-models/delete-object-model';
@@ -24,5 +25,9 @@ export class CustomerService extends BaseService {
 
     EditProfilePicture(newImage: EditImageModel): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.EditProfilePicture, newImage);
+    }
+
+    Register(registerModel: RegisterModel): Observable<ApiResponse> {
+        return this.post(API_CONSTANTS.Register, registerModel);
     }
 }
