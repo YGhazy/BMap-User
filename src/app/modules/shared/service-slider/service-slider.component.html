@@ -1,0 +1,24 @@
+<section class="mt-5">
+    <div class="text-center" style="overflow-x:hidden;">
+        <div>
+            <h1 class="text-center">We provide various kinds of services for you</h1>
+            <p style="margin: 0 auto; max-width: 40%;">It is a long established fact that a reader will be distracted by
+                the readable content
+                of a page when looking
+                at its layout. </p>
+            <owl-carousel-o [options]="carouselOptions" *ngIf="serviceList" style="margin-top: 3% !important;">
+                <ng-container *ngFor="let service of serviceList">
+                    <ng-template carouselSlide id="owl-slide-{{service.id}}">
+                        <div class="imageContainer" style="margin: 0 auto;">
+                            <img [src]="service.header" [alt]="service.nameEN" class="carouselImage"
+                                [title]="service.nameEN">
+                            <h1 class="mt-2">{{service.nameEN}}</h1>
+                            <p>{{service.descriptionEN}}</p>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+            </owl-carousel-o>
+        </div>
+    </div>
+</section>

@@ -7,13 +7,15 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ModalComponent } from './modal/modal.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
+import { ServiceSliderComponent } from './service-slider/service-slider.component';
 
 //Shared Components and imported modules between the project are imported here
 //Components that shall be re-used between modules should be exported.
 @NgModule({
   declarations: [
     ModalComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    ServiceSliderComponent
     ],
   imports: [
     CommonModule,
@@ -23,8 +25,8 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
   ]
   , exports: [
     ModalComponent,
-    ImageSliderComponent
-
+    ImageSliderComponent,
+    ServiceSliderComponent,
     ]
 })
 export class SharedModule { }

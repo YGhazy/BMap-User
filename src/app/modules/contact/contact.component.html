@@ -7,89 +7,93 @@
                <div class="col-7">
                     <h1 class="mb-4 ml-4">Send Us A Message</h1>
                     <form [formGroup]="contactForm">
-                         <label for="firstName">First Name</label>
-                         <input class="form-control mb-2" type="text" name="firstName" placeholder="First Name"
-                              formControlName="contactFirstName" />
-
-                         <div *ngIf="contactFormControls.contactFirstName.invalid && (contactFormControls.contactFirstName.dirty|| contactFormControls.contactFirstName.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.contactFirstName.errors.required">
-                                   First name is required
-                              </div>
-                              <div *ngIf="contactFormControls.contactFirstName.errors.pattern">
-                                   First name must not include digits, symbols or spaces
-                              </div>
-                         </div>
-
-                         <label for="lastName">Last Name</label>
-                         <input class="form-control mb-2" type="text" name="lastName" placeholder="First Name"
-                              formControlName="contactLastName" />
-
-                         <div *ngIf="contactFormControls.contactLastName.invalid && (contactFormControls.contactLastName.dirty|| contactFormControls.contactLastName.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.contactLastName.errors.required">
-                                   Last name is required
-                              </div>
-                              <div *ngIf="contactFormControls.contactLastName.errors.pattern">
-                                   Last name must not include digits, symbols or spaces
+                         <div class="input-container">
+                              <label for="firstName">First Name</label>
+                              <input class="form-control mb-2" type="text" name="firstName" placeholder="First Name"
+                                   formControlName="contactFirstName" />
+                              <img src="./assets/images/icons/icon-user.png" width="20" height="20" />
+                              <div *ngIf="contactFormControls.contactFirstName.invalid && (contactFormControls.contactFirstName.dirty|| contactFormControls.contactFirstName.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.contactFirstName.errors.required">
+                                        First name is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.contactFirstName.errors.pattern">
+                                        First name must not include digits, symbols or spaces
+                                   </div>
                               </div>
                          </div>
-
-                         <label for="contactEmail">Email Address</label>
-                         <input class="form-control mb-2" type="text" name="contactEmail" placeholder="Email"
-                              formControlName="email" />
-
-                         <div *ngIf="contactFormControls.email.invalid && (contactFormControls.email.dirty|| contactFormControls.email.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.email.errors.required">
-                                   Email is required
-                              </div>
-                              <div *ngIf="contactFormControls.email.errors.email">
-                                   Email must be in a correct format (ex: example@mail.com)
-                              </div>
-                         </div>
-
-                         <label for="contactNumber">Phone</label>
-                         <input class="form-control mb-2" type="text" name="contactNumber" placeholder="Phone Number"
-                              formControlName="mobileNumber" />
-
-                         <div *ngIf="contactFormControls.mobileNumber.invalid && (contactFormControls.mobileNumber.dirty|| contactFormControls.mobileNumber.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.mobileNumber.errors.required">
-                                   Phone number is required
-                              </div>
-                              <div *ngIf="contactFormControls.mobileNumber.errors.pattern">
-                                   Phone number must be in a correct format
+                         <div class="input-container">
+                              <label for="lastName">Last Name</label>
+                              <input class="form-control mb-2" type="text" name="lastName" placeholder="Last Name"
+                                   formControlName="contactLastName" />
+                                   <img src="./assets/images/icons/icon-user.png" width="20" height="20" />
+                              <div *ngIf="contactFormControls.contactLastName.invalid && (contactFormControls.contactLastName.dirty|| contactFormControls.contactLastName.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.contactLastName.errors.required">
+                                        Last name is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.contactLastName.errors.pattern">
+                                        Last name must not include digits, symbols or spaces
+                                   </div>
                               </div>
                          </div>
-
-                         <label for="contactSubject">Subject</label>
-                         <input class="form-control mb-2" type="text" name="contactSubject" placeholder="Subject"
-                              formControlName="contactSubject" />
-
-                         <div *ngIf="contactFormControls.contactSubject.invalid && (contactFormControls.contactSubject.dirty|| contactFormControls.contactSubject.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.contactSubject.errors.required">
-                                   Subject is required
-                              </div>
-                              <div *ngIf="contactFormControls.contactSubject.errors.pattern">
-                                   Subject must be in a correct format
-                              </div>
-                         </div>
-
-                         <label for="contactMessage">Your Message</label>
-                         <textarea class="form-control mb-4" formControlName="contactMessage"></textarea>
-
-                         <div *ngIf="contactFormControls.contactMessage.invalid && (contactFormControls.contactMessage.dirty|| contactFormControls.contactMessage.touched)"
-                              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                              <div *ngIf="contactFormControls.contactMessage.errors.required">
-                                   Message is required
-                              </div>
-                              <div *ngIf="contactFormControls.contactMessage.errors.pattern">
-                                   Message must be in a correct format
+                         <div class="input-container">
+                              <label for="contactEmail">Email Address</label>
+                              <input class="form-control mb-2" type="text" name="contactEmail" placeholder="Email"
+                                   formControlName="email" />
+                                   <img src="./assets/images/icons/icon-email.png" width="20" height="20" />
+                              <div *ngIf="contactFormControls.email.invalid && (contactFormControls.email.dirty|| contactFormControls.email.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.email.errors.required">
+                                        Email is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.email.errors.email">
+                                        Email must be in a correct format (ex: example@mail.com)
+                                   </div>
                               </div>
                          </div>
-
+                         <div class="input-container">
+                              <label for="contactNumber">Phone</label>
+                              <input class="form-control mb-2" type="text" name="contactNumber"
+                                   placeholder="Phone Number" formControlName="mobileNumber" />
+                                   <img src="./assets/images/icons/icon-phone.png" width="20" height="20" />
+                              <div *ngIf="contactFormControls.mobileNumber.invalid && (contactFormControls.mobileNumber.dirty|| contactFormControls.mobileNumber.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.mobileNumber.errors.required">
+                                        Phone number is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.mobileNumber.errors.pattern">
+                                        Phone number must be in a correct format
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="input-container">
+                              <label for="contactSubject">Subject</label>
+                              <input class="form-control mb-2" type="text" name="contactSubject" placeholder="Subject"
+                                   formControlName="contactSubject" />
+                              <div *ngIf="contactFormControls.contactSubject.invalid && (contactFormControls.contactSubject.dirty|| contactFormControls.contactSubject.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.contactSubject.errors.required">
+                                        Subject is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.contactSubject.errors.pattern">
+                                        Subject must be in a correct format
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="input-container">
+                              <label for="contactMessage">Your Message</label>
+                              <textarea class="form-control mb-4" formControlName="contactMessage"></textarea>
+                              <div *ngIf="contactFormControls.contactMessage.invalid && (contactFormControls.contactMessage.dirty|| contactFormControls.contactMessage.touched)"
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   <div *ngIf="contactFormControls.contactMessage.errors.required">
+                                        Message is required
+                                   </div>
+                                   <div *ngIf="contactFormControls.contactMessage.errors.pattern">
+                                        Message must be in a correct format
+                                   </div>
+                              </div>
+                         </div>
                          <button type="submit" [disabled]="!contactForm.valid" *ngIf="!disabled"
                               (click)="CreateContactRequest()" class="btn btn-primary">Contact</button>
                          <label style="color: #31d190;" *ngIf="contactResult == 'success'">Your message have been sent
@@ -99,21 +103,21 @@
                     </form>
                </div>
                <div class="col-5 text-center">
-                    <div class=" mt-5">
-                         <h3>Find us at the office</h3>
-                         <p>+201133223344</p>
+                    <div class="mt-5 infoSection">
+                         <h3><img src="./assets/images/icons/icon-location.png" width="20" height="25" class="mr-2" /> Find us at the office</h3>
+                         <p class="mt-3">+201133223344</p>
                          <p>Bmap@gmail.com</p>
                          <p>Cairo City</p>
                     </div>
-                    <div>
-                         <h3>Give us a ring</h3>
-                         <p>+201133223344</p>
+                    <div class="infoSection">
+                         <h3><img src="./assets/images/icons/icon-phone-ring.png" width="20" height="20" class="mr-2"/>Give us a ring</h3>
+                         <p class="mt-3">+201133223344</p>
                          <p>Bmap@gmail.com</p>
                          <p>Cairo City</p>
                     </div>
-                    <div>
-                         <h3>Legal information</h3>
-                         <p>+201133223344</p>
+                    <div class="infoSection">
+                         <h3><img src="./assets/images/icons/icon-info.png" width="20" height="20" class="mr-2"/>Legal information</h3>
+                         <p class="mt-3">+201133223344</p>
                          <p>Bmap@gmail.com</p>
                          <p>Cairo City</p>
                     </div>

@@ -37,3 +37,25 @@ h1{
 {
     height:60vh ;
 }
+
+.input-container{
+  position: relative;
+  input{
+    text-indent: 30px;
+  }
+  img{
+    position: absolute;
+    top: 45px;
+    left: 15px;
+  }
+}
+.infoSection{
+  position: relative;
+  p{
+    line-height: 0.7rem;
+  }
+  img{
+    position: absolute;
+    left: 80px;
+  }
+}

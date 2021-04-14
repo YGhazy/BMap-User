@@ -41,6 +41,7 @@ export class ContactComponent implements OnInit {
         message: this.contactForm.value.contactMessage,
         requestDate: currentDate
       }
+      
       console.log(createContactRequest);
       this.contactService.CreateContactRequest(createContactRequest).subscribe(res => {
         if(res.succeeded){
