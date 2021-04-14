@@ -21,13 +21,17 @@
   border-radius: 16px;
   width: 100vw;
 }
+h1, h4 {
+  color: #000000;
+  font-family: 'Poppins', sans-serif;
+}
 #subscribeContainer{
     position:absolute;
     bottom:-30px;
 
 }
 #beforeSubscribe {
-  height: 25vh;
+  height: 30vh;
 }
   main {
     position: relative;
@@ -83,3 +87,31 @@
     font-weight: 200;
     font-style: italic;
   }
+button {
+  border-radius: 7px;
+  background-color: #1351c3;
+  border: none;
+  color: #fff;
+  padding: 8px 30px;
+}
+
+button:active, button:focus, button:hover {
+  outline-style: none;
+  border: none;
+  background-image: linear-gradient(to right, #6ba4ffff 2%, #2177ffcf 100%);
+}
+@media screen and  (max-width: 1024px) {
+  .aboutBG {
+
+    height: 70vh;
+  }
+
+
+
+  .background {
+    background-position: bottom;
+    background-size: cover;
+    height: 50vh;
+    min-height: inherit;
+  }
+    }
