@@ -100,9 +100,22 @@ button:active, button:focus, button:hover {
   border: none;
   background-image: linear-gradient(to right, #6ba4ffff 2%, #2177ffcf 100%);
 }
-@media screen and  (max-width: 1024px) {
+.alert {
+  background-color: transparent;
+  border: none;
+  text-shadow: 4px 1px 6px #000;
+  padding: 0 1.25rem;
+  margin:0;
+}
+.alert-danger {
+  color: #630808;
+  text-shadow: 4px 1px 5px #7d6969;
+}
+.alert-success {
+  color: #b2f946;
+}
+@media screen and (max-width: 1024px) {
   .aboutBG {
-
     height: 70vh;
   }
 
@@ -114,4 +127,4 @@ button:active, button:focus, button:hover {
     height: 50vh;
     min-height: inherit;
   }
-    }
+}
