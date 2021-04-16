@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { langHelper } from 'src/app/services/utilities/language-helper';
+import { ServicesService } from '../../../services/ServicesService';
 
 @Component({
   selector: 'app-layout',
@@ -11,10 +12,18 @@ export class LayoutComponent implements OnInit {
 
   langVar;
   currentLang;
-  constructor(private router: Router, private langHelper: langHelper) { }
+  ServicesList;
+  constructor(private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
+
+    this.ServicesService.GetAllServices().subscribe(res => {
+      this.ServicesList = res.data;
+      console.log(this.ServicesList);
+    }, error => {
+      console.log(error);
+    });
   }
   route(url) {
 
@@ -27,5 +36,14 @@ export class LayoutComponent implements OnInit {
     this.langHelper.switchLanguage()
     this.langVar = this.langHelper.initializeMode();
     window.location.reload()
+  }
+
+  ToService(selectedServiceID) {
+    localStorage.setItem('selectedServiceID', selectedServiceID)
+    if (this.router.url !="/service")
+    this.router.navigateByUrl('service')
+    else
+      window.location.reload()
+    console.log(this.router.url)
   }
 }
