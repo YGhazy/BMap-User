@@ -34,8 +34,6 @@ export class RegisterComponent implements OnInit {
   registerationResult: boolean;
   constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private customerService: CustomerService, private router: Router) {
     this.signupForm = this.formBuilderHelper.CustomizeFormbuilderValidator({
-      password: '',
-      confirmPassword: '',
       firstName: '',
       firstMiddleName: '',
       secondMiddleName: '',
@@ -51,6 +49,8 @@ export class RegisterComponent implements OnInit {
       province: '',
       country: '',
       accountType: '',
+      password: '',
+      confirmPassword: '',
     }, this.checkPasswords);
   }
   accountType_values = [
@@ -173,6 +173,7 @@ export class RegisterComponent implements OnInit {
 
   //validate password isEqual confimPassword
   checkPasswords(group: FormGroup) {
+    console.log("check")
     let pass = group.get('password').value;
     let confirmPass = group.get('confirmPassword').value;
     return pass === confirmPass ? false : { notSame: true }

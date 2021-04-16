@@ -4,6 +4,7 @@ import { ModalComponent } from '../modal/modal.component';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Bank } from 'src/app/models/http-models/bank';
 import { BankService } from 'src/app/services/bank.service';
+import { langHelper } from 'src/app/services/utilities/language-helper';
 
 @Component({
   selector: 'app-bank-slider',
@@ -41,8 +42,13 @@ export class ImageSliderComponent implements OnInit {
     },
     nav: false
   }
+  langVar;
+  currentLanguage;
   //Declare services
-  constructor(private router: Router, private bankService: BankService) { }
+  constructor(private router: Router, private bankService: BankService, private langHelper: langHelper) { 
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLanguage = this.langHelper.currentLang;
+  }
 
   ngOnInit(): void {
     //fetch available banks

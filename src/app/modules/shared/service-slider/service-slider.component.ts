@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Service } from 'src/app/models/http-models/service';
 import { ServicesService } from 'src/app/services/ServicesService';
+import { langHelper } from 'src/app/services/utilities/language-helper';
 
 @Component({
   selector: 'app-service-slider',
@@ -40,8 +41,14 @@ export class ServiceSliderComponent implements OnInit {
     nav: false
   }
 
+  langVar;
+  currentLanguage;
   //Declare services
-  constructor(private router: Router, private servicesService: ServicesService) { }
+  constructor(private router: Router, private servicesService: ServicesService, private langHelper: langHelper) { 
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLanguage = this.langHelper.currentLang;
+    console.log(this.currentLanguage);
+  }
 
   ngOnInit(): void {
     this.FetchServices();

@@ -21,13 +21,13 @@
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="firstName"
                 placeholder="First Name" aria-label="firstName">
-              <!-- <div
+              <div
                 *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.firstName.errors.required">
                   First name is required
                 </div>
-              </div> -->
+              </div>
             </div>
 
             <div class="input-group py-2 " *ngIf="currentPage == 1">

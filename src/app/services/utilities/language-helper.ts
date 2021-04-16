@@ -36,14 +36,16 @@ export class langHelper {
         menuStyle: "",
         menuCloseStyle: "",
         navFloat: "float-right",
-        quickLinks: "Quick Links",
-        followUs: "Follow Us",
         copyRights1: "Copyright © 2021, All rights reserved",
-
         send: "Send",
-        subscribeNw:"Subscribe Now"
-
-      }
+        subscribeNw:"Subscribe Now",
+        serviceSlider:{
+          title: "We provide various kinds of services for you",
+        },
+        bankSlider: {
+          title: "We serve you with a variety of banks",
+        },
+      } 
     }
     else {
       return {
@@ -56,11 +58,14 @@ export class langHelper {
         menuCloseStyle: "arabicCloseButton",
         textAlign: "text-right",
         flexDIr: "flex-row-reverse",
+        send:"ارسال",
         subscribeNw:"اشترك الان",
-        send:"ارسال"
-
-
-
+        serviceSlider:{
+          title: "نقدم لك أنواع مختلفة من الخدمات",
+        },
+        bankSlider: {
+          title: " نخدمك مع مجموعة متنوعة من البنوك",
+        },
       }
     }
   }
