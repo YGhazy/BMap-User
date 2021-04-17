@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from '../../../models/auth-models/LoginModel';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   pView: string = "-slash";
   LoginForm;
   isLoading: boolean  =false
-  constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router) {
+  constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router,  private toastr: ToastrService) {
     this.LoginForm = this.formBuilderHelper.CreateFormBuilder({ email: '', password: '' })
 
   }
@@ -33,13 +34,22 @@ export class LoginComponent implements OnInit {
 
     this.AuthenticationService.login(loginModel).subscribe(res => {
       if (res.succeeded) {
+        this.toastr.success('You will be redirected shortly', 'Success', {
+          disableTimeOut: false,
+          closeButton: true,
+          positionClass: 'toast-top-center'
+        });
+        this.AuthenticationService.setToken(res.data.token);
+        setTimeout(() => {
           this.router.navigate(["/home"]);
-          this.AuthenticationService.setToken(res.data.token);
-        console.log("login")
-
+        }, 3000);
       }
     }, error => {
-      console.log(error);
+      this.toastr.error('Please try again later', 'Error', {
+        disableTimeOut: false,
+        closeButton: true,
+        positionClass: 'toast-top-center'
+      });
       this.isLoading = false;
     });
   }

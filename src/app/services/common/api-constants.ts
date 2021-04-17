@@ -14,6 +14,7 @@ export const API_CONSTANTS = {
     //Service requests
     GetCustomerServiceRequests: '/ServiceRequests/GetCustomerServiceRequests/',
     DeleteServiceRequest: '/ServiceRequests/DeleteServiceRequest',
+    SubmitServiceRequest: '/ServiceRequests/CreateServiceRequest',
     //Contact
     AddContactRequest: '/Contact/CreateContactRequest',
     //Newsletter
