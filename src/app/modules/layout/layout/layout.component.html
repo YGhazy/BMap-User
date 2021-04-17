@@ -55,7 +55,7 @@
                   </li>
                 </ul>
               </li>
-              <li><a (click)="route('requested-services')" class="nav-link">Requested Services</a></li>
+              <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized">Requested Services</a></li>
               <li><a (click)="route('contact')" class="nav-link">Contact Us</a></li>
 
               <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized"> login</a></li>
