@@ -70,8 +70,8 @@ export class AuthenticationService extends BaseService {
         }
         return false;
     }
-    GetAccountViaToken(token: string): Observable<ApiResponse> {
-        return this.get(API_CONSTANTS.GetUserAccountByToken + token);
+  GetAccountViaToken(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetUserAccountByToken + this.getToken());
     }
 
     login(model: LoginModel): Observable<ApiResponse> {
@@ -82,8 +82,9 @@ export class AuthenticationService extends BaseService {
     //  return this.post(API_CONSTANTS.CREATE_ADMIN_ACCOUNT, model);
     //}
 
-    //logout(): Observable<ApiResponse> {
-    //    return this.get(API_CONSTANTS.LOGOUT);
-    //}
+  logout() {
+    this.removeToken();
+
+    }
 
 }
