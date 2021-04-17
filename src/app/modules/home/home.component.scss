@@ -78,14 +78,14 @@ button:active, button:focus, button:hover {
   .imgContainer :hover, .imgContainer :active .imgContainer
   {
     transform: scale(1.2);
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
   }
 }
 .site-blocks-cover{
     min-height:100%;
 }
 .overlay {
-  transition: .5s ease;
+  transition: all .5s ease;
   width: 0;
   bottom: 0;
   top: 0;
