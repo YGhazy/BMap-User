@@ -91,13 +91,14 @@ button:active, button:focus, button:hover {
   }
 
   .imageContent {
-    transition: all 0.5s ease-in-out;
     display: none;
     color: #fff;
     z-index: 3;
     position: absolute;
-    top: 61px;
-    left: 49px;
+    overflow: hidden;
+    top: 70px;
+    left: 44px;
+    font-size: 22px;
   }
 
   .imgContainer :hover, .imgContainer :active {
@@ -111,14 +112,15 @@ button:active, button:focus, button:hover {
   }
 
   .imgContainer:hover h1, .imgContainer:active h1 {
-    display: flex;
-    transition: all 0.5s ease-in-out;
+    display: block;
+    /*    transition: all 0.5s ease-in-out;*/
+    transform: none;
   }
 }
-.site-blocks-cover{
+.overlay{
     min-height:100%;
 }
-.site-blocks-cover:before {
+.overlay:before {
   min-height: 100%;
   background: rgba(7, 23, 111, 0.7) !important;
 }
