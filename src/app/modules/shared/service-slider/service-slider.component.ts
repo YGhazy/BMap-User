@@ -34,7 +34,7 @@ export class ServiceSliderComponent implements OnInit {
         items: 3
       },
       940: {
-        items: 3
+        items: 5
       }
     },
     nav: false
