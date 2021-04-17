@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { langHelper } from '../../services/utilities/language-helper';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-about-us',
@@ -12,6 +13,7 @@ export class AboutUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
+    AOS.refresh();
 
   }
 

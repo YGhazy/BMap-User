@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './modules/layout/layout.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RequestsComponent } from './modules/requests/requests.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    RequestsComponent,
   ],
   imports: [
     BrowserModule,
