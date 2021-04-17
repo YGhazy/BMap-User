@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CombineLatestSubscriber } from 'rxjs/internal/observable/combineLatest';
 import { NewsletterSubscription } from '../../../models/http-models/newsletter-subscription';
 import { NewsletterService } from '../../../services/newsletter.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
@@ -22,7 +23,7 @@ export class SubscriptionComponent implements OnInit {
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
-
+    console.log(this.langVar)
   }
 
   Subscribe() {
@@ -34,10 +35,12 @@ export class SubscriptionComponent implements OnInit {
     this.NewsletterService.SubscribeNewsletter(model).subscribe(res => {
       console.log(res.data);
       this.isSucceeded = true
-      this.errorMsg = "Sent successfuly"
+      this.errorMsg = this.langVar.sent
+      console.log(this.langVar.sent)
+      console.log(this.errorMsg)
     }, error => {
       console.log(error);
-      this.errorMsg = "you are already subscribed to our newsletter !"
+        this.errorMsg = this.langVar.subscribe.subscribed
     });
   }
 
