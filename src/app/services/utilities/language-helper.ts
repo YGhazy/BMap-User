@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Arabic } from './ar';
+import { English } from './en';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,12 +13,11 @@ export class langHelper {
 
   constructor(private router: Router) {
     if (localStorage.getItem("Language") === null) {
+      //Set language
       localStorage.setItem("Language", "en")
       this.currentLang = 'en'
     }
-    else
-    //Set language
-    {
+    else {
       this.currentLang = localStorage.getItem("Language")
     }
   }
@@ -27,43 +29,10 @@ export class langHelper {
   // Set translation variables
   initializeMode() {
     if (this.currentLang == 'en') {
-      return {
-        dir: "ltr",
-        lang: "العربية",
-        arabicClass: "",
-        benefits: "Benefits & Features",
-        textAlign: "text-left",
-        rowReverse: "",
-        menuStyle: "",
-        menuCloseStyle: "",
-        navFloat: "float-right",
-        quickLinks: "Quick Links",
-        followUs: "Follow Us",
-        copyRights1: "Copyright © 2021, All rights reserved",
-
-        send: "Send",
-        subscribeNw:"Subscribe Now"
-
-      }
+      return English
     }
     else {
-      return {
-        dir: "rtl",
-        lang: "English",
-        font:"cairoFont",
-        navFloat: "",
-        arabicClass: "arabic",
-        rowReverse: "row-reverse",
-        menuStyle: "arabicMenu",
-        menuCloseStyle: "arabicCloseButton",
-        textAlign: "text-right",
-        flexDIr: "flex-row-reverse",
-        subscribeNw:"اشترك الان",
-        send:"ارسال"
-
-
-
-      }
+      return Arabic
     }
   }
 
