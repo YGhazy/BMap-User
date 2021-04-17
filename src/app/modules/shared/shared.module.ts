@@ -8,6 +8,7 @@ import { ModalComponent } from './modal/modal.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ServiceSliderComponent } from './service-slider/service-slider.component';
+import { SubscriptionComponent } from './subscription/subscription.component';
 
 //Shared Components and imported modules between the project are imported here
 //Components that shall be re-used between modules should be exported.
@@ -15,7 +16,8 @@ import { ServiceSliderComponent } from './service-slider/service-slider.componen
   declarations: [
     ModalComponent,
     ImageSliderComponent,
-    ServiceSliderComponent
+    ServiceSliderComponent,
+    SubscriptionComponent
     ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { ServiceSliderComponent } from './service-slider/service-slider.componen
     ModalComponent,
     ImageSliderComponent,
     ServiceSliderComponent,
+    SubscriptionComponent
     ]
 })
 export class SharedModule { }

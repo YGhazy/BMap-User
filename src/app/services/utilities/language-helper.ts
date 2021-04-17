@@ -30,6 +30,7 @@ export class langHelper {
       return {
         dir: "ltr",
         lang: "العربية",
+        arabicClass: "",
         benefits: "Benefits & Features",
         textAlign: "text-left",
         rowReverse: "",
@@ -51,6 +52,7 @@ export class langHelper {
         lang: "English",
         font:"cairoFont",
         navFloat: "",
+        arabicClass: "arabic",
         rowReverse: "row-reverse",
         menuStyle: "arabicMenu",
         menuCloseStyle: "arabicCloseButton",

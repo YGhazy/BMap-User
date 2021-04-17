@@ -1,27 +1,3 @@
-.background {
-  background-position: bottom;
-  background-size: cover;
-  height: 70vh;
-}
-.aboutBG {
-  background: url(../../../assets/images/aboutHome.png) no-repeat 0 0;
-  background-position: center;
-  background-size: contain;
-  height: 100vh;
-}
-
-.aboutContent {
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.background {
-  background-position: bottom;
-  background-size: cover;
-  height: 70vh;
-}
 
 .subscribe {
   background-color: #1351c3;
@@ -33,11 +9,8 @@
 h1, h4 {
   color: #000000;
   font-family: 'Poppins', sans-serif;
+}
 
-}
-h1 {
-  text-shadow: 2px 2px 7px #000000bc;
-}
 #subscribeContainer {
   position: absolute;
   bottom: -30px;
@@ -46,11 +19,6 @@ h1 {
 #beforeSubscribe {
   height: 30vh;
 }
-
-main {
-  position: relative;
-}
-
 input {
   width: 215px;
   border-radius: 20px;
@@ -133,17 +101,4 @@ button:active, button:focus, button:hover {
   color: #b2f946;
 }
 
-@media screen and (max-width: 1024px) {
-  .aboutBG {
-    height: 70vh;
-  }
 
-
-
-  .background {
-    background-position: bottom;
-    background-size: cover;
-    height: 50vh;
-    min-height: inherit;
-  }
-}

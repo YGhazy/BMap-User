@@ -547,7 +547,7 @@ body:after {
       color: #fff; }
       /* custom j2p image*/
       .sticky-wrapper .site-navbar .site-logo a .logo-image {
-        background: url('/images/bmap-logo.png') no-repeat;
+        background: url('../../assets/images/bmap-logo.png') no-repeat;
         width: 145px;
         height: 50px;
         background-size: cover;

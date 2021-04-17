@@ -13,6 +13,7 @@ export class LayoutComponent implements OnInit {
   langVar;
   currentLang;
   ServicesList;
+  isLoading: boolean=true
   constructor(private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode();

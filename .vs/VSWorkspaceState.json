@@ -4,13 +4,12 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\about-us",
-    "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\register",
     "\\src\\app\\modules\\shared",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\http-services"
+    "\\src\\app\\modules\\shared\\service-slider",
+    "\\src\\app\\modules\\shared\\subscription",
+    "\\src\\assets",
+    "\\src\\assets\\images",
+    "\\src\\assets\\images\\landing"
   ],
-  "SelectedNode": "\\src\\app\\modules\\about-us\\about-us.component.ts",
   "PreviewInSolutionExplorer": false
 }

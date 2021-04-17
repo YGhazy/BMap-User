@@ -5,6 +5,7 @@ import { NewsletterService } from '../../services/newsletter.service';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
 import { langHelper } from '../../services/utilities/language-helper';
 import { ModalComponent } from '../shared/modal/modal.component';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -12,37 +13,15 @@ import { ModalComponent } from '../shared/modal/modal.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  SubscribeForm;
-  isSucceeded: boolean = false;
-  errorMsg: string = "";
   langVar;
-  //Declare services
-  constructor(private formBuilderHelper: formBuilderHelper, private router: Router, private NewsletterService: NewsletterService, private langHelper: langHelper) {
-    this.SubscribeForm = this.formBuilderHelper.CreateFormBuilder({ email: '' })
+  constructor(private formBuilderHelper: formBuilderHelper, private router: Router, private langHelper: langHelper) {
 
   }
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
+    AOS.refresh();
   }
 
-  Subscribe() {
-    this.errorMsg = "";
-    const model: NewsletterSubscription = {
-      email: this.SubscribeForm.value.email,
-      subscriptionDate: new Date()
-    }
-    this.NewsletterService.SubscribeNewsletter(model).subscribe(res => {
-      console.log (res.data);
-      this.isSucceeded = true
-      this.errorMsg="Sent successfuly"
-    }, error => {
-      console.log(error);
-        this.errorMsg ="you are already subscribed to our newsletter !"
-    });
-  }
 
-  get f() {
-    return this.SubscribeForm.controls;
-  }
 }

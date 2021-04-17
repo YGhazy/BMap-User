@@ -11,11 +11,14 @@
     </div>
   </div>-->
 </div>
-<main>
+<main class="{{langVar.arabicClass}}">
   <app-service-slider></app-service-slider>
+
   <section class=" mb-5">
     <div class="row pr-0 m-0">
+      <div class="col-12 col-md-6 aboutBG" data-aos="slide-left" data-aos-duration="700">
 
+      </div>
       <div class="col-11 col-md-6 aboutContent p-3 pr-0 pr-xl-5 m-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
         <h1 class="mb-3 {{langVar.textAlign}}">
           why us
@@ -37,54 +40,36 @@
           </button>
         </div>
       </div>
-      <div class="col-11 col-md-6 aboutBG" data-aos="slide-left" data-aos-duration="700">
+    </div>
+  </section>
 
+  <section id="credit" class="mb-5" >
+    <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="500" class="my-5 container">
+      <h1 class="text-center">
+        LOOKING FOR A SPECIFIC CREDIT CARD FEATURE?
+      </h1>
+      <p class="text-center col-6 m-auto">
+        We work as a partner to provide financial products and services that make banking safe, simple and convenient.
+      </p>
+      <div class="container">
+      <div class="d-flex justify-content-around py-5 ">
+        <div class=" imgContainer overlay site-blocks-cover">
+          <img src="../../../assets/images/login.png"  class=" "/>
+        </div>
+        <div class=" imgContainer">
+          <img src="../../../assets/images/login.png" />
+        </div>
+        <div class=" imgContainer">
+          <img src="../../../assets/images/login.png" />
+        </div>
+      </div>
       </div>
     </div>
   </section>
 
   <!--Bank slider section-->
   <app-bank-slider></app-bank-slider>
-  <div id="beforeSubscribe"></div>
-  <section id="subscribeContainer" data-aos="fade-up" data-aos-delay="500" data-aos-duration="500">
-    <div class="row m-auto">
 
-      <div class="col-11 col-xl-6 subscribe m-auto p-4">
-        <div class="row " dir="{{langVar.dir}}">
-          <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-5 mb-md-0">
-            <h4 class="text-white">{{langVar.subscribeNw}}</h4>
-          </div>
-          <div class="col-12 col-md-7 ">
-
-            <form [formGroup]="SubscribeForm" class="footer-subscribe d-flex align-items-center justify-content-center">
-              <div class="input-group" dir="ltr">
-                <input type="text" formControlName="email" class="form-control border-secondary text-white bg-white" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                  <button class="btn btn-primary text-black" type="button" id="button-addon2" [disabled]="!SubscribeForm.valid" (click)="Subscribe()">{{langVar.send}}</button>
-                </div>
-              </div>
-            </form>
-
-            <div *ngIf="f.email.invalid
-                       && (f.email.dirty
-                       || f.email.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-              <div *ngIf="f.email.errors.required">
-                test
-              </div>
-              <div *ngIf="f.email.errors.pattern">
-                pattern
-              </div>
-            </div>
-            <div class="alert alert-success" *ngIf="f.email.invalid && f.email.errors.required" >
-              {{errorMsg}}
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-
+  <!--subscription section-->
+  <app-subscription></app-subscription>
 </main>
