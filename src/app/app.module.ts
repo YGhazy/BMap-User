@@ -13,7 +13,6 @@ import { RequestsComponent } from './modules/requests/requests.component';
 @NgModule({
   declarations: [
     AppComponent,
-    RequestsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,41 @@
-<p>requests works!</p>
+<div class=" site-blocks-cover background"
+    style="background-image: url(./assets/images/requested-services/reqservicesbg.png);" data-aos="fade">
+
+</div>
+
+<main class="{{langVar.arabicClass}}">
+
+    <h1 class="{{langVar.textAlign}}">
+        Requested Services
+    </h1>
+
+    <div class="tableContainer">
+        <p-table [value]="requestedServices">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th></th>
+                    <th>Service Name</th>
+                    <th>Service Type</th>
+                    <th>Requested Date</th>
+                    <th>Bank</th>
+                    <th>Service Status</th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-requestedService let-i="rowIndex+1">
+                <tr>
+                    <td>{{i}}</td>
+                    <td>{{requestedService.services.nameEN}}</td>
+                    <td>{{requestedService.serviceTypes.nameEN}}</td>
+                    <td>{{requestedService.date | date: 'MMM d, y, h:mm a'}}</td>
+                    <td>{{requestedService.banks.name}}</td>
+                    <td [ngClass]="{'text-warning':requestedService.status=='Pending', 'text-danger':requestedService.status == 'Rejected', 'text-success':requestedService.status == 'Approved'}">{{requestedService.status}}</td>
+                    <td><button class="btn btn-primary" *ngIf="requestedService.status == 'Pending'" (click)="DisplayCancellationConfirmation(requestedService.id)">Cancel</button></td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</main>
+
+
+<app-modal (SetConfirmation)="ModalResponse($event)"></app-modal>

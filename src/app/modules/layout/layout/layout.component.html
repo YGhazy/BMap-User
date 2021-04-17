@@ -53,10 +53,9 @@
                   <li *ngFor="let service of ServicesList">
                     <a class="nav-link" (click)="ToService(service.id)">{{service.nameEN}}</a>
                   </li>
-             
                 </ul>
               </li>
-              <li><a (click)="route('requests')" class="nav-link">Requested Services</a></li>
+              <li><a (click)="route('requested-services')" class="nav-link">Requested Services</a></li>
               <li><a (click)="route('contact')" class="nav-link">Contact Us</a></li>
               <li><a (click)="route('login')" class="nav-link"> login</a></li>
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
@@ -78,7 +77,6 @@
 
   <!--Footer section-->
   <footer class="site-footer">
-    <!--debug: Scroll destination currently placed here-->
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -96,9 +94,9 @@
               <h2 class="footer-heading mb-2"> Links</h2>
               <div class="row p-2">
                 <ul class="col-4">
-                  <li><a  class="smoothscroll "> Home</a></li>
+                  <li><a  class="smoothscroll" (click)="route('/home')"> Home</a></li>
                   <li><a  class="smoothscroll">Services</a></li>
-                  <li><a  class="smoothscroll">About Us</a></li>
+                  <li><a  class="smoothscroll" (click)="route('/about-us')">About Us</a></li>
 
                 </ul>
 

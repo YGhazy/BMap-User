@@ -1,0 +1,38 @@
+.background {
+ background-position: bottom;
+ background-size: cover;
+ height: 70vh;
+}
+h1, h4 {
+ color: #000000;
+ font-family: 'Poppins', sans-serif;
+}
+h1 
+{
+ text-shadow: 2px 2px 7px #000000bc;
+ margin-top: -100px;
+ margin-left: 6rem;
+}
+main {
+ position: relative;
+}
+
+.tableContainer{
+    margin: 85px;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th{
+    color: #fff;
+    background: #1351c3;
+    text-align: center;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td{
+    text-align: center !important;
+}
+
+.btn-primary{
+    background-color: #1351c3;
+    padding-right: 20px;
+padding-left: 20px;
+}
