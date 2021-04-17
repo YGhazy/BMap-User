@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { langHelper } from 'src/app/services/utilities/language-helper';
 import { ServicesService } from '../../../services/ServicesService';
+import { JSInitializer } from '../../../services/utilities/javascript-initializer';
 
 @Component({
   selector: 'app-layout',
@@ -14,9 +15,13 @@ export class LayoutComponent implements OnInit {
   currentLang;
   ServicesList;
   isLoading: boolean=true
-  constructor(private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
+  constructor(private jsLoader: JSInitializer,private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode();
+
+    this.jsLoader.InitializeScript('jquery.sticky.js');
+    this.jsLoader.InitializeMainScript();
+
     this.currentLang = this.langHelper.currentLang;
 
     this.ServicesService.GetAllServices().subscribe(res => {
@@ -25,6 +30,7 @@ export class LayoutComponent implements OnInit {
     }, error => {
       console.log(error);
     });
+
   }
   route(url) {
 
