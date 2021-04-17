@@ -70,7 +70,7 @@ export class AuthenticationService extends BaseService {
         }
         return false;
     }
-    GetAdminAccountViaToken(token: string): Observable<ApiResponse> {
+    GetAccountViaToken(token: string): Observable<ApiResponse> {
         return this.get(API_CONSTANTS.GetUserAccountByToken + token);
     }
 

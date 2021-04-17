@@ -13,19 +13,24 @@ import { ContactComponent } from '../contact/contact.component';
 import { RegisterComponent } from '../register/register.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { ServicesComponent } from '../services/services.component';
-
+import { RequestsComponent } from '../requests/requests.component';
+import {TableModule} from 'primeng/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
-    ContactComponent, ServicesComponent,
+    ContactComponent, RequestsComponent,
     RegisterComponent, AboutUsComponent],
   imports: [
     BrowserModule, 
     CommonModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     ReactiveFormsModule,
     LayoutRoutingModule,
+    TableModule,
     SharedModule
   ]
 })
