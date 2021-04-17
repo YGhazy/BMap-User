@@ -74,7 +74,7 @@ export class ServiceComponent implements OnInit {
 
   //Fetch user details via token
   FetchUserDetails() {
-    this.authService.GetAccountViaToken(this.authService.getToken()).subscribe(res => {
+    this.authService.GetAccountViaToken().subscribe(res => {
       if (res.succeeded) {
         this.clientDetails = res.data;
       }
