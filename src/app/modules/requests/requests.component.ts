@@ -36,7 +36,7 @@ export class RequestsComponent implements OnInit {
   //fetch customer service requests via session token
   LoadServiceRequests() {
     //fetch user details via session token
-    this.authService.GetAccountViaToken(this.authService.getToken()).subscribe(res => {
+    this.authService.GetAccountViaToken().subscribe(res => {
       if (res.succeeded) {
         this.client = res.data;
         console.log(res.data);

@@ -14,7 +14,7 @@
     <div class="site-mobile-menu-body">
       <ul class="site-nav-wrap">
         <li><a class="nav-link clickableLink">Home</a></li>
-          <li class="has-children">
+        <li class="has-children">
           <a class="nav-link ">Our services</a>
           <ul class="dropdown" *ngIf="ServicesList">
             <li *ngFor="let service of ServicesList">
@@ -39,14 +39,14 @@
       <div class="row align-items-center">
 
         <div class="col-6 col-xl-2">
-          <h1 class="mb-0 site-logo"><a routerLink="/layout" class="h2 mb-0"><div class="logo-image"></div></a></h1>
+          <h1 class="mb-0 site-logo"><a routerLink="/home" class="h2 mb-0"><div class="logo-image"></div></a></h1>
         </div>
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right " role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
               <li><a (click)="route('home')" class="nav-link">Home</a></li>
               <li><a (click)="route('about-us')" class="nav-link">About Us</a></li>
-    
+
               <li class="has-children">
                 <a class="nav-link ">Our services</a>
                 <ul class="dropdown" *ngIf="ServicesList">
@@ -55,9 +55,32 @@
                   </li>
                 </ul>
               </li>
-              <li><a (click)="route('requested-services')" class="nav-link">Requested Services</a></li>
+              <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized">Requested Services</a></li>
               <li><a (click)="route('contact')" class="nav-link">Contact Us</a></li>
-              <li><a (click)="route('login')" class="nav-link"> login</a></li>
+
+              <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized"> login</a></li>
+              <li>
+                <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
+                  <div class="loginbtn">
+                    <a>
+
+                      logout
+                    </a>
+
+                  </div>
+                </a>
+              </li>
+              <li class="">
+                <a (click)="route('profile')" class="nav-link " *ngIf="isAuthorized">
+                  <div class="initials">
+                    <a>
+
+                      {{initials}}
+                    </a>
+                  </div>
+                </a>
+              </li>
+
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
 
             </ul>
@@ -94,9 +117,9 @@
               <h2 class="footer-heading mb-2"> Links</h2>
               <div class="row p-2">
                 <ul class="col-4">
-                  <li><a  class="smoothscroll" (click)="route('/home')"> Home</a></li>
-                  <li><a  class="smoothscroll">Services</a></li>
-                  <li><a  class="smoothscroll" (click)="route('/about-us')">About Us</a></li>
+                  <li><a class="smoothscroll" (click)="route('/home')"> Home</a></li>
+                  <li><a class="smoothscroll">Services</a></li>
+                  <li><a class="smoothscroll" (click)="route('/about-us')">About Us</a></li>
 
                 </ul>
 
@@ -109,9 +132,9 @@
               </h2>
               <div class="row p-2">
                 <ul class="col-4 list-group">
-                  <li><a  class="smoothscroll ">+201133223344</a></li>
-                  <li><a  class="smoothscroll"> Bmap@gmail.com</a></li>
-                  <li><a  class="smoothscroll">Dubai</a></li>
+                  <li><a class="smoothscroll ">+201133223344</a></li>
+                  <li><a class="smoothscroll"> Bmap@gmail.com</a></li>
+                  <li><a class="smoothscroll">Dubai</a></li>
 
                 </ul>
 
@@ -121,12 +144,12 @@
         </div>
       </div>
       <div class=" text-center  d-flex justify-content-between">
-          <p>
-            Copyright &copy; 2021, All rights reserved | <a style="text-decoration:none;">BMap</a>
-          </p>
-          <p>
-            <a>Terms</a>  | <a>Policy</a>
-          </p>
+        <p>
+          Copyright &copy; 2021, All rights reserved | <a style="text-decoration:none;">BMap</a>
+        </p>
+        <p>
+          <a>Terms</a>  | <a>Policy</a>
+        </p>
       </div>
     </div>
   </footer>

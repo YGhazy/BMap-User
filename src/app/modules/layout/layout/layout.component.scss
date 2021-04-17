@@ -36,3 +36,41 @@ footer {
     color: #9c9ca8cc;
   }
 }
+.loginbtn {
+  background-color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  position:relative;
+  a {
+    color: #0b71de !important;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  img {
+    display: none;
+    position:absolute;
+  }
+}
+.initials {
+  background-color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  min-width: 30px;
+  max-width: 70px;
+  height: 30px;
+
+  a {
+    color: #0b71de !important;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+}
+.loginbtn:hover {
+  img {
+    display: block;
+  }
+}
