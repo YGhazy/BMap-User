@@ -18,7 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 export class RequestsComponent implements OnInit {
 
   langVar;
-  requestedServices: ServiceRequest;
+  requestedServices: ServiceRequest[];
   client: ApplicationUser;
   selectedRequestID: number;
 
@@ -35,11 +35,6 @@ export class RequestsComponent implements OnInit {
 
   //fetch customer service requests via session token
   LoadServiceRequests() {
-    var sessionToken = this.authService.getToken();
-    if (sessionToken == null || sessionToken == undefined) {
-      console.log("error fetching token");
-      return;
-    }
     //fetch user details via session token
     this.authService.GetAccountViaToken(this.authService.getToken()).subscribe(res => {
       if (res.succeeded) {
@@ -67,8 +62,9 @@ export class RequestsComponent implements OnInit {
     this.serviceRequestService.DeleteServiceRequest(requestToCancel).subscribe(res => {
       if (res.succeeded) {
         this.modalComponent.preloader.hide();
+        this.requestedServices = this.requestedServices.filter(rs => rs.id != this.selectedRequestID);
         //Display success toast
-        this.toastr.success('Request', 'cancelled', {
+        this.toastr.success('Request cancelled', 'Success', {
           disableTimeOut: false,
           closeButton: true,
           positionClass: 'toast-top-center'

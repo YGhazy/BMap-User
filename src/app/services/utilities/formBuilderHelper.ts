@@ -44,6 +44,11 @@ export class formBuilderHelper {
       country: [Validators.required],
       street: [Validators.required],
       accountType: [Validators.required],
+      //Application request validations
+      serviceType: [Validators.required],
+      bankName: [Validators.required],
+      note: [Validators.required],
+      acknowledgment: [Validators.required],
     }
   }
 

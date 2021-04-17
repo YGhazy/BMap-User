@@ -1,5 +1,5 @@
-
-<div id="centerdiv" *ngIf="!service"> <!--  preloader-->
+<!--  preloader-->
+<div id="centerdiv" *ngIf="!service">
   <ul>
     <li></li>
     <li></li>
@@ -9,29 +9,134 @@
     <li></li>
   </ul>
 </div>
-
-<div *ngIf="service">
-       <!--style=" background-image: url({{service[0].header}});"-->
+<div>
+  <!--style=" background-image: url({{service[0].header}});"-->
   <div class="site-blocks-cover background "
-       style=" background-image: url(./assets/images/covers/service.png);"
-       *ngIf="service" data-aos="fade">
-
+    style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);" *ngIf="service"
+    data-aos="fade">
   </div>
-  <section class="container pt-2 mb-5" >
-    <h1 data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
-      {{service[0].nameEN}}
+  <section class="container pt-2 mb-5" *ngIf="service && !isRequestingService">
+    <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+      {{service.nameEN}}
     </h1>
-    <p data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
-      {{service[0].descriptionEN}}
+    <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+      {{service.descriptionEN}}
 
     </p>
     <div class="text-right">
 
-    <button class=" mx-5" data-aos="fade-up" data-aos-delay="300" data-aos-duration="700" >
-      Request
-    </button>
+      <button class="mx-5" data-aos="fade-up" data-aos-duration="600" (click)="DisplayApplicationForm()">
+        Request
+      </button>
     </div>
   </section>
+  <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
+    <h1 data-aos="fade-up">
+      Please fill in the details to receive a call back with more details about this product
+    </h1>
+
+    <form data-aos="fade-up" class="mb-5" [formGroup]="applicationForm">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <label for="serviceName">Service Name</label>
+            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameEN}}" readonly />
+          </div>
+          <div class="col-6">
+            <label for="phoneNumber">Phone Number</label>
+            <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
+              placeholder="+20-" />
+            <div
+              *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
+              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="applicationFormControls.mobileNumber.errors.required">
+                Phone name is required
+              </div>
+              <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
+                Phone Number must be in a correct format
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <label for="serviceType">Select Type</label>
+            <div class="dropdown">
+              <input id="serviceType" type="text" class="form-control" formControlName="serviceType"
+                placeholder="{{selectedServiceType.nameEN}}" [(ngModel)]="selectedServiceType.nameEN" readonly />
+              <i class="arrow down"></i>
+              <div class="dropdown-content" *ngFor="let serviceType of service.serviceTypes;">
+                <a (click)="SelectItem(0, serviceType.id)">{{serviceType.nameEN}}</a>
+              </div>
+              <div
+                *ngIf="applicationFormControls.serviceType.invalid && (applicationFormControls.serviceType.dirty|| applicationFormControls.serviceType.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.serviceType.errors.required">
+                  Service type is required
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="serviceName">Select Bank</label>
+            <div class="dropdown" *ngIf="banks">
+              <input id="bankName" type="text" class="form-control" formControlName="bankName"
+                placeholder="{{selectedBank.name}}" [(ngModel)]="selectedBank.name" readonly />
+              <i class="arrow down"></i>
+              <div class="dropdown-content" *ngFor="let bank of banks;">
+                <a (click)="SelectItem(1, bank.id)">{{bank.name}}</a>
+              </div>
+              <div
+                *ngIf="applicationFormControls.bankName.invalid && (applicationFormControls.bankName.dirty|| applicationFormControls.bankName.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.bankName.errors.required">
+                  Bank is required
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+            <div class="textareaContainer">
+              <label>Note</label>
+              <textarea class="form-control" formControlName="note"></textarea>
+              <div
+                *ngIf="applicationFormControls.note.invalid && (applicationFormControls.note.dirty|| applicationFormControls.note.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.note.errors.required">
+                  You must add notes before proceeding
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="row">
+              <input type="checkbox" id="privacyCheckbox" formControlName="acknowledgment">
+              <label for="privacyCheckbox" class="checkboxLabel">I hereby acknowledge
+                and allow Soulwallet to share the
+                above details with the provider to contact me & access my details from the Egyptian credit bureau as
+                needed. I agree to the Terms and Conditions listed.</label>
+              <div
+                *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.acknowledgment.errors.required">
+                  You must accept accept the terms to proceed
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6">
+          </div>
+          <div class="col-6 text-right">
+            <button class="mx-5" [disabled]="!applicationForm.valid" (click)="SubmitServiceRequest()">
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
 </div>
-
-

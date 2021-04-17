@@ -1,8 +1,9 @@
-export interface CreateServiceRequest{
+export interface ServiceRequest{
+  id: number,
   date: Date,
-  note: string,
+  status: string,
   customerId: number,
   servicesId: number,
   serviceTypesId: number,
-  banksId: number
+  
 }
