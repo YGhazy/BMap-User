@@ -68,22 +68,36 @@ button:active, button:focus, button:hover {
     width: 170px;
     height: 170px;
     cursor: pointer;
-    transition:  all 2s ease-in-out;
+    transition: all 2s ease-in-out;
+    position: relative;
+    background: url(../../../assets/images/login.png) no-repeat 0 0;
+    background-position: center;
+    background-size: contain;
   }
 
-  .imgContainer :hover, .imgContainer :active {
+  .imgContainer :hover, .imgContainer :active .imgContainer
+  {
     transform: scale(1.2);
     transition: all 1s ease-in-out;
   }
+}
+.site-blocks-cover{
+    min-height:100%;
+}
+.overlay {
+  transition: .5s ease;
+  width: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 100%;
+  height: auto;
+}
+.imgContainer:hover .overlay {
+  right: 0;
+  width: 100%;
+}
 
-  img {
-    width: 100%;
-    object-fit: contain
-  }
-}
-.overlay :before{
-  background-color: #0d13d7;
-}
 .arabic {
 }
 @media screen and (max-width: 1024px) {
