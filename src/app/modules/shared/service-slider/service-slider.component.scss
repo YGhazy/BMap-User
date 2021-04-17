@@ -3,6 +3,10 @@
   margin: 0 auto;
 }
 
+h1{
+  color: #000000;
+  font-weight: 500;
+}
 .imageContainer{
   margin-top: 5% !important;
   width: 200px !important;
@@ -12,6 +16,7 @@
   background-color: #f9f9ff;
   h1{
     font-size: 23px;
+    text-align: center;
     color: #000000;
     font-weight: 500;
   }
