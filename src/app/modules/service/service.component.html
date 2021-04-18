@@ -12,7 +12,11 @@
 <div>
   <!--style=" background-image: url({{service[0].header}});"-->
   <div class="site-blocks-cover background "
-    style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);" *ngIf="service"
+    style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);"
+    data-aos="fade" *ngIf="!service || service && service.header == null || service.header == undefined">
+  </div>
+  <div class="site-blocks-cover background " *ngIf="service && service.header != null"
+    style=" background-image: url({{service.header}});"
     data-aos="fade">
   </div>
   <section class="container pt-2 mb-5" *ngIf="service && !isRequestingService">
