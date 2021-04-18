@@ -4,18 +4,31 @@
   background-size: cover;
   background-position: bottom;
   background-size: cover;
-  height: 65vh;
+  height: 69vh !important;
+  min-height: 69vh !important;
+  position: relative;
   -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 55%);
-  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 61%);
   /*  transform: skewY(2deg);
   transform-origin: top right;*/
   /*  border-bottom-left-radius: 96% 127%;
   border-bottom-right-radius: 50% 88%*/
 }
+
+.site-blocks-cover {
+  min-height: 75vh;
+  height: calc(75vh);
+}
 .overlay:before {
-  background: #1351c371;
-  border-bottom-left-radius: 96% 127%;
-  border-bottom-right-radius: 50% 88%
+  min-height: 75vh;
+  background-color: #d5d5d5;
+  background-size: 300px 100px, cover;
+  -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
+}
+.bg{
+    /*position:absolute;*/
+
 }
 button {
   border-radius: 7px;
