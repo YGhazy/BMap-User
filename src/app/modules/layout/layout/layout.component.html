@@ -43,7 +43,7 @@
         </div>
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right " role="navigation">
-            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center">
               <li><a (click)="route('home')" class="nav-link">Home</a></li>
               <li><a (click)="route('about-us')" class="nav-link">About Us</a></li>
 
@@ -71,13 +71,17 @@
                 </a>
               </li>
               <li class="">
-                <a (click)="route('profile')" class="nav-link " *ngIf="isAuthorized">
+                <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg">
+
+                </a>
+                <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
                   <div class="initials">
                     <a>
 
                       {{initials}}
                     </a>
                   </div>
+
                 </a>
               </li>
 
