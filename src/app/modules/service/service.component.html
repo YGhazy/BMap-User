@@ -12,14 +12,17 @@
 <div>
   <!--style=" background-image: url({{service[0].header}});"-->
   <div class="site-blocks-cover background "
-    style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);" data-aos="fade"
-    *ngIf="!service || service && service.header == null || service.header == undefined">
+       style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);" data-aos="fade"
+       *ngIf="!service || service && service.header == null || service.header == undefined">
   </div>
-  <div class="site-blocks-cover background " *ngIf="service && service.header != null"
-    style=" background-image: url({{service.header}});" data-aos="fade">
+  <div class="site-blocks-cover overlay" *ngIf="service && service.header != null"
+        data-aos="fade">
+    <div class="background site-blocks-cover" style=" background-image: url({{service.header}});">
+
+    </div>
   </div>
   <section class="container pt-2 mb-5" *ngIf="service && !isRequestingService">
-    <h1 data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+    <h1 >
       {{service.nameEN}}
     </h1>
     <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
@@ -50,10 +53,9 @@
           <div class="col-lg-6 col-12">
             <label for="phoneNumber">Phone Number</label>
             <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
-              placeholder="+20-" />
-            <div
-              *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
-              class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                   placeholder="+20-" />
+            <div *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
               <div *ngIf="applicationFormControls.mobileNumber.errors.required">
                 Phone name is required
               </div>
@@ -68,15 +70,14 @@
             <label for="serviceType">Select Type</label>
             <div class="dropdown">
               <input id="serviceType" type="text" class="form-control" formControlName="serviceType" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" placeholder="{{selectedServiceType.nameEN}}"
-                [(ngModel)]="selectedServiceType.nameEN" readonly />
+                     aria-haspopup="true" aria-expanded="false" placeholder="{{selectedServiceType.nameEN}}"
+                     [(ngModel)]="selectedServiceType.nameEN" readonly />
               <i class="arrow down"></i>
               <div class="dropdown-menu" aria-labelledby="serviceType" *ngFor="let serviceType of service.serviceTypes;">
                 <a (click)="SelectItem(0, serviceType.id)">{{serviceType.nameEN}}</a>
               </div>
-              <div
-                *ngIf="applicationFormControls.serviceType.invalid && (applicationFormControls.serviceType.dirty|| applicationFormControls.serviceType.touched)"
-                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="applicationFormControls.serviceType.invalid && (applicationFormControls.serviceType.dirty|| applicationFormControls.serviceType.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.serviceType.errors.required">
                   Service type is required
                 </div>
@@ -87,15 +88,14 @@
             <label for="serviceName">Select Bank</label>
             <div class="dropdown" *ngIf="banks">
               <input id="bankName" type="text" class="form-control" formControlName="bankName"
-                placeholder="{{selectedBank.name}}" [(ngModel)]="selectedBank.name" readonly data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false"/>
+                     placeholder="{{selectedBank.name}}" [(ngModel)]="selectedBank.name" readonly data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false" />
               <i class="arrow down"></i>
               <div class="dropdown-menu" aria-labelledby="bankName" *ngFor="let bank of banks;">
                 <a (click)="SelectItem(1, bank.id)">{{bank.name}}</a>
               </div>
-              <div
-                *ngIf="applicationFormControls.bankName.invalid && (applicationFormControls.bankName.dirty|| applicationFormControls.bankName.touched)"
-                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="applicationFormControls.bankName.invalid && (applicationFormControls.bankName.dirty|| applicationFormControls.bankName.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.bankName.errors.required">
                   Bank is required
                 </div>
@@ -108,9 +108,8 @@
             <div class="textareaContainer">
               <label>Note</label>
               <textarea class="form-control" formControlName="note"></textarea>
-              <div
-                *ngIf="applicationFormControls.note.invalid && (applicationFormControls.note.dirty|| applicationFormControls.note.touched)"
-                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+              <div *ngIf="applicationFormControls.note.invalid && (applicationFormControls.note.dirty|| applicationFormControls.note.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.note.errors.required">
                   You must add notes before proceeding
                 </div>
@@ -120,13 +119,14 @@
           <div class="col-lg-6 col-12">
             <div class="row">
               <input type="checkbox" id="privacyCheckbox" formControlName="acknowledgment">
-              <label for="privacyCheckbox" class="checkboxLabel">I hereby acknowledge
+              <label for="privacyCheckbox" class="checkboxLabel">
+                I hereby acknowledge
                 and allow Soulwallet to share the
                 above details with the provider to contact me & access my details from the Egyptian credit bureau as
-                needed. I agree to the Terms and Conditions listed.</label>
-              <div
-                *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
-                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                needed. I agree to the Terms and Conditions listed.
+              </label>
+              <div *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.acknowledgment.errors.required">
                   You must accept accept the terms to proceed
                 </div>
