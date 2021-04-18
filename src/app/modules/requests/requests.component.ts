@@ -9,6 +9,7 @@ import { ModalComponent } from '../shared/modal/modal.component';
 import { ModalResponse } from 'src/app/enums/modal-response';
 import { DeleteObjectModel } from 'src/app/models/http-models/delete-object-model';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requests',
@@ -25,7 +26,7 @@ export class RequestsComponent implements OnInit {
   //Modal
   @ViewChild(ModalComponent) modalComponent: ModalComponent;
 
-  constructor(private langHelper: langHelper, private serviceRequestService: ServicesService, private authService: AuthenticationService, private toastr: ToastrService) { }
+  constructor(private langHelper: langHelper, private router: Router, private serviceRequestService: ServicesService, private authService: AuthenticationService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
@@ -51,7 +52,12 @@ export class RequestsComponent implements OnInit {
         });
       }
     }, error => {
-      console.log("error fetching account via session token");
+      this.toastr.error('Unable to fetch account details', 'Error', {
+        disableTimeOut: false,
+        closeButton: true,
+        positionClass: 'toast-top-center'
+      });
+      this.router.navigate(['/login']);
     });
   }
 
