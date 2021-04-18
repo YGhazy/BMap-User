@@ -28,11 +28,13 @@
     </p>
     <div class="text-right">
 
-      <button class="mx-5" data-aos="fade-up" data-aos-duration="600" (click)="DisplayApplicationForm()">
+      <button class="mx-5" data-aos="fade-up" data-aos-duration="600" *ngIf="canRequestService" (click)="DisplayApplicationForm()">
         Request
       </button>
     </div>
   </section>
+
+  <!--Application form section-->
   <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
     <h1 data-aos="fade-up">
       Please fill in the details to receive a call back with more details about this product
