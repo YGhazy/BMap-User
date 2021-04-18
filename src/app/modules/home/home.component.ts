@@ -20,7 +20,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
-    AOS.refresh();
+    //AOS.refresh();
+    AOS.refresh({
+ 
+      disable: 'mobile'
+
+    });
   }
 
 
