@@ -41,7 +41,7 @@ export class ServiceComponent implements OnInit {
     this.ServicesService.GetAllServices().subscribe(res => {
       let ServicesList = res.data;
       this.service = ServicesList.find(a => a.id == parseInt(selectedServiceID))
-      console.log(this.service);
+      // console.log(this.service);
     }, error => {
       console.log(error);
     });
@@ -117,6 +117,10 @@ export class ServiceComponent implements OnInit {
     });
   }
 
+  //Hide/show dropdown menu
+  CloseDropDown(event){
+    
+  }
   get applicationFormControls() {
     return this.applicationForm.controls;
   }

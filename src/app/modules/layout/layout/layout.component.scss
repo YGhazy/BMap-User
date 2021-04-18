@@ -24,8 +24,10 @@ a{
 
 }
 .nav-link{
-cursor:pointer;
-    }
+  cursor:pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
 footer {
   li, a {
     list-style: none;
@@ -35,6 +37,9 @@ footer {
   a:hover, li:hover {
     color: #9c9ca8cc;
   }
+}
+.highlighted{
+  border-bottom: 1px solid #0b71de;
 }
 .loginbtn {
   background-color: #fff;

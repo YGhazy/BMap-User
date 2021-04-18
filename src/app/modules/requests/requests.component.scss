@@ -21,18 +21,34 @@ main {
     margin: 85px;
 }
 
-:host ::ng-deep .p-datatable .p-datatable-thead > tr > th{
+thead tr th{
     color: #fff;
     background: #1351c3;
     text-align: center;
 }
 
-:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td{
+tbody tr td{
     text-align: center !important;
 }
 
 .btn-primary{
     background-color: #1351c3;
     padding-right: 20px;
-padding-left: 20px;
+    padding-left: 20px;
+}
+
+
+@media screen and (max-width: 900px) {
+    .tableContainer{
+        margin: 0;
+    }    
+    h1{
+        margin-left: 1rem;
+        font-size: 28px;
+        margin-top: -60px;
+        margin-bottom: 3%;
+    }
+    thead tr th{
+        font-size: 15px;
+    }
 }
