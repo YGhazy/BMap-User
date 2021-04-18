@@ -1,4 +1,11 @@
 
+   .background {
+    height: 8.5vh;
+    background: #1351c3;
+   }
+   .mainContainer{
+       margin-top: 10em;
+   }
    h1, h4 {
     color: #000000;
     font-family: 'Poppins', sans-serif;
@@ -20,27 +27,40 @@
    .table{
        box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.10);
    }
-   
-   thead tr th{
-       color: #fff;
-       background: #1351c3;
-       text-align: center;
-   }
+
    
    tbody tr td{
-       text-align: center !important;
+       text-indent: 30px;
        font-weight: 500;
        font-family: 'Poppins', sans-serif; 
    }
    
    .btn-primary{
        background-color: #1351c3;
-       padding-right: 20px;
-       padding-left: 20px;
+       padding-right: 40px;
+       padding-left: 40px;
    }
    
-   
+   .header{
+    display: table-cell;
+    width: 260px;
+    color: #ffffff;
+    background-color: #1351c3;
+   }
+   .body{
+    color: #8c929c;
+    background-color: #ffffff;
+   }
+   .form-control{
+    border-radius: 5px;
+    width: 100%;
+    max-width: 145px;
+    display: inline-block;
+   }
    @media screen and (max-width: 900px) {
+    .mainContainer{
+        margin-top: 7em;
+    }
        .tableContainer{
            margin: 0;
        }    
