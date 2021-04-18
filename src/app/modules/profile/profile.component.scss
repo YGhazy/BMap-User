@@ -1,0 +1,56 @@
+
+   h1, h4 {
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
+   }
+   h1 
+   {
+    text-shadow: 2px 2px 7px #000000bc;
+    margin-top: -100px;
+    margin-left: 6rem;
+   }
+   main {
+    position: relative;
+   }
+   
+   .tableContainer{
+       margin: 85px;
+   }
+   
+   .table{
+       box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.10);
+   }
+   
+   thead tr th{
+       color: #fff;
+       background: #1351c3;
+       text-align: center;
+   }
+   
+   tbody tr td{
+       text-align: center !important;
+       font-weight: 500;
+       font-family: 'Poppins', sans-serif; 
+   }
+   
+   .btn-primary{
+       background-color: #1351c3;
+       padding-right: 20px;
+       padding-left: 20px;
+   }
+   
+   
+   @media screen and (max-width: 900px) {
+       .tableContainer{
+           margin: 0;
+       }    
+       h1{
+           margin-left: 1rem;
+           font-size: 28px;
+           margin-top: -60px;
+           margin-bottom: 3%;
+       }
+       thead tr th{
+           font-size: 15px;
+       }
+   }

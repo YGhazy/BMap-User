@@ -21,6 +21,10 @@ main {
     margin: 85px;
 }
 
+.table{
+    box-shadow: 0 3px 22px 0 rgba(0, 0, 0, 0.10);
+}
+
 thead tr th{
     color: #fff;
     background: #1351c3;
@@ -29,6 +33,8 @@ thead tr th{
 
 tbody tr td{
     text-align: center !important;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif; 
 }
 
 .btn-primary{
