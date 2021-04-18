@@ -20,10 +20,8 @@
             <li *ngFor="let service of ServicesList">
               <a class="nav-link" (click)="ToService(service.id)">{{service.nameEN}}</a>
             </li>
-
           </ul>
         </li>
-
         <li><a class="nav-link clickableLink">Contact Us</a></li>
         <li class="social"><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
         <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
@@ -63,40 +61,30 @@
                 <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
                   <div class="loginbtn">
                     <a>
-
                       logout
                     </a>
-
                   </div>
                 </a>
               </li>
               <li class="">
                 <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg">
-
                 </a>
                 <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
                   <div class="initials">
                     <a>
-
                       {{initials}}
                     </a>
                   </div>
-
                 </a>
               </li>
-
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
-
             </ul>
           </nav>
         </div>
-
         <!--Mobile navigation button-->
         <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
-
       </div>
     </div>
-
   </header>
 
   <!--Router outlet section-->
@@ -111,7 +99,6 @@
             <div class="col-md-4 pr-4">
               <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
               <div class="ml-2">
-
                 <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
                 <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
                 <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
@@ -124,12 +111,9 @@
                   <li><a class="smoothscroll" (click)="route('/home')"> Home</a></li>
                   <li><a class="smoothscroll">Services</a></li>
                   <li><a class="smoothscroll" (click)="route('/about-us')">About Us</a></li>
-
                 </ul>
-
               </div>
             </div>
-
             <div class="col-md-4 ml-auto ">
               <h2 class="footer-heading mb-2">
                 Contact Us
@@ -139,9 +123,7 @@
                   <li><a class="smoothscroll ">+201133223344</a></li>
                   <li><a class="smoothscroll"> Bmap@gmail.com</a></li>
                   <li><a class="smoothscroll">Dubai</a></li>
-
                 </ul>
-
               </div>
             </div>
           </div>

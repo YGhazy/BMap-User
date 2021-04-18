@@ -19,10 +19,12 @@ import { ServicesService } from '../../services/ServicesService';
 export class ServiceComponent implements OnInit {
   service: Service;
   banks: Bank[];
+  clientDetails: ApplicationUser;
+
   selectedServiceType: any = new String("");
   selectedBank: any = new String("");
+  canRequestService: boolean = false;
   isRequestingService: boolean = false;
-  clientDetails: ApplicationUser;
   applicationForm;
 
   constructor(private ServicesService: ServicesService, private bankService: BankService, private router: Router,
@@ -76,9 +78,11 @@ export class ServiceComponent implements OnInit {
   FetchUserDetails() {
     this.authService.GetAccountViaToken().subscribe(res => {
       if (res.succeeded) {
+        this.canRequestService = true;
         this.clientDetails = res.data;
       }
     }, error => {
+      this.canRequestService = false;
       console.log(error);
     });
   }
@@ -105,7 +109,7 @@ export class ServiceComponent implements OnInit {
         this.applicationForm.reset();
         setTimeout(() => {
           this.router.navigate(['/requested-services']);
-        },1000);
+        }, 1000);
       }
     }, error => {
       this.toastr.error('Failed to submit request', 'Error', {
@@ -118,8 +122,8 @@ export class ServiceComponent implements OnInit {
   }
 
   //Hide/show dropdown menu
-  CloseDropDown(event){
-    
+  CloseDropDown(event) {
+
   }
   get applicationFormControls() {
     return this.applicationForm.controls;
