@@ -4,10 +4,12 @@
   background-size: cover;
   background-position: bottom;
   background-size: cover;
-  height: 70vh;
+  height: 65vh;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 55%);
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
   /*  transform: skewY(2deg);
   transform-origin: top right;*/
-/*  border-bottom-left-radius: 96% 127%;
+  /*  border-bottom-left-radius: 96% 127%;
   border-bottom-right-radius: 50% 88%*/
 }
 .overlay:before {
