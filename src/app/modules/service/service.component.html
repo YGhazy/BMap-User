@@ -22,17 +22,24 @@
     </div>
   </div>
   <section class="container pt-2 mb-5" *ngIf="service && !isRequestingService">
-    <h1 >
+    <h1 *ngIf="currentLang=='en'" class="{{langVar.textAlign}}">
       {{service.nameEN}}
     </h1>
-    <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+    <h1 *ngIf="currentLang=='ar'" class="{{langVar.textAlign}}">
+      {{service.nameAR}}
+    </h1>
+    <p class=" {{langVar.textAlign}}" data-aos="fade-up" dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='ar'">
+      {{service.descriptionAR}}
+
+    </p>
+    <p class="{{langVar.textAlign}}" data-aos="fade-up " dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='en'">
       {{service.descriptionEN}}
 
     </p>
-    <div class="text-right">
+    <div class="text-center text-xl-right">
 
       <button class="mx-5" data-aos="fade-up" data-aos-duration="600" *ngIf="canRequestService" (click)="DisplayApplicationForm()">
-        Request
+        {{langVar.Request}}
       </button>
     </div>
   </section>

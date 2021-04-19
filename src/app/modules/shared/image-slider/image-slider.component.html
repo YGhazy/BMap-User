@@ -1,10 +1,8 @@
-<section>
+<section class="{{langVar.arabicClass}}">
   <div class="text-center mb-5" style="overflow-x:hidden;" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
     <div>
-      <h1 class="text-center">FEATURED PROVIDERS</h1>
-      <p class="mb-5 pt-2" style="margin: 0 auto; max-width: 40%;">It is a long established fact that a reader will be distracted by the readable content
-        of a page when looking
-        at its layout. </p>
+      <h1 class="text-center">{{langVar.backsCarousel.title}}</h1>
+      <p class="mb-5 pt-2" style="margin: 0 auto; max-width: 40%;" dir="{{langVar.dir}}">{{langVar.backsCarousel.content}} </p>
       <owl-carousel-o [options]="carouselOptions" *ngIf="bankList">
         <ng-container *ngFor="let bank of bankList">
           <ng-template carouselSlide id="owl-slide-{{bank.id}}">

@@ -10,6 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { BankService } from 'src/app/services/bank.service';
 import { formBuilderHelper } from 'src/app/services/utilities/formBuilderHelper';
 import { ServicesService } from '../../services/ServicesService';
+import { langHelper } from '../../services/utilities/language-helper';
 
 @Component({
   selector: 'app-service',
@@ -26,8 +27,9 @@ export class ServiceComponent implements OnInit {
   canRequestService: boolean = false;
   isRequestingService: boolean = false;
   applicationForm;
-
-  constructor(private ServicesService: ServicesService, private bankService: BankService, private router: Router,
+  currentLang;
+  langVar;
+  constructor(private langHelper: langHelper,private ServicesService: ServicesService, private bankService: BankService, private router: Router,
     private formBuilderHelper: formBuilderHelper, private authService: AuthenticationService, private toastr: ToastrService) {
     this.applicationForm = this.formBuilderHelper.CreateFormBuilder({
       mobileNumber: '',
@@ -39,7 +41,11 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLang = this.langHelper.currentLang;
+
     let selectedServiceID = localStorage.getItem('selectedServiceID');
+
     this.ServicesService.GetAllServices().subscribe(res => {
       let ServicesList = res.data;
       this.service = ServicesList.find(a => a.id == parseInt(selectedServiceID))
