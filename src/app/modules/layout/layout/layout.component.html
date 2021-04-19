@@ -113,46 +113,49 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="row">
+          <div class="row" dir="{{langVar.dir}}">
             <div class="col-md-4 pr-4">
               <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
-              <div class="ml-2">
+              <div class="ml-2 mb-2 {{langVar.textAlign}}" dir="{{langVar.dir}}">
                 <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
                 <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
                 <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
               </div>
             </div>
-            <div class="col-md-4 ml-auto ">
-              <h2 class="footer-heading mb-2"> Links</h2>
-              <div class="row p-2">
+            <div class="col-md-4 ml-auto {{langVar.textAlign}}">
+              <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
+              <div class="row p-2 " dir="{{langVar.dir}}">
                 <ul class="col-4">
-                  <li><a class="smoothscroll" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
-                  <li><a class="smoothscroll">Services</a></li>
-                  <li><a class="smoothscroll" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
+                  <li *ngFor="let service of ServicesList">
+                    <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+                    <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
+                  </li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
                 </ul>
               </div>
             </div>
-            <div class="col-md-4 ml-auto ">
-              <h2 class="footer-heading mb-2">
+            <div class="col-md-4 ml-auto {{langVar.textAlign}}">
+              <h2 class="footer-heading mb-2 ">
                 {{langVar.layout.contact}}
               </h2>
-              <div class="row p-2">
+              <div class="row p-2" dir="{{langVar.dir}}">
                 <ul class="col-4 list-group">
-                  <li><a class="smoothscroll ">+201133223344</a></li>
-                  <li><a class="smoothscroll"> Bmap@gmail.com</a></li>
-                  <li><a class="smoothscroll">Dubai</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}">+201133223344</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}"> Bmap@gmail.com</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}"> Dubai</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class=" text-center  d-flex justify-content-between">
-        <p>
-          Copyright &copy; 2021, All rights reserved | <a style="text-decoration:none;">BMap</a>
+      <div class=" text-center  d-flex justify-content-between "  dir="{{langVar.dir}}">
+        <p  dir="{{langVar.dir}}">
+          {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
         </p>
-        <p>
-          <a>Terms</a>  | <a>Policy</a>
+        <p  dir="{{langVar.dir}}">
+          <a>{{langVar.terms}}</a>  | <a>{{langVar.policy}}</a>
         </p>
       </div>
     </div>
