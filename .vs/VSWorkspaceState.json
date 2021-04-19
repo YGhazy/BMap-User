@@ -4,12 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\shared",
-    "\\src\\app\\modules\\shared\\service-slider",
-    "\\src\\app\\modules\\shared\\subscription",
+    "\\src\\app\\modules\\layout",
+    "\\src\\app\\modules\\layout\\layout",
+    "\\src\\app\\modules\\requests",
+    "\\src\\app\\modules\\service",
     "\\src\\assets",
-    "\\src\\assets\\images",
-    "\\src\\assets\\images\\landing"
+    "\\src\\assets\\css"
   ],
+  "SelectedNode": "\\src\\app\\modules\\service\\service.component.html",
   "PreviewInSolutionExplorer": false
 }
