@@ -9,6 +9,9 @@ export const Arabic: any = {
   menuCloseStyle: "arabicCloseButton",
   textAlign: "text-right",
   flexDIr: "flex-row-reverse",
+  copyRights1: "كل الحقوق محفوظة |",
+  terms: "شروط",
+  policy: "احكام",
   layout: {
     Home: "الرئيسية",
     about: "المزيد عنا",
@@ -17,6 +20,8 @@ export const Arabic: any = {
     logout: "الخروج",
     service: "خدماتنا",
     requests: "طلبات الخدمات",
+    links: "تصفح سريع"
+
   },
   Home: {
     More: "المزيد",

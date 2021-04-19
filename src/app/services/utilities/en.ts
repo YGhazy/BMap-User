@@ -10,7 +10,9 @@ export const English: any = {
   navFloat: "float-right",
   quickLinks: "Quick Links",
   followUs: "Follow Us",
-  copyRights1: "Copyright © 2021 All rights reserved",
+  copyRights1: "Copyright &copy; 2021, All rights reserved |",
+  terms:"Terms",
+  policy:"Policy",
   layout: {
     Home: "Home",
     about: "About Us",
@@ -19,6 +21,7 @@ export const English: any = {
     logout: "Logout",
     service: "Our services",
     requests: "Requested Services",
+    links:"Links"
   },
   Home: {
     More: "More",
