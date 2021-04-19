@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-12 col-md-6 background" data-aos="fade">
       <div class="logo">
-        <img src="../../../../assets/images/bmap logo 2.png" routerLink="/home" style="cursor: pointer;"/>
+        <img src="../../../../assets/images/bmap logo 2.png" routerLink="/home" style="cursor: pointer;" />
       </div>
 
     </div>
@@ -16,58 +16,92 @@
         </p>
         <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
 
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
+          <div class=" d-flex w-100" *ngIf="currentPage == 1">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="firstName"
                 placeholder="First Name" aria-label="firstName">
-              <!-- <div
+              <div
                 *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.firstName.errors.required">
-                  First name is required
+                  Name is required
                 </div>
-              </div> -->
+              </div>
             </div>
 
-            <div class="input-group py-2 " *ngIf="currentPage == 1">
+            <div class="input-group py-2 ">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
                 placeholder="First Middle" aria-label="firstMiddleName">
+              <div
+                *ngIf="signupFormControls.firstMiddleName.invalid && (signupFormControls.firstMiddleName.dirty|| signupFormControls.firstMiddleName.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.firstMiddleName.errors.required">
+                  Name is required
+                </div>
+              </div>
             </div>
           </div>
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
+          <div class=" d-flex w-100" *ngIf="currentPage == 1">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
                 placeholder="Second Middle" aria-label="secondMiddle">
+              <div
+                *ngIf="signupFormControls.secondMiddleName.invalid && (signupFormControls.secondMiddleName.dirty|| signupFormControls.secondMiddleName.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.secondMiddleName.errors.required">
+                  Name is required
+                </div>
+              </div>
             </div>
 
-            <div class="input-group py-2 " *ngIf="currentPage == 1">
+            <div class="input-group py-2 ">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="lastName"
                 placeholder="Last Name" aria-label="lastName">
+              <div
+                *ngIf="signupFormControls.lastName.invalid && (signupFormControls.lastName.dirty|| signupFormControls.lastName.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.lastName.errors.required">
+                  Name is required
+                </div>
+              </div>
             </div>
           </div>
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 1">
+          <div class=" d-flex w-100" *ngIf="currentPage == 1">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="email" placeholder="E-mail"
                 aria-label="Email">
+              <div
+                *ngIf="signupFormControls.email.invalid && (signupFormControls.email.dirty|| signupFormControls.email.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.email.errors.required">
+                  Email is required
+                </div>
+                <div *ngIf="signupFormControls.email.errors.pattern">
+                  Email must be in a correct format
+                </div>
+              </div>
             </div>
 
-            <div class="input-group py-2 " *ngIf="currentPage == 1">
+            <div class="input-group py-2 ">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
                 placeholder="Phone Number" aria-label="phoneNumber">
+              <div
+                *ngIf="signupFormControls.mobileNumber.invalid && (signupFormControls.mobileNumber.dirty|| signupFormControls.mobileNumber.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.mobileNumber.errors.required">
+                  Phone Number is required
+                </div>
+                <div *ngIf="signupFormControls.mobileNumber.errors.pattern">
+                  Phone Number must be in a correct format
+                </div>
+              </div>
             </div>
-          </div>
-
-
-          <div class="input-group py-2" *ngIf="currentPage == 1">
-            <i class="fa fa-user-o" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="Date of Birth"
-              formControlName="dateOfBirth" aria-label="dateOfBirth">
           </div>
           <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1">
             <label>Gender</label>
@@ -90,66 +124,79 @@
           </div>
 
           <!--Second registeration page-->
-          <div class="input-group" (mouseleave)="hideOption()" *ngIf="currentPage == 2">
-            <input class="textInputStatusValue customInput" type="text" placeholder="Account Type" [(ngModel)]="stValue"
-              readonly (click)="showOption()" formControlName="accountType" />
-            <i *ngIf="show" id="filtersubmit" class="fa fa-chevron-down arrow" aria-hidden="true"
-              (click)="showOption()"></i>
-            <i *ngIf="!show" id="filtersubmit" class="fa fa-chevron-up arrow" aria-hidden="true"
-              (click)="showOption()"></i>
-
-            <div *ngIf="showOptions" id="businsessValue" class="selectBusinessType"
-              style="max-height: 200px; overflow-y: scroll;">
-              <!-- -->
-              <div class="valueOfStatus" *ngFor="let accountType of accountType_values">
-                <p class="typeBusinessText" (click)="getAccountTypeValue(accountType.id)"> {{accountType.value}}</p>
+          <div class=" d-flex w-100" *ngIf="currentPage == 2">
+            <div class="input-group  py-2 mr-2">
+              <p-calendar inputId="dob" styleClass="ml-3" aria-label="dateOfBirth" formControlName="dateOfBirth"
+                [touchUI]="true" [readonlyInput]="true" [showIcon]="true" data-toggle="tooltip" data-placement="top"
+                title="Date of birth"></p-calendar>
+              <div
+                *ngIf="signupFormControls.dateOfBirth.invalid && (signupFormControls.dateOfBirth.dirty|| signupFormControls.dateOfBirth.touched)"
+                class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="signupFormControls.dateOfBirth.errors.required">
+                  Date of birth is required
+                </div>
+              </div>
+            </div>
+            <div class="input-group  py-2 mr-2">
+              <div class="dropdown">
+                <input id="accountTypeDropDown" class="textInputStatusValue customInput" type="text"
+                  placeholder="Account Type" [(ngModel)]="stValue" readonly formControlName="accountType"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()"/>
+                <i class="arrow down" *ngIf="show" (click)="showOption()"></i>
+                <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>
+                <div class="dropdown-menu" aria-labelledby="accountTypeDropDown"
+                  *ngFor="let accountType of accountType_values;">
+                  <!--*ngIf="showOptions"-->
+                  <a (click)="getAccountTypeValue(accountType.id)">{{accountType.value}}</a>
+                </div>
               </div>
             </div>
           </div>
-          <div class="input-group py-2" *ngIf="currentPage == 2">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="National ID"
-              formControlName="nationalID" aria-label="nationalID">
+          <div class=" d-flex w-100" *ngIf="currentPage == 2">
+            <div class="input-group py-2 mr-2">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="National ID"
+                formControlName="nationalID" aria-label="nationalID">
+            </div>
+            <div class="input-group py-2 mr-2">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <input type="text" class="form-control border-secondary" placeholder="Job Title"
+                formControlName="jobTitle" aria-label="jobTitle">
+            </div>
           </div>
-          <div class="input-group py-2" *ngIf="currentPage == 2">
-            <i class="fa fa-envelope" aria-hidden="true"></i>
-            <input type="text" class="form-control border-secondary" placeholder="Job Title" formControlName="jobTitle"
-              aria-label="jobTitle">
-          </div>
-
           <!--Third registeration page-->
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+          <div class=" d-flex w-100" *ngIf="currentPage == 3">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="address"
                 aria-label="address">
             </div>
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="province"
                 aria-label="province">
             </div>
           </div>
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+          <div class=" d-flex w-100" *ngIf="currentPage == 3">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" placeholder="City" formControlName="city"
                 aria-label="city">
             </div>
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="country"
                 aria-label="country">
             </div>
           </div>
-          <div class=" d-flex w-100">
-            <div class="input-group py-2 mr-2" *ngIf="currentPage == 3">
+          <div class=" d-flex w-100" *ngIf="currentPage == 3">
+            <div class="input-group py-2 mr-2">
               <i class="fa fa-lock" aria-hidden="true"></i>
               <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
                 placeholder="Password" aria-label="Password">
               <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
             </div>
-            <div class="input-group py-2" *ngIf="currentPage == 3">
+            <div class="input-group py-2">
               <i class="fa fa-lock" aria-hidden="true"></i>
 
               <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
@@ -166,12 +213,14 @@
         <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
           Next
         </button>
-        <button type="submit" class=" mx-5 float-right" (click)="Register()" [disabled]="!signupForm.valid"
-          *ngIf="!isLoading && currentPage == 3">
+        <button type="submit" class=" mx-5 float-right" (click)="Register()" 
+          *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
           Register
         </button>
-        <label style="color: #31d190;" *ngIf="registerationResult == true">Your registeration request have been submitted successfully.</label>
-     <label style="color: #2c3e50" *ngIf="registerationResult == false">Error submitting request, please try again shortly.</label>
+        <label style="color: #31d190;" *ngIf="registerationResult == true">Your registeration request have been
+          submitted successfully.</label>
+        <label style="color: #2c3e50" *ngIf="registerationResult == false">Error submitting request, please try again
+          shortly.</label>
       </div>
       <div *ngIf="!isLoading">
       </div>

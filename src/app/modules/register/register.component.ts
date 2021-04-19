@@ -33,9 +33,7 @@ export class RegisterComponent implements OnInit {
 
   registerationResult: boolean;
   constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private customerService: CustomerService, private router: Router) {
-    this.signupForm = this.formBuilderHelper.CustomizeFormbuilderValidator({
-      password: '',
-      confirmPassword: '',
+    this.signupForm = this.formBuilderHelper.CreateFormBuilder({
       firstName: '',
       firstMiddleName: '',
       secondMiddleName: '',
@@ -51,7 +49,9 @@ export class RegisterComponent implements OnInit {
       province: '',
       country: '',
       accountType: '',
-    }, this.checkPasswords);
+      password: '',
+      confirmPassword: '',
+    });
   }
   accountType_values = [
     { id: 0, value: "Individual" },
@@ -96,31 +96,30 @@ export class RegisterComponent implements OnInit {
 
   //Customer registeration api call
   Register() {
-    var currentDate = new Date;
     const RegisterModel: RegisterModel = {
       gender: this.signupForm.value.gender,
       email: this.signupForm.value.email,
       phoneNumber: this.signupForm.value.mobileNumber,
       nationalID: this.signupForm.value.nationalID,
-      dateOfBirth: currentDate,
+      dateOfBirth: this.signupForm.value.dateOfBirth,
       jobTitle: this.signupForm.value.jobTitle,
       type: this.signupForm.value.accountType,
       accountStatus: 'pending',
       city: this.signupForm.value.city,
       province: this.signupForm.value.province,
       country: this.signupForm.value.country,
-      street: null,
+      street: "",
       nationalIdFront: "",
       nationalIdBack: "",
       profilePicture: "",
       first: this.signupForm.value.firstName,
       firstMiddle: this.signupForm.value.firstMiddleName,
-      secondMiddle: this.signupForm.value.SecondMiddleName,
+      secondMiddle: this.signupForm.value.secondMiddleName,
       last: this.signupForm.value.lastName,
       password: this.signupForm.value.password
     }
     console.log(RegisterModel)
-
+    debugger;
     this.customerService.Register(RegisterModel).subscribe(res => {
       if (res.succeeded) {
         console.log("registered ", res.data);
@@ -132,7 +131,6 @@ export class RegisterComponent implements OnInit {
       this.isLoading = false;
     });
   }
-
   //Page navigation
   Back() {
     if (this.currentPage > 1) {

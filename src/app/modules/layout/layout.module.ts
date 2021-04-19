@@ -18,6 +18,7 @@ import {TableModule} from 'primeng/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ProfileComponent } from '../profile/profile.component';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
@@ -32,6 +33,7 @@ import { ProfileComponent } from '../profile/profile.component';
     ReactiveFormsModule,
     LayoutRoutingModule,
     TableModule,
+    CalendarModule,
     SharedModule
   ]
 })

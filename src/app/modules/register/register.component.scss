@@ -328,3 +328,49 @@ h4 {
   display: block;
   overflow: auto;
 }
+
+:host ::ng-deep .p-calendar{
+  width: 100%;
+}
+:host ::ng-deep .p-calendar .p-inputtext{
+  border-radius: 7px;
+  border: solid 2px #dedede !important;
+  width: 100%;
+  position: relative;
+  z-index: 0 !important;
+  padding-left: 35px;
+  font-size: 14px;
+  font-weight: 400;
+  height: 50px;
+  color: #4a4a4a;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+input{
+  outline: none;
+}
+
+.dropdown-menu{
+  text-align: center;
+  left: 28px !important;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  position: absolute;
+  right: 15px;
+  top: 23px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

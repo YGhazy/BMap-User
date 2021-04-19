@@ -37,7 +37,7 @@ export class formBuilderHelper {
       email: [Validators.required, Validators.pattern(this.emailValidationPattern)],
       nationalID: [Validators.required, Validators.minLength(14)],
       gender: [Validators.required],
-      dateOfBirth: [Validators.required, Validators.pattern('/(\d{2})\/(\d{2})\/(\d{4})/')],
+      dateOfBirth: [Validators.required],
       jobTitle: [Validators.required],
       city: [Validators.required],
       province: [Validators.required],
