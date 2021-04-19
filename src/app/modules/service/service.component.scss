@@ -178,3 +178,18 @@ p {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
+
+
+.serviceType-container{
+  border-radius: 18px;
+  box-shadow: 0 3px 22px 0 rgba(106, 106, 106, 0.48);
+  background-color: #ffffff;
+  width: 300px;
+  padding: 34px 28px 34px 28px !important;
+  margin-left: 3%;
+  margin-top: 5%;
+  cursor: pointer;
+  img{
+    width: 100%;
+  }
+}

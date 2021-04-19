@@ -10,6 +10,7 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ServiceSliderComponent } from './service-slider/service-slider.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { RecommendedServicesSliderComponent } from './recommended-services-slider/recommended-services-slider.component';
+import { SpecificFeaturesComponent } from './specific-features/specific-features.component';
 
 //Shared Components and imported modules between the project are imported here
 //Components that shall be re-used between modules should be exported.
@@ -19,7 +20,8 @@ import { RecommendedServicesSliderComponent } from './recommended-services-slide
     ImageSliderComponent,
     ServiceSliderComponent,
     SubscriptionComponent,
-    RecommendedServicesSliderComponent
+    RecommendedServicesSliderComponent,
+    SpecificFeaturesComponent
     ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { RecommendedServicesSliderComponent } from './recommended-services-slide
     ImageSliderComponent,
     ServiceSliderComponent,
     SubscriptionComponent,
-    RecommendedServicesSliderComponent
+    RecommendedServicesSliderComponent,
+    SpecificFeaturesComponent
     ]
 })
 export class SharedModule { }

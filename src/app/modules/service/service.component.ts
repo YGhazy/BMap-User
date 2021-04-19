@@ -50,10 +50,6 @@ export class ServiceComponent implements OnInit {
     this.FetchUserDetails();
   }
 
-  DisplayApplicationForm() {
-    this.FetchAvailableBanks();
-  }
-
   SelectItem(type: number, itemID: number) {
     if (type == 0) { // Service Types
       this.selectedServiceType = this.service.serviceTypes.find(t => t.id == itemID);
@@ -87,6 +83,11 @@ export class ServiceComponent implements OnInit {
     });
   }
 
+  SelectServiceType(typeID: number){
+    this.selectedServiceType = this.service.serviceTypes.find(t => t.id == typeID);
+    //fetch available banks and display application form
+    this.FetchAvailableBanks();
+  }
   //Create service request
   SubmitServiceRequest() {
     var requestDate = new Date;
