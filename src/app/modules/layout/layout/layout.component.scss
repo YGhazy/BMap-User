@@ -4,6 +4,9 @@
       width:100%;
   }
 }
+.arabic *:not(span) {
+  font-family: 'Cairo' !important;
+}
 .icon-facebook, .icon-linkedin, .icon-twitter {
   color: #9c9ca8;
   /*margin-left: 10px;*/

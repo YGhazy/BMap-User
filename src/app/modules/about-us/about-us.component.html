@@ -1,13 +1,13 @@
 <div class=" site-blocks-cover background" style="background-image: url(./assets/images/about/cover.png);">
 </div>
 
-<main>
+<main class="{{langVar.arabicClass}}">
   <section class="mx-5">
-    <h1 class="mb-4 text-left">
-      Who We Are
+    <h1 class="mb-4 text-left {{langVar.textAlign}}" >
+      {{langVar.about.title1}}
     </h1>
-    <p class="text-left" data-aos="fade-up" data-aos-duration="500">
-      It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+    <p class="text-left {{langVar.textAlign}}" data-aos="fade-up" data-aos-duration="500" dir="{{langVar.dir}}">
+      {{langVar.about.content1}}
     </p>
   </section>
   <section class=" mb-5">
@@ -17,7 +17,7 @@
       </div>
       <div class="col-11 col-md-6 aboutContent p-3 pr-0 pr-xl-5 m-auto" data-aos="fade-up" data-aos-delay="400" data-aos-duration="500">
         <h1 class="mb-3 {{langVar.textAlign}}">
-          Why us
+        {{langVar.about.title2}}
         </h1>
 
         <!-- <h4 class="mb-3 {{langVar.textAlign}}">
@@ -25,11 +25,9 @@
           Everyone Love.
         </h4> -->
 
-        <p class="pr-0  {{langVar.textAlign}}">
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-          It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
-        </p>
+      <p class="pr-0  {{langVar.textAlign}}" dir="{{langVar.dir}}">
+        {{langVar.about.content2}}
+      </p>
 
       </div>
     </div>
