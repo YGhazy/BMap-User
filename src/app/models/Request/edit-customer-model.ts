@@ -1,8 +1,8 @@
-import { ServiceRequest } from "./service-request";
-
-export interface Customer {
-  id: number,
+export interface EditCustomerModel {
+  id: string,
   gender: string,
+  email: string,
+  phoneNumber: string,
   nationalID: string,
   dateOfBirth: Date,
   jobTitle: string,
@@ -16,10 +16,7 @@ export interface Customer {
   nationalIdBack: string,
   profilePicture: string,
   first: string,
-  firstMiddle: string,l
+  firstMiddle: string,
   secondMiddle: string,
-  last: string,
-  isDeleted: boolean,
-  userId: string,
-  serviceRequests: ServiceRequest[];
+  last: string
 }

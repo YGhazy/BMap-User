@@ -25,11 +25,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let requestedService of requestedServices; let i = index;">
-                        <td scope="row">{{i+1}}</td>
-                        <td>{{requestedService.services.nameEN}}</td>
-                        <td>{{requestedService.serviceTypes.nameEN}}</td>
-                        <td>{{requestedService.date | date: 'MMM d, y, h:mm a'}}</td>
-                        <td>{{requestedService.banks.name}}</td>
+                        <td scope="row" style="color: #1351c3;">{{i+1}}</td>
+                        <td style="color: #1351c3;">{{requestedService.services.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;">{{requestedService.serviceTypes.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;">{{requestedService.date | date: 'MMM d, y, h:mm a'}}</td>
+                        <td style="color: #1351c3; font-weight: normal;">{{requestedService.banks.name}}</td>
                         <td
                             [ngClass]="{'text-warning':requestedService.status=='Pending', 'text-danger':requestedService.status == 'Rejected', 'text-success':requestedService.status == 'Approved'}">
                             {{requestedService.status}}</td>

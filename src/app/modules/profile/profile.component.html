@@ -1,0 +1,77 @@
+<div class="background">
+</div>
+<div class="mainContainer">
+    <h1>
+        Account management
+    </h1>
+    <div class="tableContainer">
+        <div class="row text-right mb-3">
+            <div class="col-12">
+                <button class="btn btn-primary" (click)="isEditingAccount = !isEditingAccount">Edit</button>
+                <button class="btn btn-primary ml-3" (click)="isChangingPassword = !isChangingPassword">Change
+                    Password</button>
+
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="client && !isChangingPassword">
+                <tbody [formGroup]="editAccountForm">
+                        <tr>
+                            <td class="header">Full Name</td>
+                            <td class="body" *ngIf="!isEditingAccount">{{client.customer.first}}
+                                {{client.customer.firstMiddle}} {{client.customer.secondMiddle}}
+                                {{client.customer.last}}
+                            </td>
+                            <td class="body" *ngIf="isEditingAccount">
+                                <input type="text" class="form-control" [(ngModel)]="client.customer.first"
+                                    formControlName="firstName" />
+                                <input type="text" class="form-control ml-2"
+                                    [(ngModel)]="client.customer.firstMiddle" formControlName="firstMiddleName"/>
+                                <input type="text" class="form-control ml-2"
+                                    [(ngModel)]="client.customer.secondMiddle" formControlName="secondMiddleName"/>
+                                <input type="text" class="form-control ml-2" [(ngModel)]="client.customer.last" formControlName="lastName"/>
+
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="header">E-Mail</td>
+                            <td class="body" *ngIf="!isEditingAccount">{{client.email}}</td>
+                            <td class="body" *ngIf="isEditingAccount">
+                                <input type="text" class="form-control" [(ngModel)]="client.email" formControlName="email"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="header">Phone Number</td>
+                            <td class="body" *ngIf="!isEditingAccount">{{client.phoneNumber}}</td>
+                            <td class="body" *ngIf="isEditingAccount">
+                                <input type="text" class="form-control" [(ngModel)]="client.phoneNumber" formControlName="mobileNumber"/>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <!-- Change password table-->
+            <table class="table" *ngIf="client && isChangingPassword">
+                <tbody>
+                    <tr>
+                        <td class="header">Old Password</td>
+                        <td class="body">************************</td>
+                    </tr>
+                    <tr>
+                        <td class="header">New Password</td>
+                        <td class="body">************************</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row text-right mb-3">
+            <div class="col-12">
+                <button class="btn btn-primary" (click)="DisplayConfirmationModal()" [disabled]="!editAccountForm.valid">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-modal (SetConfirmation)="ModalResponse($event)"></app-modal>
