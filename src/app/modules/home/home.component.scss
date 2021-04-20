@@ -1,7 +1,9 @@
 
-.arabic * {
+.arabic h1, h2, h3, h4, h5, h6, p, .nav-link, a {
   font-family: 'Cairo' !important;
 }
+
+
 .aboutBG {
   background: url(../../../assets/images/aboutgb.png) no-repeat 0 0;
   background-position: center;

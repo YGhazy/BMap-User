@@ -1,3 +1,9 @@
+
+.arabic h1, h2, h3, h4, h5, h6, p, .nav-link, a {
+  font-family: 'Cairo' !important;
+}
+
+
 .background {
   background-color: transparent;
   background-repeat: no-repeat;
@@ -7,7 +13,7 @@
   height: 69vh !important;
   min-height: 69vh !important;
   position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 55%);
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 61%);
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 61%);
   /*  transform: skewY(2deg);
   transform-origin: top right;*/
@@ -191,5 +197,28 @@ p {
   cursor: pointer;
   img{
     width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 1240px) {
+  .background {
+    height: 45vh !important;
+    min-height: 45vh !important;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 72%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 72%);
+  }
+
+  .site-blocks-cover {
+    min-height: 50vh;
+    height: calc(50vh);
+  }
+
+  .overlay:before {
+    min-height: 60vh;
+
+    -webkit-clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
+    clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
   }
 }
