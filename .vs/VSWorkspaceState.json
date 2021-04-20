@@ -4,13 +4,14 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\layout",
-    "\\src\\app\\modules\\layout\\layout",
-    "\\src\\app\\modules\\requests",
-    "\\src\\app\\modules\\service",
-    "\\src\\assets",
-    "\\src\\assets\\css"
+    "\\src\\app\\modules\\authentication",
+    "\\src\\app\\modules\\authentication\\login",
+    "\\src\\app\\modules\\register",
+    "\\src\\app\\modules\\shared",
+    "\\src\\app\\modules\\shared\\service-slider",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\utilities"
   ],
-  "SelectedNode": "\\src\\app\\modules\\service\\service.component.html",
+  "SelectedNode": "\\src\\app\\modules\\register\\register.component.scss",
   "PreviewInSolutionExplorer": false
 }

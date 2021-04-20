@@ -1,4 +1,11 @@
 /*$spCol:  ;*/
+.mobileView {
+  display: none;
+}
+
+.webView {
+  display: block;
+}
 .background {
   background: url(../../../../assets/images/login.png) no-repeat 0 0;
   background-size: cover;
@@ -213,4 +220,46 @@ button:active, button:focus, button:hover {
 
 .alert {
   font-size: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .mobileView {
+    display: block;
+
+    .background {
+      background: url(../../../../assets/images/login.png) no-repeat 0 0;
+      background-size: cover;
+      height: 100vh;
+      background-position: center;
+      position: relative;
+    }
+
+    .logo {
+      top: 12px;
+      left: 18px;
+    }
+
+    .formContainer {
+      border-top-left-radius: 34px;
+      border-top-right-radius: 34px;
+      background-color: #ffffff;
+      height: 530px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0
+    }
+
+    h1 {
+      font-size:25px;
+    }
+
+    p {
+      font-size:18px;
+    }
+  }
+  .webView {
+    display: none;
+  }
+
 }
