@@ -8,6 +8,9 @@ export const Arabic: any = {
   menuStyle: "arabicMenu",
   menuCloseStyle: "arabicCloseButton",
   textAlign: "text-right",
+  textAlignReverse: "text-left",
+  FlexAlignItems: "align-items-end",
+
   flexDIr: "flex-row-reverse",
   copyRights1: "كل الحقوق محفوظة |",
   terms: "شروط",
@@ -40,6 +43,11 @@ export const Arabic: any = {
   invalid: {
     invalidEmail: "البريد الالكتروني غير صحيح",
     requiredEmail: "ادخل البريد الالكتروني",
+    requiredPassword: "ادخل الرقم السري",
+    InvalidPassword: "الرقم السري غير صحيح",
+    invalidLogin: "تأكد من البيانات",
+    loginRedirect: "سيتم إعادة توجيهك بعد قليل",
+
   },
   subscribe: {
     subscribeNw: "اشترك الان",
@@ -47,11 +55,28 @@ export const Arabic: any = {
     subscribed: "تم الاشتراك بالفعل",
   },
   serviceCarousel: {
-    title: "نحن نقدم لك أنواع مختلفة من الخدمات"
+    title: "نحن نقدم لك أنواع مختلفة من الخدمات",
+    title2: "يوصى بأنواع مختلفة من الخدمات لك"
+
   },
   backsCarousel: {
     title: "المزودين المميزين",
     content: "هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.",
+  },
+  login: {
+    wlc: "مرحبا بك في",
+    forgetPassword: "نسيت كلمة المرور؟ ",
+    desc: "نسهل على الجميع الاستثمار في الخدمات المصرفية",
+    login: "دخول",
+    donHaveAcc: "ليس لديك حساب ،",
+    createAcc: "إنشاء حساب",
+    QuestionMark: "؟"
+
+  },
+  placeholder: {
+    email: "البريد الالكتروني",
+    password: "الرقم السري",
+    FirstName: "الاسم الاول",
   },
   sent: "تم بنجاح",
   Request: "طلب",

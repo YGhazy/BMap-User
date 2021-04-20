@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from '../../../models/auth-models/LoginModel';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { formBuilderHelper } from '../../../services/utilities/formBuilderHelper';
+import { langHelper } from '../../../services/utilities/language-helper';
 
 @Component({
   selector: 'app-login',
@@ -15,13 +16,17 @@ export class LoginComponent implements OnInit {
   inputType: string = "password";
   pView: string = "-slash";
   LoginForm;
+  langVar;
+  currentLang
   isLoading: boolean  =false
-  constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router,  private toastr: ToastrService) {
+  constructor(private langhelper:langHelper,private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private router: Router,  private toastr: ToastrService) {
     this.LoginForm = this.formBuilderHelper.CreateFormBuilder({ email: '', password: '' })
 
   }
 
   ngOnInit(): void {
+    this.langVar = this.langhelper.initializeMode();
+    this.currentLang = this.langhelper.currentLang;
   }
   login() {
     this.isLoading = true;
@@ -34,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     this.AuthenticationService.login(loginModel).subscribe(res => {
       if (res.succeeded) {
-        this.toastr.success('You will be redirected shortly', 'Success', {
+        this.toastr.success(this.langVar.invalid.loginRedirect, 'Success', {
           disableTimeOut: false,
           closeButton: true,
           positionClass: 'toast-top-center'
@@ -45,7 +50,7 @@ export class LoginComponent implements OnInit {
         }, 3000);
       }
     }, error => {
-      this.toastr.error('Please try again later', 'Error', {
+        this.toastr.error(this.langVar.invalid.invalidLogin, 'Error', {
         disableTimeOut: false,
         closeButton: true,
         positionClass: 'toast-top-center'

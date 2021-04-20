@@ -4,6 +4,8 @@ export const English: any = {
   arabicClass: "",
   benefits: "Benefits & Features",
   textAlign: "text-left",
+  textAlignReverse: "text-right",
+  FlexAlignItems: "align-items-start",
   rowReverse: "",
   menuStyle: "",
   menuCloseStyle: "",
@@ -39,6 +41,10 @@ export const English: any = {
   invalid: {
     invalidEmail: "Invalid e-mail ",
     requiredEmail: "E-mail required ",
+    requiredPassword: "Password required",
+    InvalidPassword: "Invalid password",
+    invalidLogin: "Enter valid email and password",
+    loginRedirect:"You will be redirected shortly",
   },
   subscribe: {
     send: "Send",
@@ -46,13 +52,28 @@ export const English: any = {
     subscribed: "you are already subscribed to our newsletter !",
   },
   serviceCarousel: {
-    title: "We provide various kinds of services for you"
+    title: "We provide various kinds of services for you",
+    title2:"Recommended various kinds of services for you"
   },
   backsCarousel:{
     title: "FEATURED PROVIDERS",
     content: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
   },
+  login: {
+    wlc: "Welcome to",
+    forgetPassword: " Forget Password? ",
+    desc: "We make it easy for everyone to invest in banking services",
+    login: "Login",
+    donHaveAcc: "Don't have an account,",
+    createAcc: "Create Account",
+    QuestionMark:"?"
+  },
+  placeholder: {
+    email: "Email",
+    password: "Password",
+    FirstName:"First Name",
+  },
     sent: "Done successfully",
-  Request: "Request",
+    Request: "Request",
 
 }

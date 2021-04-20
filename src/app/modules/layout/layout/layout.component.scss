@@ -1,12 +1,15 @@
+
+.arabic h1, h2, h3, h4, h5, h6, p,.nav-link , a {
+  font-family: 'Cairo' !important;
+}
+
 .imgContainer {
   width: 130px;
   img{
       width:100%;
   }
 }
-.arabic *:not(span) {
-  font-family: 'Cairo' !important;
-}
+
 .icon-facebook, .icon-linkedin, .icon-twitter {
   color: #9c9ca8;
   /*margin-left: 10px;*/

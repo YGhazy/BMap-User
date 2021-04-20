@@ -80,6 +80,10 @@ export class LayoutComponent implements OnInit {
   }
   logout() {
     this.auth.logout()
-    this.router.navigate(['/home']);
+    if (this.router.url == "/home")
+      window.location.reload()
+      else
+      this.router.navigateByUrl('/home');
+
   }
 }

@@ -1,3 +1,9 @@
+
+
+.arabic h1, h2, h3, h4, h5, h6, p, .nav-link, a {
+  font-family: 'Cairo' !important;
+}
+
 .carouselImage{
   width: 100%;
 }
@@ -14,10 +20,19 @@
 }
 p {
   color: #241b1b;
-  line-height:1.3;
+  line-height: 1.3;
+  margin: 0 auto;
+  max-width: 40%;
 }
 h1, h4 {
   text-shadow: 2px 2px 7px #000000bc;
   color: #000000;
   font-family: 'Poppins', sans-serif;
 }
+
+@media screen and (max-width: 900px) {
+  p {
+
+    max-width: 100%;
+  }
+    }
