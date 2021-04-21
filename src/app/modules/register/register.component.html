@@ -9,10 +9,9 @@
 
     <div class="col-12 col-md-6 d-flex justify-content-between flex-column">
       <div class="container p-5">
-        <h1 data-aos="fade-down">Welcome to <span>BMAP</span></h1>
-        <p data-aos="fade-down">
-          We make it easy for everyone to invest
-          in banking services
+        <h1 class="  {{langVar.textAlign}}" dir="{{langVar.dir}}" data-aos="fade-down">{{langVar.login.wlc}} <span>BMAP</span></h1>
+        <p class=" {{langVar.textAlign}}" data-aos="fade-down">
+          {{langVar.login.desc}}
         </p>
         <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
 
@@ -20,7 +19,7 @@
             <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="firstName"
-                     placeholder="First Name" aria-label="firstName">
+                     placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
               <div *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.firstName.errors.required">
@@ -32,7 +31,7 @@
             <div class="input-group py-2 ">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
-                     placeholder="First Middle" aria-label="firstMiddleName">
+                     placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
               <div *ngIf="signupFormControls.firstMiddleName.invalid && (signupFormControls.firstMiddleName.dirty|| signupFormControls.firstMiddleName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.firstMiddleName.errors.required">
@@ -45,7 +44,7 @@
             <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
-                     placeholder="Second Middle" aria-label="secondMiddle">
+                    placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddle">
               <div *ngIf="signupFormControls.secondMiddleName.invalid && (signupFormControls.secondMiddleName.dirty|| signupFormControls.secondMiddleName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.secondMiddleName.errors.required">
@@ -57,7 +56,7 @@
             <div class="input-group py-2 ">
               <i class="fa fa-user-o" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="lastName"
-                     placeholder="Last Name" aria-label="lastName">
+                      placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
               <div *ngIf="signupFormControls.lastName.invalid && (signupFormControls.lastName.dirty|| signupFormControls.lastName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.lastName.errors.required">
@@ -69,15 +68,17 @@
           <div class=" d-flex w-100" *ngIf="currentPage == 1">
             <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="E-mail"
+              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="{{langVar.placeholder.email}}"
                      aria-label="Email">
               <div *ngIf="signupFormControls.email.invalid && (signupFormControls.email.dirty|| signupFormControls.email.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
                 <div *ngIf="signupFormControls.email.errors.required">
-                  Email is required
+                  {{langVar.invalid.requiredEmail}}
+
                 </div>
                 <div *ngIf="signupFormControls.email.errors.pattern">
-                  Email must be in a correct format
+                  {{langVar.invalid.invalidEmail}}
+
                 </div>
               </div>
             </div>
@@ -85,7 +86,7 @@
             <div class="input-group py-2 ">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
-                     placeholder="Phone Number" aria-label="phoneNumber">
+                    placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="phoneNumber">
               <div *ngIf="signupFormControls.mobileNumber.invalid && (signupFormControls.mobileNumber.dirty|| signupFormControls.mobileNumber.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="signupFormControls.mobileNumber.errors.required">
@@ -97,9 +98,9 @@
               </div>
             </div>
           </div>
-          <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1">
-            <label>Gender</label>
-            <input type="text" class="form-control border-secondary" style="display: none;" placeholder="gender"
+          <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1" dir="{{langVar.dir}}">
+            <label>{{langVar.placeholder.Gender}}</label>
+            <input type="text" class="form-control border-secondary" style="display: none;"placeholder="{{langVar.placeholder.Gender}}"
                    [(ngModel)]="selectedGender" formControlName="gender">
             <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
                  class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -131,7 +132,7 @@
             <div class="input-group  py-2 mr-2">
               <div class="dropdown">
                 <input id="accountTypeDropDown" class="textInputStatusValue customInput" type="text"
-                       placeholder="Account Type" [(ngModel)]="stValue" readonly formControlName="accountType"
+                       placeholder="{{langVar.placeholder.AccountType}}" [(ngModel)]="stValue" readonly formControlName="accountType"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()" />
                 <i class="arrow down" *ngIf="show" (click)="showOption()"></i>
                 <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>
@@ -146,12 +147,12 @@
           <div class=" d-flex w-100" *ngIf="currentPage == 2">
             <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="National ID"
+              <input type="text" class="form-control border-secondary"  placeholder="{{langVar.placeholder.NationalId}}"
                      formControlName="nationalID" aria-label="nationalID">
             </div>
             <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Job Title"
+              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.JobTitle}}"
                      formControlName="jobTitle" aria-label="jobTitle">
             </div>
           </div>
@@ -159,24 +160,24 @@
           <div class=" d-flex w-100" *ngIf="currentPage == 3">
             <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="address"
+              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
                      aria-label="address">
             </div>
             <div class="input-group py-2 mr-2">
               <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="province"
+              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
                      aria-label="province">
             </div>
           </div>
           <div class=" d-flex w-100" *ngIf="currentPage == 3">
             <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="City" formControlName="city"
+              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.City}}" formControlName="city"
                      aria-label="city">
             </div>
             <div class="input-group py-2 mr-2">
               <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="country"
+              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
                      aria-label="country">
             </div>
           </div>
@@ -184,44 +185,46 @@
             <div class="input-group py-2 mr-2">
               <i class="fa fa-lock" aria-hidden="true"></i>
               <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
-                     placeholder="Password" aria-label="Password">
+                     placeholder="{{langVar.placeholder.password}}" aria-label="Password">
               <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
             </div>
             <div class="input-group py-2">
               <i class="fa fa-lock" aria-hidden="true"></i>
 
               <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
-                     placeholder="Confirm Password" aria-label="Confirm Password">
+                     placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
               <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
             </div>
           </div>
         </form>
       </div>
       <div>
-        <button class=" mx-5" (click)="Back()" *ngIf="!isLoading">
-          Back
+        <button class=" mx-5" (click)="Back()" *ngIf="!isLoading && currentPage != 1">
+          {{langVar.register.back}}
         </button>
         <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
-          Next
+          {{langVar.register.next}}
+          
         </button>
         <button type="submit" class=" mx-5 float-right" (click)="Register()"
                 *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
-          Register
+          {{langVar.register.register}}
         </button>
         <label style="color: #31d190;" *ngIf="registerationResult == true">
-          Your registeration request have been
-          submitted successfully.
+          <!--Your registeration request have been
+               submitted successfully.-->
+          {{langVar.sent}}
         </label>
         <label style="color: #2c3e50" *ngIf="registerationResult == false">
-          Error submitting request, please try again
-          shortly.
+          {{langVar.invalid.invalidRegister}}
+
         </label>
       </div>
       <div *ngIf="!isLoading">
       </div>
       <div id="footerContent" class="text-center ">
         <h4>
-          have an account, <span routerLink="/login"> Sign in</span>?
+          {{langVar.register.haveAcc}} <span routerLink="/login">{{langVar.login.login}}</span>{{langVar.login.QuestionMark}}
         </h4>
       </div>
     </div>
@@ -236,14 +239,13 @@
 
     <div class="formContainer">
       <div class="col-12  d-flex justify-content-between flex-column  h-100">
-        <div class=" align-items-start d-flex justify-content-around flex-column h-100">
+        <div class=" align-items-end d-flex justify-content-around flex-column h-100">
 
           <div class="w-100">
 
-            <h1 data-aos="fade-down">Welcome to <span>BMAP</span></h1>
-            <p data-aos="fade-down">
-              We make it easy for everyone to invest
-              in banking services
+            <h1 class="  {{langVar.textAlign}}" dir="{{langVar.dir}}" data-aos="fade-down">{{langVar.login.wlc}} <span>BMAP</span></h1>
+            <p class=" {{langVar.textAlign}}" data-aos="fade-down">
+              {{langVar.login.desc}}
             </p>
             <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
 
@@ -251,7 +253,7 @@
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
                   <input type="text" class="form-control border-secondary" formControlName="firstName"
-                         placeholder="First Name" aria-label="firstName">
+                         placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
                   <div *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                     <div *ngIf="signupFormControls.firstName.errors.required">
@@ -263,7 +265,7 @@
                 <div class="input-group py-2 ">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
                   <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
-                         placeholder="First Middle" aria-label="firstMiddleName">
+                         placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
                   <div *ngIf="signupFormControls.firstMiddleName.invalid && (signupFormControls.firstMiddleName.dirty|| signupFormControls.firstMiddleName.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                     <div *ngIf="signupFormControls.firstMiddleName.errors.required">
@@ -276,7 +278,7 @@
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
                   <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
-                         placeholder="Second Middle" aria-label="secondMiddle">
+                         placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddle">
                   <div *ngIf="signupFormControls.secondMiddleName.invalid && (signupFormControls.secondMiddleName.dirty|| signupFormControls.secondMiddleName.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                     <div *ngIf="signupFormControls.secondMiddleName.errors.required">
@@ -288,7 +290,7 @@
                 <div class="input-group py-2 ">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
                   <input type="text" class="form-control border-secondary" formControlName="lastName"
-                         placeholder="Last Name" aria-label="lastName">
+                         placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
                   <div *ngIf="signupFormControls.lastName.invalid && (signupFormControls.lastName.dirty|| signupFormControls.lastName.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                     <div *ngIf="signupFormControls.lastName.errors.required">
@@ -300,15 +302,17 @@
               <div class=" d-flex w-100" *ngIf="currentPage == 1">
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="email" placeholder="E-mail"
+                  <input type="text" class="form-control border-secondary" formControlName="email" placeholder="{{langVar.placeholder.email}}"
                          aria-label="Email">
                   <div *ngIf="signupFormControls.email.invalid && (signupFormControls.email.dirty|| signupFormControls.email.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
                     <div *ngIf="signupFormControls.email.errors.required">
-                      Email is required
+                      {{langVar.invalid.requiredEmail}}
+
                     </div>
                     <div *ngIf="signupFormControls.email.errors.pattern">
-                      Email must be in a correct format
+                      {{langVar.invalid.invalidEmail}}
+
                     </div>
                   </div>
                 </div>
@@ -316,7 +320,7 @@
                 <div class="input-group py-2 ">
                   <i class="fa fa-phone" aria-hidden="true"></i>
                   <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
-                         placeholder="Phone Number" aria-label="phoneNumber">
+                         placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="phoneNumber">
                   <div *ngIf="signupFormControls.mobileNumber.invalid && (signupFormControls.mobileNumber.dirty|| signupFormControls.mobileNumber.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                     <div *ngIf="signupFormControls.mobileNumber.errors.required">
@@ -328,9 +332,11 @@
                   </div>
                 </div>
               </div>
-              <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1">
-                <label>Gender</label>
-                <input type="text" class="form-control border-secondary" style="display: none;" placeholder="gender"
+              <div class="input-group ml-2 py-2 mr-2 {{langVar.textAlign}}" *ngIf="currentPage == 1" dir="{{langVar.dir}}">
+               
+                  <label>{{langVar.placeholder.Gender}}</label>
+               
+                <input type="text" class="form-control border-secondary" style="display: none;" placeholder="{{langVar.placeholder.Gender}}"
                        [(ngModel)]="selectedGender" formControlName="gender">
                 <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
                      class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -362,7 +368,7 @@
                 <div class="input-group  py-2 mr-2">
                   <div class="dropdown">
                     <input id="accountTypeDropDown" class="textInputStatusValue customInput" type="text"
-                           placeholder="Account Type" [(ngModel)]="stValue" readonly formControlName="accountType"
+                           placeholder="{{langVar.placeholder.AccountType}}" [(ngModel)]="stValue" readonly formControlName="accountType"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()" />
                     <i class="arrow down" *ngIf="show" (click)="showOption()"></i>
                     <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>
@@ -377,12 +383,12 @@
               <div class=" d-flex w-100" *ngIf="currentPage == 2">
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="National ID"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.NationalId}}"
                          formControlName="nationalID" aria-label="nationalID">
                 </div>
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="Job Title"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.JobTitle}}"
                          formControlName="jobTitle" aria-label="jobTitle">
                 </div>
               </div>
@@ -390,24 +396,24 @@
               <div class=" d-flex w-100" *ngIf="currentPage == 3">
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="Address" formControlName="address"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
                          aria-label="address">
                 </div>
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="Province" formControlName="province"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
                          aria-label="province">
                 </div>
               </div>
               <div class=" d-flex w-100" *ngIf="currentPage == 3">
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="City" formControlName="city"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.City}}" formControlName="city"
                          aria-label="city">
                 </div>
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="Country" formControlName="country"
+                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
                          aria-label="country">
                 </div>
               </div>
@@ -415,45 +421,46 @@
                 <div class="input-group py-2 mr-2">
                   <i class="fa fa-lock" aria-hidden="true"></i>
                   <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
-                         placeholder="Password" aria-label="Password">
+                         placeholder="{{langVar.placeholder.password}}" aria-label="Password">
                   <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
                 </div>
                 <div class="input-group py-2">
                   <i class="fa fa-lock" aria-hidden="true"></i>
 
                   <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
-                         placeholder="Confirm Password" aria-label="Confirm Password">
+                         placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
                   <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
                 </div>
               </div>
             </form>
-
           </div>
-          <div>
-            <button class=" mx-5" (click)="Back()" *ngIf="!isLoading">
-              Back
+          <div class="d-flex justify-content-around w-100" >
+            <button class=" mx-5" (click)="Back()" *ngIf="!isLoading && currentPage != 1">
+              {{langVar.register.back}}
             </button>
             <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
-              Next
+              {{langVar.register.next}}
+
             </button>
-            <button type="submit" class=" mx-5 float-right" (click)="Register()"
+            <button type="submit" class=" mx-5 " (click)="Register()"
                     *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
-              Register
+              {{langVar.register.register}}
             </button>
             <label style="color: #31d190;" *ngIf="registerationResult == true">
-              Your registeration request have been
-              submitted successfully.
+              <!--Your registeration request have been
+           submitted successfully.-->
+              {{langVar.sent}}
             </label>
             <label style="color: #2c3e50" *ngIf="registerationResult == false">
-              Error submitting request, please try again
-              shortly.
+              {{langVar.invalid.invalidRegister}}
+
             </label>
           </div>
           <div *ngIf="!isLoading">
           </div>
           <div id="footerContent" class="text-center ">
             <h4>
-              have an account, <span routerLink="/login"> Sign in</span>?
+              {{langVar.register.haveAcc}} <span routerLink="/login">{{langVar.login.login}}</span>{{langVar.login.QuestionMark}}
             </h4>
           </div>
         </div>

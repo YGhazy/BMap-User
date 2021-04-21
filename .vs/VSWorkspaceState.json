@@ -4,14 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
+    "\\src\\app\\modules\\about-us",
     "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\login",
-    "\\src\\app\\modules\\register",
+    "\\src\\app\\modules\\authentication\\authentication",
+    "\\src\\app\\modules\\contact",
     "\\src\\app\\modules\\shared",
-    "\\src\\app\\modules\\shared\\service-slider",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\utilities"
+    "\\src\\app\\modules\\shared\\subscription"
   ],
-  "SelectedNode": "\\src\\app\\modules\\register\\register.component.scss",
+  "SelectedNode": "\\src\\app\\services\\utilities\\ar.ts",
   "PreviewInSolutionExplorer": false
 }
