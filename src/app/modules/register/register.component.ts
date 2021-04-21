@@ -5,6 +5,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 import { RegisterModel } from '../../models/auth-models/RegisterModel';
 import { AuthenticationService } from '../../services/authentication.service';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
+import { langHelper } from '../../services/utilities/language-helper';
 
 @Component({
   selector: 'app-register',
@@ -12,6 +13,8 @@ import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
+  langVar;
+  currentLang
   //handling show/hide password
   inputType: string = "password";
   inputConfirmType: string = "password";
@@ -32,7 +35,7 @@ export class RegisterComponent implements OnInit {
   signupForm;
 
   registerationResult: boolean;
-  constructor(private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private customerService: CustomerService, private router: Router) {
+  constructor(private langhelper: langHelper,private formBuilderHelper: formBuilderHelper, private AuthenticationService: AuthenticationService, private customerService: CustomerService, private router: Router) {
     this.signupForm = this.formBuilderHelper.CreateFormBuilder({
       firstName: '',
       firstMiddleName: '',
@@ -58,6 +61,8 @@ export class RegisterComponent implements OnInit {
     { id: 1, value: "Company" },
   ];
   ngOnInit(): void {
+    this.langVar = this.langhelper.initializeMode();
+    this.currentLang = this.langhelper.currentLang;
   }
 
 
