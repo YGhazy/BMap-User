@@ -52,9 +52,9 @@
 
   <!--Application form section-->
   <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
-    <div class="row">
-      <h1 data-aos="fade-up">
-        Please fill in the details to receive a call back with more details about this product
+    <div class="row" dir="{{langVar.dir}}" [ngClass]="{'mr-5':currentLang==='ar', 'ml-3':currentLang==='en'}">
+      <h1 data-aos="fade-up" >
+        {{langVar.applicationForm.title}}
       </h1>
       <i class="fas fa-power-off"></i></div>
 
@@ -63,34 +63,38 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-12">
-            <label for="serviceName">Service Name</label>
-            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameEN}}" readonly />
+            <label for="serviceName">{{langVar.applicationForm.serviceName}}</label>
+            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameEN}}" readonly *ngIf="currentLang == 'en'" />
+            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameAR}}" readonly *ngIf="currentLang == 'ar'" />
           </div>
           <div class="col-lg-6 col-12">
-            <label for="phoneNumber">Phone Number</label>
+            <label for="phoneNumber">{{langVar.applicationForm.phoneNumber}}</label>
             <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
               placeholder="+20-" />
             <div
               *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
               class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
               <div *ngIf="applicationFormControls.mobileNumber.errors.required">
-                Phone name is required
+                {{langVar.applicationForm.phoneRequired}}
               </div>
               <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
-                Phone Number must be in a correct format
+                {{langVar.applicationForm.phonePattern}}
               </div>
             </div>
           </div>
         </div>
         <div class="row mt-3">
           <div class="col-lg-6 col-12">
-            <label for="serviceType">Service Type</label>
+            <label for="serviceType">{{langVar.applicationForm.serviceType}}</label>
             <input id="serviceType" type="text" class="form-control" formControlName="serviceType"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              placeholder="{{selectedServiceType.nameEN}}" readonly />
+              placeholder="{{selectedServiceType.nameEN}}" readonly *ngIf="currentLang== 'en'"/>
+              <input id="serviceType" type="text" class="form-control" formControlName="serviceType"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+              placeholder="{{selectedServiceType.nameAR}}" readonly *ngIf="currentLang== 'ar'"/>
           </div>
           <div class="col-lg-6 col-12">
-            <label for="serviceName">Select Bank</label>
+            <label for="serviceName">{{langVar.applicationForm.selectBank}}</label>
             <div class="dropdown" *ngIf="banks">
               <input id="bankName" type="text" class="form-control" formControlName="bankName"
                 placeholder="{{selectedBank.name}}" [(ngModel)]="selectedBank.name" readonly data-toggle="dropdown"
@@ -103,7 +107,7 @@
                 *ngIf="applicationFormControls.bankName.invalid && (applicationFormControls.bankName.dirty|| applicationFormControls.bankName.touched)"
                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.bankName.errors.required">
-                  Bank is required
+                  {{langVar.applicationForm.bankRequired}}
                 </div>
               </div>
             </div>
@@ -112,31 +116,28 @@
         <div class="row mt-3">
           <div class="col-lg-6 col-12">
             <div class="textareaContainer">
-              <label>Note</label>
+              <label>{{langVar.applicationForm.note}}</label>
               <textarea class="form-control" formControlName="note"></textarea>
               <div
                 *ngIf="applicationFormControls.note.invalid && (applicationFormControls.note.dirty|| applicationFormControls.note.touched)"
                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.note.errors.required">
-                  You must add notes before proceeding
+                  {{langVar.applicationForm.notesRequired}}
                 </div>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-12">
-            <div class="row">
+            <div class="row" dir="{{langVar.dir}}">
               <input type="checkbox" id="privacyCheckbox" formControlName="acknowledgment">
               <label for="privacyCheckbox" class="checkboxLabel">
-                I hereby acknowledge
-                and allow Soulwallet to share the
-                above details with the provider to contact me & access my details from the Egyptian credit bureau as
-                needed. I agree to the Terms and Conditions listed.
+                {{langVar.applicationForm.acknowledgment}}
               </label>
               <div
                 *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
                 class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.acknowledgment.errors.required">
-                  You must accept accept the terms to proceed
+                  {{langVar.applicationForm.terms}}
                 </div>
               </div>
             </div>
@@ -147,7 +148,7 @@
           </div>
           <div class="col-lg-6 col-12 text-right">
             <button class="mx-5" [disabled]="!applicationForm.valid" (click)="SubmitServiceRequest()">
-              Apply Now
+              {{langVar.applicationForm.applyNow}}
             </button>
           </div>
         </div>
