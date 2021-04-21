@@ -29,7 +29,7 @@ export class ServiceComponent implements OnInit {
   applicationForm;
   currentLang;
   langVar;
-  constructor(private langHelper: langHelper,private ServicesService: ServicesService, private bankService: BankService, private router: Router,
+  constructor(private langHelper: langHelper, private ServicesService: ServicesService, private bankService: BankService, private router: Router,
     private formBuilderHelper: formBuilderHelper, private authService: AuthenticationService, private toastr: ToastrService) {
     this.applicationForm = this.formBuilderHelper.CreateFormBuilder({
       mobileNumber: '',
@@ -48,7 +48,9 @@ export class ServiceComponent implements OnInit {
 
     this.ServicesService.GetAllServices().subscribe(res => {
       let ServicesList = res.data;
+      console.log(res.data);
       this.service = ServicesList.find(a => a.id == parseInt(selectedServiceID))
+      console.log("service: ", this.service);
       // console.log(this.service);
     }, error => {
       console.log(error);
@@ -89,10 +91,12 @@ export class ServiceComponent implements OnInit {
     });
   }
 
-  SelectServiceType(typeID: number){
-    this.selectedServiceType = this.service.serviceTypes.find(t => t.id == typeID);
-    //fetch available banks and display application form
-    this.FetchAvailableBanks();
+  SelectServiceType(typeID: number) {
+    if (this.canRequestService) {
+      this.selectedServiceType = this.service.serviceTypes.find(t => t.id == typeID);
+      //fetch available banks and display application form
+      this.FetchAvailableBanks();
+    }
   }
   //Create service request
   SubmitServiceRequest() {

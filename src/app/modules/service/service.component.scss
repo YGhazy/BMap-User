@@ -51,7 +51,7 @@ button:active, button:focus, button:hover {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 38px;
   color: #000000;
   text-shadow: 0px 0px 4px #000000bc;
   font-family: 'Roboto', sans-serif;
@@ -190,8 +190,9 @@ p {
   border-radius: 18px;
   box-shadow: 0 3px 22px 0 rgba(106, 106, 106, 0.48);
   background-color: #ffffff;
-  width: 300px;
-  padding: 34px 28px 34px 28px !important;
+  width: 332px;
+  padding: 26px;
+  text-align: center;
   margin-left: 3%;
   margin-top: 5%;
   cursor: pointer;
@@ -222,3 +223,9 @@ p {
     clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
   }
 }
+
+p {
+    color: #000;
+    font-size: 30px;
+    font-weight: 600;
+} 

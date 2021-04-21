@@ -30,22 +30,20 @@
     </h1>
     <p class=" {{langVar.textAlign}}" data-aos="fade-up" dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='ar'">
       {{service.descriptionAR}}
-
     </p>
-    <p class="{{langVar.textAlign}}" data-aos="fade-up " dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='en'">
+    <p class="{{langVar.textAlign}}" style="font-size: 1.5rem;" data-aos="fade-up " dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='en'">
       {{service.descriptionEN}}
-
     </p>
     <div class="d-flex flex-wrap">
-
       <div class="serviceType-container" *ngFor="let type of service.serviceTypes;"
         (click)="SelectServiceType(type.id)">
         <div class="row">
-          <div class="col-6">
-            <img src="{{type.imgIcon}}" alt="type{{type.id}}" />
-          </div>
-          <div class="col-6">
-            <p>{{type.nameEN}}</p>
+          <!-- <div class="col-6">
+            <img src="{{type.imgIcon}}" alt="type{{type.id}}" /> 
+          </div> --> <!--Img icon removed -->
+          <div class="col-12">
+            <p *ngIf="currentLang == 'en'">{{type.nameEN}}</p>
+            <p *ngIf="currentLang == 'ar'">{{type.nameAR}}</p>
           </div>
         </div>
       </div>
@@ -58,7 +56,7 @@
       <h1 data-aos="fade-up">
         Please fill in the details to receive a call back with more details about this product
       </h1>
-      <i class="fas fa-power-off"></i>    </div>
+      <i class="fas fa-power-off"></i></div>
 
 
     <form data-aos="fade-up" class="mb-5" [formGroup]="applicationForm">
