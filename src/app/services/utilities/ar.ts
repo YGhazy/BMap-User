@@ -108,6 +108,14 @@ export const Arabic: any = {
     notesRequired: 'يجب عليك إضافة ملاحظات قبل المتابعة',
     terms: 'يجب عليك قبول الشروط للمتابعة',
   },
+  requestedServices: {
+    title: "الخدمات المطلوبة",
+    service: "الخدمه",
+    type: "نوع الخدمه",
+    requestedDate: "تاريخ الطلب",
+    bank: "البنك",
+    status: "الحاله",
+  },
   register: {
     register: "تسجيل ",
     back: "رجوع",
@@ -115,7 +123,20 @@ export const Arabic: any = {
     haveAcc: "لديك حساب ،",
 
   },
+  status:{
+    pending: "قيد الانتظار",
+    approved: "موافق عليه",
+    rejected: "مرفوض",
+  },
+  response: {
+    error: "خطأ",
+    success: "نجاح",
+    unableToFetchAccDetails: "تعذر جلب تفاصيل الحساب",
+    unableToCancelReq: "تعذر إلغاء الطلب",
+    reqCancelled: "تم إلغاء الطلب",
+
+  },
   sent: "تم بنجاح",
   Request: "طلب",
-
+  cancel: "إلغاء",
 }

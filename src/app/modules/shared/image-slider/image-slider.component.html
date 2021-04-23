@@ -1,9 +1,9 @@
-<section class="{{langVar.arabicClass}}">
+<section class="{{langVar.arabicClass}}" *ngIf="bankList">
   <div class="text-center mb-5" style="overflow-x:hidden;" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
     <div>
       <h1 class="text-center">{{langVar.backsCarousel.title}}</h1>
-      <p class="mb-5 pt-2" style="" dir="{{langVar.dir}}">{{langVar.backsCarousel.content}} </p>
-      <owl-carousel-o [options]="carouselOptions" *ngIf="bankList">
+      <p class="mb-5 pt-2" dir="{{langVar.dir}}">{{langVar.backsCarousel.content}} </p>
+      <owl-carousel-o [options]="carouselOptions">
         <ng-container *ngFor="let bank of bankList">
           <ng-template carouselSlide id="owl-slide-{{bank.id}}">
             <div class="imageContainer" style="margin: 0 auto;">

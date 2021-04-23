@@ -43,8 +43,8 @@ export const English: any = {
     requiredEmail: "E-mail required ",
     requiredPassword: "Password required",
     InvalidPassword: "Invalid password",
-    invalidLogin: "Enter valid email and password",
-    invalidRegister: "Error submitting request, please try againshortly.",
+    invalidLogin: "Enter a valid email and password",
+    invalidRegister: "Error submitting request, please try again shortly.",
     loginRedirect:"You will be redirected shortly",
   },
   subscribe: {
@@ -62,7 +62,7 @@ export const English: any = {
   },
   login: {
     wlc: "Welcome to",
-    forgetPassword: " Forget Password? ",
+    forgetPassword: "Forgot Password? ",
     desc: "We make it easy for everyone to invest in banking services",
     login: "Login",
     donHaveAcc: "Don't have an account,",
@@ -103,6 +103,14 @@ export const English: any = {
     notesRequired: 'You must add notes before proceeding',
     terms: 'You must accept accept the terms to proceed',
   },
+  requestedServices: {
+    title: "Requested Services",
+    service: "Service",
+    type: "type",
+    requestedDate: "Requested Date",
+    bank: "Bank",
+    status: "Status",
+  },
   register: {
     register: "Register",
     back: "Back",
@@ -110,7 +118,21 @@ export const English: any = {
     haveAcc: "have an account,",
 
   },
-    sent: "Done successfully",
-    Request: "Request",
+  status:{
+    pending: "Pending",
+    approved: "Approved",
+    rejected: "Rejected",
+  },
+  response: {
+    error: "Error",
+    success: "Success",
+    unableToFetchAccDetails: "Unable to fetch account details",
+    unableToCancelReq: "Unable to cancel request",
+    reqCancelled: "Request cancelled",
+
+  },
+  sent: "Done successfully",
+  Request: "Request",
+  cancel: "Cancel",
 
 }

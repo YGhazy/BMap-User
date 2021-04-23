@@ -10,37 +10,48 @@
   </ul>
 </div>
 <div>
-  <!--style=" background-image: url({{service[0].header}});"-->
+  <!--Display default header / service header background image-->
   <div class="site-blocks-cover background "
     style=" background-image: url(./assets/images/requested-services/reqservicesbg.png);" data-aos="fade"
     *ngIf="!service || service && service.header == null || service.header == undefined">
   </div>
   <div class="site-blocks-cover overlay" *ngIf="service && service.header != null" data-aos="fade">
-    <div class="background site-blocks-cover" style=" background-image: url({{service.header}});">
-
-    </div>
+    <div class="background site-blocks-cover" style=" background-image: url({{service.header}});"></div>
   </div>
 
   <section class="container pt-2 mb-5" *ngIf="service && !isRequestingService">
+    <!--Service title / description-->
     <h1 *ngIf="currentLang=='en'" class="{{langVar.textAlign}}">
       {{service.nameEN}}
     </h1>
     <h1 *ngIf="currentLang=='ar'" class="{{langVar.textAlign}}">
       {{service.nameAR}}
     </h1>
-    <p class=" {{langVar.textAlign}}" data-aos="fade-up" dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='ar'">
+    <p class=" {{langVar.textAlign}}" data-aos="fade-up" dir="{{langVar.dir}}" data-aos-delay="200"
+      data-aos-duration="500" *ngIf="currentLang=='ar'">
       {{service.descriptionAR}}
     </p>
-    <p class="{{langVar.textAlign}}" style="font-size: 1.5rem;" data-aos="fade-up " dir="{{langVar.dir}}" data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='en'">
+    <p class="{{langVar.textAlign}}" style="font-size: 1.5rem;" data-aos="fade-up " dir="{{langVar.dir}}"
+      data-aos-delay="200" data-aos-duration="500" *ngIf="currentLang=='en'">
       {{service.descriptionEN}}
     </p>
+
+    <!--Request Button if service has no service types-->
+    <div class="text-right" *ngIf="!service.serviceTypes || service.serviceTypes.length == 0">
+        <button class="mx-5" data-aos="fade-up" data-aos-duration="600" (click)="SelectService()">
+          Request
+        </button>
+    </div>
+
+    <!--Service types card-->
     <div class="d-flex flex-wrap">
       <div class="serviceType-container" *ngFor="let type of service.serviceTypes;"
         (click)="SelectServiceType(type.id)">
         <div class="row">
+          <!--Img icon deprecated-->
           <!-- <div class="col-6">
             <img src="{{type.imgIcon}}" alt="type{{type.id}}" /> 
-          </div> --> <!--Img icon removed -->
+          </div> -->
           <div class="col-12">
             <p *ngIf="currentLang == 'en'">{{type.nameEN}}</p>
             <p *ngIf="currentLang == 'ar'">{{type.nameAR}}</p>
@@ -53,10 +64,11 @@
   <!--Application form section-->
   <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
     <div class="row" dir="{{langVar.dir}}" [ngClass]="{'mr-5':currentLang==='ar', 'ml-3':currentLang==='en'}">
-      <h1 data-aos="fade-up" >
+      <h1 data-aos="fade-up">
         {{langVar.applicationForm.title}}
       </h1>
-      <i class="fas fa-power-off"></i></div>
+      <i class="fas fa-power-off"></i>
+    </div>
 
 
     <form data-aos="fade-up" class="mb-5" [formGroup]="applicationForm">
@@ -64,8 +76,10 @@
         <div class="row">
           <div class="col-lg-6 col-12">
             <label for="serviceName">{{langVar.applicationForm.serviceName}}</label>
-            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameEN}}" readonly *ngIf="currentLang == 'en'" />
-            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameAR}}" readonly *ngIf="currentLang == 'ar'" />
+            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameEN}}" readonly
+              *ngIf="currentLang == 'en'" />
+            <input name="serviceName" type="text" class="form-control" placeholder="{{service.nameAR}}" readonly
+              *ngIf="currentLang == 'ar'" />
           </div>
           <div class="col-lg-6 col-12">
             <label for="phoneNumber">{{langVar.applicationForm.phoneNumber}}</label>
@@ -86,12 +100,13 @@
         <div class="row mt-3">
           <div class="col-lg-6 col-12">
             <label for="serviceType">{{langVar.applicationForm.serviceType}}</label>
-            <input id="serviceType" type="text" class="form-control" formControlName="serviceType"
+            <input id="serviceType" type="text" class="form-control"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              placeholder="{{selectedServiceType.nameEN}}" readonly *ngIf="currentLang== 'en'"/>
-              <input id="serviceType" type="text" class="form-control" formControlName="serviceType"
+              value=""
+              placeholder="{{selectedServiceType.nameEN}}" readonly *ngIf="currentLang== 'en'" />
+            <input id="serviceType" type="text" class="form-control"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              placeholder="{{selectedServiceType.nameAR}}" readonly *ngIf="currentLang== 'ar'"/>
+              placeholder="{{selectedServiceType.nameAR}}" readonly *ngIf="currentLang== 'ar'" />
           </div>
           <div class="col-lg-6 col-12">
             <label for="serviceName">{{langVar.applicationForm.selectBank}}</label>

@@ -5,36 +5,43 @@
 
 <main class="{{langVar.arabicClass}}">
 
-    <h1 class="{{langVar.textAlign}}">
-        Requested Services
+    <h1 class="{{langVar.textAlign}}" [ngClass]="{'mr-5 mt-5':currentLang == 'ar'}">
+        {{langVar.requestedServices.title}}
     </h1>
 
     <div class="tableContainer">
-        <div class="table-responsive">
+        <div class="table-responsive" dir="{{langVar.dir}}">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">Service</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Requested Date</th>
-                        <th scope="col">Bank</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">{{langVar.requestedServices.service}}</th>
+                        <th scope="col">{{langVar.requestedServices.type}}</th>
+                        <th scope="col">{{langVar.requestedServices.requestedDate}}</th>
+                        <th scope="col">{{langVar.requestedServices.bank}}</th>
+                        <th scope="col">{{langVar.requestedServices.status}}</th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let requestedService of requestedServices; let i = index;">
                         <td scope="row" style="color: #1351c3;">{{i+1}}</td>
-                        <td style="color: #1351c3;">{{requestedService.services.nameEN}}</td>
-                        <td style="color: #8c929c; font-weight: normal;">{{requestedService.serviceTypes.nameEN}}</td>
+                        <td style="color: #1351c3;" *ngIf="currentLang == 'en'">{{requestedService.services.nameEN}}</td>
+                        <td style="color: #1351c3;" *ngIf="currentLang == 'ar'">{{requestedService.services.nameAR}}</td>
+                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes != null && currentLang == 'en'">{{requestedService.services.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes != null && currentLang == 'ar'">{{requestedService.services.nameAR}}</td>
+                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes == null && currentLang == 'en'">{{requestedService.serviceTypes.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes == null && currentLang == 'ar'">{{requestedService.serviceTypes.nameAR}}</td>
                         <td style="color: #8c929c; font-weight: normal;">{{requestedService.date | date: 'MMM d, y, h:mm a'}}</td>
                         <td style="color: #1351c3; font-weight: normal;">{{requestedService.banks.name}}</td>
                         <td
                             [ngClass]="{'text-warning':requestedService.status=='Pending', 'text-danger':requestedService.status == 'Rejected', 'text-success':requestedService.status == 'Approved'}">
-                            {{requestedService.status}}</td>
+                            <p *ngIf="requestedService.status == 'Pending'">{{langVar.status.pending}}</p>
+                            <p *ngIf="requestedService.status == 'Approved'">{{langVar.status.approved}}</p>
+                            <p *ngIf="requestedService.status == 'Rejected'">{{langVar.status.rejected}}</p>
+                        </td>
                         <td><button class="btn btn-primary" *ngIf="requestedService.status == 'Pending'"
-                                (click)="DisplayCancellationConfirmation(requestedService.id)">Cancel</button></td>
+                                (click)="DisplayCancellationConfirmation(requestedService.id)">{{langVar.cancel}}</button></td>
                     </tr>
                 </tbody>
             </table>
