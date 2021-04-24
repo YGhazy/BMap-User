@@ -8,12 +8,14 @@ import { FormControl, Validators, FormBuilder } from '@angular/forms';
 export class formBuilderHelper {
 
   controllers;
+   strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
   emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   constructor(private formBuilder: FormBuilder) {
 
     this.controllers = {
       fullName: [Validators.required, Validators.min(1), Validators.max(50), Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")], //arabic & english letters
-      mobileNumber: [Validators.required, Validators.pattern("^([0]{1}?[1]{1}?[0-2-5]{1}?[0-9]{8})$")],
+      mobileNumber: [Validators.required, Validators.pattern("^([0-9]{8,})$")],
       calendar: [Validators.required],
       age: [Validators.required],
       type: [Validators.required],
@@ -24,9 +26,9 @@ export class formBuilderHelper {
       contactMessage: [Validators.required],
       image: [Validators.required],
       userName: [Validators.required, Validators.min(1), Validators.max(50), Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")],
-      newPassword: [Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
-      password: [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
-      confirmPassword: [Validators.required, Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$")],
+      newPassword: [Validators.pattern("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})")],
+      password: [Validators.required, Validators.pattern(this.strongRegex)],
+      confirmPassword: [Validators.required],
       ENValidation: [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.max(40)],
       ARValidation: [Validators.required, Validators.pattern('^[\u0600-\u06ff ]+$'), Validators.max(40)],
       //Registeration validators

@@ -1,4 +1,4 @@
-<section class="webView">
+<section class="webView {{langVar.arabicClass}}" >
   <div class="row">
     <div class="col-12 col-md-6 background" data-aos="fade">
       <div class="logo">
@@ -94,7 +94,7 @@
   </div>
 </section>
 
-<section class="mobileView">
+<section class="mobileView {{langVar.arabicClass}}">
   <div class="background">
   <div class="logo">
     <img src="../../../../assets/images/bmap logo 2.png" routerLink="/home" style="cursor: pointer;" />
@@ -147,7 +147,7 @@
                   {{langVar.invalid.requiredPassword}}
 
                 </div>
-                <div *ngIf="f.password.errors.pattern">
+                <div *ngIf="f.password.errors.pattern" dir="{{langVar.dir}}">
                   {{langVar.invalid.InvalidPassword}}
 
                 </div>
