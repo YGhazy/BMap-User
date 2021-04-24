@@ -60,8 +60,6 @@ export const Arabic: any = {
     requiredJobTitle: "ادخل المسمي الوظيفي",
     requiredNationalID: "ادخل رقم الهوية",
     invalidNationalID:"رقم الهوية اقل من 14 رقم",
-    InvalidPassword: "الرقم السري غير صحيح",
-    requiredName: "الاسم مطلوب",
     namePattern: "يجب ألا يحتوي الاسم على أرقام أو رموز أو مسافات",
     invalidLogin: "تأكد من البيانات",
     invalidRegister: "خطأ في تقديم الطلب ، يرجى المحاولة مرة أخرى",
