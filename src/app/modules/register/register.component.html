@@ -1,4 +1,4 @@
-<section class="webView">
+<section class="webView {{langVar.arabicClass}}">
   <div class="row">
     <div class="col-12 col-md-6 background" data-aos="fade">
       <div class="logo">
@@ -13,94 +13,132 @@
         <p class=" {{langVar.textAlign}}" data-aos="fade-down">
           {{langVar.login.desc}}
         </p>
-        <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
+      </div>
+      <div class="container px-5 h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm1" *ngIf="currentPage == 1">
 
-          <div class=" d-flex w-100" *ngIf="currentPage == 1">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="firstName"
-                     placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
-              <div *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.firstName.errors.required">
-                  Name is required
+        <div>
+
+          <div class=" d-flex w-100 mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="firstName"
+                       placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
+              </div>
+              <div *ngIf="signupForm1Controls.firstName.invalid && (signupForm1Controls.firstName.dirty|| signupForm1Controls.firstName.touched)"
+                   class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.firstName.errors.required">
+                  {{langVar.invalid.requiredName}}
+                </div>
+                <div *ngIf="signupForm1Controls.firstName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
                 </div>
               </div>
             </div>
+            <div class="d-flex flex-column w-100 pr-2">
 
-            <div class="input-group py-2 ">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
-                     placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
-              <div *ngIf="signupFormControls.firstMiddleName.invalid && (signupFormControls.firstMiddleName.dirty|| signupFormControls.firstMiddleName.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.firstMiddleName.errors.required">
-                  Name is required
+              <div class="input-group ">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="firstMiddleName"
+                       placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
+              </div>
+              <div *ngIf="signupForm1Controls.firstMiddleName.invalid && (signupForm1Controls.firstMiddleName.dirty|| signupForm1Controls.firstMiddleName.touched)"
+                   class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.firstMiddleName.errors.required">
+                  {{langVar.invalid.requiredName}}
+
+                </div>
+                <div *ngIf="signupForm1Controls.firstMiddleName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
                 </div>
               </div>
             </div>
           </div>
-          <div class=" d-flex w-100" *ngIf="currentPage == 1">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
-                    placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddle">
-              <div *ngIf="signupFormControls.secondMiddleName.invalid && (signupFormControls.secondMiddleName.dirty|| signupFormControls.secondMiddleName.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.secondMiddleName.errors.required">
-                  Name is required
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="secondMiddleName"
+                       placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddleName">
+              </div>
+              <div *ngIf="signupForm1Controls.secondMiddleName.invalid && (signupForm1Controls.secondMiddleName.dirty|| signupForm1Controls.secondMiddleName.touched)"
+                   class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.secondMiddleName.errors.required">
+                  {{langVar.invalid.requiredName}}
+
+                </div>
+                <div *ngIf="signupForm1Controls.secondMiddleName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
                 </div>
               </div>
             </div>
 
-            <div class="input-group py-2 ">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="lastName"
-                      placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
-              <div *ngIf="signupFormControls.lastName.invalid && (signupFormControls.lastName.dirty|| signupFormControls.lastName.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.lastName.errors.required">
-                  Name is required
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-user-o" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="lastName"
+                       placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
+              </div>
+              <div *ngIf="signupForm1Controls.lastName.invalid && (signupForm1Controls.lastName.dirty|| signupForm1Controls.lastName.touched)"
+                   class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.lastName.errors.required">
+                  {{langVar.invalid.requiredName}}
+
+                </div>
+                <div *ngIf="signupForm1Controls.lastName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
                 </div>
               </div>
             </div>
+
           </div>
-          <div class=" d-flex w-100" *ngIf="currentPage == 1">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="email" placeholder="{{langVar.placeholder.email}}"
-                     aria-label="Email">
-              <div *ngIf="signupFormControls.email.invalid && (signupFormControls.email.dirty|| signupFormControls.email.touched)"
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="email"
+                       placeholder="{{langVar.placeholder.email}}" aria-label="email">
+              </div>
+              <div *ngIf="signupForm1Controls.email.invalid && (signupForm1Controls.email.dirty|| signupForm1Controls.email.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
-                <div *ngIf="signupFormControls.email.errors.required">
+                <div *ngIf="signupForm1Controls.email.errors.required">
                   {{langVar.invalid.requiredEmail}}
 
                 </div>
-                <div *ngIf="signupFormControls.email.errors.pattern">
+                <div *ngIf="signupForm1Controls.email.errors.pattern">
                   {{langVar.invalid.invalidEmail}}
 
                 </div>
               </div>
             </div>
 
-            <div class="input-group py-2 ">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
-                    placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="phoneNumber">
-              <div *ngIf="signupFormControls.mobileNumber.invalid && (signupFormControls.mobileNumber.dirty|| signupFormControls.mobileNumber.touched)"
-                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.mobileNumber.errors.required">
-                  Phone Number is required
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-mobile" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="mobileNumber"
+                       placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="PhoneNumber">
+              </div>
+              <div *ngIf="signupForm1Controls.mobileNumber.invalid && (signupForm1Controls.mobileNumber.dirty|| signupForm1Controls.mobileNumber.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.mobileNumber.errors.required">
+                  {{langVar.invalid.requiredMobileNumber}}
+
                 </div>
-                <div *ngIf="signupFormControls.mobileNumber.errors.pattern">
-                  Phone Number must be in a correct format
+                <div *ngIf="signupForm1Controls.mobileNumber.errors.pattern">
+                  {{langVar.invalid.InvalidMobileNumber}}
                 </div>
               </div>
             </div>
+
           </div>
-          <div class="input-group ml-2 py-2 mr-2" *ngIf="currentPage == 1" dir="{{langVar.dir}}">
+          <div class="input-group ml-2 py-2 mr-2" dir="{{langVar.dir}}">
             <label>{{langVar.placeholder.Gender}}</label>
-            <input type="text" class="form-control border-secondary" style="display: none;"placeholder="{{langVar.placeholder.Gender}}"
+            <input type="text" class="form-control border-secondary" style="display: none;" placeholder="{{langVar.placeholder.Gender}}"
                    [(ngModel)]="selectedGender" formControlName="gender">
             <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
                  class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -116,103 +154,288 @@
             </svg>
           </div>
 
-          <!--Second registeration page-->
-          <div class=" d-flex w-100" *ngIf="currentPage == 2">
-            <div class="input-group  py-2 mr-2">
-              <p-calendar inputId="dob" styleClass="ml-3" aria-label="dateOfBirth" formControlName="dateOfBirth"
-                          [touchUI]="true" [readonlyInput]="true" [showIcon]="true" data-toggle="tooltip" data-placement="top"
-                          title="Date of birth"></p-calendar>
-              <div *ngIf="signupFormControls.dateOfBirth.invalid && (signupFormControls.dateOfBirth.dirty|| signupFormControls.dateOfBirth.touched)"
+        </div>
+        <div class="w-100 text-right">
+          <button class="" (click)="Next()" *ngIf=" currentPage == 1" [disabled]="!signupForm1.valid">
+            {{langVar.register.next}}
+
+          </button>
+        </div>
+      </div>
+
+      <div class="container px-5 h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm2" *ngIf="currentPage == 2">
+
+        <div>
+
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 ">
+
+              <div class="input-group pr-2">
+                <p-calendar inputId="dob" styleClass=" {{langVar.textAlign}}" aria-label="dateOfBirth" formControlName="dateOfBirth" placeholder="{{langVar.placeholder.DateOfBirth}}"
+                            [touchUI]="true" [readonlyInput]="true" [showIcon]="true" data-toggle="tooltip" data-placement="top"
+                            title="Date of birth"></p-calendar>
+              </div>
+              <div *ngIf="signupForm2Controls.dateOfBirth.invalid && (signupForm2Controls.dateOfBirth.dirty|| signupForm2Controls.dateOfBirth.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="signupFormControls.dateOfBirth.errors.required">
-                  Date of birth is required
+                <div *ngIf="signupForm2Controls.dateOfBirth.errors.required">
+                  {{langVar.requiredDateOfBirth}}
                 </div>
               </div>
+
             </div>
-            <div class="input-group  py-2 mr-2">
-              <div class="dropdown">
-                <input id="accountTypeDropDown" class="textInputStatusValue customInput" type="text"
+
+            <div class="d-flex flex-column w-100">
+
+              <div class="input-group dropdown pr-2">
+                <i class="fa fa-user-o user" aria-hidden="true"></i>
+
+                <input id="accountTypeDropDown" class=" {{langVar.textAlign}}" type="text"
                        placeholder="{{langVar.placeholder.AccountType}}" [(ngModel)]="stValue" readonly formControlName="accountType"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()" />
-                <i class="arrow down" *ngIf="show" (click)="showOption()"></i>
-                <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>
-                <div class="dropdown-menu" aria-labelledby="accountTypeDropDown"
+                <!--<i class="arrow down" *ngIf="show" (click)="showOption()"></i>
+  <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>-->
+                <div class="dropdown-menu" aria-labelledby="accountTypeDropDown">
+
+                <div 
                      *ngFor="let accountType of accountType_values;">
                   <!--*ngIf="showOptions"-->
                   <a (click)="getAccountTypeValue(accountType.id)">{{accountType.value}}</a>
                 </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-id-card-o" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.NationalId}}"
+                       formControlName="nationalID" aria-label="nationalID">
+              </div>
+              <div *ngIf="signupForm2Controls.nationalID.invalid && (signupForm2Controls.nationalID.dirty|| signupForm2Controls.nationalID.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm2Controls.nationalID.errors.required">
+                  {{langVar.invalid.requiredNationalID}}
+
+                </div>
+                <div *ngIf="signupForm2Controls.nationalID.errors.minlength">
+                  {{langVar.invalid.invalidNationalID}}
+
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-briefcase" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.JobTitle}}"
+                       formControlName="jobTitle" aria-label="jobTitle">
+              </div>
+              <div *ngIf="signupForm2Controls.jobTitle.invalid && (signupForm2Controls.jobTitle.dirty|| signupForm2Controls.jobTitle.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm2Controls.jobTitle.errors.required">
+                  {{langVar.invalid.requiredJobTitle}}
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="{{inputType}}" class="form-control border-secondary {{langVar.textAlign}}" formControlName="password"
+                       placeholder="{{langVar.placeholder.password}}" aria-label="Password">
+                <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+              </div>
+              <div *ngIf="signupForm2Controls.password.invalid && (signupForm2Controls.password.dirty|| signupForm2Controls.password.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm2Controls.password.errors.required">
+                  {{langVar.invalid.requiredPassword}}
+
+                </div>
+                <div *ngIf="signupForm2Controls.password.errors.pattern" dir="{{langVar.dir}}">
+                  {{langVar.invalid.InvalidPassword}}
+
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-lock" aria-hidden="true"></i>
+                <input type="{{inputConfirmType}}" class="form-control border-secondary  {{langVar.textAlign}}" formControlName="confirmPassword"
+                       placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
+                <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
+              </div>
+              <div *ngIf="signupForm2Controls.confirmPassword.invalid && (signupForm2Controls.confirmPassword.dirty|| signupForm2Controls.confirmPassword.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm2Controls.confirmPassword.errors.required">
+                  {{langVar.invalid.requiredPassword}}
+
+                </div>
+    
+              </div>
+              <div *ngIf="confirmPasswordError" class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                {{langVar.invalid.InvalidConfirmPassword}}
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="w-100 text-right">
+          <button class=" mx-5" (click)="Back()">
+            {{langVar.register.back}}
+          </button>
+          <button class=" mx-5 float-right" (click)="Next()" [disabled]="!signupForm2.valid">
+            {{langVar.register.next}}
+
+          </button>
+        </div>
+
+      </div>
+
+      <div class="container px-5 h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm" *ngIf="currentPage == 3">
+
+        <div>
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
+                       aria-label="country">
+              </div>
+              <div *ngIf="signupFormControls.country.invalid && (signupFormControls.country.dirty|| signupFormControls.country.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupFormControls.country.errors.required">
+                  {{langVar.invalid.requiredCountry}}
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" placeholder="{{langVar.placeholder.City}}" formControlName="city"
+                       aria-label="city">
+              </div>
+              <div *ngIf="signupFormControls.address.invalid && (signupFormControls.address.dirty|| signupFormControls.address.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.address.errors.required">
+                  {{langVar.invalid.requiredcity}}
+
+                </div>
+
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+              <div class="input-group ">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
+                       aria-label="province">
+              </div>
+              <div *ngIf="signupFormControls.province.invalid && (signupFormControls.province.dirty|| signupFormControls.province.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupFormControls.province.errors.required">
+                  {{langVar.invalid.requiredProvince}}
+
+                </div>
+
+              </div>
+            </div>
+            <div class="d-flex flex-column w-100 pr-2">
+
+
+              <div class="input-group ">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" formControlName="street"
+                       placeholder="{{langVar.placeholder.Street}}" aria-label="street">
+              </div>
+              <div *ngIf="signupFormControls.street.invalid && (signupFormControls.street.dirty|| signupFormControls.street.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupFormControls.street.errors.required">
+                  {{langVar.invalid.requiredStreet}}
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class=" d-flex w-100  mb-2 {{langVar.rowReverse}}">
+            <div class="d-flex flex-column w-100 pr-2">
+
+
+              <div class="input-group ">
+                <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
+                       aria-label="address">
+              </div>
+              <div *ngIf="signupFormControls.address.invalid && (signupFormControls.address.dirty|| signupFormControls.address.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                <div *ngIf="signupForm1Controls.address.errors.required">
+                  {{langVar.invalid.requiredAddress}}
+
+                </div>
+
               </div>
             </div>
           </div>
-          <div class=" d-flex w-100" *ngIf="currentPage == 2">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary"  placeholder="{{langVar.placeholder.NationalId}}"
-                     formControlName="nationalID" aria-label="nationalID">
-            </div>
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.JobTitle}}"
-                     formControlName="jobTitle" aria-label="jobTitle">
-            </div>
-          </div>
-          <!--Third registeration page-->
-          <div class=" d-flex w-100" *ngIf="currentPage == 3">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
-                     aria-label="address">
-            </div>
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-user-o" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
-                     aria-label="province">
-            </div>
-          </div>
-          <div class=" d-flex w-100" *ngIf="currentPage == 3">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.City}}" formControlName="city"
-                     aria-label="city">
-            </div>
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
-                     aria-label="country">
-            </div>
-          </div>
-          <div class=" d-flex w-100" *ngIf="currentPage == 3">
-            <div class="input-group py-2 mr-2">
-              <i class="fa fa-lock" aria-hidden="true"></i>
-              <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
-                     placeholder="{{langVar.placeholder.password}}" aria-label="Password">
-              <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
-            </div>
-            <div class="input-group py-2">
-              <i class="fa fa-lock" aria-hidden="true"></i>
+        </div>
+        <div class="w-100  text-right" *ngIf="!isLoading && currentPage == 3">
+          <button class=" mx-5" (click)="Back()">
+            {{langVar.register.back}}
+          </button>
 
-              <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
-                     placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
-              <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
-            </div>
+          <button type="submit" class=" mx-5 float-right" (click)="Register()"
+                  [disabled]="!signupForm.valid">
+            {{langVar.register.register}}
+          </button>
+        </div>
+        <div class=" px-5 col-4" *ngIf="isLoading">
+
+          <div style="height:8px;width:100px">
+            <div class="part6 p1"></div>
+            <div class="part6 p2"></div>
+            <div class="part6 p3"></div>
           </div>
-        </form>
+        </div>
       </div>
+
       <div>
-        <button class=" mx-5" (click)="Back()" *ngIf="!isLoading && currentPage != 1">
-          {{langVar.register.back}}
-        </button>
-        <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
-          {{langVar.register.next}}
-          
-        </button>
-        <button type="submit" class=" mx-5 float-right" (click)="Register()"
-                *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
-          {{langVar.register.register}}
-        </button>
+
+
         <label style="color: #31d190;" *ngIf="registerationResult == true">
           <!--Your registeration request have been
-               submitted successfully.-->
+      submitted successfully.-->
           {{langVar.sent}}
         </label>
         <label style="color: #2c3e50" *ngIf="registerationResult == false">
@@ -231,224 +454,420 @@
   </div>
 </section>
 
-<section class="mobileView">
+<section class="mobileView {{langVar.arabicClass}}">
   <div class="background">
     <div class="logo">
       <img src="../../../../assets/images/bmap logo 2.png" routerLink="/home" style="cursor: pointer;" />
     </div>
 
-    <div class="formContainer">
+    <div class="formContainer py-5">
       <div class="col-12  d-flex justify-content-between flex-column  h-100">
-        <div class=" align-items-end d-flex justify-content-around flex-column h-100">
+        <div class=" align-items-end d-flex justify-content-around flex-column h-100 ">
 
-          <div class="w-100">
+          <div class="w-100 ">
+            <div class="">
+              <h1 class="  {{langVar.textAlign}}" dir="{{langVar.dir}}" data-aos="fade-down">{{langVar.login.wlc}} <span>BMAP</span></h1>
+              <p class=" {{langVar.textAlign}}" data-aos="fade-down">
+                {{langVar.login.desc}}
+              </p>
+            </div>
+            <div class=" h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm1" *ngIf="currentPage == 1">
 
-            <h1 class="  {{langVar.textAlign}}" dir="{{langVar.dir}}" data-aos="fade-down">{{langVar.login.wlc}} <span>BMAP</span></h1>
-            <p class=" {{langVar.textAlign}}" data-aos="fade-down">
-              {{langVar.login.desc}}
-            </p>
-            <form [formGroup]="signupForm" class=" d-flex align-items-center justify-content-center flex-column pt-2">
+              <div>
 
-              <div class=" d-flex w-100" *ngIf="currentPage == 1">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="firstName"
-                         placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
-                  <div *ngIf="signupFormControls.firstName.invalid && (signupFormControls.firstName.dirty|| signupFormControls.firstName.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.firstName.errors.required">
-                      Name is required
+
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="firstName"
+                           placeholder="{{langVar.placeholder.FirstName}}" aria-label="firstName">
+                  </div>
+                  <div *ngIf="signupForm1Controls.firstName.invalid && (signupForm1Controls.firstName.dirty|| signupForm1Controls.firstName.touched)"
+                       class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                    <div *ngIf="signupForm1Controls.firstName.errors.required">
+                      {{langVar.invalid.requiredName}}
+                    </div>
+                    <div *ngIf="signupForm1Controls.firstName.errors.pattern">
+                      {{langVar.invalid.InvalidName}}
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="firstMiddleName"
+                           placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
+                  </div>
+                  <div *ngIf="signupForm1Controls.firstMiddleName.invalid && (signupForm1Controls.firstMiddleName.dirty|| signupForm1Controls.firstMiddleName.touched)"
+                       class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                    <div *ngIf="signupForm1Controls.firstMiddleName.errors.required">
+                      {{langVar.invalid.requiredName}}
+
+                    </div>
+                    <div *ngIf="signupForm1Controls.firstMiddleName.errors.pattern">
+                      {{langVar.invalid.InvalidName}}
                     </div>
                   </div>
                 </div>
 
-                <div class="input-group py-2 ">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="firstMiddleName"
-                         placeholder="{{langVar.placeholder.FistMiddleName}}" aria-label="firstMiddleName">
-                  <div *ngIf="signupFormControls.firstMiddleName.invalid && (signupFormControls.firstMiddleName.dirty|| signupFormControls.firstMiddleName.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.firstMiddleName.errors.required">
-                      Name is required
-                    </div>
+
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="secondMiddleName"
+                           placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddleName">
                   </div>
-                </div>
-              </div>
-              <div class=" d-flex w-100" *ngIf="currentPage == 1">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="secondMiddleName"
-                         placeholder="{{langVar.placeholder.secondMiddleName}}" aria-label="secondMiddle">
-                  <div *ngIf="signupFormControls.secondMiddleName.invalid && (signupFormControls.secondMiddleName.dirty|| signupFormControls.secondMiddleName.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.secondMiddleName.errors.required">
-                      Name is required
+                  <div *ngIf="signupForm1Controls.secondMiddleName.invalid && (signupForm1Controls.secondMiddleName.dirty|| signupForm1Controls.secondMiddleName.touched)"
+                       class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                    <div *ngIf="signupForm1Controls.secondMiddleName.errors.required">
+                      {{langVar.invalid.requiredName}}
+
+                    </div>
+                    <div *ngIf="signupForm1Controls.secondMiddleName.errors.pattern">
+                      {{langVar.invalid.InvalidName}}
                     </div>
                   </div>
                 </div>
 
-                <div class="input-group py-2 ">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="lastName"
-                         placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
-                  <div *ngIf="signupFormControls.lastName.invalid && (signupFormControls.lastName.dirty|| signupFormControls.lastName.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.lastName.errors.required">
-                      Name is required
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-user-o" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="lastName"
+                           placeholder="{{langVar.placeholder.LastName}}" aria-label="lastName">
+                  </div>
+                  <div *ngIf="signupForm1Controls.lastName.invalid && (signupForm1Controls.lastName.dirty|| signupForm1Controls.lastName.touched)"
+                       class="alert alert-danger px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                    <div *ngIf="signupForm1Controls.lastName.errors.required">
+                      {{langVar.invalid.requiredName}}
+
+                    </div>
+                    <div *ngIf="signupForm1Controls.lastName.errors.pattern">
+                      {{langVar.invalid.InvalidName}}
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class=" d-flex w-100" *ngIf="currentPage == 1">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="email" placeholder="{{langVar.placeholder.email}}"
-                         aria-label="Email">
-                  <div *ngIf="signupFormControls.email.invalid && (signupFormControls.email.dirty|| signupFormControls.email.touched)"
+
+
+
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="email"
+                           placeholder="{{langVar.placeholder.email}}" aria-label="email">
+                  </div>
+                  <div *ngIf="signupForm1Controls.email.invalid && (signupForm1Controls.email.dirty|| signupForm1Controls.email.touched)"
                        class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
-                    <div *ngIf="signupFormControls.email.errors.required">
+                    <div *ngIf="signupForm1Controls.email.errors.required">
                       {{langVar.invalid.requiredEmail}}
 
                     </div>
-                    <div *ngIf="signupFormControls.email.errors.pattern">
+                    <div *ngIf="signupForm1Controls.email.errors.pattern">
                       {{langVar.invalid.invalidEmail}}
 
                     </div>
                   </div>
                 </div>
 
-                <div class="input-group py-2 ">
-                  <i class="fa fa-phone" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" formControlName="mobileNumber"
-                         placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="phoneNumber">
-                  <div *ngIf="signupFormControls.mobileNumber.invalid && (signupFormControls.mobileNumber.dirty|| signupFormControls.mobileNumber.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.mobileNumber.errors.required">
-                      Phone Number is required
+                <div class="d-flex flex-column w-100 pr-2">
+
+                  <div class="input-group ">
+                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                    <input type="text" class="form-control border-secondary {{langVar.textAlign}}" formControlName="mobileNumber"
+                           placeholder="{{langVar.placeholder.PhoneNumber}}" aria-label="PhoneNumber">
+                  </div>
+                  <div *ngIf="signupForm1Controls.mobileNumber.invalid && (signupForm1Controls.mobileNumber.dirty|| signupForm1Controls.mobileNumber.touched)"
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                    <div *ngIf="signupForm1Controls.mobileNumber.errors.required">
+                      {{langVar.invalid.requiredMobileNumber}}
+
                     </div>
-                    <div *ngIf="signupFormControls.mobileNumber.errors.pattern">
-                      Phone Number must be in a correct format
+                    <div *ngIf="signupForm1Controls.mobileNumber.errors.pattern">
+                      {{langVar.invalid.InvalidMobileNumber}}
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="input-group ml-2 py-2 mr-2 {{langVar.textAlign}}" *ngIf="currentPage == 1" dir="{{langVar.dir}}">
-               
+
+
+                <div class="input-group ml-2 py-2 mr-2" dir="{{langVar.dir}}">
                   <label>{{langVar.placeholder.Gender}}</label>
-               
-                <input type="text" class="form-control border-secondary" style="display: none;" placeholder="{{langVar.placeholder.Gender}}"
-                       [(ngModel)]="selectedGender" formControlName="gender">
-                <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
-                     class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                     style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
-                  <path d="M20,11V4h-7l2.793,2.793l-4.322,4.322C10.49,10.416,9.294,10,8,10c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6 c0-1.294-0.416-2.49-1.115-3.471l4.322-4.322L20,11z M8,20c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S10.206,20,8,20z">
-                  </path>
-                </svg>
-                <svg (click)="SelectGender('female')" [ngClass]="{'highlighted': selectedGender === 'female'}"
-                     class="genderIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                     style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
-                  <path d="M12,2C8.691,2,6,4.691,6,8c0,2.967,2.167,5.432,5,5.91V17H8v2h3v2.988h2V19h3v-2h-3v-3.09c2.833-0.479,5-2.943,5-5.91 C18,4.691,15.309,2,12,2z M12,12c-2.206,0-4-1.794-4-4s1.794-4,4-4c2.206,0,4,1.794,4,4S14.206,12,12,12z">
-                  </path>
-                </svg>
-              </div>
+                  <input type="text" class="form-control border-secondary" style="display: none;" placeholder="{{langVar.placeholder.Gender}}"
+                         [(ngModel)]="selectedGender" formControlName="gender">
+                  <svg (click)="SelectGender('male')" [ngClass]="{'highlighted': selectedGender === 'male'}"
+                       class="genderIcon ml-4 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                       style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
+                    <path d="M20,11V4h-7l2.793,2.793l-4.322,4.322C10.49,10.416,9.294,10,8,10c-3.309,0-6,2.691-6,6s2.691,6,6,6s6-2.691,6-6 c0-1.294-0.416-2.49-1.115-3.471l4.322-4.322L20,11z M8,20c-2.206,0-4-1.794-4-4s1.794-4,4-4s4,1.794,4,4S10.206,20,8,20z">
+                    </path>
+                  </svg>
+                  <svg (click)="SelectGender('female')" [ngClass]="{'highlighted': selectedGender === 'female'}"
+                       class="genderIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                       style="fill: rgb(0, 0, 0); --darkreader-inline-fill:#e8e6e3;" data-darkreader-inline-fill="">
+                    <path d="M12,2C8.691,2,6,4.691,6,8c0,2.967,2.167,5.432,5,5.91V17H8v2h3v2.988h2V19h3v-2h-3v-3.09c2.833-0.479,5-2.943,5-5.91 C18,4.691,15.309,2,12,2z M12,12c-2.206,0-4-1.794-4-4s1.794-4,4-4c2.206,0,4,1.794,4,4S14.206,12,12,12z">
+                    </path>
+                  </svg>
+                </div>
 
-              <!--Second registeration page-->
-              <div class=" d-flex w-100" *ngIf="currentPage == 2">
-                <div class="input-group  py-2 mr-2">
-                  <p-calendar inputId="dob" styleClass="ml-3" aria-label="dateOfBirth" formControlName="dateOfBirth"
-                              [touchUI]="true" [readonlyInput]="true" [showIcon]="true" data-toggle="tooltip" data-placement="top"
-                              title="Date of birth"></p-calendar>
-                  <div *ngIf="signupFormControls.dateOfBirth.invalid && (signupFormControls.dateOfBirth.dirty|| signupFormControls.dateOfBirth.touched)"
-                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                    <div *ngIf="signupFormControls.dateOfBirth.errors.required">
-                      Date of birth is required
+              </div>
+              <div class="w-100 text-right">
+                <button class="" (click)="Next()" *ngIf=" currentPage == 1" [disabled]="!signupForm1.valid">
+                  {{langVar.register.next}}
+
+                </button>
+              </div>
+            </div>
+
+            <div class="h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm2" *ngIf="currentPage == 2">
+
+              <div>
+
+                  <div class="d-flex flex-column w-100 ">
+
+                    <div class="input-group pr-2">
+                      <p-calendar inputId="dob" styleClass=" {{langVar.textAlign}}" aria-label="dateOfBirth" formControlName="dateOfBirth" placeholder="{{langVar.placeholder.DateOfBirth}}"
+                                  [touchUI]="true" [readonlyInput]="true" [showIcon]="true" data-toggle="tooltip" data-placement="top"
+                                  title="Date of birth"></p-calendar>
+                    </div>
+                    <div *ngIf="signupForm2Controls.dateOfBirth.invalid && (signupForm2Controls.dateOfBirth.dirty|| signupForm2Controls.dateOfBirth.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                      <div *ngIf="signupForm2Controls.dateOfBirth.errors.required">
+                        {{langVar.requiredDateOfBirth}}
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="d-flex flex-column w-100">
+
+                    <div class="input-group dropdown pr-2">
+                      <i class="fa fa-user-o user" aria-hidden="true"></i>
+
+                      <input id="accountTypeDropDown" class=" {{langVar.textAlign}}" type="text"
+                             placeholder="{{langVar.placeholder.AccountType}}" [(ngModel)]="stValue" readonly formControlName="accountType"
+                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()" />
+                      <!--<i class="arrow down" *ngIf="show" (click)="showOption()"></i>
+            <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>-->
+                      <div class="dropdown-menu" aria-labelledby="accountTypeDropDown">
+
+                        <div *ngFor="let accountType of accountType_values;">
+                          <!--*ngIf="showOptions"-->
+                          <a (click)="getAccountTypeValue(accountType.id)">{{accountType.value}}</a>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="input-group  py-2 mr-2">
-                  <div class="dropdown">
-                    <input id="accountTypeDropDown" class="textInputStatusValue customInput" type="text"
-                           placeholder="{{langVar.placeholder.AccountType}}" [(ngModel)]="stValue" readonly formControlName="accountType"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="showOption()" />
-                    <i class="arrow down" *ngIf="show" (click)="showOption()"></i>
-                    <i class="arrow up" *ngIf="!show" (click)="showOption()"></i>
-                    <div class="dropdown-menu" aria-labelledby="accountTypeDropDown"
-                         *ngFor="let accountType of accountType_values;">
-                      <!--*ngIf="showOptions"-->
-                      <a (click)="getAccountTypeValue(accountType.id)">{{accountType.value}}</a>
+
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-id-card-o" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.NationalId}}"
+                             formControlName="nationalID" aria-label="nationalID">
+                    </div>
+                    <div *ngIf="signupForm2Controls.nationalID.invalid && (signupForm2Controls.nationalID.dirty|| signupForm2Controls.nationalID.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm2Controls.nationalID.errors.required">
+                        {{langVar.invalid.requiredNationalID}}
+
+                      </div>
+                      <div *ngIf="signupForm2Controls.nationalID.errors.minlength">
+                        {{langVar.invalid.invalidNationalID}}
+
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class=" d-flex w-100" *ngIf="currentPage == 2">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.NationalId}}"
-                         formControlName="nationalID" aria-label="nationalID">
-                </div>
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.JobTitle}}"
-                         formControlName="jobTitle" aria-label="jobTitle">
-                </div>
-              </div>
-              <!--Third registeration page-->
-              <div class=" d-flex w-100" *ngIf="currentPage == 3">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
-                         aria-label="address">
-                </div>
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-user-o" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
-                         aria-label="province">
-                </div>
-              </div>
-              <div class=" d-flex w-100" *ngIf="currentPage == 3">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.City}}" formControlName="city"
-                         aria-label="city">
-                </div>
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-envelope" aria-hidden="true"></i>
-                  <input type="text" class="form-control border-secondary" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
-                         aria-label="country">
-                </div>
-              </div>
-              <div class=" d-flex w-100" *ngIf="currentPage == 3">
-                <div class="input-group py-2 mr-2">
-                  <i class="fa fa-lock" aria-hidden="true"></i>
-                  <input type="{{inputType}}" class="form-control border-secondary" formControlName="password"
-                         placeholder="{{langVar.placeholder.password}}" aria-label="Password">
-                  <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
-                </div>
-                <div class="input-group py-2">
-                  <i class="fa fa-lock" aria-hidden="true"></i>
 
-                  <input type="{{inputConfirmType}}" class="form-control border-secondary" formControlName="confirmPassword"
-                         placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
-                  <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
-                </div>
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-briefcase" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.JobTitle}}"
+                             formControlName="jobTitle" aria-label="jobTitle">
+                    </div>
+                    <div *ngIf="signupForm2Controls.jobTitle.invalid && (signupForm2Controls.jobTitle.dirty|| signupForm2Controls.jobTitle.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm2Controls.jobTitle.errors.required">
+                        {{langVar.invalid.requiredJobTitle}}
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                      <input type="{{inputType}}" class="form-control border-secondary {{langVar.textAlign}}" formControlName="password"
+                             placeholder="{{langVar.placeholder.password}}" aria-label="Password">
+                      <i class="fa fa-eye{{pView}}" aria-hidden="true" (click)="viewPassword()"></i>
+                    </div>
+                    <div *ngIf="signupForm2Controls.password.invalid && (signupForm2Controls.password.dirty|| signupForm2Controls.password.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm2Controls.password.errors.required">
+                        {{langVar.invalid.requiredPassword}}
+
+                      </div>
+                      <div *ngIf="signupForm2Controls.password.errors.pattern">
+                        {{langVar.invalid.InvalidPassword}}
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-lock" aria-hidden="true"></i>
+                      <input type="{{inputConfirmType}}" class="form-control border-secondary  {{langVar.textAlign}}" formControlName="confirmPassword"
+                             placeholder="{{langVar.placeholder.ConfirmPassword}}" aria-label="Confirm Password">
+                      <i class="fa fa-eye{{pViewConfirmPassword}}" aria-hidden="true" (click)="viewConfirmPassword()"></i>
+                    </div>
+                    <div *ngIf="signupForm2Controls.confirmPassword.invalid && (signupForm2Controls.confirmPassword.dirty|| signupForm2Controls.confirmPassword.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm2Controls.confirmPassword.errors.required">
+                        {{langVar.invalid.requiredPassword}}
+
+                      </div>
+
+                    </div>
+                  </div>
+
               </div>
-            </form>
+
+              <div class="w-100 d-flex mt-3 justify-content-around">
+                <button class=" mx-5" (click)="Back()">
+                  {{langVar.register.back}}
+                </button>
+                <button class=" mx-5 float-right" (click)="Next()" [disabled]="!signupForm2.valid">
+                  {{langVar.register.next}}
+
+                </button>
+              </div>
+
+            </div>
+
+            <div class="h-100 d-flex align-items-around justify-content-around flex-column pt-2" [formGroup]="signupForm" *ngIf="currentPage == 3">
+
+              <div>
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Country}}" formControlName="country"
+                             aria-label="country">
+                    </div>
+                    <div *ngIf="signupFormControls.country.invalid && (signupFormControls.country.dirty|| signupFormControls.country.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupFormControls.country.errors.required">
+                        {{langVar.invalid.requiredCountry}}
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" placeholder="{{langVar.placeholder.City}}" formControlName="city"
+                             aria-label="city">
+                    </div>
+                    <div *ngIf="signupFormControls.city.invalid && (signupFormControls.city.dirty|| signupFormControls.city.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm1Controls.city.errors.required">
+                        {{langVar.invalid.requiredcity}}
+
+                      </div>
+
+
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+                    <div class="input-group ">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Province}}" formControlName="province"
+                             aria-label="province">
+                    </div>
+                    <div *ngIf="signupFormControls.province.invalid && (signupFormControls.province.dirty|| signupFormControls.province.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupFormControls.province.errors.required">
+                        {{langVar.invalid.requiredProvince}}
+
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column w-100 pr-2">
+
+
+                    <div class="input-group ">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+                      <input type="text" class="form-control border-secondary  {{langVar.textAlign}}" formControlName="street"
+                             placeholder="{{langVar.placeholder.Street}}" aria-label="street">
+                    </div>
+                    <div *ngIf="signupFormControls.street.invalid && (signupFormControls.street.dirty|| signupFormControls.street.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupFormControls.street.errors.required">
+                        {{langVar.invalid.requiredStreet}}
+
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                  <div class="d-flex flex-column w-100 pr-2">
+
+
+                    <div class="input-group ">
+                      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
+                      <input type="text" class="form-control border-secondary {{langVar.textAlign}}" placeholder="{{langVar.placeholder.Address}}" formControlName="address"
+                             aria-label="address">
+                    </div>
+                    <div *ngIf="signupFormControls.address.invalid && (signupFormControls.address.dirty|| signupFormControls.address.touched)"
+                         class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
+                      <div *ngIf="signupForm1Controls.address.errors.required">
+                        {{langVar.invalid.requiredAddress}}
+
+                      </div>
+
+                    </div>
+                  </div>
+              </div>
+              <div class="w-100 d-flex mt-3 justify-content-around">
+                <button class=" mx-5" (click)="Back()">
+                  {{langVar.register.back}}
+                </button>
+
+                <button type="submit" class=" mx-5 float-right" (click)="Register()"
+                        *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
+                  {{langVar.register.register}}
+                </button>
+              </div>
+            </div>
+
           </div>
-          <div class="d-flex justify-content-around w-100" >
-            <button class=" mx-5" (click)="Back()" *ngIf="!isLoading && currentPage != 1">
-              {{langVar.register.back}}
-            </button>
-            <button class=" mx-5 float-right" (click)="Next()" *ngIf="!isLoading && currentPage != 3">
-              {{langVar.register.next}}
-
-            </button>
-            <button type="submit" class=" mx-5 " (click)="Register()"
-                    *ngIf="!isLoading && currentPage == 3" [disabled]="!signupForm.valid">
-              {{langVar.register.register}}
-            </button>
+          <div class="d-flex justify-content-around w-100">
+         
             <label style="color: #31d190;" *ngIf="registerationResult == true">
               <!--Your registeration request have been
-           submitted successfully.-->
+              submitted successfully.-->
               {{langVar.sent}}
             </label>
             <label style="color: #2c3e50" *ngIf="registerationResult == false">
@@ -458,7 +877,7 @@
           </div>
           <div *ngIf="!isLoading">
           </div>
-          <div id="footerContent" class="text-center ">
+          <div id="footerContent" class="text-center mt-4"  *ngIf="currentPage == 1">
             <h4>
               {{langVar.register.haveAcc}} <span routerLink="/login">{{langVar.login.login}}</span>{{langVar.login.QuestionMark}}
             </h4>

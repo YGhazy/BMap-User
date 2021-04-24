@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\about-us",
     "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\authentication",
-    "\\src\\app\\modules\\contact",
-    "\\src\\app\\modules\\shared",
-    "\\src\\app\\modules\\shared\\subscription"
+    "\\src\\app\\modules\\service",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\utilities",
+    "\\src\\assets",
+    "\\src\\assets\\css"
   ],
-  "SelectedNode": "\\src\\app\\services\\utilities\\ar.ts",
+  "SelectedNode": "\\src\\app\\services\\utilities\\en.ts",
   "PreviewInSolutionExplorer": false
 }
