@@ -37,10 +37,11 @@
     </p>
 
     <!--Request Button if service has no service types-->
-    <div class="text-right" *ngIf="!service.serviceTypes || service.serviceTypes.length == 0">
-        <button class="mx-5" data-aos="fade-up" data-aos-duration="600" (click)="SelectService()">
-          Request
-        </button>
+    <div [ngClass]="{'text-left':currentLang==='ar', 'text-right':currentLang==='en'}"
+      *ngIf="!service.serviceTypes || service.serviceTypes.length == 0">
+      <button class="mx-5" data-aos="fade-up" data-aos-duration="600" (click)="SelectService()">
+        {{langVar.Request}}
+      </button>
     </div>
 
     <!--Service types card-->
@@ -63,16 +64,17 @@
 
   <!--Application form section-->
   <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
-    <div class="row" dir="{{langVar.dir}}" [ngClass]="{'mr-5':currentLang==='ar', 'ml-3':currentLang==='en'}">
-      <h1 data-aos="fade-up">
+    <div class="row" dir="{{langVar.dir}}" [ngClass]="{'mr-lg-5':currentLang==='ar', 'ml-3':currentLang==='en'}">
+      <h1 data-aos="fade-up" class="formTitle">
         {{langVar.applicationForm.title}}
       </h1>
-      <i class="fas fa-power-off"></i>
+      <i class="fa fa-window-close" [ngClass]="{'text-left':currentLang==='ar', 'text-right':currentLang==='en'}"
+        (click)="isRequestingService = !isRequestingService" style="cursor: pointer;"></i>
     </div>
 
 
     <form data-aos="fade-up" class="mb-5" [formGroup]="applicationForm">
-      <div class="container">
+      <div class="container" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
         <div class="row">
           <div class="col-lg-6 col-12">
             <label for="serviceName">{{langVar.applicationForm.serviceName}}</label>
@@ -100,13 +102,11 @@
         <div class="row mt-3">
           <div class="col-lg-6 col-12">
             <label for="serviceType">{{langVar.applicationForm.serviceType}}</label>
-            <input id="serviceType" type="text" class="form-control"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              value=""
-              placeholder="{{selectedServiceType.nameEN}}" readonly *ngIf="currentLang== 'en'" />
-            <input id="serviceType" type="text" class="form-control"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-              placeholder="{{selectedServiceType.nameAR}}" readonly *ngIf="currentLang== 'ar'" />
+            <input id="serviceType" type="text" class="form-control" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" value="" placeholder="{{selectedServiceType.nameEN}}" readonly
+              *ngIf="currentLang== 'en'" />
+            <input id="serviceType" type="text" class="form-control" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false" placeholder="{{selectedServiceType.nameAR}}" readonly *ngIf="currentLang== 'ar'" />
           </div>
           <div class="col-lg-6 col-12">
             <label for="serviceName">{{langVar.applicationForm.selectBank}}</label>
@@ -115,7 +115,8 @@
                 placeholder="{{selectedBank.name}}" [(ngModel)]="selectedBank.name" readonly data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" />
               <i class="arrow down"></i>
-              <div class="dropdown-menu" aria-labelledby="bankName" *ngFor="let bank of banks;">
+              <div class="dropdown-menu" aria-labelledby="bankName" *ngFor="let bank of banks;"
+                [ngClass]="{'text-right': currentLang=='ar'}">
                 <a (click)="SelectItem(1, bank.id)">{{bank.name}}</a>
               </div>
               <div
@@ -143,8 +144,8 @@
             </div>
           </div>
           <div class="col-lg-6 col-12">
-            <div class="row" dir="{{langVar.dir}}">
-              <input type="checkbox" id="privacyCheckbox" formControlName="acknowledgment">
+            <div class="row privacy" dir="{{langVar.dir}}">
+              <input type="checkbox" id="privacyCheckbox" class="mt-2" formControlName="acknowledgment">
               <label for="privacyCheckbox" class="checkboxLabel">
                 {{langVar.applicationForm.acknowledgment}}
               </label>

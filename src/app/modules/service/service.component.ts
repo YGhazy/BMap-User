@@ -113,6 +113,13 @@ export class ServiceComponent implements OnInit {
       this.selectedServiceType = currentServiceType;
       this.FetchAvailableBanks();
     }
+    else{
+      this.toastr.error(this.langVar.response.notLoggedIn, this.langVar.response.error, {
+        disableTimeOut: false,
+        closeButton: true,
+        positionClass: 'toast-top-center'
+      });
+    }
   }
   //Create service request
   SubmitServiceRequest() {

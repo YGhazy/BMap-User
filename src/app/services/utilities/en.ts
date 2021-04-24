@@ -41,11 +41,15 @@ export const English: any = {
   invalid: {
     invalidEmail: "Invalid e-mail ",
     requiredEmail: "E-mail required ",
+    emailPattern: "Email must be in a correct format (ex: example@mail.com)",
     requiredPassword: "Password required",
     InvalidPassword: "Invalid password",
+    requiredName: "name is required",
+    namePattern: "name must not include digits, symbols or spaces",
     invalidLogin: "Enter a valid email and password",
     invalidRegister: "Error submitting request, please try again shortly.",
     loginRedirect:"You will be redirected shortly",
+    required: "Required",
   },
   subscribe: {
     send: "Send",
@@ -93,7 +97,7 @@ export const English: any = {
     serviceName: 'Service Name',
     phoneNumber: 'Phone Number',
     serviceType: 'Service Type',
-    SelectBank: 'Select Bank',
+    selectBank: 'Select Bank',
     note: 'Note',
     acknowledgment: 'I hereby acknowledge and allow Soulwallet to share the above details with the provider to contact me & access my details from the Egyptian credit bureau as needed. I agree to the Terms and Conditions listed.',
     applyNow: 'Apply Now',
@@ -129,10 +133,21 @@ export const English: any = {
     unableToFetchAccDetails: "Unable to fetch account details",
     unableToCancelReq: "Unable to cancel request",
     reqCancelled: "Request cancelled",
-
+    notLoggedIn: "You must be logged in to request a service",
+  },
+  contact: {
+    title: "Send us a message",
+    subject: "Subject",
+    message: "Your Message",
+    findus: "Find us at the office",
+    ring: "Give us a ring",
+    legal: "Legal information",
+    contact: "Contact",
+    messageSent: "Your message have been sent successfully.",
+    messageError: "Error sending message, please try again shortly."
   },
   sent: "Done successfully",
   Request: "Request",
+  confirm: "Confirm",
   cancel: "Cancel",
-
 }
