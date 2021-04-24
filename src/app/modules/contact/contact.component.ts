@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CreateContactRequestModel } from 'src/app/models/Request/create-contact-model';
 import { ContactService } from 'src/app/services/contact.service';
 import { formBuilderHelper } from 'src/app/services/utilities/formBuilderHelper';
+import { langHelper } from 'src/app/services/utilities/language-helper';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,9 @@ export class ContactComponent implements OnInit {
   contactForm;
   disabled: boolean = false;
   contactResult: string;
-  constructor(private contactService: ContactService, private formBuilderHelper: formBuilderHelper) {
+  langVar;
+  currentLang;
+  constructor(private contactService: ContactService, private formBuilderHelper: formBuilderHelper, private langHelper: langHelper) {
     this.contactForm = this.formBuilderHelper.CreateFormBuilder({
       contactFirstName: '',
       contactLastName: '',
@@ -21,7 +24,9 @@ export class ContactComponent implements OnInit {
       mobileNumber: '',
       contactSubject: '',
       contactMessage: '',
-    })
+    });
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLang = this.langHelper.currentLang;
   }
 
   ngOnInit(): void {
