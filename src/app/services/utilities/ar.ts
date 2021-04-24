@@ -43,6 +43,7 @@ export const Arabic: any = {
   invalid: {
     invalidEmail: "البريد الالكتروني غير صحيح",
     requiredEmail: "ادخل البريد الالكتروني",
+    emailPattern : "يجب أن يكون تنسيق البريد الإلكتروني صحيحًا",
     requiredPassword: "ادخل الرقم السري",
     InvalidPassword: "يجب أن يحتوي على حرف أبجدي صغير واحد على الأقل ، وحرف أبجدي كبير واحد على الأقل ، وحرف رقمي واحد على الأقل ، وحرف خاص واحد على الأقل ، ويجب أن يتكون من ثمانية أحرف أو أكثر.",
     InvalidConfirmPassword: "كلمة المرور غير مطابقة لتأكيد كلمة المرور ",
@@ -59,10 +60,13 @@ export const Arabic: any = {
     requiredJobTitle: "ادخل المسمي الوظيفي",
     requiredNationalID: "ادخل رقم الهوية",
     invalidNationalID:"رقم الهوية اقل من 14 رقم",
+    InvalidPassword: "الرقم السري غير صحيح",
+    requiredName: "الاسم مطلوب",
+    namePattern: "يجب ألا يحتوي الاسم على أرقام أو رموز أو مسافات",
     invalidLogin: "تأكد من البيانات",
     invalidRegister: "خطأ في تقديم الطلب ، يرجى المحاولة مرة أخرى",
     loginRedirect: "سيتم إعادة توجيهك بعد قليل",
-
+    required: "مطلوب",
   },
   subscribe: {
     subscribeNw: "اشترك الان",
@@ -110,11 +114,11 @@ export const Arabic: any = {
 
   },
   applicationForm:{
-    title: 'يرجى ملء التفاصيل لتلقي اتصال بمزيد من التفاصيل حول هذا المنتج',
+    title: 'يرجى ملء التفاصيل لتلقي اتصال حول هذه الخدمه',
     serviceName: 'اسم الخدمة',
     phoneNumber: 'رقم الهاتف',
     serviceType: 'نوع الخدمة',
-    SelectBank: 'حدد البنك',
+    selectBank: 'حدد البنك',
     note: 'ملحوظة',
     acknowledgment: 'أقر بموجب هذا وأسمح لـ Soulwallet بمشاركة التفاصيل المذكورة أعلاه مع المزود للاتصال بي والوصول إلى بياناتي من مكتب الائتمان المصري حسب الحاجة. أوافق على الشروط والأحكام المدرجة.',
     applyNow: 'قدم الآن',
@@ -124,6 +128,14 @@ export const Arabic: any = {
     notesRequired: 'يجب عليك إضافة ملاحظات قبل المتابعة',
     terms: 'يجب عليك قبول الشروط للمتابعة',
   },
+  requestedServices: {
+    title: "الخدمات المطلوبة",
+    service: "الخدمه",
+    type: "نوع الخدمه",
+    requestedDate: "تاريخ الطلب",
+    bank: "البنك",
+    status: "الحاله",
+  },
   register: {
     register: "تسجيل ",
     back: "رجوع",
@@ -131,7 +143,32 @@ export const Arabic: any = {
     haveAcc: "لديك حساب ،",
 
   },
+  status:{
+    pending: "قيد الانتظار",
+    approved: "موافق عليه",
+    rejected: "مرفوض",
+  },
+  response: {
+    error: "خطأ",
+    success: "نجاح",
+    unableToFetchAccDetails: "تعذر جلب تفاصيل الحساب",
+    unableToCancelReq: "تعذر إلغاء الطلب",
+    reqCancelled: "تم إلغاء الطلب",
+    notLoggedIn: "يجب عليك تسجيل الدخول لطلب الخدمة"
+  },
+  contact: {
+    title: "أرسل لنا رسالة",
+    subject: "الموضوع",
+    message: "رسالتك",
+    findus: "أجدنا في المكتب",
+    ring: "أعطنا مكالمه",
+    legal: "المعلومات القانونية",
+    contact: "اتصل",
+    messageSent: "تم إرسال رسالتك بنجاح",
+    messageError: "خطأ في إرسال الرسالة ، يرجى المحاولة مرة أخرى بعد قليل"
+  },
   sent: "تم بنجاح",
   Request: "طلب",
-
+  confirm: "تأكيد",
+  cancel: "إلغاء",
 }

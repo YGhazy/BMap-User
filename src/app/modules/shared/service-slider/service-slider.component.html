@@ -1,8 +1,8 @@
-<section class="{{langVar.arabicClass}}">
+<section class="{{langVar.arabicClass}}" *ngIf="serviceList">
     <div class="text-center" style="overflow-x:hidden;">
         <div>
           <h1 class="text-center mb-2">{{langVar.serviceCarousel.title}}</h1>
-            <owl-carousel-o [options]="carouselOptions" *ngIf="serviceList">
+            <owl-carousel-o [options]="carouselOptions">
                 <ng-container *ngFor="let service of serviceList">
                     <ng-template carouselSlide id="owl-slide-{{service.id}}">
                         <div class="imageContainer" style="margin: 0 auto;">

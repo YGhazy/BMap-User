@@ -41,6 +41,7 @@ export const English: any = {
   invalid: {
     invalidEmail: "Invalid e-mail ",
     requiredEmail: "E-mail required ",
+    emailPattern: "Email must be in a correct format (ex: example@mail.com)",
     requiredPassword: "Password required",
     InvalidPassword: "must contain at least 1 lowercase alphabetical character,  at least 1 uppercase alphabetical character ,at least 1 numeric character , at least one special character and must be eight characters or longer .",
     InvalidConfirmPassword:"password doesn't match confirm password",
@@ -59,7 +60,13 @@ export const English: any = {
     requiredJobTitle: "Job Title required",
     invalidLogin: "Enter valid email and password",
     invalidRegister: "Error submitting request, please try again.",
+    InvalidPassword: "Invalid password",
+    requiredName: "name is required",
+    namePattern: "name must not include digits, symbols or spaces",
+    invalidLogin: "Enter a valid email and password",
+    invalidRegister: "Error submitting request, please try again shortly.",
     loginRedirect:"You will be redirected shortly",
+    required: "Required",
   },
   subscribe: {
     send: "Send",
@@ -76,7 +83,7 @@ export const English: any = {
   },
   login: {
     wlc: "Welcome to",
-    forgetPassword: " Forget Password? ",
+    forgetPassword: "Forgot Password? ",
     desc: "We make it easy for everyone to invest in banking services",
     login: "Login",
     donHaveAcc: "Don't have an account,",
@@ -108,7 +115,7 @@ export const English: any = {
     serviceName: 'Service Name',
     phoneNumber: 'Phone Number',
     serviceType: 'Service Type',
-    SelectBank: 'Select Bank',
+    selectBank: 'Select Bank',
     note: 'Note',
     acknowledgment: 'I hereby acknowledge and allow Soulwallet to share the above details with the provider to contact me & access my details from the Egyptian credit bureau as needed. I agree to the Terms and Conditions listed.',
     applyNow: 'Apply Now',
@@ -118,6 +125,14 @@ export const English: any = {
     notesRequired: 'You must add notes before proceeding',
     terms: 'You must accept accept the terms to proceed',
   },
+  requestedServices: {
+    title: "Requested Services",
+    service: "Service",
+    type: "type",
+    requestedDate: "Requested Date",
+    bank: "Bank",
+    status: "Status",
+  },
   register: {
     register: "Register",
     back: "Back",
@@ -125,7 +140,32 @@ export const English: any = {
     haveAcc: "have an account,",
 
   },
-    sent: "Done successfully",
-    Request: "Request",
-
+  status:{
+    pending: "Pending",
+    approved: "Approved",
+    rejected: "Rejected",
+  },
+  response: {
+    error: "Error",
+    success: "Success",
+    unableToFetchAccDetails: "Unable to fetch account details",
+    unableToCancelReq: "Unable to cancel request",
+    reqCancelled: "Request cancelled",
+    notLoggedIn: "You must be logged in to request a service",
+  },
+  contact: {
+    title: "Send us a message",
+    subject: "Subject",
+    message: "Your Message",
+    findus: "Find us at the office",
+    ring: "Give us a ring",
+    legal: "Legal information",
+    contact: "Contact",
+    messageSent: "Your message have been sent successfully.",
+    messageError: "Error sending message, please try again shortly."
+  },
+  sent: "Done successfully",
+  Request: "Request",
+  confirm: "Confirm",
+  cancel: "Cancel",
 }

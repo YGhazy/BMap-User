@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 export class RequestsComponent implements OnInit {
 
   langVar;
+  currentLang;
   requestedServices: ServiceRequest[];
   client: ApplicationUser;
   selectedRequestID: number;
@@ -29,7 +30,8 @@ export class RequestsComponent implements OnInit {
   constructor(private langHelper: langHelper, private router: Router, private serviceRequestService: ServicesService, private authService: AuthenticationService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.langVar = this.langHelper.initializeMode()
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLang = this.langHelper.currentLang;
     AOS.refresh();
     this.LoadServiceRequests();
   }
@@ -52,7 +54,7 @@ export class RequestsComponent implements OnInit {
         });
       }
     }, error => {
-      this.toastr.error('Unable to fetch account details', 'Error', {
+      this.toastr.error(this.langVar.response.unableToFetchAccDetails, this.langVar.response.error, {
         disableTimeOut: false,
         closeButton: true,
         positionClass: 'toast-top-center'
@@ -70,7 +72,7 @@ export class RequestsComponent implements OnInit {
         this.modalComponent.preloader.hide();
         this.requestedServices = this.requestedServices.filter(rs => rs.id != this.selectedRequestID);
         //Display success toast
-        this.toastr.success('Request cancelled', 'Success', {
+        this.toastr.success(this.langVar.response.reqCancelled, this.langVar.response.success, {
           disableTimeOut: false,
           closeButton: true,
           positionClass: 'toast-top-center'
@@ -78,7 +80,7 @@ export class RequestsComponent implements OnInit {
       }
     }, error => {
       this.modalComponent.preloader.hide();
-      this.toastr.error('error', 'cancelling request', {
+      this.toastr.error(this.langVar.response.unableToCancelReq, this.langVar.response.error, {
         disableTimeOut: false,
         closeButton: true,
         positionClass: 'toast-top-center'
@@ -88,7 +90,12 @@ export class RequestsComponent implements OnInit {
   //Display modal component's confirmation modal for cancellation
   DisplayCancellationConfirmation(requestID: number) {
     this.selectedRequestID = requestID;
-    this.modalComponent.DisplayConfirmationModal('Cancel service request', 'Are you sure you want to cancel this request? this action is irreversible', 2);
+    if(this.currentLang == 'en'){
+      this.modalComponent.DisplayConfirmationModal('Cancel service request', 'Are you sure you want to cancel this request? this action is irreversible', 2);
+    }
+    else{
+      this.modalComponent.DisplayConfirmationModal('إلغاء طلب الخدمة', 'هل أنت متأكد أنك تريد إلغاء هذا الطلب؟ هذا العمل لا رجوع فيه', 2);
+    }
   }
 
   ModalResponse(event) {

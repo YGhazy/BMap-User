@@ -33,7 +33,6 @@ export class ServiceComponent implements OnInit {
     private formBuilderHelper: formBuilderHelper, private authService: AuthenticationService, private toastr: ToastrService) {
     this.applicationForm = this.formBuilderHelper.CreateFormBuilder({
       mobileNumber: '',
-      serviceType: '',
       bankName: '',
       note: '',
       acknowledgment: ''
@@ -71,9 +70,11 @@ export class ServiceComponent implements OnInit {
     this.bankService.GetAllBanks().subscribe(res => {
       if (res.succeeded) {
         this.banks = res.data;
+        console.log(this.banks)
         this.isRequestingService = true; // display application form
       }
     }, error => {
+      this.canRequestService = false;
       console.log(error);
     });
   }
@@ -87,15 +88,37 @@ export class ServiceComponent implements OnInit {
       }
     }, error => {
       this.canRequestService = false;
-      console.log(error);
     });
   }
 
   SelectServiceType(typeID: number) {
     if (this.canRequestService) {
       this.selectedServiceType = this.service.serviceTypes.find(t => t.id == typeID);
+      console.log(this.selectedServiceType)
       //fetch available banks and display application form
       this.FetchAvailableBanks();
+    }
+  }
+  SelectService(){
+    if(this.canRequestService){
+      const currentServiceType: ServiceType = {
+        id: 0,
+        imgIcon: null,
+        isDeleted: false,
+        nameAR: this.service.nameAR,
+        nameEN: this.service.nameEN,
+        serviceRequests: null,
+        servicesId: this.service.id
+      }
+      this.selectedServiceType = currentServiceType;
+      this.FetchAvailableBanks();
+    }
+    else{
+      this.toastr.error(this.langVar.response.notLoggedIn, this.langVar.response.error, {
+        disableTimeOut: false,
+        closeButton: true,
+        positionClass: 'toast-top-center'
+      });
     }
   }
   //Create service request
@@ -132,10 +155,6 @@ export class ServiceComponent implements OnInit {
     });
   }
 
-  //Hide/show dropdown menu
-  CloseDropDown(event) {
-
-  }
   get applicationFormControls() {
     return this.applicationForm.controls;
   }

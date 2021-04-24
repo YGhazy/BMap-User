@@ -3,6 +3,7 @@ import { FormGroup, FormArray, FormBuilder, Validators, FormControl } from '@ang
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ModalResponse } from 'src/app/enums/modal-response';
+import { langHelper } from 'src/app/services/utilities/language-helper';
 
 //Shared Modal component for displaying general popups in parent components.
 @Component({
@@ -32,10 +33,16 @@ export class ModalComponent implements OnInit {
   infoMessage: string;
   infoType: number; // enum number
 
+  langVar;
+  currentLang;
+
   //Confirmation Modal event emitter
   @Output() SetConfirmation: EventEmitter<ModalResponse> = new EventEmitter<ModalResponse>();
 
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private langHelper: langHelper) { 
+    this.langVar = this.langHelper.initializeMode();
+    this.currentLang = this.langHelper.currentLang;
+  }
 
   ngOnInit(): void {
   }

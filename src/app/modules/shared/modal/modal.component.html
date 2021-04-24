@@ -189,18 +189,22 @@
   role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-info" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header" dir="{{langVar.dir}}">
         <h4 class="modal-title">{{infoTitle}}</h4>
-        <button type="button" class="close" aria-label="Close" (click)="SetInfoConfirmation(3)">
+        <button type="button" [ngClass]="{'ml-0':currentLang == 'ar'}" class="close" aria-label="Close" (click)="SetInfoConfirmation(3)">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
         <p>{{infoMessage}}</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="SetInfoConfirmation(infoType)">Confirm</button>
-        <button type="button" class="btn btn-danger" (click)="SetInfoConfirmation(3)">Cancel</button>
+      <div class="modal-footer" *ngIf="currentLang == 'en'">
+        <button type="button" class="btn btn-success" (click)="SetInfoConfirmation(infoType)">{{langVar.confirm}}</button>
+        <button type="button" class="btn btn-danger" (click)="SetInfoConfirmation(3)">{{langVar.cancel}}</button>
+      </div>
+      <div class="modal-footer" *ngIf="currentLang == 'ar'">
+        <button type="button" class="btn btn-danger" (click)="SetInfoConfirmation(3)">{{langVar.cancel}}</button>
+        <button type="button" class="btn btn-success" (click)="SetInfoConfirmation(infoType)">{{langVar.confirm}}</button>
       </div>
     </div>
   </div>
