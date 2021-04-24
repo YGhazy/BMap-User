@@ -67,8 +67,9 @@ export class ModalComponent implements OnInit {
       this.confirmationModal.hide();
     }
   }
-// ---
+  // ---
   ChangeImgModalShow(image) {
     this.ChangeImg.show();
   }
+
 }

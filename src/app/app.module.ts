@@ -9,6 +9,7 @@ import { LayoutModule } from './modules/layout/layout.module';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -34,7 +34,18 @@ export class CustomerService extends BaseService {
         return this.post(API_CONSTANTS.EditProfilePicture, newImage);
     }
 
+    EditNationalIdFront(newImage: EditImageModel): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.EditNationalIdFront, newImage);
+    }
+
+    EditNationalIdBack(newImage: EditImageModel): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.EditNationalIdBack, newImage);
+    }
+
+
     Register(registerModel: RegisterModel): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.Register, registerModel);
     }
+
+
 }
