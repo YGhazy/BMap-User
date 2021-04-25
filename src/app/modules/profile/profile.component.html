@@ -1,77 +1,339 @@
 <div class="background">
 </div>
 <div class="mainContainer">
-    <h1>
-        Account management
-    </h1>
-    <div class="tableContainer">
-        <div class="row text-right mb-3">
-            <div class="col-12">
-                <button class="btn btn-primary" (click)="isEditingAccount = !isEditingAccount">Edit</button>
-                <button class="btn btn-primary ml-3" (click)="isChangingPassword = !isChangingPassword">Change
-                    Password</button>
+  <h1>
+    User Profile
+  </h1>
 
-            </div>
-        </div>
-        <div class="table-responsive">
-            <table class="table" *ngIf="client && !isChangingPassword">
-                <tbody [formGroup]="editAccountForm">
-                        <tr>
-                            <td class="header">Full Name</td>
-                            <td class="body" *ngIf="!isEditingAccount">{{client.customer.first}}
-                                {{client.customer.firstMiddle}} {{client.customer.secondMiddle}}
-                                {{client.customer.last}}
-                            </td>
-                            <td class="body" *ngIf="isEditingAccount">
-                                <input type="text" class="form-control" [(ngModel)]="client.customer.first"
-                                    formControlName="firstName" />
-                                <input type="text" class="form-control ml-2"
-                                    [(ngModel)]="client.customer.firstMiddle" formControlName="firstMiddleName"/>
-                                <input type="text" class="form-control ml-2"
-                                    [(ngModel)]="client.customer.secondMiddle" formControlName="secondMiddleName"/>
-                                <input type="text" class="form-control ml-2" [(ngModel)]="client.customer.last" formControlName="lastName"/>
+  <div class="tableContainer" >
 
-                            </td>
-
-                        </tr>
-                        <tr>
-                            <td class="header">E-Mail</td>
-                            <td class="body" *ngIf="!isEditingAccount">{{client.email}}</td>
-                            <td class="body" *ngIf="isEditingAccount">
-                                <input type="text" class="form-control" [(ngModel)]="client.email" formControlName="email"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="header">Phone Number</td>
-                            <td class="body" *ngIf="!isEditingAccount">{{client.phoneNumber}}</td>
-                            <td class="body" *ngIf="isEditingAccount">
-                                <input type="text" class="form-control" [(ngModel)]="client.phoneNumber" formControlName="mobileNumber"/>
-                            </td>
-                        </tr>
-                </tbody>
-            </table>
-            <!-- Change password table-->
-            <table class="table" *ngIf="client && isChangingPassword">
-                <tbody>
-                    <tr>
-                        <td class="header">Old Password</td>
-                        <td class="body">************************</td>
-                    </tr>
-                    <tr>
-                        <td class="header">New Password</td>
-                        <td class="body">************************</td>
-                    </tr>
-
-                </tbody>
-            </table>
-        </div>
-        <div class="row text-right mb-3">
-            <div class="col-12">
-                <button class="btn btn-primary" (click)="DisplayConfirmationModal()" [disabled]="!editAccountForm.valid">Save</button>
-
-            </div>
-        </div>
+    <div class="row text-right mb-3">
+      <div class="col-12">
+        <button class="btn btn-primary" *ngIf="isChangingPassword == false" (click)="EnableEdit()">Edit Profile Information</button>
+        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == false" (click)="SwitchViews()">Change Password</button>
+        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == true" (click)="SwitchViews()">View Profile Information</button>
+      </div>
     </div>
+
+    <div class="table-responsive">
+
+      <!-- change account info table -->
+      <table class="table" *ngIf="client && isChangingPassword == false">
+        <tbody [formGroup]="editAccountForm">
+
+          <tr>
+            <td class="header">First Name</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.first}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.first" formControlName="firstName" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">First Middle Name</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.firstMiddle}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.firstMiddle" formControlName="firstMiddleName" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Second Middle Name</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.secondMiddle}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.secondMiddle" formControlName="secondMiddleName" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Last Name</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.last}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.last" formControlName="lastName" />
+            </td>
+          </tr>
+
+
+          <tr>
+            <td class="header">E-Mail</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.email}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.email" formControlName="email" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Phone Number</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.phoneNumber}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.phoneNumber" formControlName="phoneNumber" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">National ID</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.nationalID}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.nationalID" formControlName="nationalID" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Job Title</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.jobTitle}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.jobTitle" formControlName="jobTitle" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Country</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.country}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.country" formControlName="country" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Province</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.province}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.province" formControlName="province" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">City</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.city}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.city" formControlName="city" />
+            </td>
+          </tr>
+
+          <tr>
+            <td class="header">Street</td>
+            <td class="body" *ngIf="!isEditingAccount">{{client.customer.street}}</td>
+            <td class="body" *ngIf="isEditingAccount">
+              <input type="text" class="form-control" [(ngModel)]="client.customer.street" formControlName="street" />
+            </td>
+          </tr>
+
+
+
+
+        </tbody>
+      </table>
+
+
+      <!-- Change password table-->
+      <table class="table" *ngIf="client && isChangingPassword == true">
+        <tbody [formGroup]="editPasswordForm">
+          <tr>
+            <td class="header">Old Password</td>
+            <td>
+              <input type="password" class="form-control" [(ngModel)]="oldPassword" formControlName="password" size="120" />
+
+            </td>
+          </tr>
+          <tr>
+            <td class="header">New Password</td>
+            <td>
+              <input type="password" class="form-control" [(ngModel)]="newPassword" formControlName="newPassword" size="50" />
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="row text-right mb-3" *ngIf="client && isEditingAccount && isChangingPassword == false">
+      <div class="col-12">
+        <button class="btn btn-primary" [disabled]="!editAccountForm.valid" (click)="DisplayEditAccountConfirmationModal()">Save</button>
+      </div>
+    </div>
+
+    <div class="row text-right mb-3" *ngIf="client && isChangingPassword == true">
+      <div class="col-12">
+        <button class="btn btn-primary" (click)="DisplayEditPasswordConfirmationModal()" [disabled]="!editPasswordForm.valid">Save</button>
+
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 50px" *ngIf="client && isChangingPassword == false">
+    <div class="card-header" style="background-color: #1351c3">
+      <div class="row">
+        <div class="col-md-10">
+          <h4 class=" card-title" style="color: white">National ID Images</h4>
+        </div>
+        <div class="col-md-2 d-flex justify-content-end">
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+
+            <!-- National ID Images -->
+            <div class="row d-flex justify-content-around" style="margin-top: 5px">
+
+              <div class="col-4">
+                <h4>National ID Image Front</h4>
+                <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
+                <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow" (click)="SelectNationalIdFront()">
+              </div>
+
+              <div class="col-4">
+                <h4>National ID Image Back</h4>
+                <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
+                <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow"  (click)="SelectNationalIdBack()">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <!--<div class="container-fluid d-flex justify-content-around">
+    <div class="row">
+      <div class="col-4">
+        <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto"></i>
+        <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 100px;" class="ImageBanner hover-shadow">
+      </div>
+      <div class="col-4">
+        <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto"></i>
+        <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 100px;" class="ImageBanner hover-shadow">
+      </div>
+    </div>
+  </div>-->
+
+
+
 </div>
 
-<app-modal (SetConfirmation)="ModalResponse($event)"></app-modal>
+<app-modal></app-modal>
+
+
+<!--Edit Password Confirmation Modal-->
+<div bsModal #editPasswordConfirmationModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Password</h4>
+        <button type="button" class="close" aria-label="Close" (click)="editPasswordConfirmationModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to edit your password ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="EditPassword()">Confirm</button>
+        <button type="button" class="btn btn-danger" (click)="editPasswordConfirmationModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Edit Account Confirmation Modal-->
+<div bsModal #editAccountConfirmationModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Edit Profile Information</h4>
+        <button type="button" class="close" aria-label="Close" (click)="editAccountConfirmationModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to edit your profile information ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="EditAccountDetails()">Confirm</button>
+        <button type="button" class="btn btn-danger" (click)="editAccountConfirmationModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Upload national id front Modal-->
+<div bsModal #uploadNationalIdFrontModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Upload National ID Front Image</h4>
+        <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdFrontModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scrollableBody">
+        <div class="fileinput text-center">
+          <input type="file" #changeNationalIdFront accept="image/*" style="display: none;" (change)="replaceNationalIdFront($event)">
+          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
+            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
+          </div>-->
+          <div>
+            <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdFront.click()">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdFrontModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Upload national id back Modal-->
+<div bsModal #uploadNationalIdBackModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Upload National ID Back Image</h4>
+        <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdBackModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scrollableBody">
+        <div class="fileinput text-center">
+          <input type="file" #changeNationalIdBack accept="image/*" style="display: none;" (change)="replaceNationalIdBack($event)">
+          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
+            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
+          </div>-->
+          <div>
+            <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdBack.click()">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdBackModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
