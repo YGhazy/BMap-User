@@ -5,7 +5,7 @@
     User Profile
   </h1>
 
-  <div class="tableContainer">
+  <div class="tableContainer" >
 
     <div class="row text-right mb-3">
       <div class="col-12">
@@ -164,44 +164,44 @@
   </div>
 
 
-  <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 50px">
-    <div class="card-header " style="background-color: #1351c3">
+  <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 50px" *ngIf="client && isChangingPassword == false">
+    <div class="card-header" style="background-color: #1351c3">
       <div class="row">
         <div class="col-md-10">
-          <h4 class=" card-title" style="color: white">National ID Pictures</h4>
+          <h4 class=" card-title" style="color: white">National ID Images</h4>
         </div>
         <div class="col-md-2 d-flex justify-content-end">
         </div>
       </div>
     </div>
 
-    <div class="card-body" >
-    <div class="container-fluid">
-      <div class="card">
-       <div class="card-body">
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
 
-          <!-- Service Images -->
-         <div class="row d-flex justify-content-around" style="margin-top: 5px">
+            <!-- National ID Images -->
+            <div class="row d-flex justify-content-around" style="margin-top: 5px">
 
-           <div class="col-4">
-             <h4>National ID Image Front</h4>
-             <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:35px;"></i>
-             <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow">
-           </div>
+              <div class="col-4">
+                <h4>National ID Image Front</h4>
+                <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
+                <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow" (click)="SelectNationalIdFront()">
+              </div>
 
-           <div class="col-4">
-             <h4>National ID Image Back</h4>
-             <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:35px;"></i>
-             <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow">
-           </div>
+              <div class="col-4">
+                <h4>National ID Image Back</h4>
+                <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
+                <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow"  (click)="SelectNationalIdBack()">
+              </div>
 
-         </div>
+            </div>
           </div>
 
+        </div>
       </div>
     </div>
-    </div>
- </div>
+  </div>
 
 
 
@@ -268,6 +268,71 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="EditAccountDetails()">Confirm</button>
         <button type="button" class="btn btn-danger" (click)="editAccountConfirmationModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--Upload national id front Modal-->
+<div bsModal #uploadNationalIdFrontModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Upload National ID Front Image</h4>
+        <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdFrontModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scrollableBody">
+        <div class="fileinput text-center">
+          <input type="file" #changeNationalIdFront accept="image/*" style="display: none;" (change)="replaceNationalIdFront($event)">
+          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
+            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
+          </div>-->
+          <div>
+            <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdFront.click()">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdFrontModal.hide()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Upload national id back Modal-->
+<div bsModal #uploadNationalIdBackModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Upload National ID Back Image</h4>
+        <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdBackModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scrollableBody">
+        <div class="fileinput text-center">
+          <input type="file" #changeNationalIdBack accept="image/*" style="display: none;" (change)="replaceNationalIdBack($event)">
+          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
+            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
+          </div>-->
+          <div>
+            <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdBack.click()">
+              Upload
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdBackModal.hide()">Cancel</button>
       </div>
     </div>
   </div>

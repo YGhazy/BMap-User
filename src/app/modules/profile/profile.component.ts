@@ -10,7 +10,9 @@ import { EditCustomerModel } from 'src/app/models/Request/edit-customer-model';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CustomerService } from 'src/app/services/customer.service';
 import { formBuilderHelper } from 'src/app/services/utilities/formBuilderHelper';
+import { helperFunctions } from 'src/app/services/utilities/helperFunctions';
 import { langHelper } from 'src/app/services/utilities/language-helper';
+import { EditImageModel } from '../../models/http-models/edit-image-model';
 import { ChangePasswordModel } from '../../models/Request/change-password-model';
 import { AccountService } from '../../services/account.service';
 import { ModalComponent } from '../shared/modal/modal.component';
@@ -23,11 +25,13 @@ import { ModalComponent } from '../shared/modal/modal.component';
 export class ProfileComponent implements OnInit {
 
 
-  emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 
   client: ApplicationUser;
+
   isEditingAccount: boolean = false;
   isChangingPassword: boolean = false;
+
   langVar;
 
   oldPassword: string;
@@ -38,15 +42,20 @@ export class ProfileComponent implements OnInit {
   editPasswordForm: FormGroup;
 
 
+  uploadedNationalIdImageFront: any = "./assets/images/image_placeholder.jpg";
+  uploadedNationalIdImageBack: any = "./assets/images/image_placeholder.jpg";
+  emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
   @ViewChild('editPasswordConfirmationModal') public editPasswordConfirmationModal: ModalDirective;
   @ViewChild('editAccountConfirmationModal') public editAccountConfirmationModal: ModalDirective;
-
-  //Modal
+  @ViewChild('uploadNationalIdFrontModal') public uploadNationalIdFrontModal: ModalDirective;
+  @ViewChild('uploadNationalIdBackModal') public uploadNationalIdBackModal: ModalDirective;
   @ViewChild(ModalComponent) modalComponent: ModalComponent;
 
 
-  constructor(private authService: AuthenticationService, private customerService: CustomerService, private accountService: AccountService, private langHelper: langHelper,
-    private toastr: ToastrService, private router: Router, private formBuilderHelper: formBuilderHelper) {
+    constructor(private authService: AuthenticationService, private customerService: CustomerService, private accountService: AccountService, private langHelper: langHelper,
+    private toastr: ToastrService, private router: Router, private formBuilderHelper: formBuilderHelper, private helperFunctions: helperFunctions) {
 
     this.oldPassword = "Enter Old Password";
     this.newPassword = "Enter New Password";
@@ -75,13 +84,13 @@ export class ProfileComponent implements OnInit {
 
     });
 
-  }
+    }
 
     ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode();
     this.LoadUserAccount();
     console.log(this.isChangingPassword);
-  }
+    }
 
     LoadUserAccount() {
       //fetch user details via session token
@@ -229,8 +238,8 @@ export class ProfileComponent implements OnInit {
       console.log(this.editAccountForm.controls.street.valid);
 
 
-    }
-  
+  }
+
     ModalResponse(event) {
       this.modalComponent.confirmationModal.hide();
       this.modalComponent.preloader.show();
@@ -249,6 +258,92 @@ export class ProfileComponent implements OnInit {
 
     get l() {
       return this.editPasswordForm.controls;
+  }
+
+    SelectNationalIdFront() {
+    this.uploadNationalIdFrontModal.show();
+  }
+
+    SelectNationalIdBack() {
+    this.uploadNationalIdBackModal.show();
+  }
+
+    replaceNationalIdFront(event) {
+      this.helperFunctions.handleFileSelect(event)
+      setTimeout(() => {
+        this.uploadedNationalIdImageFront = this.helperFunctions.currentImg;
+        const newImage: EditImageModel = {
+          id: this.client.id,
+          image: this.uploadedNationalIdImageFront
+        }
+        setTimeout(() => {
+          this.uploadNationalIdFrontModal.hide();
+          this.modalComponent.preloader.show();
+          this.customerService.EditNationalIdFront(newImage).subscribe(res => {
+            if (res.succeeded) {
+              this.modalComponent.preloader.hide();
+              this.LoadUserAccount();
+              this.toastr.success('Image Uploaded', 'Success', {
+                disableTimeOut: false,
+                closeButton: true,
+                positionClass: 'toast-top-center'
+              });
+              this.uploadedNationalIdImageFront = "./assets/img/image_placeholder.jpg";
+              //Display success toast
+          
+            }
+          }, error => {
+              this.toastr.error('Failed to upload, Please try again !', 'Error', {
+                disableTimeOut: false,
+                closeButton: true,
+                positionClass: 'toast-top-center'
+              });
+            this.modalComponent.preloader.hide();
+            this.uploadNationalIdFrontModal.hide();
+            this.uploadedNationalIdImageFront = "./assets/img/image_placeholder.jpg";
+            console.log(error);
+          });
+        }, 1000);
+      }, 20);
+    }
+
+    replaceNationalIdBack(event) {
+      this.helperFunctions.handleFileSelect(event)
+      setTimeout(() => {
+        this.uploadedNationalIdImageBack = this.helperFunctions.currentImg;
+        const newImage: EditImageModel = {
+          id: this.client.id,
+          image: this.uploadedNationalIdImageBack
+        }
+        setTimeout(() => {
+          this.uploadNationalIdBackModal.hide();
+          this.modalComponent.preloader.show();
+          this.customerService.EditNationalIdBack(newImage).subscribe(res => {
+            if (res.succeeded) {
+              this.modalComponent.preloader.hide();
+              this.LoadUserAccount();
+              this.toastr.success('Image Uploaded', 'Success', {
+                disableTimeOut: false,
+                closeButton: true,
+                positionClass: 'toast-top-center'
+              });
+              this.uploadedNationalIdImageBack = "./assets/img/image_placeholder.jpg";
+              //Display success toast
+
+            }
+          }, error => {
+              this.toastr.error('Failed to upload, Please try again !', 'Error', {
+              disableTimeOut: false,
+              closeButton: true,
+              positionClass: 'toast-top-center'
+            });
+            this.modalComponent.preloader.hide();
+            this.uploadNationalIdBackModal.hide();
+            this.uploadedNationalIdImageBack = "./assets/img/image_placeholder.jpg";
+            console.log(error);
+          });
+        }, 1000);
+      }, 20);
     }
 
 }
