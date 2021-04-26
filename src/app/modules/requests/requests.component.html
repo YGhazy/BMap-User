@@ -26,13 +26,24 @@
                 <tbody>
                     <tr *ngFor="let requestedService of requestedServices; let i = index;">
                         <td scope="row" style="color: #1351c3;">{{i+1}}</td>
-                        <td style="color: #1351c3;" *ngIf="currentLang == 'en'">{{requestedService.services.nameEN}}</td>
-                        <td style="color: #1351c3;" *ngIf="currentLang == 'ar'">{{requestedService.services.nameAR}}</td>
-                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes != null && currentLang == 'en'">{{requestedService.services.nameEN}}</td>
-                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes != null && currentLang == 'ar'">{{requestedService.services.nameAR}}</td>
-                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes == null && currentLang == 'en'">{{requestedService.serviceTypes.nameEN}}</td>
-                        <td style="color: #8c929c; font-weight: normal;" *ngIf="requestedService.serviceTypes == null && currentLang == 'ar'">{{requestedService.serviceTypes.nameAR}}</td>
-                        <td style="color: #8c929c; font-weight: normal;">{{requestedService.date | date: 'MMM d, y, h:mm a'}}</td>
+                        <td style="color: #1351c3;" *ngIf="currentLang == 'en'">{{requestedService.services.nameEN}}
+                        </td>
+                        <td style="color: #1351c3;" *ngIf="currentLang == 'ar'">{{requestedService.services.nameAR}}
+                        </td>
+                        <td style="color: #8c929c; font-weight: normal;"
+                            *ngIf="requestedService.serviceTypes != null && currentLang == 'en'">
+                            {{requestedService.services.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;"
+                            *ngIf="requestedService.serviceTypes != null && currentLang == 'ar'">
+                            {{requestedService.services.nameAR}}</td>
+                        <td style="color: #8c929c; font-weight: normal;"
+                            *ngIf="requestedService.serviceTypes == null && currentLang == 'en'">
+                            {{requestedService.serviceTypes.nameEN}}</td>
+                        <td style="color: #8c929c; font-weight: normal;"
+                            *ngIf="requestedService.serviceTypes == null && currentLang == 'ar'">
+                            {{requestedService.serviceTypes.nameAR}}</td>
+                        <td style="color: #8c929c; font-weight: normal;">{{requestedService.date | date: 'MMM d, y, h:mm
+                            a'}}</td>
                         <td style="color: #1351c3; font-weight: normal;">{{requestedService.banks.name}}</td>
                         <td
                             [ngClass]="{'text-warning':requestedService.status=='Pending', 'text-danger':requestedService.status == 'Rejected', 'text-success':requestedService.status == 'Approved'}">
@@ -40,8 +51,12 @@
                             <p *ngIf="requestedService.status == 'Approved'">{{langVar.status.approved}}</p>
                             <p *ngIf="requestedService.status == 'Rejected'">{{langVar.status.rejected}}</p>
                         </td>
-                        <td><button class="btn btn-primary" *ngIf="requestedService.status == 'Pending'"
-                                (click)="DisplayCancellationConfirmation(requestedService.id)">{{langVar.cancel}}</button></td>
+                        <td>
+                            <button class="btn btn-primary" *ngIf="requestedService.status == 'Pending'"
+                                (click)="DisplayCancellationConfirmation(requestedService.id)">{{langVar.cancel}}</button>
+                            <button class="btn btn-primary" *ngIf="requestedService.status == 'Rejected'"
+                                (click)="DisplayRejectionReason(requestedService.id)">{{langVar.view}}</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -147,6 +147,8 @@ export const English: any = {
     unableToFetchAccDetails: "Unable to fetch account details",
     unableToCancelReq: "Unable to cancel request",
     reqCancelled: "Request cancelled",
+    reqSent: "Request Sent",
+    failedToSubmitreq: "Failed to submit request",
     notLoggedIn: "You must be logged in to request a service",
   },
   contact: {
@@ -162,6 +164,8 @@ export const English: any = {
   },
   sent: "Done successfully",
   Request: "Request",
+  view: "View",
+  rejected: "Rejection Reason",
   confirm: "Confirm",
   cancel: "Cancel",
 }

@@ -152,6 +152,8 @@ export const Arabic: any = {
     unableToFetchAccDetails: "تعذر جلب تفاصيل الحساب",
     unableToCancelReq: "تعذر إلغاء الطلب",
     reqCancelled: "تم إلغاء الطلب",
+    reqSent: "تم طلب الخدمة",
+    failedToSubmitreq: "فشل فى طلب الخدمة",
     notLoggedIn: "يجب عليك تسجيل الدخول لطلب الخدمة"
   },
   contact: {
@@ -167,6 +169,8 @@ export const Arabic: any = {
   },
   sent: "تم بنجاح",
   Request: "طلب",
+  view: "المزيد",
+  rejected: "سبب الرفض",
   confirm: "تأكيد",
   cancel: "إلغاء",
 }

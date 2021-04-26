@@ -45,7 +45,7 @@
     </div>
 
     <!--Service types card-->
-    <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap" dir="{{langVar.dir}}">
       <div class="serviceType-container" *ngFor="let type of service.serviceTypes;"
         (click)="SelectServiceType(type.id)">
         <div class="row">
@@ -86,7 +86,7 @@
           <div class="col-lg-6 col-12">
             <label for="phoneNumber">{{langVar.applicationForm.phoneNumber}}</label>
             <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
-              placeholder="+20-" />
+              placeholder="{{langVar.placeholder.PhoneNumber}}" />
             <div
               *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
               class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">

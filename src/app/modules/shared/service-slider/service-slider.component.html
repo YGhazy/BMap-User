@@ -10,8 +10,8 @@
                                 [title]="service.nameEN">
                             <h1 class="mt-2" *ngIf="currentLang=='en'">{{service.nameEN}}</h1>
                             <h1 class="mt-2" *ngIf="currentLang=='ar'">{{service.nameAR}}</h1>
-                            <p class="mb-5 pb-3" *ngIf="currentLang=='en'">{{service.descriptionEN}}</p>
-                            <p class="mb-5 pb-3" *ngIf="currentLang=='ar'" dir="rtl">{{service.descriptionAR}}</p>
+                            <p class="mb-5 pb-3 desc" *ngIf="currentLang=='en'">{{service.descriptionEN}}</p>
+                            <p class="mb-5 pb-3 desc" *ngIf="currentLang=='ar'" dir="rtl">{{service.descriptionAR}}</p>
                         </div>
                     </ng-template>
                 </ng-container>

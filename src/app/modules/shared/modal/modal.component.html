@@ -221,3 +221,24 @@
     </div>
   </div>
 </div>
+
+
+<!--Rejection Modal-->
+<div bsModal #rejectionModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header" dir="{{langVar.dir}}">
+        <h4 class="modal-title text-center">{{langVar.rejected}}</h4>
+        <button type="button" class="close" (click)="rejectionModal.hide()" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body text-center" dir="{{langVar.dir}}" >
+        <p>{{failmsg}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="rejectionModal.hide()">{{langVar.cancel}}</button>
+        <!--<button type="button" class="btn btn-danger">Save changes</button>-->
+      </div>
+    </div> 
+  </div> 
+</div> 

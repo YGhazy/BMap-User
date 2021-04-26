@@ -98,6 +98,10 @@ export class RequestsComponent implements OnInit {
     }
   }
 
+  DisplayRejectionReason(requestID: number){
+    this.modalComponent.showRejectionReason(this.requestedServices.find(s => s.id == requestID).rejectionReason);
+  }
+
   ModalResponse(event) {
     this.modalComponent.confirmationModal.hide();
     this.modalComponent.preloader.show();

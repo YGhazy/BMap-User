@@ -41,5 +41,16 @@ p {
     h1{
         font-size:32px;
     }
+}
 
-    }
+.desc{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-height: 1.5em;        /* fallback */
+  max-height: 2em;       /* fallback */
+}
+
+  

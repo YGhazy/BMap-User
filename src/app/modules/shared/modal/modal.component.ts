@@ -21,6 +21,7 @@ export class ModalComponent implements OnInit {
   @ViewChild('successModal') public successModal: ModalDirective;
   @ViewChild('warningModal') public warningModal: ModalDirective;
   @ViewChild('dangerModal') public dangerModal: ModalDirective;
+  @ViewChild('rejectionModal') public rejectionModal: ModalDirective;
   @ViewChild('infoModal') public infoModal: ModalDirective;
   @ViewChild('confirmationModal') public confirmationModal: ModalDirective;
   @ViewChild('preloader') public preloader: ModalDirective;
@@ -55,6 +56,10 @@ export class ModalComponent implements OnInit {
   showFailModal(msg) {
     this.failmsg = msg
     this.dangerModal.show()
+  }
+  showRejectionReason(msg){
+    this.failmsg = msg
+    this.rejectionModal.show()
   }
 
   //Confirmation Section

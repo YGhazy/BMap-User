@@ -98,6 +98,13 @@ export class ServiceComponent implements OnInit {
       //fetch available banks and display application form
       this.FetchAvailableBanks();
     }
+    else{
+      this.toastr.error(this.langVar.response.notLoggedIn, this.langVar.response.error, {
+        disableTimeOut: false,
+        closeButton: true,
+        positionClass: 'toast-top-center'
+      });
+    }
   }
   SelectService(){
     if(this.canRequestService){
@@ -135,7 +142,7 @@ export class ServiceComponent implements OnInit {
     console.log(createServiceRequest);
     this.ServicesService.SubmitServiceRequest(createServiceRequest).subscribe(res => {
       if (res.succeeded) {
-        this.toastr.success('Request sent', 'Success', {
+        this.toastr.success(this.langVar.response.reqSent, this.langVar.response.success, {
           disableTimeOut: false,
           closeButton: true,
           positionClass: 'toast-top-center'
@@ -146,7 +153,7 @@ export class ServiceComponent implements OnInit {
         }, 1000);
       }
     }, error => {
-      this.toastr.error('Failed to submit request', 'Error', {
+      this.toastr.error(this.langVar.response.failedToSubmitreq, this.langVar.response.error, {
         disableTimeOut: false,
         closeButton: true,
         positionClass: 'toast-top-center'
