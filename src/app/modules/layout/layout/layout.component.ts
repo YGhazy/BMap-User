@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
 import { langHelper } from 'src/app/services/utilities/language-helper';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { ServicesService } from '../../../services/ServicesService';
@@ -21,6 +22,17 @@ export class LayoutComponent implements OnInit {
   isAuthorized: boolean
   constructor(private auth: AuthenticationService, private jsLoader: JSInitializer, private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
   ngOnInit(): void {
+    //set navigation arrow
+    this.ClearNavigationHighLight();
+    var currentUrl = this.router.url.toString();
+    currentUrl = currentUrl.replace("/", "");
+
+    if (document.getElementById(currentUrl) != null)
+      document.getElementById(currentUrl)?.classList.add('highlighted'); // Append Selected class to clicked element
+    //
+    setTimeout(() => {
+      window.scroll(0, 0);
+    }, 500);
     //lang var
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
@@ -34,10 +46,10 @@ export class LayoutComponent implements OnInit {
         this.user = res.data;
         console.log(this.user);
         if (this.user.image == null) {
-         //initials for null images
-        this.hadImg=false
-        let userName = this.user.customer.first +' '+ this.user.customer.last
-        this.initials = userName.split(" ").map(n => n[0]).join("").toUpperCase()
+          //initials for null images
+          this.hadImg = false
+          let userName = this.user.customer.first + ' ' + this.user.customer.last
+          this.initials = userName.split(" ").map(n => n[0]).join("").toUpperCase()
         }
         else this.hadImg = true
       }, error => {
@@ -46,7 +58,7 @@ export class LayoutComponent implements OnInit {
 
     }
     //
-    
+
 
     console.log(this.isAuthorized)
     this.ServicesService.GetAllServices().subscribe(res => {
@@ -59,10 +71,18 @@ export class LayoutComponent implements OnInit {
   }
   route(url) {
 
-    if (url == this.router.url)
+    if (url == this.router.url) {
       window.scrollTo(0, 0)
-    else
+    }
+    else {
       this.router.navigateByUrl(url)
+
+    }
+
+    this.ClearNavigationHighLight();
+    document.getElementById(url)?.classList.add('highlighted');
+    var currentUrl = this.router.url.toString();
+    currentUrl = currentUrl.replace("/", "");
   }
   changeLanguage() {
     this.langHelper.switchLanguage()
@@ -72,16 +92,30 @@ export class LayoutComponent implements OnInit {
 
   ToService(selectedServiceID) {
     localStorage.setItem('selectedServiceID', selectedServiceID)
-    if (this.router.url !="/service")
-    this.router.navigateByUrl('service')
+    if (this.router.url != "/service")
+      this.router.navigateByUrl('service')
     else
       window.location.reload()
     console.log(this.router.url)
+    this.ClearNavigationHighLight();
+    document.getElementById('service')?.classList.add('highlighted'); // Append Selected class to clicked element
   }
   logout() {
     this.auth.logout()
     if (this.router.url != "/home")
       this.router.navigateByUrl('/home');
     window.location.reload();
+  }
+
+
+  //Clear Highlighted class from navigation items
+  ClearNavigationHighLight() {
+    var nav_link = document.getElementsByClassName("nav-link"); // Fetch header list
+    // Clear 'selected' class
+    for (let i = 0; i < nav_link.length; i++) {
+      if (nav_link[i]?.classList.contains('highlighted')) {
+        nav_link[i]?.classList.remove('highlighted')
+      }
+    }
   }
 }

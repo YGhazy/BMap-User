@@ -59,11 +59,11 @@
         <div class="col-12 col-md-10 d-none d-xl-block">
           <nav class="site-navigation position-relative text-right " role="navigation">
             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
-              <li><a (click)="route('home')" class="nav-link highlighted">{{langVar.layout.Home}}</a></li>
-              <li><a (click)="route('about-us')" class="nav-link">{{langVar.layout.about}}</a></li>
+              <li><a (click)="route('home')" class="nav-link highlighted" id="home">{{langVar.layout.Home}}</a></li>
+              <li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>
 
               <li class="has-children">
-                <a class="nav-link ">{{langVar.layout.service}}</a>
+                <a class="nav-link " id="service">{{langVar.layout.service}}</a>
                 <ul class="dropdown" *ngIf="ServicesList">
                   <li *ngFor="let service of ServicesList">
                     <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
@@ -71,11 +71,11 @@
                   </li>
                 </ul>
               </li>
-              <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized">{{langVar.layout.requests}}</a></li>
-              <li><a (click)="route('contact')" class="nav-link"> {{langVar.layout.contact}}</a></li>
+              <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
+              <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>
 
-              <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized"> {{langVar.layout.login}}</a></li>
-              <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized"> {{langVar.register.register}}</a></li>
+              <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
+              <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
               <li>
                 <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
                   <div class="loginbtn">
@@ -86,9 +86,9 @@
                 </a>
               </li>
               <li class="">
-                <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg">
+                <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg" id="profile">
                 </a>
-                <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
+                <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
                   <div class="initials">
                     <a>
                       {{initials}}
