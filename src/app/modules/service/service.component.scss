@@ -10,7 +10,7 @@
   background-size: cover;
   background-position: bottom;
   background-size: cover;
-  height: 69vh !important;
+  height: 85vh !important;
   min-height: 69vh !important;
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 61%);
@@ -22,12 +22,12 @@
 }
 
 .site-blocks-cover {
-  min-height: 75vh;
-  height: calc(75vh);
+  min-height: 93vh;
+  height: calc(93vh);
 }
 .overlay:before {
   min-height: 75vh;
-  background-color: #d5d5d5;
+  background-color: #1351c3;
   background-size: 300px 100px, cover;
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 55%);
