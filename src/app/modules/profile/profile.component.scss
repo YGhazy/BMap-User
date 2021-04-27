@@ -95,3 +95,16 @@ img.hover-shadow {
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.fa-upload {
+  color: #1351c3;
+}
+.imgContainer{
+  transition:1s all ease-in-out;  
+    cursor:pointer;
+    
+}
+.imgContainer:hover {
+    transform:scale(1.1);
+  .fa-upload {
+  }
+}
