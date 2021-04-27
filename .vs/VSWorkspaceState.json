@@ -4,8 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\assets\\css"
+    "\\src\\app\\modules\\about-us",
+    "\\src\\app\\modules\\layout",
+    "\\src\\app\\modules\\layout\\layout",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\utilities",
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\environments\\environment.prod.ts",
   "PreviewInSolutionExplorer": false
 }

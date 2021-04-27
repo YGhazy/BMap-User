@@ -25,14 +25,13 @@ import { ModalComponent } from '../shared/modal/modal.component';
 export class ProfileComponent implements OnInit {
 
 
-
+  langVar;
+  currentLang
 
   client: ApplicationUser;
 
   isEditingAccount: boolean = false;
   isChangingPassword: boolean = false;
-
-  langVar;
 
   oldPassword: string;
   newPassword: string;
@@ -44,6 +43,7 @@ export class ProfileComponent implements OnInit {
 
   uploadedNationalIdImageFront: any = "./assets/images/image_placeholder.jpg";
   uploadedNationalIdImageBack: any = "./assets/images/image_placeholder.jpg";
+  uploadedProfilePicture: any = "./assets/images/image_placeholder.jpg";
   emailValidationPattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 
@@ -51,6 +51,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild('editAccountConfirmationModal') public editAccountConfirmationModal: ModalDirective;
   @ViewChild('uploadNationalIdFrontModal') public uploadNationalIdFrontModal: ModalDirective;
   @ViewChild('uploadNationalIdBackModal') public uploadNationalIdBackModal: ModalDirective;
+  @ViewChild('uploadProfilePictureModal') public uploadProfilePictureModal: ModalDirective;
   @ViewChild(ModalComponent) modalComponent: ModalComponent;
 
 
@@ -87,9 +88,10 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit(): void {
-    this.langVar = this.langHelper.initializeMode();
-    this.LoadUserAccount();
-    console.log(this.isChangingPassword);
+      this.langVar = this.langHelper.initializeMode();
+      this.currentLang = this.langHelper.currentLang;
+      this.LoadUserAccount();
+      console.log(this.currentLang);
     }
 
     LoadUserAccount() {
@@ -268,6 +270,10 @@ export class ProfileComponent implements OnInit {
     this.uploadNationalIdBackModal.show();
   }
 
+    SelectProfilePicture() {
+    this.uploadProfilePictureModal.show();
+    }
+
     replaceNationalIdFront(event) {
       this.helperFunctions.handleFileSelect(event)
       setTimeout(() => {
@@ -344,6 +350,45 @@ export class ProfileComponent implements OnInit {
           });
         }, 1000);
       }, 20);
-    }
+  }
+
+    replaceProfilePicture(event) {
+    this.helperFunctions.handleFileSelect(event)
+    setTimeout(() => {
+      this.uploadedProfilePicture = this.helperFunctions.currentImg;
+      const newImage: EditImageModel = {
+        id: this.client.id,
+        image: this.uploadedProfilePicture
+      }
+      setTimeout(() => {
+        this.uploadProfilePictureModal.hide();
+        this.modalComponent.preloader.show();
+        this.customerService.EditProfilePicture(newImage).subscribe(res => {
+          if (res.succeeded) {
+            this.modalComponent.preloader.hide();
+            this.LoadUserAccount();
+            this.toastr.success('Image Uploaded', 'Success', {
+              disableTimeOut: false,
+              closeButton: true,
+              positionClass: 'toast-top-center'
+            });
+            this.uploadedProfilePicture = "./assets/img/image_placeholder.jpg";
+            //Display success toast
+
+          }
+        }, error => {
+          this.toastr.error('Failed to upload, Please try again !', 'Error', {
+            disableTimeOut: false,
+            closeButton: true,
+            positionClass: 'toast-top-center'
+          });
+          this.modalComponent.preloader.hide();
+          this.uploadProfilePictureModal.hide();
+          this.uploadedProfilePicture = "./assets/img/image_placeholder.jpg";
+          console.log(error);
+        });
+      }, 1000);
+    }, 20);
+  }
 
 }

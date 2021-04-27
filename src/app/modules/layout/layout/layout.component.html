@@ -28,7 +28,7 @@
         <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('login')" *ngIf="!isAuthorized">{{langVar.layout.login}}</a></li>
         <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="logout()" *ngIf="isAuthorized">{{langVar.layout.logout}}</a></li>
         <li class="">
-          <a (click)="route('profile')" class="nav-link imageContainer p-0 clickableLink" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg">
+          <a (click)="route('profile')" class="nav-link imageContainer p-0 clickableLink" style="padding:15px 15px;background-image: url({{user.customer.profilePicture}})" *ngIf="isAuthorized && hadImg">
           </a>
           <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
             <div class="initials">
