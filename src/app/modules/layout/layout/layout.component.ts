@@ -49,7 +49,7 @@ export class LayoutComponent implements OnInit {
           //initials for null images
           this.hadImg = false
           let userName = this.user.customer.first + ' ' + this.user.customer.last
-          this.initials = userName.split(" ").map(n => n[0]).join("").toUpperCase()
+          //this.initials = userName.split(" ").map(n => n[0]).join("").toUpperCase()
         }
         else this.hadImg = true
       }, error => {

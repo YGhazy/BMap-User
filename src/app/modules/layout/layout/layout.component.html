@@ -86,15 +86,15 @@
                 </a>
               </li>
               <li class="">
-                <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized && hadImg" id="profile">
+                <a (click)="route('profile')" class="nav-link imageContainer p-0" style="padding:15px 15px;background-image: url({{user.image}})" *ngIf="isAuthorized" id="profile">
                 </a>
-                <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
+                <!--<a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
                   <div class="initials">
                     <a>
                       {{initials}}
                     </a>
                   </div>
-                </a>
+                </a>-->
               </li>
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
             </ul>
