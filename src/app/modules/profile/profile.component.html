@@ -1,144 +1,182 @@
 <div class="background">
 </div>
 <div class="mainContainer">
-  <h1>
-    User Profile
+  <h1 class="{{langVar.textAlign}}" style="margin-left:20px; margin-right:20px;">
+    {{langVar.profile.title}}
   </h1>
 
-  <div class="tableContainer" >
+  <div class="tableContainer">
 
-    <div class="row text-right mb-3">
+    <div class="row {{langVar.textAlignReverse}} mb-3">
       <div class="col-12">
-        <button class="btn btn-primary" *ngIf="isChangingPassword == false" (click)="EnableEdit()">Edit Profile Information</button>
-        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == false" (click)="SwitchViews()">Change Password</button>
-        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == true" (click)="SwitchViews()">View Profile Information</button>
+        <button class="btn btn-primary" *ngIf="isChangingPassword == false" (click)="EnableEdit()">{{langVar.profile.editProfileButton}}</button>
+        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == false" (click)="SwitchViews()">{{langVar.profile.changePasswordButton}}</button>
+        <button class="btn btn-primary ml-3" *ngIf="isChangingPassword == true" (click)="SwitchViews()"> {{langVar.profile.viewProfileInformationButton}} </button>
       </div>
     </div>
 
-    <div class="table-responsive">
+    <div class="table-responsive" dir="{{langVar.dir}}">
 
       <!-- change account info table -->
-      <table class="table" *ngIf="client && isChangingPassword == false">
+      <table class="table {{langVar.textAlign}}" *ngIf="client && isChangingPassword == false">
         <tbody [formGroup]="editAccountForm">
 
           <tr>
-            <td class="header">First Name</td>
+            <td class="header">{{langVar.placeholder.FirstName}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.first}}</td>
-            <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.first" formControlName="firstName" />
+            <td class="body"  *ngIf="isEditingAccount" >
+              <input type="text" class="form-control" [(ngModel)]="client.customer.first" formControlName="firstName" style="display: inline-block"/>
+              <div *ngIf="f.firstName.invalid && f.firstName.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.InvalidName}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">First Middle Name</td>
+            <td class="header">{{langVar.placeholder.FistMiddleName}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.firstMiddle}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.firstMiddle" formControlName="firstMiddleName" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.firstMiddle" formControlName="firstMiddleName" style="display: inline-block" />
+              <div *ngIf="f.firstMiddleName.invalid && f.firstMiddleName.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.InvalidName}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Second Middle Name</td>
+            <td class="header">{{langVar.placeholder.secondMiddleName}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.secondMiddle}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.secondMiddle" formControlName="secondMiddleName" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.secondMiddle" formControlName="secondMiddleName" style="display: inline-block" />
+              <div *ngIf="f.secondMiddleName.invalid && f.secondMiddleName.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.InvalidName}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Last Name</td>
+            <td class="header">{{langVar.placeholder.LastName}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.last}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.last" formControlName="lastName" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.last" formControlName="lastName" style="display: inline-block" />
+              <div *ngIf="f.lastName.invalid && f.lastName.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.InvalidName}}
+              </div>
             </td>
           </tr>
 
 
           <tr>
-            <td class="header">E-Mail</td>
+            <td class="header">{{langVar.placeholder.email}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.email}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.email" formControlName="email" />
+              <input type="text" class="form-control" [(ngModel)]="client.email" formControlName="email" style="display: inline-block" />
+              <div *ngIf="f.email.invalid && f.email.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.invalidEmail}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Phone Number</td>
+            <td class="header">{{langVar.placeholder.PhoneNumber}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.phoneNumber}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.phoneNumber" formControlName="phoneNumber" />
+              <input type="text" class="form-control" [(ngModel)]="client.phoneNumber" formControlName="phoneNumber" style="display: inline-block" />
+              <div *ngIf="f.phoneNumber.invalid && f.phoneNumber.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.InvalidMobileNumber}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">National ID</td>
+            <td class="header">{{langVar.placeholder.NationalId}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.nationalID}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.nationalID" formControlName="nationalID" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.nationalID" formControlName="nationalID" style="display: inline-block" />
+              <div *ngIf="f.nationalID.invalid && f.nationalID.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.invalidNationalID}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Job Title</td>
+            <td class="header">{{langVar.placeholder.JobTitle}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.jobTitle}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.jobTitle" formControlName="jobTitle" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.jobTitle" formControlName="jobTitle" style="display: inline-block" />
+              <div *ngIf="f.jobTitle.invalid && f.jobTitle.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.requiredJobTitle}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Country</td>
+            <td class="header">{{langVar.placeholder.Country}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.country}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.country" formControlName="country" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.country" formControlName="country" style="display: inline-block" />
+              <div *ngIf="f.country.invalid && f.country.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.requiredCountry}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Province</td>
+            <td class="header">{{langVar.placeholder.Province}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.province}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.province" formControlName="province" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.province" formControlName="province" style="display: inline-block" />
+              <div *ngIf="f.province.invalid && f.province.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.requiredProvince}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">City</td>
+            <td class="header">{{langVar.placeholder.City}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.city}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.city" formControlName="city" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.city" formControlName="city" style="display: inline-block" />
+              <div *ngIf="f.city.invalid && f.city.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.requiredcity}}
+              </div>
             </td>
           </tr>
 
           <tr>
-            <td class="header">Street</td>
+            <td class="header">{{langVar.placeholder.Street}}</td>
             <td class="body" *ngIf="!isEditingAccount">{{client.customer.street}}</td>
             <td class="body" *ngIf="isEditingAccount">
-              <input type="text" class="form-control" [(ngModel)]="client.customer.street" formControlName="street" />
+              <input type="text" class="form-control" [(ngModel)]="client.customer.street" formControlName="street" style="display: inline-block" />
+              <div *ngIf="f.street.invalid && f.street.dirty" class="alert alert-danger " style="display: inline-block">
+                {{langVar.invalid.requiredStreet}}
+              </div>
             </td>
           </tr>
-
-
-
 
         </tbody>
       </table>
 
 
       <!-- Change password table-->
-      <table class="table" *ngIf="client && isChangingPassword == true">
+      <table class="table {{langVar.textAlign}}" *ngIf="client && isChangingPassword == true">
         <tbody [formGroup]="editPasswordForm">
           <tr>
-            <td class="header">Old Password</td>
+            <td class="header">{{langVar.profile.oldPasswordLabel}}</td>
             <td>
-              <input type="password" class="form-control" [(ngModel)]="oldPassword" formControlName="password" size="120" />
-
+              <input type="password" class="form-control" [(ngModel)]="oldPassword" formControlName="password" size="120"/>
+              <div *ngIf="l.password.invalid && l.password.dirty" class="alert alert-danger text-center "  style="width:35%;">
+                {{langVar.invalid.InvalidPassword}}
+              </div>
             </td>
           </tr>
           <tr>
-            <td class="header">New Password</td>
+            <td class="header">{{langVar.profile.newPasswordLabel}}</td>
             <td>
-              <input type="password" class="form-control" [(ngModel)]="newPassword" formControlName="newPassword" size="50" />
+              <input type="password" class="form-control" [(ngModel)]="newPassword" formControlName="newPassword" size="50"  />
+              <div *ngIf="l.newPassword.invalid && l.newPassword.dirty" class="alert alert-danger  text-center" style="width:35%;">
+                {{langVar.invalid.InvalidPassword}}
+              </div>
             </td>
           </tr>
 
@@ -148,15 +186,17 @@
 
     </div>
 
+    <!-- Edit account save button -->
     <div class="row text-right mb-3" *ngIf="client && isEditingAccount && isChangingPassword == false">
       <div class="col-12">
-        <button class="btn btn-primary" [disabled]="!editAccountForm.valid" (click)="DisplayEditAccountConfirmationModal()">Save</button>
+        <button class="btn btn-primary" [disabled]="!editAccountForm.valid" (click)="DisplayEditAccountConfirmationModal()">{{langVar.profile.saveButtonLabel}}</button>
       </div>
     </div>
 
+    <!-- Edit password save button -->
     <div class="row text-right mb-3" *ngIf="client && isChangingPassword == true">
       <div class="col-12">
-        <button class="btn btn-primary" (click)="DisplayEditPasswordConfirmationModal()" [disabled]="!editPasswordForm.valid">Save</button>
+        <button class="btn btn-primary" (click)="DisplayEditPasswordConfirmationModal()" [disabled]="!editPasswordForm.valid">{{langVar.profile.saveButtonLabel}}</button>
 
       </div>
     </div>
@@ -166,12 +206,36 @@
 
   <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 50px" *ngIf="client && isChangingPassword == false">
     <div class="card-header" style="background-color: #1351c3">
-      <div class="row">
-        <div class="col-md-10">
-          <h4 class=" card-title" style="color: white">National ID Images</h4>
+      <div class="row justify-content-center">
+        <div class="col-md-10" style="text-align: center">
+          <h4 class=" card-title" style="color: white">{{langVar.profile.profilePictureLabel}}</h4>
         </div>
-        <div class="col-md-2 d-flex justify-content-end">
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="card">
+          <div class="card-body">
+            <div class="row d-flex justify-content-center" style="margin-top: 5px">
+              <div class="col-2">
+                <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
+                <img src="{{client.customer.profilePicture}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow" (click)="SelectProfilePicture()">
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="width: 80%; margin: 0 auto; margin-bottom: 50px" *ngIf="client && isChangingPassword == false">
+    <div class="card-header" style="background-color: #1351c3">
+      <div class="row  justify-content-center">
+        <div class="col-md-10" style="text-align: center; ">
+          <h4 class=" card-title" style="color: white">{{langVar.profile.nationalIdImagesLabel}}</h4>
+        </div>
+
       </div>
     </div>
 
@@ -183,16 +247,16 @@
             <!-- National ID Images -->
             <div class="row d-flex justify-content-around" style="margin-top: 5px">
 
-              <div class="col-4">
-                <h4>National ID Image Front</h4>
+              <div class="col-4 text-center">
+                <h4>{{langVar.profile.frontNationalIdImageLabel}}</h4>
                 <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
                 <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow" (click)="SelectNationalIdFront()">
               </div>
 
-              <div class="col-4">
-                <h4>National ID Image Back</h4>
+              <div class="col-4 text-center">
+                <h4>{{langVar.profile.backNationalIdImageLabel}}</h4>
                 <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto" style="position: absolute; right:20px; bottom:10px;"></i>
-                <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow"  (click)="SelectNationalIdBack()">
+                <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 120px;" class="ImageBanner hover-shadow" (click)="SelectNationalIdBack()">
               </div>
 
             </div>
@@ -203,52 +267,10 @@
     </div>
   </div>
 
-
-
-
-
-
-  <!--<div class="container-fluid d-flex justify-content-around">
-    <div class="row">
-      <div class="col-4">
-        <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto"></i>
-        <img src="{{client.customer.nationalIdFront}}" style=" width: 100%; height: 100px;" class="ImageBanner hover-shadow">
-      </div>
-      <div class="col-4">
-        <i class="fa fa-upload UploadIcon fa-2x " data-toggle="tooltip" title="Upload" placement="auto"></i>
-        <img src="{{client.customer.nationalIdBack}}" style=" width: 100%; height: 100px;" class="ImageBanner hover-shadow">
-      </div>
-    </div>
-  </div>-->
-
-
-
 </div>
 
 <app-modal></app-modal>
 
-
-<!--Edit Password Confirmation Modal-->
-<div bsModal #editPasswordConfirmationModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
-     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-info" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Edit Password</h4>
-        <button type="button" class="close" aria-label="Close" (click)="editPasswordConfirmationModal.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to edit your password ?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="EditPassword()">Confirm</button>
-        <button type="button" class="btn btn-danger" (click)="editPasswordConfirmationModal.hide()">Cancel</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <!--Edit Account Confirmation Modal-->
@@ -256,23 +278,44 @@
      role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-info" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Edit Profile Information</h4>
+      <div class="modal-header  text-center">
+        <h4 class="modal-title w-100">{{langVar.profile.editProfileInfoLabel}}</h4>
         <button type="button" class="close" aria-label="Close" (click)="editAccountConfirmationModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <p>Are you sure you want to edit your profile information ?</p>
+      <div class="modal-body  text-center">
+        <p stlye="text-center">{{langVar.profile.editProfileInfoConfirmationMessage}}</p>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="EditAccountDetails()">Confirm</button>
-        <button type="button" class="btn btn-danger" (click)="editAccountConfirmationModal.hide()">Cancel</button>
+      <div class="modal-footer text-center justify-content-around">
+        <button type="button" class="btn btn-success" (click)="EditAccountDetails()">{{langVar.confirm}}</button>
+        <button type="button" class="btn btn-danger" (click)="editAccountConfirmationModal.hide()">{{langVar.cancel}}</button>
       </div>
     </div>
   </div>
 </div>
 
+<!--Edit Password Confirmation Modal-->
+<div bsModal #editPasswordConfirmationModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100">{{langVar.profile.editPasswordLabel}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="editPasswordConfirmationModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <p stlye="text-center">{{langVar.profile.editPasswordConfirmationMessage}}</p>
+      </div>
+      <div class="modal-footer text-center justify-content-around">
+        <button type="button" class="btn btn-success" (click)="EditPassword()">{{langVar.confirm}}</button>
+        <button type="button" class="btn btn-danger" (click)="editPasswordConfirmationModal.hide()">{{langVar.cancel}}</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <!--Upload national id front Modal-->
@@ -280,8 +323,8 @@
      role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-info" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Upload National ID Front Image</h4>
+      <div class="modal-header text-center justify-content-center">
+        <h4 class="modal-title w-100">{{langVar.profile.uploadNationalIdFrontLabel}}</h4>
         <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdFrontModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -289,18 +332,15 @@
       <div class="modal-body scrollableBody">
         <div class="fileinput text-center">
           <input type="file" #changeNationalIdFront accept="image/*" style="display: none;" (change)="replaceNationalIdFront($event)">
-          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
-            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
-          </div>-->
           <div>
             <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdFront.click()">
-              Upload
+              {{langVar.profile.uploadButtonLabel}}
             </button>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="uploadNationalIdFrontModal.hide()">Cancel</button>
+      <div class="modal-footer text-center justify-content-center">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdFrontModal.hide()">{{langVar.cancel}}</button>
       </div>
     </div>
   </div>
@@ -312,8 +352,8 @@
      role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-info" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Upload National ID Back Image</h4>
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100">{{langVar.profile.uploadNationalIdBackLabel}}</h4>
         <button type="button" class="close" aria-label="Close" (click)="uploadNationalIdBackModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -321,18 +361,45 @@
       <div class="modal-body scrollableBody">
         <div class="fileinput text-center">
           <input type="file" #changeNationalIdBack accept="image/*" style="display: none;" (change)="replaceNationalIdBack($event)">
-          <!--<div class="thumbnail" *ngIf="uploadedNationalIdImageFront">
-            <img alt="..." src="{{uploadedNationalIdImageFront}}" style="max-width: 60%;">
-          </div>-->
           <div>
             <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeNationalIdBack.click()">
-              Upload
+              {{langVar.profile.uploadButtonLabel}}
             </button>
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="uploadNationalIdBackModal.hide()">Cancel</button>
+      <div class="modal-footer text-center justify-content-center">
+        <button type="button" class="btn btn-danger" (click)="uploadNationalIdBackModal.hide()">{{langVar.cancel}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Upload profile picture Modal-->
+<div bsModal #uploadProfilePictureModal="bs-modal" data-backdrop="static" data-keyboard="false" class="modal fade" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-info" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center text-center">
+        <h4 class="modal-title w-100">{{langVar.profile.uploadProfilePictureLabel}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="uploadProfilePictureModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scrollableBody">
+        <div class="fileinput text-center">
+          <input type="file" #changeProfilePicture accept="image/*" style="display: none;" (change)="replaceProfilePicture($event)">
+         
+          <div>
+            <button class="btn-round btn btn-primary ng-star-inserted mt-2" (click)="changeProfilePicture.click()">
+              {{langVar.profile.uploadButtonLabel}}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center justify-content-center">
+        <button type="button" class="btn btn-danger" (click)="uploadProfilePictureModal.hide()">{{langVar.cancel}}</button>
       </div>
     </div>
   </div>
