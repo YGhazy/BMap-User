@@ -10,7 +10,7 @@ export const Arabic: any = {
   textAlign: "text-right",
   textAlignReverse: "text-left",
   FlexAlignItems: "align-items-end",
-
+  NoRequest: "لا يوجد طلبات",
   flexDIr: "flex-row-reverse",
   copyRights1: "كل الحقوق محفوظة |",
   terms: "شروط",

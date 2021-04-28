@@ -45,7 +45,7 @@
     </div>
 
     <!--Service types card-->
-    <div class="d-flex flex-wrap" dir="{{langVar.dir}}">
+    <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
       <div class="serviceType-container" *ngFor="let type of service.serviceTypes;"
         (click)="SelectServiceType(type.id)">
         <div class="row">
@@ -63,7 +63,7 @@
   </section>
 
   <!--Application form section-->
-  <section *ngIf="isRequestingService && service" data-aos-delay="200" data-aos-duration="500" class="requestSection">
+  <section *ngIf="isRequestingService && service" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500" class="requestSection">
     <div class="row" dir="{{langVar.dir}}" [ngClass]="{'mr-lg-5':currentLang==='ar', 'ml-3':currentLang==='en'}">
       <h1 data-aos="fade-up" class="formTitle">
         {{langVar.applicationForm.title}}

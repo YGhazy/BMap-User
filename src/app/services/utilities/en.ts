@@ -14,7 +14,8 @@ export const English: any = {
   followUs: "Follow Us",
   copyRights1: "Copyright &copy; 2021, All rights reserved |",
   terms:"Terms",
-  policy:"Policy",
+  policy: "Policy",
+  NoRequest:"No Requests Found",
   layout: {
     Home: "Home",
     about: "About Us",

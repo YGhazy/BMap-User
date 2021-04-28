@@ -23,8 +23,9 @@
         {{langVar.requestedServices.title}}
     </h1>
 
-    <div class="tableContainer">
-        <div class="table-responsive" dir="{{langVar.dir}}">
+    <div class="tableContainer" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500" >
+      <div class="{{langVar.textAlign}} m-5" *ngIf="requestedServices.length==0"> {{langVar.NoRequest}}</div>
+        <div class="table-responsive" dir="{{langVar.dir}}" *ngIf="requestedServices.length!=0">
             <table class="table">
                 <thead>
                     <tr>
