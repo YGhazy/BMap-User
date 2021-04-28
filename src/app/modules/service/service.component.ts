@@ -83,8 +83,17 @@ export class ServiceComponent implements OnInit {
   FetchUserDetails() {
     this.authService.GetAccountViaToken().subscribe(res => {
       if (res.succeeded) {
-        this.canRequestService = true;
         this.clientDetails = res.data;
+        if(this.clientDetails.customer.accountStatus == "Approved"){
+          this.canRequestService = true;
+        }
+        else{
+          this.toastr.error(this.langVar.response.notApproved, this.langVar.response.error, {
+            disableTimeOut: false,
+            closeButton: true,
+            positionClass: 'toast-top-center'
+          });
+        }
       }
     }, error => {
       this.canRequestService = false;
@@ -99,11 +108,21 @@ export class ServiceComponent implements OnInit {
       this.FetchAvailableBanks();
     }
     else{
-      this.toastr.error(this.langVar.response.notLoggedIn, this.langVar.response.error, {
-        disableTimeOut: false,
-        closeButton: true,
-        positionClass: 'toast-top-center'
-      });
+      if(this.clientDetails == null || this.clientDetails == undefined){
+        this.toastr.error(this.langVar.response.notLoggedIn, this.langVar.response.error, {
+          disableTimeOut: false,
+          closeButton: true,
+          positionClass: 'toast-top-center'
+        });
+      }
+      else{
+        this.toastr.error(this.langVar.response.notApproved, this.langVar.response.error, {
+          disableTimeOut: false,
+          closeButton: true,
+          positionClass: 'toast-top-center'
+        });
+      }
+
     }
   }
   SelectService(){

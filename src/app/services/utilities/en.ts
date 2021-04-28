@@ -151,6 +151,7 @@ export const English: any = {
     reqSent: "Request Sent",
     failedToSubmitreq: "Failed to submit request",
     notLoggedIn: "You must be logged in to request a service",
+    notApproved: "Your account must be approved to request a service",
   },
   contact: {
     title: "Send us a message",

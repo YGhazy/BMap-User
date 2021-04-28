@@ -1,5 +1,4 @@
 import { Customer } from "./customer";
-import { ServiceRequest } from "./service-request";
 
 export interface ApplicationUser {
       id: string,
