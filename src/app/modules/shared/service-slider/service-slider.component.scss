@@ -4,9 +4,14 @@
 }
 
 
-.carouselImage{
+.carouselImage {
   width: 60% !important;
+  height: 80px;
   margin: 0 auto;
+
+  img {
+    object-fit: cover;
+  }
 }
 h1 {
   color: #000000;
@@ -53,4 +58,3 @@ p {
   max-height: 2em;       /* fallback */
 }
 
-  

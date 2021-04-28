@@ -2,163 +2,166 @@
   (And any shared modules throughout the project's layout -depending on requirements
   --->
 <!-- * Wrap layout within a flex box for design adjustments *-->
-<div class="site-wrap {{langVar.arabicClass}}">
 
-  <!--Mobile menu section-->
-  <div class="site-mobile-menu site-navbar-target">
-    <div class="site-mobile-menu-header">
-      <div class="site-mobile-menu-close mt-3">
-        <span class="icon-close2 js-menu-toggle"></span>
-      </div>
-    </div>
-    <div class="site-mobile-menu-body">
-      <ul class="site-nav-wrap">
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('home')">{{langVar.layout.Home}}</a></li>
-        <li class="has-children">
-          <a class="nav-link {{langVar.textAlign}}">{{langVar.layout.service}}</a>
-          <ul class="dropdown" *ngIf="ServicesList">
-            <li *ngFor="let service of ServicesList">
-              <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-              <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-            </li>
-          </ul>
-        </li>
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('requested-services')" *ngIf="isAuthorized">{{langVar.layout.requests}}</a></li>
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('contact')">{{langVar.layout.contact}}</a></li>
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('login')" *ngIf="!isAuthorized">{{langVar.layout.login}}</a></li>
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="logout()" *ngIf="isAuthorized">{{langVar.layout.logout}}</a></li>
-        <li class="">
-          <a (click)="route('profile')" class="nav-link imageContainer p-0 clickableLink" style="padding:15px 15px;background-image: url({{user.customer.profilePicture}})" *ngIf="isAuthorized && hadImg">
-          </a>
-          <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
-            <div class="initials">
-              <a style="margin-top: 10px">
-                {{initials}}
-              </a>
-            </div>
-          </a>
-        </li>
-        <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()" >{{langVar.lang}}</a></li>
 
-        <li class="social "><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
-        <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
-        <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
-      </ul>
-    </div>
-  </div>
-  <!--End of mobile menu section-->
 
-  <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+  <div class="site-wrap {{langVar.arabicClass}}">
 
-    <div class="container">
-      <div class="row align-items-center">
-
-        <div class="col-6 col-xl-2">
-          <h1 class="mb-0 site-logo"><a routerLink="/home" class="h2 mb-0"><div class="logo-image"></div></a></h1>
+    <!--Mobile menu section-->
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
         </div>
-        <div class="col-12 col-md-10 d-none d-xl-block">
-          <nav class="site-navigation position-relative text-right " role="navigation">
-            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
-              <li><a (click)="route('home')" class="nav-link highlighted" id="home">{{langVar.layout.Home}}</a></li>
-              <li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>
-
-              <li class="has-children">
-                <a class="nav-link " id="service">{{langVar.layout.service}}</a>
-                <ul class="dropdown" *ngIf="ServicesList">
-                  <li *ngFor="let service of ServicesList">
-                    <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-                    <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-                  </li>
-                </ul>
+      </div>
+      <div class="site-mobile-menu-body">
+        <ul class="site-nav-wrap">
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('home')">{{langVar.layout.Home}}</a></li>
+          <li class="has-children">
+            <a class="nav-link {{langVar.textAlign}}">{{langVar.layout.service}}</a>
+            <ul class="dropdown" *ngIf="ServicesList">
+              <li *ngFor="let service of ServicesList">
+                <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+                <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
               </li>
-              <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
-              <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>
-
-              <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
-              <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
-              <li>
-                <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
-                  <div class="loginbtn">
-                    <a>
-                      {{langVar.layout.logout}}
-                    </a>
-                  </div>
-                </a>
-              </li>
-              <li class="">
-                <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
-                </a>
-                <!--<a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
-                  <div class="initials">
-                    <a>
-                      {{initials}}
-                    </a>
-                  </div>
-                </a>-->
-              </li>
-              <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
             </ul>
-          </nav>
-        </div>
-        <!--Mobile navigation button-->
-        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+          </li>
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('requested-services')" *ngIf="isAuthorized">{{langVar.layout.requests}}</a></li>
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('contact')">{{langVar.layout.contact}}</a></li>
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('login')" *ngIf="!isAuthorized">{{langVar.layout.login}}</a></li>
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="logout()" *ngIf="isAuthorized">{{langVar.layout.logout}}</a></li>
+          <li class="">
+            <a (click)="route('profile')" class="nav-link imageContainer p-0 clickableLink" style="padding:15px 15px;background-image: url({{user.customer.profilePicture}})" *ngIf="isAuthorized && hadImg">
+            </a>
+            <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
+              <div class="initials">
+                <a style="margin-top: 10px">
+                  {{initials}}
+                </a>
+              </div>
+            </a>
+          </li>
+          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()">{{langVar.lang}}</a></li>
+
+          <li class="social "><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
+          <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
+          <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
+        </ul>
       </div>
     </div>
-  </header>
+    <!--End of mobile menu section-->
 
-  <!--Router outlet section-->
-  <router-outlet></router-outlet>
+    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
-  <!--Footer section-->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="row" dir="{{langVar.dir}}">
-            <div class="col-md-4 pr-4">
-              <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
-              <div class="ml-2 mb-2 {{langVar.textAlign}}" dir="{{langVar.dir}}">
-                <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
-                <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
-                <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2">
+            <h1 class="mb-0 site-logo"><a routerLink="/home" class="h2 mb-0"><div class="logo-image"></div></a></h1>
+          </div>
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right " role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
+                <li><a (click)="route('home')" class="nav-link highlighted" id="home">{{langVar.layout.Home}}</a></li>
+                <li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>
+
+                <li class="has-children">
+                  <a class="nav-link " id="service">{{langVar.layout.service}}</a>
+                  <ul class="dropdown" *ngIf="ServicesList">
+                    <li *ngFor="let service of ServicesList">
+                      <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+                      <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
+                    </li>
+                  </ul>
+                </li>
+                <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
+                <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>
+
+                <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
+                <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
+                <li>
+                  <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
+                    <div class="loginbtn">
+                      <a>
+                        {{langVar.layout.logout}}
+                      </a>
+                    </div>
+                  </a>
+                </li>
+                <li class="">
+                  <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
+                  </a>
+                  <!--<a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
+                    <div class="initials">
+                      <a>
+                        {{initials}}
+                      </a>
+                    </div>
+                  </a>-->
+                </li>
+                <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!--Mobile navigation button-->
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+        </div>
+      </div>
+    </header>
+
+    <!--Router outlet section-->
+    <router-outlet></router-outlet>
+
+    <!--Footer section-->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row" dir="{{langVar.dir}}">
+              <div class="col-md-4 pr-4">
+                <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
+                <div class="ml-2 mb-2 {{langVar.textAlign}}" dir="{{langVar.dir}}">
+                  <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
+                  <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
+                  <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4 ml-auto {{langVar.textAlign}}">
-              <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
-              <div class="row p-2 " dir="{{langVar.dir}}">
-                <ul class="col-4">
-                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
-                  <li *ngFor="let service of ServicesList">
-                    <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-                    <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-                  </li>
-                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
-                </ul>
+              <div class="col-md-4 ml-auto {{langVar.textAlign}}">
+                <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
+                <div class="row p-2 " dir="{{langVar.dir}}">
+                  <ul class="col-4">
+                    <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
+                    <li *ngFor="let service of ServicesList">
+                      <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+                      <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
+                    </li>
+                    <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4 ml-auto {{langVar.textAlign}}">
-              <h2 class="footer-heading mb-2 ">
-                {{langVar.layout.contact}}
-              </h2>
-              <div class="row p-2" dir="{{langVar.dir}}">
-                <ul class="col-4 list-group">
-                  <li><a class="smoothscroll {{langVar.textAlign}}">+201133223344</a></li>
-                  <li><a class="smoothscroll {{langVar.textAlign}}"> Bmap@gmail.com</a></li>
-                  <li><a class="smoothscroll {{langVar.textAlign}}"> Dubai</a></li>
-                </ul>
+              <div class="col-md-4 ml-auto {{langVar.textAlign}}">
+                <h2 class="footer-heading mb-2 ">
+                  {{langVar.layout.contact}}
+                </h2>
+                <div class="row p-2" dir="{{langVar.dir}}">
+                  <ul class="col-4 list-group">
+                    <li><a class="smoothscroll {{langVar.textAlign}}">+201133223344</a></li>
+                    <li><a class="smoothscroll {{langVar.textAlign}}"> Bmap@gmail.com</a></li>
+                    <li><a class="smoothscroll {{langVar.textAlign}}"> Dubai</a></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class=" text-center  d-flex justify-content-between " dir="{{langVar.dir}}">
+          <p dir="{{langVar.dir}}">
+            {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
+          </p>
+          <p dir="{{langVar.dir}}">
+            <a>{{langVar.terms}}</a>  | <a>{{langVar.policy}}</a>
+          </p>
+        </div>
       </div>
-      <div class=" text-center  d-flex justify-content-between "  dir="{{langVar.dir}}">
-        <p  dir="{{langVar.dir}}">
-          {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
-        </p>
-        <p  dir="{{langVar.dir}}">
-          <a>{{langVar.terms}}</a>  | <a>{{langVar.policy}}</a>
-        </p>
-      </div>
-    </div>
-  </footer>
-</div>
+    </footer>
+  </div>

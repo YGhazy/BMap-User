@@ -6,7 +6,7 @@
                 <ng-container *ngFor="let service of serviceList">
                     <ng-template carouselSlide id="owl-slide-{{service.id}}">
                         <div class="imageContainer" style="margin: 0 auto;">
-                            <img [src]="service.header" [alt]="service.nameEN" class="carouselImage pt-3"
+                            <img [src]="service.icon" [alt]="service.nameEN" class="carouselImage pt-3"
                                 [title]="service.nameEN">
                             <h1 class="mt-2" *ngIf="currentLang=='en'">{{service.nameEN}}</h1>
                             <h1 class="mt-2" *ngIf="currentLang=='ar'">{{service.nameAR}}</h1>
