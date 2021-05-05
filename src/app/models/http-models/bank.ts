@@ -1,6 +1,6 @@
-export interface Bank {
-  id: number,
-  name: string,
-  image: string,
+export class Bank {
+  id: number;
+  name: string;
+  image: string;
   isDeleted: boolean
 }
