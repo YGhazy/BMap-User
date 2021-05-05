@@ -16,31 +16,14 @@
       </div>
       <div class="site-mobile-menu-body">
         <ul class="site-nav-wrap">
-          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('home')">{{langVar.layout.Home}}</a></li>
-          <li class="has-children">
-            <a class="nav-link {{langVar.textAlign}}">{{langVar.layout.service}}</a>
-            <ul class="dropdown" *ngIf="ServicesList">
-              <li *ngFor="let service of ServicesList">
-                <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-                <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-              </li>
-            </ul>
-          </li>
-          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('requested-services')" *ngIf="isAuthorized">{{langVar.layout.requests}}</a></li>
-          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('contact')">{{langVar.layout.contact}}</a></li>
-          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="route('login')" *ngIf="!isAuthorized">{{langVar.layout.login}}</a></li>
-          <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="logout()" *ngIf="isAuthorized">{{langVar.layout.logout}}</a></li>
-          <li class="">
-            <a (click)="route('profile')" class="nav-link imageContainer p-0 clickableLink" style="padding:15px 15px;background-image: url({{user.customer.profilePicture}})" *ngIf="isAuthorized && hadImg">
-            </a>
-            <a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg">
-              <div class="initials">
-                <a style="margin-top: 10px">
-                  {{initials}}
-                </a>
-              </div>
-            </a>
-          </li>
+
+          <li><a (click)="route('credit-cards')" class="nav-link clickableLink" >{{langVar.layout.creditCards}}</a></li>
+          <li><a (click)="route('personal-Loans')" class="nav-link clickableLink" >{{langVar.layout.personalLoans}}</a></li>
+          <li><a (click)="route('Loans')" class="nav-link clickableLink" >{{langVar.layout.Loans}}</a></li>
+          <li><a (click)="route('Accounts')" class="nav-link clickableLink" >{{langVar.layout.accounts}}</a></li>
+          <li><a (click)="route('investment')" class="nav-link clickableLink" >{{langVar.layout.investments}}</a></li>
+
+        
           <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()">{{langVar.lang}}</a></li>
 
           <li class="social "><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
@@ -62,10 +45,14 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right " role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
-                <li><a (click)="route('home')" class="nav-link highlighted" id="home">{{langVar.layout.Home}}</a></li>
-                <li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>
+                <li><a (click)="route('credit-cards')" class="nav-link highlighted" id="home">{{langVar.layout.creditCards}}</a></li>
+                <li><a (click)="route('personal-Loans')" class="nav-link highlighted" id="home">{{langVar.layout.personalLoans}}</a></li>
+                <li><a (click)="route('Loans')" class="nav-link highlighted" id="home">{{langVar.layout.Loans}}</a></li>
+                <li><a (click)="route('Accounts')" class="nav-link highlighted" id="home">{{langVar.layout.accounts}}</a></li>
+                <li><a (click)="route('investment')" class="nav-link highlighted" id="home">{{langVar.layout.investments}}</a></li>
+                <!--<li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>-->
 
-                <li class="has-children">
+                <!--<li class="has-children">
                   <a class="nav-link " id="service">{{langVar.layout.service}}</a>
                   <ul class="dropdown" *ngIf="ServicesList">
                     <li *ngFor="let service of ServicesList">
@@ -73,11 +60,11 @@
                       <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
                     </li>
                   </ul>
-                </li>
-                <li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
-                <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>
+                </li>-->
+                <!--<li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
+                <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>-->
 
-                <li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
+                <!--<li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
                 <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
                 <li>
                   <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
@@ -87,7 +74,7 @@
                       </a>
                     </div>
                   </a>
-                </li>
+                </li>-->
                 <li class="">
                   <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
                   </a>
@@ -131,10 +118,7 @@
                 <div class="row p-2 " dir="{{langVar.dir}}">
                   <ul class="col-4">
                     <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
-                    <li *ngFor="let service of ServicesList">
-                      <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-                      <a class="smoothscroll {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-                    </li>
+                    <li><a (click)="route('contact')" class="smoothscroll {{langVar.textAlign}}"> {{langVar.layout.contact}}</a></li>
                     <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
                   </ul>
                 </div>

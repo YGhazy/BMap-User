@@ -23,7 +23,12 @@ export const Arabic: any = {
     logout: "الخروج",
     service: "خدماتنا",
     requests: "طلبات الخدمات",
-    links: "تصفح سريع"
+    links: "تصفح سريع",
+    Loans: "Loans",
+    personalLoans: "Personal Loans",
+    accounts: "Accounts",
+    investments: "Investments",
+    creditCards: "Credit Cards",
 
   },
   Home: {
