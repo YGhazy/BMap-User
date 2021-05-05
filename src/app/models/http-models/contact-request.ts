@@ -5,5 +5,6 @@ export interface ContactRequest {
   email: string,
   message: string,
   subject: string,
+  phoneNumber: string,
   requestDate: Date
 }

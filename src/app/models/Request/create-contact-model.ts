@@ -4,5 +4,6 @@ export interface CreateContactRequestModel {
   email: string,
   message: string,
   subject: string,
+  phoneNumber: string,
   requestDate: Date
 }

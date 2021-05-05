@@ -159,7 +159,8 @@ export const Arabic: any = {
     reqCancelled: "تم إلغاء الطلب",
     reqSent: "تم طلب الخدمة",
     failedToSubmitreq: "فشل فى طلب الخدمة",
-    notLoggedIn: "يجب عليك تسجيل الدخول لطلب الخدمة"
+    notLoggedIn: "يجب عليك تسجيل الدخول لطلب الخدمة",
+    notApproved: "يجب الموافقة على حسابك لطلب الخدمة",
   },
   contact: {
     title: "أرسل لنا رسالة",

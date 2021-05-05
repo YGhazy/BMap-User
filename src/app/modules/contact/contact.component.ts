@@ -43,6 +43,7 @@ export class ContactComponent implements OnInit {
         lastName: this.contactForm.value.contactLastName,
         email: this.contactForm.value.email,
         subject: this.contactForm.value.contactSubject,
+        phoneNumber: this.contactForm.value.mobileNumber,
         message: this.contactForm.value.contactMessage,
         requestDate: currentDate
       }
