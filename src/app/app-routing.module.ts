@@ -6,9 +6,9 @@ import { RegisterComponent } from './modules/register/register.component';
 export const routes: Routes = [
 
 
-  { path: '', loadChildren: () => import('../app/modules/authentication/authentication.module').then(m => m.AuthenticationModule) },// Authentication module lazy loaded
+  //{ path: '', loadChildren: () => import('../app/modules/authentication/authentication.module').then(m => m.AuthenticationModule) },// Authentication module lazy loaded
   { path: 'main', loadChildren: () => import('./modules/layout/layout.module').then(m => m.LayoutModule) },// Layout module lazy loaded
-  { path: 'register', component: RegisterComponent },
+  //{ path: 'register', component: RegisterComponent },
 
 
   { path: '', redirectTo: '', pathMatch: 'full' }

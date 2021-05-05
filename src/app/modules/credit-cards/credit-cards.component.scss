@@ -1,0 +1,248 @@
+
+.arabic h1, h2, h3, h4, h5, h6, p, .nav-link, a {
+  font-family: 'Cairo' !important;
+}
+
+
+
+.background {
+  background: url(../../../assets/images/contact/cover.png) no-repeat 0 0;
+  background-position: bottom;
+  background-size: cover;
+  height: 70vh;
+}
+
+.fa-window-close:hover {
+  color: red !important;
+}
+
+button {
+  border-radius: 7px;
+  background-image: linear-gradient(to right, #6ba4ff 2%, #2177ff 100%);
+  border: none;
+  color: #fff;
+  padding: 8px 66px;
+}
+
+button:active, button:focus, button:hover {
+  outline-style: none;
+  border: none;
+  background-image: linear-gradient(to right, #6ba4ffff 2%, #2177ffcf 100%);
+}
+
+h1 {
+  font-size: 38px;
+  color: #000000;
+  text-shadow: 0px 0px 4px #000000bc;
+  font-family: 'Roboto', sans-serif;
+}
+
+p {
+  color: #707070;
+}
+//preloader
+
+#centerdiv {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+
+  ul {
+    display: flex;
+
+    li {
+      list-style: none;
+      height: 20px;
+      width: 20px;
+      background-color: red;
+      margin: 0 4px;
+      border-radius: 50%;
+      animation: bounce 1s linear infinite;
+    }
+  }
+
+  ul {
+    li:nth-child(1) {
+      animation-delay: 0.2s;
+      background-color: #1351c3;
+    }
+
+    li:nth-child(2) {
+      animation-delay: 0.6s;
+      background-color: #185ADC;
+    }
+
+    li:nth-child(3) {
+      animation-delay: 0.1s;
+      background-color: #6C98EF;
+    }
+
+    li:nth-child(4) {
+      animation-delay: 0.8s;
+      background-color: #39496a;
+    }
+
+    li:nth-child(5) {
+      animation-delay: 0.5s;
+      background-color: #4F6592;
+    }
+
+    li:nth-child(6) {
+      animation-delay: 0.1s;
+      background-color: #889ABF;
+    }
+  }
+
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-40px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+
+.requestSection {
+  h1 {
+    margin: 20px;
+    font-size: 1.7rem;
+  }
+
+  form {
+    label {
+      color: #1351c3;
+      font-weight: 500;
+    }
+
+    .form-control {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      border: solid 1px #707070;
+      background-color: #ffffff;
+      border-radius: 0;
+      max-width: 55%;
+    }
+
+    .checkboxLabel {
+      color: #000000;
+      margin-left: 3%;
+    }
+  }
+}
+
+.dropdown-menu {
+  min-width: 55%;
+  text-indent: 10px;
+
+  a {
+    cursor: pointer;
+  }
+}
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 4px;
+  position: absolute;
+  right: 255px;
+  top: 15px;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+
+.serviceType-container {
+  border-radius: 18px;
+  box-shadow: 0 3px 22px 0 rgba(106, 106, 106, 0.48);
+  background-color: #ffffff;
+  width: 332px;
+  padding: 26px;
+  text-align: center;
+  margin-left: 3%;
+  margin-top: 5%;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 1240px) {
+  .background {
+    height: 45vh !important;
+    min-height: 45vh !important;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 72%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 72%);
+  }
+
+  .site-blocks-cover {
+    min-height: 50vh;
+    height: calc(50vh);
+  }
+
+  .overlay:before {
+    min-height: 60vh;
+    -webkit-clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
+    clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
+  }
+}
+
+@media screen and(max-width: 900px) {
+  input, textarea {
+    margin: 0 auto !important;
+  }
+
+  .formTitle {
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .privacy {
+    display: inline-block;
+    margin: 20px !important;
+  }
+
+  #privacyCheckbox {
+    margin-top: 2% !important;
+  }
+
+  .checkboxLabel {
+    margin-left: 0 !important;
+    margin-top: 4% !important;
+  }
+
+  .arrow {
+    right: 245px;
+  }
+
+  label {
+    text-align: center !important;
+  }
+}
+
+p {
+  color: #000;
+  font-size: 30px;
+  font-weight: 600;
+}

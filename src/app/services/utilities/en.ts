@@ -24,7 +24,12 @@ export const English: any = {
     logout: "Logout",
     service: "Our services",
     requests: "Requested Services",
-    links:"Links"
+    links: "Links",
+    Loans:"Loans",
+    personalLoans:"Personal Loans",
+    accounts:"Accounts",
+    investments:"Investments",
+    creditCards:"Credit Cards",
   },
   Home: {
     More: "More",
