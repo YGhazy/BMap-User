@@ -12,7 +12,15 @@ import { langHelper } from '../../../services/utilities/language-helper';
 })
 export class ServiceSliderComponent implements OnInit {
 
-  serviceList: Service[];
+  serviceList: Array<Service> = new Array<Service>();
+
+  firstService: Service = new Service;
+  secondService: Service = new Service;
+  thirdService: Service = new Service;
+  fourthService: Service = new Service;
+  fifthService: Service = new Service;
+
+
   langVar;
   currentLang
   //Carousel options
@@ -51,15 +59,64 @@ export class ServiceSliderComponent implements OnInit {
     this.currentLang = this.langHelper.currentLang;
   }
 
-  FetchServices(){
-    this.servicesService.GetAllServices().subscribe(res => {
-      if(res.succeeded){
-        this.serviceList = res.data;
-        console.log(this.serviceList);
-      }
-    },error => {
-      console.log(error);
-    });
+  FetchServices() {
+
+    //this.servicesService.GetAllServices().subscribe(res => {
+    //  if(res.succeeded){
+    //    this.serviceList = res.data;
+    //    console.log(this.serviceList);
+    //  }
+    //},error => {
+    //  console.log(error);
+    //});
+
+    this.firstService.id = 1;
+    this.firstService.nameEN = "Credit Cards";
+    this.firstService.nameAR = "بطاقات الائتمان";
+    this.firstService.descriptionEN = " Lorem Ipsum";
+    this.firstService.descriptionAR = " ضصثضصثضصثضص";
+    this.firstService.descriptionAR = " ضصثضصثضصثضص";
+    this.firstService.icon = "../../../../assets/images/landing/CreditCards.png";
+
+    this.secondService.id = 2;
+    this.secondService.nameEN = "Personal Loans";
+    this.secondService.nameAR = "قروض شخصية";
+    this.secondService.descriptionEN = " Lorem Ipsum";
+    this.secondService.descriptionAR = " ضصثضصثضصثضص";
+    this.secondService.descriptionAR = " ضصثضصثضصثضص";
+    this.secondService.icon = "../../../../assets/images/landing/PersonalLoans.png";
+
+    this.thirdService.id = 3;
+    this.thirdService.nameEN = "Loans";
+    this.thirdService.nameAR = "القروض";
+    this.thirdService.descriptionEN = " Lorem Ipsum";
+    this.thirdService.descriptionAR = " ضصثضصثضصثضص";
+    this.thirdService.descriptionAR = " ضصثضصثضصثضص";
+    this.thirdService.icon = "../../../../assets/images/landing/Loans.png";
+
+    this.fourthService.id = 4;
+    this.fourthService.nameEN = "Investments";
+    this.fourthService.nameAR = "الاستثمارات";
+    this.fourthService.descriptionEN = " Lorem Ipsum";
+    this.fourthService.descriptionAR = " ضصثضصثضصثضص";
+    this.fourthService.descriptionAR = " ضصثضصثضصثضص";
+    this.fourthService.icon = "../../../../assets/images/landing/Investments.png";
+
+    this.fifthService.id = 5;
+    this.fifthService.nameEN = "Accounts";
+    this.fifthService.nameAR = "حسابات";
+    this.fifthService.descriptionEN = " Lorem Ipsum";
+    this.fifthService.descriptionAR = " ضصثضصثضصثضص";
+    this.fifthService.descriptionAR = " ضصثضصثضصثضص";
+    this.fifthService.icon = "../../../../assets/images/landing/Accounts.png";
+
+
+    this.serviceList.push(this.fifthService);
+    this.serviceList.push(this.fourthService);
+    this.serviceList.push(this.thirdService);
+    this.serviceList.push(this.secondService);
+    this.serviceList.push(this.firstService);
+
   }
 
 }
