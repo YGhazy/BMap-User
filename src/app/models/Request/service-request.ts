@@ -1,8 +1,10 @@
 export interface CreateServiceRequest{
   date: Date,
-  note: string,
-  customerId: number,
-  servicesId: number,
-  serviceTypesId: number,
-  banksId: number
+  status: string,
+  bankName: string,
+  offerTitle: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  phoneNumber: string
 }

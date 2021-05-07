@@ -151,12 +151,14 @@ export class ServiceComponent implements OnInit {
   SubmitServiceRequest() {
     var requestDate = new Date;
     const createServiceRequest: CreateServiceRequest = {
-      date: requestDate,
-      note: this.applicationForm.value.note,
-      customerId: this.clientDetails.customer.id,
-      banksId: this.selectedBank.id,
-      serviceTypesId: this.selectedServiceType.id,
-      servicesId: this.service.id
+      date: new Date(),
+      bankName: "",
+      offerTitle: "",
+      firstName: "",
+      lastName:"",
+      email: "",
+      phoneNumber: "",
+      status: "",
     }
     console.log(createServiceRequest);
     this.ServicesService.SubmitServiceRequest(createServiceRequest).subscribe(res => {

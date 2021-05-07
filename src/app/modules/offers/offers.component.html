@@ -1,0 +1,259 @@
+
+<div id="centerdiv" *ngIf="!ServiceType">
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+
+<div class="background" *ngIf="ServiceType">
+</div>
+
+<section class="mx-xl-4 my-5 {{langVar.textAlign}} {{langVar.arabicClass}}" *ngIf="ServiceType">
+  <h1 *ngIf="currentLang=='en'" class="mx-4 mx-xl-0">
+    {{ServiceType.nameEN}}
+
+  </h1>
+  <h1 *ngIf="currentLang=='ar'" class="mx-4 mx-xl-0">
+    {{ServiceType.nameAR}}
+
+  </h1>
+
+  <hr />
+  <div class="row {{langVar.rowReverse}}">
+    <div class="col-12 col-xl-9">
+
+      <div class="d-flex flex-wrap justify-content-center">
+        <!-- data-aos="fade-up" data-aos-delay="200" data-aos-duration="500"-->
+        <h3 style="font-size: 1rem;" *ngIf="ServiceType.offers.length == 0">
+          {{langVar.offers.noOffers}}
+        </h3>
+        <div class="offer-container p-4" *ngFor="let offer of ServiceType.offers ,let i=index">
+          <div class="d-flex justify-content-around {{langVar.rowReverse}}" [ngClass]="i%2==0 && i!=0 ? 'mt-5':''">
+            <div class="">
+
+              <div class="icon-container">
+                <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
+              </div>
+
+              <div class="offer-benefits webView" *ngIf="currentLang=='en'">
+                <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                <p *ngFor="let benefit of offer.offerBenefits">
+                  - {{benefit.descriptionEN}}
+                </p>
+
+              </div>
+              <div class="offer-benefits webView" *ngIf="currentLang=='ar'">
+                <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                <p *ngFor="let benefit of offer.offerBenefits">
+                  {{benefit.descriptionAR}} -
+                </p>
+
+              </div>
+            </div>
+
+            <div class="card offer-details">
+              <div class="card-body d-flex flex-column justify-content-around">
+                <div class="offer-details-container">
+
+                  <h3 *ngIf="currentLang=='en'">{{offer.nameEN}}</h3>
+                  <h3 *ngIf="currentLang=='ar'">{{offer.nameAR}}</h3>
+                  <label>{{langVar.offers.Salary}}</label>
+                  <p>{{offer.minimumSalary}}</p>
+                  <label>{{langVar.offers.Rate}}</label>
+                  <p>{{offer.rate}}%</p>
+                  <label>{{langVar.offers.Annual}}</label>
+                  <p>{{offer.annualFee}}</p>
+
+                </div>
+
+                <div class="offer-benefits mobView" *ngIf="currentLang=='en'">
+                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                  <p *ngFor="let benefit of offer.offerBenefits">
+                    - {{benefit.descriptionEN}}
+                  </p>
+
+                </div>
+                <div class="offer-benefits mobView" *ngIf="currentLang=='ar'">
+                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                  <p *ngFor="let benefit of offer.offerBenefits">
+                    {{benefit.descriptionAR}} -
+                  </p>
+
+                </div>
+                <div class="{{langVar.textAlignReverse}}">
+
+                  <button type="button" class="btn btn-primary mt-2" (click)="showApplyModal(offer)">
+                    {{langVar.offers.apply}}
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="col-3 webView pt-4">
+
+      <div class="card offer-details types">
+        <div class="card-body d-flex flex-column justify-content-around">
+          <div class="types-container">
+
+            <h3 class="text-center mb-3" *ngIf="currentLang=='en'"> {{serviceNameEN}} {{langVar.offers.types}} </h3>
+            <h3 class="text-center  mb-3 " *ngIf="currentLang=='ar'">{{langVar.offers.types}} {{serviceNameAR}}</h3>
+            <div *ngFor="let type of ServiceTypes , let i=index" class="type">
+              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='en'" style="cursor:pointer">{{type.nameEN}}</p>
+              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='ar'" style="cursor:pointer">{{type.nameAR}}</p>
+              <hr *ngIf="i!=ServiceTypes.length-1" />
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+
+<div bsModal #ApplyModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content container">
+      <div class="modal-header {{langVar.rowReverse}}">
+        <h3 class="modal-title ">{{langVar.offers.Modaltitle}}</h3>
+       
+      </div>
+      <div class="modal-body" *ngIf="currentOffer">
+        <div class="row" >
+          <div class="col-6">
+            <div class="d-flex ">
+              <div class="icon-container">
+                <img src="{{currentOffer.icon}}" alt="{{currentOffer.nameEN}}" />
+              </div>
+              <div class="p-4">
+                <h3 *ngIf="currentLang=='en'">{{currentOffer.nameEN}}</h3>
+                <h3 *ngIf="currentLang=='ar'">{{currentOffer.nameAR}}</h3>
+
+              </div>
+            </div>
+            <label>{{langVar.offers.Salary}}</label>
+            <p>{{currentOffer.minimumSalary}}</p>
+            <label>{{langVar.offers.Rate}}</label>
+            <p>{{currentOffer.rate}}%</p>
+            <label>{{langVar.offers.Annual}}</label>
+            <p>{{currentOffer.annualFee}}</p>
+           
+              <div class="row privacy d-flex mt-3" dir="{{langVar.dir}}"  [formGroup]="applicationForm">
+                <input type="checkbox" id="privacyCheckbox" class="col-1" formControlName="acknowledgment">
+                <label for="privacyCheckbox" class="checkboxLabel col-10" >
+                  {{langVar.applicationForm.acknowledgment}}
+                </label>
+                <!--<div *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
+                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                  <div *ngIf="applicationFormControls.acknowledgment.errors.required">
+                    {{langVar.applicationForm.terms}}
+                  </div>
+                </div>-->
+              </div>
+           
+          </div>
+          <div class="col-6">
+            <form data-aos="fade-up" class="mb-5" >
+              <div class="container" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
+
+                <div class="inputContainer" [formGroup]="applicationForm">
+
+                  <label for="firstName">{{langVar.placeholder.FirstName}}</label>
+                  <input id="firstName" type="text" class="form-control" formControlName="firstName"
+                         placeholder="{{langVar.placeholder.FirstName}}" />
+                  <div *ngIf="applicationFormControls.firstName.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                    <div *ngIf="applicationFormControls.firstName.errors.required">
+                      {{langVar.applicationForm.firstName}}
+                    </div>
+                    <div *ngIf="applicationFormControls.firstName.errors.pattern">
+                      {{langVar.applicationForm.firstName}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inputContainer" [formGroup]="applicationForm">
+
+                  <label for="phoneNumber">{{langVar.placeholder.LastName}}</label>
+                  <input id="phoneNumber" type="text" class="form-control" formControlName="lastName"
+                         placeholder="{{langVar.placeholder.LastName}}" />
+                  <div *ngIf="applicationFormControls.lastName.invalid && (applicationFormControls.lastName.dirty|| applicationFormControls.lastName.touched)"
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                    <div *ngIf="applicationFormControls.lastName.errors.required">
+                      {{langVar.applicationForm.phoneRequired}}
+                    </div>
+                    <div *ngIf="applicationFormControls.lastName.errors.pattern">
+                      {{langVar.applicationForm.phonePattern}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inputContainer" [formGroup]="applicationForm">
+
+                  <label for="email">{{langVar.placeholder.email}}</label>
+                  <input id="email" type="text" class="form-control" formControlName="email"
+                         placeholder="{{langVar.placeholder.email}}" />
+                  <div *ngIf="applicationFormControls.email.invalid && (applicationFormControls.email.dirty|| applicationFormControls.email.touched)"
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                    <div *ngIf="applicationFormControls.email.errors.required">
+                      {{langVar.applicationForm.phoneRequired}}
+                    </div>
+                    <div *ngIf="applicationFormControls.email.errors.pattern">
+                      {{langVar.applicationForm.phonePattern}}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="inputContainer" [formGroup]="applicationForm">
+
+                  <label for="phoneNumber">{{langVar.applicationForm.phoneNumber}}</label>
+                  <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
+                         placeholder="{{langVar.placeholder.PhoneNumber}}" />
+                  <div *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
+                       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                    <div *ngIf="applicationFormControls.mobileNumber.errors.required">
+                      {{langVar.applicationForm.phoneRequired}}
+                    </div>
+                    <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
+                      {{langVar.applicationForm.phonePattern}}
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            </form>
+          </div>
+        </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="Apply()" [disabled]="!applicationForm.valid">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<app-modal></app-modal>

@@ -196,5 +196,16 @@ export const English: any = {
     uploadNationalIdFrontLabel:"Upload National ID Front Image",
     uploadNationalIdBackLabel:"Upload National ID Back Image",
   },
+  offers: {
+    Salary: "Minimum Salary",
+    Rate: "Rate",
+    Annual: "Annual Fee",
+    keys: "Key benefits",
+    apply: "Apply Now",
+    types: "Types",
+    noOffers: "There are no offers for this service yet",
+    Modaltitle: "APPLY ONLINE",
+
+  }
 
 }
