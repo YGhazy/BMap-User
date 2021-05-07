@@ -5,6 +5,7 @@ export const English: any = {
   benefits: "Benefits & Features",
   textAlign: "text-left",
   textAlignReverse: "text-right",
+  justifyContent: "justify-content-start",
   FlexAlignItems: "align-items-start",
   rowReverse: "",
   menuStyle: "",
@@ -15,7 +16,11 @@ export const English: any = {
   copyRights1: "Copyright &copy; 2021, All rights reserved |",
   terms:"Terms",
   policy: "Policy",
-  NoRequest:"No Requests Found",
+  NoRequest: "No Requests Found",
+  aboutHeaderOne: "UNBIASED COMPARISONS",
+  aboutHeaderTwo: "SEAMLESS EXPERIENCE",
+  aboutHeaderThree: "HIGH QUALITY INFORMATION",
+  aboutHeaderFour: "UNIQUE TOOLS",
   layout: {
     Home: "Home",
     about: "About Us",
@@ -30,9 +35,10 @@ export const English: any = {
     accounts:"Accounts",
     investments:"Investments",
     creditCards:"Credit Cards",
+
   },
   Home: {
-    More: "More",
+    More: "Explore More",
     aboutTitle: "Why us",
     AboutContent: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
     creditTitle: " LOOKING FOR A SPECIFIC CREDIT CARD FEATURE?",

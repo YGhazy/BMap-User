@@ -14,12 +14,14 @@ import AOS from 'aos';
 })
 export class HomeComponent implements OnInit {
   langVar;
+  currentLang;
   constructor(private formBuilderHelper: formBuilderHelper, private router: Router, private langHelper: langHelper) {
 
   }
 
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
+    this.currentLang = this.langHelper.currentLang;
     //AOS.refresh();
     AOS.refresh({
  

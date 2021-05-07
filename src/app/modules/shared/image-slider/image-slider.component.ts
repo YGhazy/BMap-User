@@ -17,32 +17,32 @@ export class ImageSliderComponent implements OnInit {
   bankList: Bank[];
   langVar;
   currentLang
-  //Carousel options
-  carouselOptions: OwlOptions = {
-    loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
-    autoplay: true,
-    dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 5
-      }
-    },
-    nav: false
-  }
+  ////Carousel options
+  //carouselOptions: OwlOptions = {
+  //  loop: true,
+  //  mouseDrag: false,
+  //  touchDrag: false,
+  //  pullDrag: false,
+  //  autoplay: true,
+  //  dots: false,
+  //  navSpeed: 700,
+  //  navText: ['', ''],
+  //  responsive: {
+  //    0: {
+  //      items: 1
+  //    },
+  //    400: {
+  //      items: 2
+  //    },
+  //    740: {
+  //      items: 3
+  //    },
+  //    940: {
+  //      items: 5
+  //    }
+  //  },
+  //  nav: false
+  //}
   //Declare services
   constructor(private langHelper: langHelper,private router: Router, private bankService: BankService) { }
 
@@ -50,24 +50,27 @@ export class ImageSliderComponent implements OnInit {
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
     //fetch available banks
-    this.FetchBanks();
+    //this.FetchBanks();
   }
 
-  FetchBanks(){
-    this.bankService.GetAllBanks().subscribe(res => {
-      if(res.succeeded){
-        this.bankList = res.data;
-        console.log(this.bankList);
-      }
-    },error => {
-      console.log(error);
-    });
-  }
+  //FetchBanks(){
+  //  this.bankService.GetAllBanks().subscribe(res => {
+  //    if(res.succeeded){
+  //      this.bankList = res.data;
+  //      console.log(this.bankList);
+  //    }
+  //  },error => {
+  //    console.log(error);
+  //  });
+  //}
 
-  //Route to item page via id
-  ViewItem(galleryItemId) {
-    //Store id in local storage
-    localStorage.setItem('galleryId', galleryItemId);
-    this.router.navigate(['about-us']);
-  }
+  ////Route to item page via id
+  //ViewItem(galleryItemId) {
+  //  //Store id in local storage
+  //  localStorage.setItem('galleryId', galleryItemId);
+  //  this.router.navigate(['about-us']);
+  //}
+
+
+
 }
