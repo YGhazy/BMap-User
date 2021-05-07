@@ -1,9 +1,9 @@
-<section class="{{langVar.arabicClass}}" *ngIf="bankList">
+<section class="{{langVar.arabicClass}}">
   <div class="text-center mb-5" style="overflow-x:hidden;" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">
     <div>
       <h1 class="text-center">{{langVar.backsCarousel.title}}</h1>
       <p class="mb-5 pt-2" dir="{{langVar.dir}}">{{langVar.backsCarousel.content}} </p>
-      <owl-carousel-o [options]="carouselOptions">
+      <!--<owl-carousel-o [options]="carouselOptions">
         <ng-container *ngFor="let bank of bankList">
           <ng-template carouselSlide id="owl-slide-{{bank.id}}">
             <div class="imageContainer" style="margin: 0 auto;">
@@ -13,7 +13,85 @@
           </ng-template>
         </ng-container>
 
-      </owl-carousel-o>
+      </owl-carousel-o>-->
+
+      <div class="container-fluid pt-5 pb-5 pl-0 pr-0" style="    background-color: #1351c3">
+
+
+        <div style="background-color: white" class="container-fluid text-center">
+
+          <div class="row justify-content-around" style="margin: 0 auto;">
+
+            <div class=" col-sm-12 col-lg-1 ">
+              <img src="../../../../assets/images/bank1.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class=" col-sm-12  col-lg-1 ">
+              <img src="../../../../assets/images/bank2.png" alt="Bank Image" width="150" height="150">
+            </div>
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank3.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12  col-lg-1">
+              <img src="../../../../assets/images/bank4.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class=" col-sm-12  col-lg-1">
+              <img src="../../../../assets/images/bank5.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class=" col-sm-12  col-lg-1">
+              <img src="../../../../assets/images/bank6.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class=" col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank7.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+          </div>
+
+
+          <div class="row justify-content-around" style="margin: 0 auto;">
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank8.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank9.png" alt="Bank Image" width="150" height="150">
+            </div>
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank10.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank11.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank12.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank13.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+            <div class="col-sm-12 col-lg-1">
+              <img src="../../../../assets/images/bank14.png" alt="Bank Image" width="150" height="150">
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+
     </div>
   </div>
 </section>
