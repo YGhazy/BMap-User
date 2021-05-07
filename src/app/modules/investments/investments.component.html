@@ -1,5 +1,5 @@
 <!--  preloader-->
-<!--<div id="centerdiv">
+<div id="centerdiv" *ngIf="Service=='undefined'">
   <ul>
     <li></li>
     <li></li>
@@ -8,39 +8,32 @@
     <li></li>
     <li></li>
   </ul>
-</div>-->
+</div>
 <div>
   <!--Display default header / service header background image-->
   <div class=" site-blocks-cover background" style="    background-image: url(./assets/images/contact/cover.png);">
   </div>
 
-
-  <section class="container pt-2 mb-5">
+  <section class="container pt-2 mb-5" *ngIf="Service!='undefined'">
     <!--Service title / description-->
-    <h1 class="{{langVar.textAlign}}">
-      {{langVar.layout.investments}}
-    </h1>
-
+    <h1 class="m-0 {{langVar.textAlign}}" *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}}" *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
 
 
     <!--Service types card-->
-    <!--<div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
-      <div class="serviceType-container" *ngFor="let type of service.serviceTypes;"
-           (click)="SelectServiceType(type.id)">
-        <div class="row">-->
-    <!--Img icon deprecated-->
-    <!-- <div class="col-6">
-      <img src="{{type.imgIcon}}" alt="type{{type.id}}" />
-    </div> -->
-    <!--<div class="col-12">
-            <p *ngIf="currentLang == 'en'">{{type.nameEN}}</p>
-            <p *ngIf="currentLang == 'ar'">{{type.nameAR}}</p>
-          </div>
+    <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500" *ngIf="Service.serviceTypes">
+      <div class="serviceType-container d-flex justify-content-around  align-items-center" *ngFor="let type of Service.serviceTypes;"
+           (click)="routeToOffer(type.id)">
+
+        <div class="imgContainer">
+          <img src="{{type.icon}}" alt="type{{type.id}}" />
         </div>
+
+        <p class="m-0" *ngIf="currentLang == 'en'">{{type.nameEN}}</p>
+        <p class="m-0" *ngIf="currentLang == 'ar'">{{type.nameAR}}</p>
+
       </div>
-    </div>-->
+    </div>
   </section>
-
-
 
 </div>

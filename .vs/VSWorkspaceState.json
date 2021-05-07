@@ -4,12 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\about-us",
     "\\src\\app\\modules\\layout",
-    "\\src\\app\\modules\\layout\\layout",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\utilities",
-    "\\src\\environments"
+    "\\src\\app\\modules\\loans",
+    "\\src\\app\\modules\\profile",
+    "\\src\\app\\services\\common",
+    "\\src\\assets",
+    "\\src\\assets\\fonts"
   ],
+  "SelectedNode": "\\src\\app\\modules\\accounts\\accounts.component.ts",
   "PreviewInSolutionExplorer": false
 }

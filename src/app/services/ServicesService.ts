@@ -28,12 +28,15 @@ export class ServicesService extends BaseService {
     GetCustomerServiceRequests(customerID: number): Observable<ApiResponse> {
         return this.get(API_CONSTANTS.GetCustomerServiceRequests + customerID);
     }
-
+  GetServiceTypesById(serviceID: number): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetAllServiceTypesByServiceID + serviceID);
+  }
     DeleteServiceRequest(requestID: DeleteObjectModel): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.DeleteServiceRequest, requestID);
     }
 
     SubmitServiceRequest(request: CreateServiceRequest): Observable<ApiResponse> {
         return this.post(API_CONSTANTS.SubmitServiceRequest, request);
-    }
+  }
+
 }

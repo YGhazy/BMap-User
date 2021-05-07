@@ -3,7 +3,9 @@
   font-family: 'Cairo' !important;
 }
 
-
+.imgContainer {
+  width: 70px;
+}
 
 .background {
   background: url(../../../assets/images/contact/cover.png) no-repeat 0 0;
@@ -243,6 +245,7 @@ p {
 
 p {
   color: #000;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 600;
+  text-align: center;
 }

@@ -7,6 +7,7 @@ import { CreditCardsComponent } from '../credit-cards/credit-cards.component';
 import { HomeComponent } from '../home/home.component';
 import { InvestmentsComponent } from '../investments/investments.component';
 import { LoansComponent } from '../loans/loans.component';
+import { OffersComponent } from '../offers/offers.component';
 import { PersonalLoansComponent } from '../personal-loans/personal-loans.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { RequestsComponent } from '../requests/requests.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
       { path: 'investment', component: InvestmentsComponent },
       { path: 'credit-cards', component: CreditCardsComponent },
       { path: 'Accounts', component: AccountsComponent },
+      { path: 'Offers', component: OffersComponent },
       //{ path: 'profile', component: ProfileComponent},
       //{ path: 'requested-services', component: RequestsComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' } 

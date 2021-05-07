@@ -60,13 +60,13 @@ export class LayoutComponent implements OnInit {
     //
 
 
-    console.log(this.isAuthorized)
-    this.ServicesService.GetAllServices().subscribe(res => {
-      this.ServicesList = res.data;
-      console.log(this.ServicesList);
-    }, error => {
-      console.log(error);
-    });
+    //console.log(this.isAuthorized)
+    //this.ServicesService.GetAllServices().subscribe(res => {
+    //  this.ServicesList = res.data;
+    //  console.log(this.ServicesList);
+    //}, error => {
+    //  console.log(error);
+    //});
 
   }
   route(url) {
@@ -90,16 +90,19 @@ export class LayoutComponent implements OnInit {
     window.location.reload()
   }
 
-  ToService(selectedServiceID) {
+  ToService(selectedServiceID , route) {
     localStorage.setItem('selectedServiceID', selectedServiceID)
-    if (this.router.url != "/service")
-      this.router.navigateByUrl('service')
+    if (this.router.url != "/" + route)
+      this.router.navigateByUrl(route)
     else
       window.location.reload()
+
     console.log(this.router.url)
+
     this.ClearNavigationHighLight();
-    document.getElementById('service')?.classList.add('highlighted'); // Append Selected class to clicked element
+    document.getElementById(route)?.classList.add('highlighted'); // Append Selected class to clicked element
   }
+
   logout() {
     this.auth.logout()
     if (this.router.url != "/home")

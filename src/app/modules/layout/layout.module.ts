@@ -18,10 +18,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ProfileComponent } from '../profile/profile.component';
 import {CalendarModule} from 'primeng/calendar';
-
+import { OffersComponent } from '../offers/offers.component';
+import { PersonalLoansComponent } from '../personal-loans/personal-loans.component';
+import { LoansComponent } from '../loans/loans.component';
+import { CreditCardsComponent } from '../credit-cards/credit-cards.component';
+import { AccountsComponent } from '../accounts/accounts.component';
+import { InvestmentsComponent } from '../investments/investments.component';
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
-    ContactComponent, RequestsComponent,
+    ContactComponent, RequestsComponent, OffersComponent, CreditCardsComponent,
+    PersonalLoansComponent,
+    LoansComponent,
+    AccountsComponent,
+    InvestmentsComponent,
     RegisterComponent, AboutUsComponent, ProfileComponent],
   imports: [
     ModalModule.forRoot(),
@@ -34,7 +43,7 @@ import {CalendarModule} from 'primeng/calendar';
     LayoutRoutingModule,
     TableModule,
     CalendarModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class LayoutModule { }

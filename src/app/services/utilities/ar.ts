@@ -24,11 +24,11 @@ export const Arabic: any = {
     service: "خدماتنا",
     requests: "طلبات الخدمات",
     links: "تصفح سريع",
-    Loans: "Loans",
-    personalLoans: "Personal Loans",
-    accounts: "Accounts",
-    investments: "Investments",
-    creditCards: "Credit Cards",
+    Loans: "قروض",
+    personalLoans: "قروض شخصية",
+    accounts: "حسابات",
+    investments: "الاستثمارات",
+    creditCards: "بطاقات الائتمان",
 
   },
   Home: {
@@ -200,4 +200,15 @@ export const Arabic: any = {
     uploadNationalIdFrontLabel: "تحميل الصورة الأمامية للهوية الوطنية",
     uploadNationalIdBackLabel: "تحميل صورة الهوية الوطنية الخلفية",
   },
+  offers: {
+    Salary: "الحد الأدنى للراتب",
+    Rate: "معدل",
+    Annual: "رسوم سنوية",
+    keys: "الفوائد الرئيسية",
+    apply: "قدم الآن",
+    types: "أنواع",
+    noOffers: "لا توجد عروض لهذه الخدمة بعد",
+    Modaltitle:"تقديم طلب",
+
+  }
 }

@@ -13,16 +13,14 @@ import { PersonalLoansComponent } from './modules/personal-loans/personal-loans.
 import { LoansComponent } from './modules/loans/loans.component';
 import { AccountsComponent } from './modules/accounts/accounts.component';
 import { InvestmentsComponent } from './modules/investments/investments.component';
+import { OffersComponent } from './modules/offers/offers.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CreditCardsComponent,
-    PersonalLoansComponent,
-    LoansComponent,
-    AccountsComponent,
-    InvestmentsComponent,
+
+
   ],
   imports: [
     BrowserModule,
