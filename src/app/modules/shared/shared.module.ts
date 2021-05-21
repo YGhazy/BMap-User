@@ -11,6 +11,7 @@ import { ServiceSliderComponent } from './service-slider/service-slider.componen
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { RecommendedServicesSliderComponent } from './recommended-services-slider/recommended-services-slider.component';
 import { SpecificFeaturesComponent } from './specific-features/specific-features.component';
+import { OwlModule } from 'ngx-owl-carousel';
 
 //Shared Components and imported modules between the project are imported here
 //Components that shall be re-used between modules should be exported.
@@ -26,7 +27,8 @@ import { SpecificFeaturesComponent } from './specific-features/specific-features
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CarouselModule ,
+    CarouselModule,
+    OwlModule,
     ModalModule.forRoot()
   ]
   , exports: [
