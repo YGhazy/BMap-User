@@ -58,8 +58,8 @@ export class OffersComponent implements OnInit {
 
     const createServiceRequest: CreateServiceRequest = {
       date: new Date(),
-      bankName: "",
-      offerTitle: "",
+      bankName: this.currentOffer.bankName,
+      offerTitle: this.currentOffer.nameEN,
       firstName: this.applicationForm.value.firstName,
       lastName: this.applicationForm.value.lastName,
       email: this.applicationForm.value.email,
