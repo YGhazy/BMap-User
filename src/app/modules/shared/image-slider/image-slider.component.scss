@@ -51,7 +51,7 @@ h1, h4 {
     display: block;
   }
   .webView {
-    display: none;
+    display: none !important;
   }
   h1{
       font-size:25px;
