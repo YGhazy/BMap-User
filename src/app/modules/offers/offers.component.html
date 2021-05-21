@@ -40,7 +40,7 @@
                 <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
               </div>
 
-              <div class="offer-benefits webView" *ngIf="currentLang=='en'">
+              <div class="offer-benefits webView" *ngIf="currentLang=='en' && offer.offerBenefits.length!=0">
                 <h3 class="mt-2">{{langVar.offers.keys}}</h3>
 
                 <p *ngFor="let benefit of offer.offerBenefits">
@@ -48,7 +48,7 @@
                 </p>
 
               </div>
-              <div class="offer-benefits webView" *ngIf="currentLang=='ar'">
+              <div class="offer-benefits webView" *ngIf="currentLang=='ar' && offer.offerBenefits.length!=0" >
                 <h3 class="mt-2">{{langVar.offers.keys}}</h3>
 
                 <p *ngFor="let benefit of offer.offerBenefits">
@@ -132,7 +132,7 @@
 
 
 
-<div bsModal #ApplyModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div bsModal #ApplyModal="bs-modal" class="modal fade  {{langVar.arabicClass}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header  m-3 {{langVar.rowReverse}}">
@@ -146,7 +146,7 @@
               <div class="icon-container">
                 <img src="{{currentOffer.icon}}" alt="{{currentOffer.nameEN}}" />
               </div>
-              <div class="pl-xl-2 pt-xl-4 ">
+              <div class="pl-xl-3 pr-2 ">
                 <h3 *ngIf="currentLang=='en'">{{currentOffer.nameEN}}</h3>
                 <h3 *ngIf="currentLang=='ar'">{{currentOffer.nameAR}}</h3>
                 <h4 >{{currentOffer.bankName}}</h4>
