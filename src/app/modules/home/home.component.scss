@@ -1,6 +1,6 @@
 
-.arabic h1, h2, h3, h4, h5, h6, p, .nav-link, a {
-  font-family: 'Cairo' !important;
+.arabic h1, .arabic h2, .arabic h3, .arabic h4, .arabic h5, .arabic h6, .arabic p, .arabic .nav-link, .arabic a {
+  font-family: 'Cairo';
 }
 
 
@@ -28,7 +28,7 @@ h1, h4 {
 
 }
 h1 {
-  text-shadow: 2px 2px 7px #000000bc;
+  text-shadow: 2px 2px 3px #000000bc;
 }
   main {
     position: relative;
@@ -79,8 +79,13 @@ button:active, button:focus, button:hover {
   .aboutBG {
     height: 70vh;
   }
+  p{
+      line-height:1.1;
 
-
+  }
+  .aboutContent {
+ 
+  }
 
   .background {
     background-position: bottom;
