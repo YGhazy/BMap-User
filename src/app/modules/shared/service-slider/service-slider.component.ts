@@ -26,8 +26,8 @@ export class ServiceSliderComponent implements OnInit {
   //Carousel options
   carouselOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
     pullDrag: false,
     autoplay: true,
     dots: true,
@@ -58,7 +58,18 @@ export class ServiceSliderComponent implements OnInit {
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
   }
-
+  routeTo(service){
+    if (service.nameEN == 'Accounts')
+      this.router.navigateByUrl('/Accounts')
+    else if (service.nameEN == 'Personal Loans')
+      this.router.navigateByUrl('/personal-Loans')
+    else if (service.nameEN == 'Credit Cards')
+      this.router.navigateByUrl('/credit-cards')
+    else if (service.nameEN == 'Loans')
+      this.router.navigateByUrl('/Loans')
+    else if (service.nameEN == 'Investments')
+      this.router.navigateByUrl('/investment')
+}
   FetchServices() {
 
     //this.servicesService.GetAllServices().subscribe(res => {

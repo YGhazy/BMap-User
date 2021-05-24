@@ -17,19 +17,25 @@
       <div class="site-mobile-menu-body">
         <ul class="site-nav-wrap">
 
-          <li><a (click)="route('credit-cards')" class="nav-link clickableLink" >{{langVar.layout.creditCards}}</a></li>
-          <li><a (click)="route('personal-Loans')" class="nav-link clickableLink" >{{langVar.layout.personalLoans}}</a></li>
-          <li><a (click)="route('Loans')" class="nav-link clickableLink" >{{langVar.layout.Loans}}</a></li>
-          <li><a (click)="route('Accounts')" class="nav-link clickableLink" >{{langVar.layout.accounts}}</a></li>
-          <li><a (click)="route('investment')" class="nav-link clickableLink" >{{langVar.layout.investments}}</a></li>
+          <li><a (click)="route('credit-cards')" class="nav-link clickableLink">{{langVar.layout.creditCards}}</a></li>
+          <li><a (click)="route('personal-Loans')" class="nav-link clickableLink">{{langVar.layout.personalLoans}}</a></li>
+          <li><a (click)="route('Loans')" class="nav-link clickableLink">{{langVar.layout.Loans}}</a></li>
+          <li><a (click)="route('Accounts')" class="nav-link clickableLink">{{langVar.layout.accounts}}</a></li>
+          <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.investments}}</a></li>
 
-        
+
           <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()">{{langVar.lang}}</a></li>
 
-          <li class="social "><a href="" target="_blank" class="nav-link clickableLink p-0 pl-3"><span class="icon-facebook"></span></a></li>
-          <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-twitter p-0"></span></a></li>
-          <li class="social"><a href="" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>
+          <!--<li class="social  "><a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="nav-link clickableLink"><span class="icon-facebook"></span></a></li>-->
+          <!--<li class="social"><a href="https://www.instagram.com/bmap.ae/" target="_blank" class="nav-link clickableLink"><span class="icon-instagram p-0"></span></a></li>-->
+
+          <!--<li class="social"><a href="https://twitter.com/BMAP73092457" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>-->
         </ul>
+          <div class="ml-2 mt-2 text-center" dir="{{langVar.dir}}">
+            <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span class="icon-facebook clickableLink"></span></a>
+            <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span class="icon-instagram clickableLink"></span></a>
+            <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span class="icon-twitter clickableLink"></span></a>
+          </div>
       </div>
     </div>
     <!--End of mobile menu section-->
@@ -108,9 +114,9 @@
               <div class="col-md-4 pr-4">
                 <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
                 <div class="ml-2 mb-2 {{langVar.textAlign}}" dir="{{langVar.dir}}">
-                  <a href="" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
-                  <a href="" target="_blank" class="pl-3"><span class="icon-linkedin"></span></a>
-                  <a href="" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
+                  <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
+                  <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span class="icon-instagram"></span></a>
+                  <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
                 </div>
               </div>
               <div class="col-md-4 ml-auto {{langVar.textAlign}}">
@@ -138,7 +144,7 @@
             </div>
           </div>
         </div>
-        <div class=" text-center  d-flex justify-content-between " dir="{{langVar.dir}}">
+        <div class=" text-center  d-flex justify-content-center justify-content-xl-between  flex-wrap flex-xl-nowrap;" dir="{{langVar.dir}}">
           <p dir="{{langVar.dir}}">
             {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
           </p>

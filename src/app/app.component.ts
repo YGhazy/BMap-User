@@ -14,6 +14,8 @@ export class AppComponent {
       offset: 200,
       duration: 600,
       delay: 100,
+      disable: true, 
+
       });
 
   }

@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit {
     this.currentLang = this.langHelper.currentLang;
     //AOS.refresh();
     AOS.refresh({
- 
-      disable: 'mobile'
+      disable: true, 
+    
 
     });
   }
