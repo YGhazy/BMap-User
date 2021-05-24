@@ -122,3 +122,16 @@ export class LayoutComponent implements OnInit {
     }
   }
 }
+
+
+// DownloadPDF(event) {
+
+//   const linkSource = this.jobApplicationToDownloadDDF.cv;
+//   const downloadLink = document.createElement("a");
+//   const fileName = "CV.pdf";
+
+//   downloadLink.href = linkSource;
+//   downloadLink.download = fileName;
+//   downloadLink.click();
+
+// }
