@@ -39,7 +39,7 @@ export const English: any = {
   },
   Home: {
     More: "Explore More",
-    aboutTitle: "About BMAP",
+    aboutTitle: "Why BMAP",
     AboutContent: "We are committed to providing a best-in-class Financial brokerage service in terms of trading and research.",
     creditTitle: " LOOKING FOR A SPECIFIC CREDIT CARD FEATURE?",
     creditDesc: "We work as a partner to provide financial products and services that make banking safe, simple and convenient.",
