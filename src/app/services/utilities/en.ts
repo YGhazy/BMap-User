@@ -17,8 +17,8 @@ export const English: any = {
   terms:"Terms and Conditions",
   policy: "Privacy Policy",
   NoRequest: "No Requests Found",
-  aboutHeaderOne: "UNBIASED COMPARISONS",
-  aboutHeaderTwo: "SEAMLESS EXPERIENCE",
+  aboutHeaderOne: "Accurate and Transparent information ",
+  aboutHeaderTwo: "Neutral comparisons ",
   aboutHeaderThree: "HIGH QUALITY INFORMATION",
   aboutHeaderFour: "UNIQUE TOOLS",
   layout: {
@@ -39,18 +39,25 @@ export const English: any = {
   },
   Home: {
     More: "Explore More",
-    aboutTitle: "Why us",
-    AboutContent: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+    aboutTitle: "About BMAP",
+    AboutContent: "We are committed to providing a best-in-class Financial brokerage service in terms of trading and research.",
     creditTitle: " LOOKING FOR A SPECIFIC CREDIT CARD FEATURE?",
     creditDesc: "We work as a partner to provide financial products and services that make banking safe, simple and convenient.",
   },
   about: {
-    title1: "Who We Are",
-    content1: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-    title2: "Why us",
-    content2: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+    title1: "About BMAP",
+    content1: "We are a startup with a small but incredibly effective and enthusiastic team."+
+"We assist you conduct consumer loan comparisons and compare credit cards within the UAE.within "+
+"the process, we assist you identify the choices which will allow you to economize and luxuriate in the "+
+"simplest perks.we've redefined “Comparison” during a way that has never been done before within the UAE.",
+    title2: "How can we do it? ",
+    content2: "First, we are a team of out-of-the-box thinkers with a deep understanding of the UAE consumer banking system. Our "+
+"experience is within the areas of credit line, Underwriting, Sales & Distribution, Sales Strategy, Operations, Customer "+
+"Service, Technology, and Marketing."+
+"Our services allow our users to form the foremost of a good range of private finance solutions,"+
+ " from Mastercard reward cards within the UAE, to non- public loans, to Islamic credit cards, applications, and more."
   },
-  invalid: {
+  invalid: {  
     invalidEmail: "Invalid e-mail ",
     requiredEmail: "E-mail required ",
     emailPattern: "Email must be in a correct format (ex: example@mail.com)",
