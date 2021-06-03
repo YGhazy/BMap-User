@@ -11,23 +11,13 @@
 
           <form [formGroup]="SubscribeForm" class="footer-subscribe d-flex align-items-center justify-content-center">
             <div class="input-group" dir="ltr">
-              <input type="text" formControlName="email" class="form-control border-secondary text-white bg-white" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+              <input type="text" formControlName="subscribtion" class="form-control border-secondary text-white bg-white" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
               <div class="input-group-append">
-                <button class="btn btn-primary text-black" type="button" id="button-addon2" [disabled]="!SubscribeForm.valid" (click)="Subscribe()">{{langVar.subscribe.send}}</button>
+                <button class="btn btn-primary text-black" type="button" id="button-addon2"  (click)="Subscribe()">{{langVar.subscribe.send}}</button>
               </div>
             </div>
           </form>
 
-          <div *ngIf="f.email.invalid
-                       && (f.email.dirty
-                       || f.email.touched)" class="alert alert-danger mt-1 px-2 py-0 mb-0 {{langVar.textAlign}}" style="display:block; ">
-            <div *ngIf="f.email.errors.required">
-              {{langVar.invalid.requiredEmail}}
-            </div>
-            <div *ngIf="f.email.errors.pattern">
-              {{langVar.invalid.invalidEmail}}
-            </div>
-          </div>
           <div class="alert alert-success {{langVar.textAlign}}" >
             {{errorMsg}}
           </div>

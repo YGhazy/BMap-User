@@ -77,9 +77,10 @@ export const Arabic: any = {
     required: "مطلوب",
   },
   subscribe: {
-    subscribeNw: "اشترك الان",
+    subscribeNw: "تحتاج مساعدة",
     send: "ارسال",
     subscribed: "تم الاشتراك بالفعل",
+    subscribtionValidate:"من فضلك ادخل بريد الكتروني او رقم هاتف صحيح"
   },
   serviceCarousel: {
     title: "خدماتنا المميزة",

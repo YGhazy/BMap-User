@@ -85,8 +85,9 @@ export const English: any = {
   },
   subscribe: {
     send: "Send",
-    subscribeNw: "Subscribe Now",
+    subscribeNw: "Need help",
     subscribed: "you are already subscribed to our newsletter !",
+    subscribtionValidate:"please enter valide e-mail or phone number"
   },
   serviceCarousel: {
     title: "Our Services",
