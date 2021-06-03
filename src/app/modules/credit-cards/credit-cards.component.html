@@ -11,13 +11,13 @@
 </div>
 <div>
   <!--Display default header / service header background image-->
-  <div class=" site-blocks-cover background" style="    background-image: url(./assets/images/contact/cover.png);">
+  <div class=" site-blocks-cover background" style="background-image: url(./assets/images/contact/cover.png);">
   </div>
 
-  <section class="container pt-2 mb-5 {{langVar.arabicClass}}" *ngIf="Service!='undefined'">
+  <section class="container pt-2 mb-5 position-relative {{langVar.arabicClass}}" *ngIf="Service!='undefined'">
     <!--Service title / description-->
-    <h1 class="m-0 {{langVar.textAlign}}" *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
-    <h1 class="m-0 {{langVar.textAlign}}" *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
 
 
     <!--Service types card-->
