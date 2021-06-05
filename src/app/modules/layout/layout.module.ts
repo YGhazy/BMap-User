@@ -24,6 +24,9 @@ import { LoansComponent } from '../loans/loans.component';
 import { CreditCardsComponent } from '../credit-cards/credit-cards.component';
 import { AccountsComponent } from '../accounts/accounts.component';
 import { InvestmentsComponent } from '../investments/investments.component';
+import { CorporateBankingComponent } from '../corporate-banking/corporate-banking.component';
+import { IslamicSolutionsComponent } from '../islamic-solutions/islamic-solutions.component';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
     ContactComponent, RequestsComponent, OffersComponent, CreditCardsComponent,
@@ -31,6 +34,8 @@ import { InvestmentsComponent } from '../investments/investments.component';
     LoansComponent,
     AccountsComponent,
     InvestmentsComponent,
+    CorporateBankingComponent,
+    IslamicSolutionsComponent,
     RegisterComponent, AboutUsComponent, ProfileComponent],
   imports: [
     ModalModule.forRoot(),
@@ -44,6 +49,7 @@ import { InvestmentsComponent } from '../investments/investments.component';
     TableModule,
     CalendarModule,
     SharedModule,
+    DropdownModule,
   ]
 })
 export class LayoutModule { }
