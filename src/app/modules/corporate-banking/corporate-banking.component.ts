@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { CorporateTypes } from '../../enums/CorporateTypes';
 import { ServicesService } from '../../services/ServicesService';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
 import { langHelper } from '../../services/utilities/language-helper';
@@ -12,18 +13,21 @@ import { langHelper } from '../../services/utilities/language-helper';
   styleUrls: ['./corporate-banking.component.scss']
 })
 export class CorporateBankingComponent implements OnInit {
+
   currentLang;
   langVar;
-  Service;
   applicationForm
   selectedTime
+  selectedType
+  selectedCode
+  typesEnum = CorporateTypes
   selectedNationality
   nationalityList = [
     { name: 'New York' },
     { name: 'Rome' },
-    { name: 'London'},
-    { name: 'Istanbul'},
-    { name: 'Paris'}
+    { name: 'London' },
+    { name: 'Istanbul' },
+    { name: 'Paris' }
   ];
 
   codes = [
@@ -43,31 +47,23 @@ export class CorporateBankingComponent implements OnInit {
       firstName: '',
       lastName: '',
       email: '',
-      acknowledgment: ''
+      timeToCall: '',
+      comment: '',
+      companyName: '',
+   code:''
     });
   }
 
 
   ngOnInit(): void {
-    console.log(this.Service)
+
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
 
-    this.ServicesService.GetAllServices().subscribe(res => {
-      this.Service = res.data[3];
-      console.log(this.Service);
-    }, error => {
-      console.log(error);
-    });
   }
-
-  ViewApply(typeID) {
-    localStorage.setItem('serviceID', this.Service.id)
-    localStorage.setItem('serviceNameEN', this.Service.nameEN)
-    localStorage.setItem('serviceNameAR', this.Service.nameAR)
-    localStorage.setItem('typeID', typeID)
-    console.log("type", typeID)
-    window.scroll(0, 0)
+  ViewApply(type) {
+    console.log(type)
+    this.selectedType = type
     this.ApplyModal.show()
   }
 
@@ -75,17 +71,18 @@ export class CorporateBankingComponent implements OnInit {
 
     const createServiceRequest = {
       date: new Date(),
-      bankName: "",
-      offerTitle:"",
       firstName: this.applicationForm.value.firstName,
       lastName: this.applicationForm.value.lastName,
       email: this.applicationForm.value.email,
-      phoneNumber: this.applicationForm.value.mobileNumber,
-      status: "",
+      phoneNumber: this.selectedCode.code + this.applicationForm.value.mobileNumber,
+      timeToCall: this.applicationForm.value.timeToCall,
+      companyName: this.applicationForm.value.companyName,
+      comment: this.applicationForm.value.comment,
+      type: this.selectedType
     }
 
     console.log(createServiceRequest);
-    this.ServicesService.SubmitServiceRequest(createServiceRequest).subscribe(res => {
+    this.ServicesService.CreateCorporateServiceRequest(createServiceRequest).subscribe(res => {
       if (res.succeeded) {
         this.toastr.success(this.langVar.response.reqSent, this.langVar.response.success, {
           disableTimeOut: false,

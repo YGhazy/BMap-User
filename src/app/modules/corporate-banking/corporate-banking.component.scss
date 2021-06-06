@@ -248,15 +248,7 @@ p {
   font-size: 23px;
   font-weight: 600;
   text-align: center;
-}
-
-
-p, label, h1, h3, h4 {
-  font-family: 'Roboto', sans-serif;
-}
-
-.arabic h1, .arabic h2, .arabic h3, .arabic h4, .arabic h5, .arabic h6, .arabic p, .arabic .nav-link, .arabic a {
-  font-family: 'Cairo';
+  line-height: 1.2;
 }
 
 .background {
@@ -264,13 +256,6 @@ p, label, h1, h3, h4 {
   background: url(../../../assets/images/offerCover.png) no-repeat 0 0;
   background-position: bottom;
   background-size: cover;
-}
-
-h1 {
-  color: #1351c3;
-  font-size: 25px;
-  font-weight: 500;
-  margin: 0;
 }
 
 p, label {

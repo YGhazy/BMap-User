@@ -19,7 +19,13 @@ export class formBuilderHelper {
       mobileNumber: [Validators.required, Validators.pattern("^([0-9]{8,})$")],
       calendar: [Validators.required],
       age: [Validators.required],
+      timeToCall :[Validators.required],
       type: [Validators.required],
+      code: [Validators.required],
+      nationality: [Validators.required],
+      monthlySalary: [Validators.required],
+      comment: [''],
+      companyName: [Validators.required],
       address: [Validators.required],
       contactFirstName: [Validators.required, Validators.min(1), Validators.max(50), Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")], //arabic & english letters
       contactLastName: [Validators.required, Validators.min(1), Validators.max(50), Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")], //arabic & english letters

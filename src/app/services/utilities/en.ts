@@ -35,7 +35,19 @@ export const English: any = {
     accounts:"Accounts",
     investments:"Investments",
     creditCards:"Credit Cards",
+    CorporateBanking:"Corporate",
+    IslamicSolutions:"Islamic Solutions",
 
+  },
+  CorporateBanking :{
+    type1: "Credit Card",
+    type2: "Islamic Finance ",
+    type3: "Accounts",
+    type4:"Takaful"
+  },
+ IslamicSolutions :{
+   type1: "Corporate banking Accounts ",
+   type2:"Corporate Banking Finance and Facilities"
   },
   Home: {
     More: "Explore More",
@@ -64,8 +76,11 @@ export const English: any = {
     requiredPassword: "Password required",
     InvalidPassword: "must contain at least 1 lowercase alphabetical character,  at least 1 uppercase alphabetical character ,at least 1 numeric character , at least one special character and must be eight characters or longer .",
     InvalidConfirmPassword:"password doesn't match confirm password",
-    requiredMobileNumber: "Password required",
-    InvalidMobileNumber: "Invalid mobile number",
+    requiredMobileNumber: "Number required",
+    requiredNationality: "Nationality required",
+    requiredSalary: "Salary required",
+    requiredTime: "Time required",
+    InvalidMobileNumber: "Invalid number",
     InvalidName: "Invalid name",
     requiredDateOfBirth: "Date Of Birth required",
     requiredName: "Name required",
@@ -125,6 +140,10 @@ export const English: any = {
     City:"City",
     Country: "Country",
     Street: "Street",
+    salary: "Salary",
+    Time:"Time to call",
+    CompanyName:"Company Name",
+    Comment:"Comment",
   },
   applicationForm:{
     title: 'Please fill in the details to receive a call back with more details about this product ',

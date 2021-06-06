@@ -39,4 +39,11 @@ export class ServicesService extends BaseService {
         return this.post(API_CONSTANTS.SubmitServiceRequest, request);
   }
 
+ CreateIslamicServiceRequest(request): Observable<ApiResponse> {
+   return this.post(API_CONSTANTS.CreateIslamicServiceRequest, request);
+  }
+  CreateCorporateServiceRequest(request): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.CreateCorporateServiceRequest, request);
+  }
+
 }
