@@ -34,7 +34,18 @@ export const Arabic: any = {
     accounts: "حسابات",
     investments: "الاستثمارات",
     creditCards: "بطاقات الائتمان",
-
+    CorporateBanking: "الشركات",
+    IslamicSolutions: "حلول اسلامية",
+  },
+  CorporateBanking: {
+    type1: "بطاقات ائتمانية",
+    type2: "حلول التمويل اإلسالمي",
+    type3: "الحسابات",
+    type4: "تكافل"
+  },
+  IslamicSolutions: {
+    type1: "الحسابات المصرفية ",
+    type2: "التسهيلات البنكية "
   },
   Home: {
     More: "المزيد",
@@ -58,6 +69,9 @@ export const Arabic: any = {
     InvalidPassword: "يجب أن يحتوي على حرف أبجدي صغير واحد على الأقل ، وحرف أبجدي كبير واحد على الأقل ، وحرف رقمي واحد على الأقل ، وحرف خاص واحد على الأقل ، ويجب أن يتكون من ثمانية أحرف أو أكثر.",
     InvalidConfirmPassword: "كلمة المرور غير مطابقة لتأكيد كلمة المرور ",
     requiredMobileNumber: "ادخل رقم الهاتف",
+    requiredNationality: "ادخل الجنسية",
+    requiredSalary: "ادخل الدخل الشهري",
+    requiredTime: "اختر وقت",
     InvalidMobileNumber: "رقم غير صحيح",
     InvalidName: "اسم غير صحيح",
     requiredDateOfBirth: "ادخل تاريخ الميلاد",
@@ -120,7 +134,11 @@ export const Arabic: any = {
     City: "المدينة",
     Country: "الدولة",
     Street: "الشارع",
-
+    salary: "الدخل الشهري",
+    Time: "الوقت المناسب للاتصال",
+    nationality: "الجنسية",
+    CompanyName: "اسم الشركة",
+    Comment: "تعليق",
   },
   applicationForm:{
     title: 'يرجى ملء التفاصيل لتلقي اتصال حول هذه الخدمه',

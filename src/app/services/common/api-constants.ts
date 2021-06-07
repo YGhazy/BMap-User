@@ -33,4 +33,8 @@ export const API_CONSTANTS = {
     ChangeAccountPassword: "/Users/ChangePasswordAccount",
   GetUserAccountByToken: '/Users/GetUserAccountByToken?token=',
 
+
+  //
+  CreateIslamicServiceRequest:"/ServiceRequests/CreateIslamicServiceRequest",
+  CreateCorporateServiceRequest:"/ServiceRequests/CreateCorporateServiceRequest"
 }

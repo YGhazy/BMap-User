@@ -1,44 +1,56 @@
-<!--  preloader-->
-<div id="centerdiv" *ngIf="Service=='undefined'">
-  <ul>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
-</div>
 
 <div>
   <!--Display default header / service header background image-->
-  <div class=" site-blocks-cover background" style="background-image: url(./assets/images/contact/cover.png);">
-  </div>
+  <div class=" site-blocks-cover background" style="    background-image: url(./assets/images/corparate-cover.png);"></div>
 
-  <section class="container pt-2 mb-5 {{langVar.arabicClass}} position-relative" *ngIf="Service!='undefined'">
+  <section class="container pt-2 mb-5 {{langVar.arabicClass}} position-relative">
+
     <!--Service title / description-->
-    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
-    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px">{{langVar.layout.CorporateBanking}}</h1>
 
     <!--Service types card-->
-    <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500" *ngIf="Service.serviceTypes">
-      <div class="serviceType-container d-flex justify-content-around  align-items-center" *ngFor="let type of Service.serviceTypes;"
-           (click)="ViewApply(type.id)">
+    <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
+      <div class="serviceType-container d-flex justify-content-around  align-items-center"
+           (click)="ViewApply(typesEnum.CreditCard)">
+        <div class="imgContainer">
+          <img src="./assets/images/icons/credit-card-payment.png" alt="type" />
+        </div>
+        <p class="m-0"> {{langVar.CorporateBanking.type1}}</p>
+      </div>
+
+      <div class="serviceType-container d-flex justify-content-around  align-items-center"
+           (click)="ViewApply(typesEnum.IslamicFinance)">
 
         <div class="imgContainer">
-          <img src="{{type.icon}}" alt="type{{type.id}}" />
+          <img src="./assets/images/icons/cashback.png" alt="type" />
         </div>
 
-        <p class="m-0" *ngIf="currentLang == 'en'">{{type.nameEN}}</p>
-        <p class="m-0" *ngIf="currentLang == 'ar'">{{type.nameAR}}</p>
+        <p class="m-0"> {{langVar.CorporateBanking.type2}}</p>
+      </div>
 
+      <div class="serviceType-container d-flex justify-content-around  align-items-center"
+           (click)="ViewApply(typesEnum.Accounts)">
+
+        <div class="imgContainer">
+          <img src="./assets/images/icons/prepaid-card.png" alt="type" />
+        </div>
+
+        <p class="m-0"> {{langVar.CorporateBanking.type3}}</p>
+      </div>
+
+      <div class="serviceType-container d-flex justify-content-around  align-items-center"
+           (click)="ViewApply(typesEnum.Takaful)">
+
+        <div class="imgContainer">
+          <img src="./assets/images/icons/banking.png" alt="type" />
+        </div>
+
+        <p class="m-0"> {{langVar.CorporateBanking.type4}}</p>
       </div>
     </div>
 
   </section>
 </div>
-
-
 
 
 <div bsModal #ApplyModal="bs-modal" class="modal fade  {{langVar.arabicClass}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -49,108 +61,129 @@
 
       </div>
       <div class="modal-body  mx-xl-3 pb-0">
-        
 
-          <form data-aos="fade-up" class="mb-5">
-            <div class="container" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
 
-              <div class="inputContainer mb-3" [formGroup]="applicationForm">
+        <form data-aos="fade-up" class="mb-5" [formGroup]="applicationForm">
+          <div class="container" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
 
-                <label for="firstName">{{langVar.placeholder.FirstName}}</label>
-                <input id="firstName" type="text" class="form-control" formControlName="firstName"
-                       placeholder="{{langVar.placeholder.FirstName}}" />
-                <div *ngIf="applicationFormControls.firstName.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.firstName.errors.required">
-                    {{langVar.invalid.requiredName}}
-                  </div>
-                  <div *ngIf="applicationFormControls.firstName.errors.pattern">
-                    {{langVar.invalid.InvalidName}}
-                  </div>
+            <div class="inputContainer mb-3">
+
+              <label for="firstName">{{langVar.placeholder.FirstName}}</label>
+              <input id="firstName" type="text" class="form-control" formControlName="firstName"
+                     placeholder="{{langVar.placeholder.FirstName}}" />
+              <div *ngIf="applicationFormControls.firstName.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.firstName.errors.required">
+                  {{langVar.invalid.requiredName}}
                 </div>
-              </div>
-
-              <div class="inputContainer mb-3" [formGroup]="applicationForm">
-
-                <label for="phoneNumber">{{langVar.placeholder.LastName}}</label>
-                <input id="phoneNumber" type="text" class="form-control" formControlName="lastName"
-                       placeholder="{{langVar.placeholder.LastName}}" />
-                <div *ngIf="applicationFormControls.lastName.invalid && (applicationFormControls.lastName.dirty|| applicationFormControls.lastName.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.lastName.errors.required">
-                    {{langVar.invalid.requiredName}}
-                  </div>
-                  <div *ngIf="applicationFormControls.lastName.errors.pattern">
-                    {{langVar.invalid.InvalidName}}
-                  </div>
-                </div>
-              </div>
-
-              <div class="inputContainer mb-3" [formGroup]="applicationForm">
-
-                <label for="email">{{langVar.placeholder.email}}</label>
-                <input id="email" type="text" class="form-control" formControlName="email"
-                       placeholder="{{langVar.placeholder.email}}" />
-                <div *ngIf="applicationFormControls.email.invalid && (applicationFormControls.email.dirty|| applicationFormControls.email.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.email.errors.required">
-                    {{langVar.invalid.requiredEmail}}
-                  </div>
-                  <div *ngIf="applicationFormControls.email.errors.pattern">
-                    {{langVar.invalid.invalidEmail}}
-                  </div>
-                </div>
-              </div>
-
-              <div class="inputContainer mb-3" [formGroup]="applicationForm">
-
-                <div class="d-flex phoneNumberContainer align-items-center"> 
-                <label for="phoneNumber" class="mr-3">+971</label>
-
-                <p-dropdown [options]="codes" [(ngModel)]="selectedNationality" optionLabel="code" class="mr-3"></p-dropdown>
-
-                <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
-                       placeholder="{{langVar.placeholder.PhoneNumber}}" />
-                </div>
-                <div *ngIf="applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.mobileNumber.errors.required">
-                    {{langVar.invalid.requiredMobileNumber}}
-                  </div>
-                  <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
-                    {{langVar.invalid.InvalidMobileNumber}}
-                  </div>
-                </div>
-              </div>
-              <div class="inputContainer mb-3" [formGroup]="applicationForm">
-
-                <label for="timeonly" style="display:block; ">Time to call</label>
-                <p-calendar [(ngModel)]="selectedTime" [timeOnly]="true" inputId="timeonly"></p-calendar>
-
-              </div>
-              <div class="inputContainer my-3" [formGroup]="applicationForm">
-
-                <label for="Nationality" style="display:block; "> nationality</label>
-                <p-dropdown [options]="nationalityList" [(ngModel)]="selectedNationality" optionLabel="name"></p-dropdown>
-
-              </div>
-              <div class="inputContainer" [formGroup]="applicationForm">
-
-                <label for="firstName">{{langVar.placeholder.FirstName}}</label>
-                <input id="firstName" type="text" class="form-control" formControlName="firstName"
-                       placeholder="{{langVar.placeholder.FirstName}}" />
-                <div *ngIf="applicationFormControls.firstName.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.firstName.errors.required">
-                    {{langVar.invalid.requiredName}}
-                  </div>
-                  <div *ngIf="applicationFormControls.firstName.errors.pattern">
-                    {{langVar.invalid.InvalidName}}
-                  </div>
+                <div *ngIf="applicationFormControls.firstName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
                 </div>
               </div>
             </div>
-          </form>
+
+            <div class="inputContainer mb-3">
+
+              <label>{{langVar.placeholder.LastName}}</label>
+              <input  type="text" class="form-control" formControlName="lastName"
+                     placeholder="{{langVar.placeholder.LastName}}" />
+              <div *ngIf="applicationFormControls.lastName.invalid && (applicationFormControls.lastName.dirty|| applicationFormControls.lastName.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.lastName.errors.required">
+                  {{langVar.invalid.requiredName}}
+                </div>
+                <div *ngIf="applicationFormControls.lastName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
+                </div>
+              </div>
+            </div>
+
+            <div class="inputContainer mb-3">
+
+              <label for="email">{{langVar.placeholder.email}}</label>
+              <input id="email" type="text" class="form-control" formControlName="email"
+                     placeholder="{{langVar.placeholder.email}}" />
+              <div *ngIf="applicationFormControls.email.invalid && (applicationFormControls.email.dirty|| applicationFormControls.email.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.email.errors.required">
+                  {{langVar.invalid.requiredEmail}}
+                </div>
+                <div *ngIf="applicationFormControls.email.errors.pattern">
+                  {{langVar.invalid.invalidEmail}}
+                </div>
+              </div>
+            </div>
+
+            <div class="inputContainer mb-3" dir="ltr">
+
+              <div class="d-flex phoneNumberContainer align-items-center">
+                <label class="mr-3">+971</label>
+
+                <p-dropdown [options]="codes" [(ngModel)]="selectedCode" placeholder="-" formControlName="code" optionLabel="code" class="mr-3"></p-dropdown>
+
+                <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
+                       placeholder="{{langVar.placeholder.PhoneNumber}}" />
+              </div>
+
+              <div *ngIf="(applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched))||
+                  ( applicationFormControls.code.invalid && (applicationFormControls.code.dirty|| applicationFormControls.code.touched))"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.mobileNumber.errors.required || applicationFormControls.code.errors.required">
+                  {{langVar.invalid.requiredMobileNumber}}
+                </div>
+                <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
+                  {{langVar.invalid.InvalidMobileNumber}}
+                </div>
+              </div>
+
+            </div>
+            <div class="inputContainer mb-3">
+
+              <label for="timeonly" style="display:block; " class="mb-2"> {{langVar.placeholder.Time}}</label>
+              <p-calendar [(ngModel)]="selectedTime" [timeOnly]="true" inputId="timeonly" formControlName="timeToCall" dir="auto" class="text-center"></p-calendar>
+
+              <div *ngIf="applicationFormControls.timeToCall.invalid && (applicationFormControls.timeToCall.dirty|| applicationFormControls.timeToCall.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.timeToCall.errors.required">
+                  {{langVar.invalid.requiredTime}}
+                </div>
+
+              </div>
+            </div>
+
+            <div class="inputContainer mb-3">
+
+              <label for="firstName">{{langVar.placeholder.CompanyName}}</label>
+              <input id="firstName" type="text" class="form-control" formControlName="companyName"
+                     placeholder="{{langVar.placeholder.CompanyName}}" />
+              <div *ngIf="applicationFormControls.companyName.invalid && (applicationFormControls.companyName.dirty|| applicationFormControls.companyName.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.companyName.errors.required">
+                  {{langVar.invalid.requiredName}}
+                </div>
+                <div *ngIf="applicationFormControls.firstName.errors.pattern">
+                  {{langVar.invalid.InvalidName}}
+                </div>
+              </div>
+            </div>
+
+            <div class="inputContainer mb-3">
+
+              <!--<input id="firstName" type="text" class="form-control" formControlName="comment"
+                     placeholder="{{langVar.placeholder.Comment}}" />-->
+              <textarea [rows]="5" [cols]="30" pInputTextarea  placeholder="{{langVar.placeholder.Comment}}" class="form-control" formControlName="comment"></textarea>
+
+              <!--<div *ngIf="applicationFormControls.comment.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
+       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+    <div *ngIf="applicationFormControls.comment.errors.required">
+      {{langVar.invalid.requiredName}}
+    </div>
+
+  </div>-->
+            </div>
+
+          </div>
+        </form>
 
       </div>
       <div class="modal-footer {{langVar.rowReverse}}">
@@ -160,4 +193,7 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+
 <app-modal></app-modal>
+
+

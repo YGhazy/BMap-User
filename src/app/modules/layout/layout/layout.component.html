@@ -22,6 +22,8 @@
           <li><a (click)="route('Loans')" class="nav-link clickableLink">{{langVar.layout.Loans}}</a></li>
           <li><a (click)="route('Accounts')" class="nav-link clickableLink">{{langVar.layout.accounts}}</a></li>
           <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.investments}}</a></li>
+          <li><a (click)="route('corporate-banks')" class="nav-link clickableLink">{{langVar.layout.CorporateBanking}}</a></li>
+          <li><a (click)="route('islamic-solutions')" class="nav-link clickableLink">{{langVar.layout.IslamicSolutions}}</a></li>
 
 
           <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()">{{langVar.lang}}</a></li>
@@ -51,46 +53,47 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right " role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
-                <li><a (click)="route('credit-cards')" class="nav-link " >{{langVar.layout.creditCards}}</a></li>
-                <li><a (click)="route('personal-Loans')" class="nav-link " >{{langVar.layout.personalLoans}}</a></li>
-                <li><a (click)="route('Loans')" class="nav-link " >{{langVar.layout.Loans}}</a></li>
-                <li><a (click)="route('Accounts')" class="nav-link " >{{langVar.layout.accounts}}</a></li>
-                <li><a (click)="route('investment')" class="nav-link " >{{langVar.layout.investments}}</a></li>
+                <li><a (click)="route('credit-cards')" class="nav-link ">{{langVar.layout.creditCards}}</a></li>
+                <li><a (click)="route('personal-Loans')" class="nav-link ">{{langVar.layout.personalLoans}}</a></li>
+                <li><a (click)="route('Loans')" class="nav-link ">{{langVar.layout.Loans}}</a></li>
+                <li><a (click)="route('Accounts')" class="nav-link ">{{langVar.layout.accounts}}</a></li>
+                <li><a (click)="route('investment')" class="nav-link ">{{langVar.layout.investments}}</a></li>
+                <li><a (click)="route('corporate-banks')" class="nav-link ">{{langVar.layout.CorporateBanking}}</a></li>
+                <li><a (click)="route('islamic-solutions')" class="nav-link ">{{langVar.layout.IslamicSolutions}}</a></li>
+
                 <!--<li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>-->
-
                 <!--<li class="has-children">
-                  <a class="nav-link " id="service">{{langVar.layout.service}}</a>
-                  <ul class="dropdown" *ngIf="ServicesList">
-                    <li *ngFor="let service of ServicesList">
-                      <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-                      <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-                    </li>
-                  </ul>
-                </li>-->
+    <a class="nav-link " id="service">{{langVar.layout.service}}</a>
+    <ul class="dropdown" *ngIf="ServicesList">
+      <li *ngFor="let service of ServicesList">
+        <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+        <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
+      </li>
+    </ul>
+  </li>-->
                 <!--<li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
-                <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>-->
-
+  <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>-->
                 <!--<li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
-                <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
-                <li>
-                  <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
-                    <div class="loginbtn">
-                      <a>
-                        {{langVar.layout.logout}}
-                      </a>
-                    </div>
-                  </a>
-                </li>-->
+  <li><a (click)="route('register')" class="nav-link " *ngIf="!isAuthorized" id="register"> {{langVar.register.register}}</a></li>
+  <li>
+    <a (click)="logout()" class="nav-link" *ngIf="isAuthorized">
+      <div class="loginbtn">
+        <a>
+          {{langVar.layout.logout}}
+        </a>
+      </div>
+    </a>
+  </li>-->
                 <li class="">
                   <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
                   </a>
                   <!--<a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
-                    <div class="initials">
-                      <a>
-                        {{initials}}
-                      </a>
-                    </div>
-                  </a>-->
+      <div class="initials">
+        <a>
+          {{initials}}
+        </a>
+      </div>
+    </a>-->
                 </li>
                 <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
               </ul>
@@ -121,7 +124,7 @@
               </div>
               <div class="col-md-4 ml-auto {{langVar.textAlign}}">
                 <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
-                <div class="row p-2 " dir="{{langVar.dir}}">
+                <div class="row p-2  " dir="{{langVar.dir}}">
                   <ul class="col-4">
                     <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
                     <li><a (click)="route('contact')" class="smoothscroll {{langVar.textAlign}}"> {{langVar.layout.contact}}</a></li>
@@ -133,7 +136,7 @@
                 <h2 class="footer-heading mb-2 ">
                   {{langVar.layout.contact}}
                 </h2>
-                <div class="row p-2" dir="{{langVar.dir}}">
+                <div class="row p-2 " >
                   <ul class="list-group">
                     <li><a class="smoothscroll {{langVar.textAlign}}">+971 (0) 55 5203117</a></li>
                     <li><a class="smoothscroll {{langVar.textAlign}}">info@bmap.ae</a></li>

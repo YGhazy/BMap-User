@@ -27,6 +27,9 @@ import { InvestmentsComponent } from '../investments/investments.component';
 import { CorporateBankingComponent } from '../corporate-banking/corporate-banking.component';
 import { IslamicSolutionsComponent } from '../islamic-solutions/islamic-solutions.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+
 @NgModule({
   declarations: [LayoutComponent, HomeComponent, ServiceComponent,
     ContactComponent, RequestsComponent, OffersComponent, CreditCardsComponent,
@@ -50,6 +53,8 @@ import { DropdownModule } from 'primeng/dropdown';
     CalendarModule,
     SharedModule,
     DropdownModule,
+    InputNumberModule,
+    InputTextareaModule
   ]
 })
 export class LayoutModule { }
