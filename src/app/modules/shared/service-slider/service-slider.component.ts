@@ -19,6 +19,8 @@ export class ServiceSliderComponent implements OnInit {
   thirdService: Service = new Service;
   fourthService: Service = new Service;
   fifthService: Service = new Service;
+  sixthService: Service = new Service;
+  seventhService: Service = new Service;
 
 
   langVar;
@@ -121,7 +123,24 @@ export class ServiceSliderComponent implements OnInit {
     this.fifthService.descriptionAR = " ضصثضصثضصثضص";
     this.fifthService.icon = "../../../../assets/images/landing/Accounts.png";
 
+    this.sixthService.id = 5;
+    this.sixthService.nameEN = "Corporate";
+    this.sixthService.nameAR = "الشركات";
+    this.sixthService.descriptionEN = " Lorem Ipsum";
+    this.sixthService.descriptionAR = " ضصثضصثضصثضص";
+    this.sixthService.descriptionAR = " ضصثضصثضصثضص";
+    this.sixthService.icon = "../../../../assets/images/icons/Flat.png";
 
+    this.seventhService.id = 5;
+    this.seventhService.nameEN = "Islamic Solutions";
+    this.seventhService.nameAR = "حلول اسلامية";
+    this.seventhService.descriptionEN = " Lorem Ipsum";
+    this.seventhService.descriptionAR = " ضصثضصثضصثضص";
+    this.seventhService.descriptionAR = " ضصثضصثضصثضص";
+    this.seventhService.icon = "../../../../assets/images/icons/credit-card-payment.png";
+
+    this.serviceList.push(this.seventhService);
+    this.serviceList.push(this.sixthService);
     this.serviceList.push(this.fifthService);
     this.serviceList.push(this.fourthService);
     this.serviceList.push(this.thirdService);
