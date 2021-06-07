@@ -190,6 +190,9 @@ p {
 
 
 @media screen and (max-width: 1240px) {
+  #phoneNumber {
+    width: 153px;
+  }
   .background {
     height: 45vh !important;
     min-height: 45vh !important;
@@ -487,6 +490,9 @@ h4 {
 }
 
 @media screen and (max-width: 1240px) {
+  .imgContainer {
+    width: 50px;
+  }
   .webView {
     display: none;
   }

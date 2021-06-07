@@ -22,8 +22,8 @@
           <li><a (click)="route('Loans')" class="nav-link clickableLink">{{langVar.layout.Loans}}</a></li>
           <li><a (click)="route('Accounts')" class="nav-link clickableLink">{{langVar.layout.accounts}}</a></li>
           <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.investments}}</a></li>
-          <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.CorporateBanking}}</a></li>
-          <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.IslamicSolutions}}</a></li>
+          <li><a (click)="route('corporate-banks')" class="nav-link clickableLink">{{langVar.layout.CorporateBanking}}</a></li>
+          <li><a (click)="route('islamic-solutions')" class="nav-link clickableLink">{{langVar.layout.IslamicSolutions}}</a></li>
 
 
           <li><a class="nav-link clickableLink {{langVar.textAlign}}" (click)="changeLanguage()">{{langVar.lang}}</a></li>
@@ -124,7 +124,7 @@
               </div>
               <div class="col-md-4 ml-auto {{langVar.textAlign}}">
                 <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
-                <div class="row p-2  {{langVar.flexDIr}}" dir="{{langVar.dir}}">
+                <div class="row p-2  " dir="{{langVar.dir}}">
                   <ul class="col-4">
                     <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
                     <li><a (click)="route('contact')" class="smoothscroll {{langVar.textAlign}}"> {{langVar.layout.contact}}</a></li>
@@ -136,7 +136,7 @@
                 <h2 class="footer-heading mb-2 ">
                   {{langVar.layout.contact}}
                 </h2>
-                <div class="row p-2 {{langVar.flexDIr}}" >
+                <div class="row p-2 " >
                   <ul class="list-group">
                     <li><a class="smoothscroll {{langVar.textAlign}}">+971 (0) 55 5203117</a></li>
                     <li><a class="smoothscroll {{langVar.textAlign}}">info@bmap.ae</a></li>

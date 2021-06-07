@@ -23,7 +23,7 @@
       <div class="serviceType-container d-flex justify-content-around  align-items-center"
            (click)="ViewApply(typesEnum.CorporateBankingFinanceAndFacilities)">
 
-        <div class="imgContainer" style="width: 90px;">
+        <div class="imgContainer" >
           <img src="./assets/images/icons/prepaid-card.png" alt="type" />
         </div>
 
@@ -68,7 +68,7 @@
             <div class="inputContainer mb-3"  >
 
               <label >{{langVar.placeholder.LastName}}</label>
-              <input id="phoneNumber" type="text" class="form-control" formControlName="lastName"
+              <input type="text" class="form-control" formControlName="lastName"
                      placeholder="{{langVar.placeholder.LastName}}" />
               <div *ngIf="applicationFormControls.lastName.invalid && (applicationFormControls.lastName.dirty|| applicationFormControls.lastName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
@@ -102,7 +102,7 @@
               <div class="d-flex phoneNumberContainer align-items-center">
                 <label class="mr-3">+971</label>
 
-                <p-dropdown [options]="codes" [(ngModel)]="selectedCode" placeholder="0" formControlName="code" optionLabel="code" class="mr-3"></p-dropdown>
+                <p-dropdown [options]="codes" [(ngModel)]="selectedCode" placeholder="-" formControlName="code" optionLabel="code" class="mr-3"></p-dropdown>
 
                 <input id="phoneNumber" type="text" class="form-control" formControlName="mobileNumber"
                        placeholder="{{langVar.placeholder.PhoneNumber}}" />
@@ -111,7 +111,7 @@
               <div *ngIf="(applicationFormControls.mobileNumber.invalid && (applicationFormControls.mobileNumber.dirty|| applicationFormControls.mobileNumber.touched))||
                   ( applicationFormControls.code.invalid && (applicationFormControls.code.dirty|| applicationFormControls.code.touched))"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                <div *ngIf="applicationFormControls.mobileNumber.errors.required">
+                <div *ngIf="applicationFormControls.mobileNumber.errors.required || applicationFormControls.code.errors.required">
                   {{langVar.invalid.requiredMobileNumber}}
                 </div>
                 <div *ngIf="applicationFormControls.mobileNumber.errors.pattern">
@@ -122,7 +122,7 @@
             </div>
             <div class="inputContainer mb-3">
 
-              <label for="timeonly" style="display:block; " class="mb-2"> {{langVar.placeholder.Time}}</label>
+              <label for="timeonly" style="display:block; " class="mb-2 {{langVar.textAlign}}"> {{langVar.placeholder.Time}}</label>
               <p-calendar [(ngModel)]="selectedTime" [timeOnly]="true" inputId="timeonly" formControlName="timeToCall" dir="auto" class="text-center"></p-calendar>
 
               <div *ngIf="applicationFormControls.timeToCall.invalid && (applicationFormControls.timeToCall.dirty|| applicationFormControls.timeToCall.touched)"
@@ -135,8 +135,8 @@
             </div>
             <div class="inputContainer my-3">
 
-              <label for="Nationality" style="display:block; "> {{langVar.placeholder.nationality}}</label>
-              <p-dropdown [options]="nationalityList" [(ngModel)]="selectedNationality" placeholder="Select Nationality" optionLabel="name" formControlName="nationality"></p-dropdown>
+              <label for="Nationality" style="display:block; " class="{{langVar.textAlign}}"> {{langVar.placeholder.nationality}}</label>
+              <p-dropdown [options]="nationalityList" [(ngModel)]="selectedNationality" placeholder="{{langVar.placeholder.nationality}}" optionLabel="name" formControlName="nationality"></p-dropdown>
               <div *ngIf="applicationFormControls.nationality.invalid && (applicationFormControls.nationality.dirty|| applicationFormControls.nationality.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.nationality.errors.required">

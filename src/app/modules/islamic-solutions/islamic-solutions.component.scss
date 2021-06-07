@@ -191,6 +191,9 @@ p {
 
 
 @media screen and (max-width: 1240px) {
+  .imgContainer {
+    width: 50px;
+  }
   .background {
     height: 45vh !important;
     min-height: 45vh !important;
@@ -239,9 +242,7 @@ p {
     right: 245px;
   }
 
-  label {
-    text-align: center !important;
-  }
+
 }
 
 p {
@@ -484,6 +485,9 @@ h4 {
 }
 
 @media screen and (max-width: 1240px) {
+  #phoneNumber {
+    width: 153px;
+  }
   .webView {
     display: none;
   }
