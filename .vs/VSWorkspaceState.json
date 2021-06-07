@@ -4,11 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\authentication",
-    "\\src\\app\\modules\\authentication\\authentication",
-    "\\src\\app\\modules\\authentication\\login",
+    "\\src\\app\\modules\\accounts",
+    "\\src\\app\\modules\\credit-cards",
+    "\\src\\app\\modules\\investments",
+    "\\src\\app\\modules\\layout\\layout",
+    "\\src\\app\\modules\\personal-loans",
     "\\src\\app\\modules\\register"
   ],
-  "SelectedNode": "\\src\\app\\modules\\authentication\\login\\login.component.html",
+  "SelectedNode": "\\src\\app\\modules\\investments\\investments.component.scss",
   "PreviewInSolutionExplorer": false
 }
