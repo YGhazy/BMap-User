@@ -32,9 +32,18 @@ export class IslamicSolutionsComponent implements OnInit {
   ];
 
   codes = [
-    { code: '011' },
-    { code: '012' },
-    { code: '015' },
+    { code: '01' },
+    { code: '02' },
+    { code: '03' },
+    { code: '04' },
+    { code: '06' },
+    { code: '07' },
+    { code: '09' },
+    { code: '050' },
+    { code: '052' },
+    { code: '054' },
+    { code: '056' },
+    { code: '058' },
 
   ]
 
