@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\accounts",
-    "\\src\\app\\modules\\credit-cards",
-    "\\src\\app\\modules\\investments",
-    "\\src\\app\\modules\\layout\\layout",
+    "\\src\\app\\modules\\home",
+    "\\src\\app\\modules\\layout",
     "\\src\\app\\modules\\personal-loans",
-    "\\src\\app\\modules\\register"
+    "\\src\\app\\modules\\register",
+    "\\src\\app\\modules\\shared",
+    "\\src\\app\\modules\\shared\\service-slider"
   ],
-  "SelectedNode": "\\src\\app\\modules\\investments\\investments.component.scss",
+  "SelectedNode": "\\src\\app\\modules\\shared\\service-slider\\service-slider.component.spec.ts",
   "PreviewInSolutionExplorer": false
 }
