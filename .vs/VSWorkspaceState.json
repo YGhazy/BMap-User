@@ -4,13 +4,13 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\home",
-    "\\src\\app\\modules\\layout",
+    "\\src\\app\\modules\\corporate-banking",
+    "\\src\\app\\modules\\islamic-solutions",
     "\\src\\app\\modules\\personal-loans",
     "\\src\\app\\modules\\register",
     "\\src\\app\\modules\\shared",
     "\\src\\app\\modules\\shared\\service-slider"
   ],
-  "SelectedNode": "\\src\\app\\modules\\shared\\service-slider\\service-slider.component.spec.ts",
+  "SelectedNode": "\\src\\app\\modules\\islamic-solutions\\islamic-solutions.component.ts",
   "PreviewInSolutionExplorer": false
 }
