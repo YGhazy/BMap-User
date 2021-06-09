@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { CorporateTypes } from '../../enums/CorporateTypes';
 import { IslamicTypes } from '../../enums/IslamicTypes';
 import { ServicesService } from '../../services/ServicesService';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
@@ -20,7 +21,7 @@ export class IslamicSolutionsComponent implements OnInit {
   selectedTime
   selectedType
   selectedCode
-  typesEnum = IslamicTypes
+  typesEnum = CorporateTypes
 
   selectedNationality
   nationalityList = 

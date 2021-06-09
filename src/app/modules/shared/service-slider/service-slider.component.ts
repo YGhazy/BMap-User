@@ -71,6 +71,10 @@ export class ServiceSliderComponent implements OnInit {
       this.router.navigateByUrl('/Loans')
     else if (service.nameEN == 'Investments')
       this.router.navigateByUrl('/investment')
+    else if (service.nameEN == 'Islamic Solutions')
+      this.router.navigateByUrl('/islamic-solutions')
+    else if (service.nameEN == 'Corporate')
+      this.router.navigateByUrl('/corporate-banks')
 }
   FetchServices() {
 
@@ -133,7 +137,7 @@ export class ServiceSliderComponent implements OnInit {
 
     this.seventhService.id = 5;
     this.seventhService.nameEN = "Islamic Solutions";
-    this.seventhService.nameAR = "حلول اسلامية";
+    this.seventhService.nameAR = "الخدمات الاسلامية";
     this.seventhService.descriptionEN = " Lorem Ipsum";
     this.seventhService.descriptionAR = " ضصثضصثضصثضص";
     this.seventhService.descriptionAR = " ضصثضصثضصثضص";
