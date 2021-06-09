@@ -35,7 +35,7 @@ export const Arabic: any = {
     investments: "الاستثمارات",
     creditCards: "بطاقات الائتمان",
     CorporateBanking: "الشركات",
-    IslamicSolutions: "حلول اسلامية",
+    IslamicSolutions: "الخدمات الاسلامية",
   },
   CorporateBanking: {
     type1: "بطاقات ائتمانية",

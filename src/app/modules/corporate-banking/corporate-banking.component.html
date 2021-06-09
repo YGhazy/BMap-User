@@ -11,42 +11,29 @@
     <!--Service types card-->
     <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
       <div class="serviceType-container d-flex justify-content-around  align-items-center"
-           (click)="ViewApply(typesEnum.CreditCard)">
-        <div class="imgContainer">
-          <img src="./assets/images/icons/credit-card-payment.png" alt="type" />
-        </div>
-        <p class="m-0"> {{langVar.CorporateBanking.type1}}</p>
-      </div>
-
-      <div class="serviceType-container d-flex justify-content-around  align-items-center"
-           (click)="ViewApply(typesEnum.IslamicFinance)">
+           (click)="ViewApply(typesEnum.CorporateBankingAccounts)">
 
         <div class="imgContainer">
           <img src="./assets/images/icons/cashback.png" alt="type" />
         </div>
 
-        <p class="m-0"> {{langVar.CorporateBanking.type2}}</p>
+        <p class="m-0"> {{langVar.IslamicSolutions.type1}}</p>
       </div>
 
       <div class="serviceType-container d-flex justify-content-around  align-items-center"
-           (click)="ViewApply(typesEnum.Accounts)">
+           (click)="ViewApply(typesEnum.CorporateBankingFinanceAndFacilities)">
 
         <div class="imgContainer">
           <img src="./assets/images/icons/prepaid-card.png" alt="type" />
         </div>
 
-        <p class="m-0"> {{langVar.CorporateBanking.type3}}</p>
+        <p class="m-0"> {{langVar.IslamicSolutions.type2}}</p>
       </div>
 
-      <div class="serviceType-container d-flex justify-content-around  align-items-center"
-           (click)="ViewApply(typesEnum.Takaful)">
 
-        <div class="imgContainer">
-          <img src="./assets/images/icons/banking.png" alt="type" />
-        </div>
 
-        <p class="m-0"> {{langVar.CorporateBanking.type4}}</p>
-      </div>
+
+    
     </div>
 
   </section>

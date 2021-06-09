@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
 import { CorporateTypes } from '../../enums/CorporateTypes';
+import { IslamicTypes } from '../../enums/IslamicTypes';
 import { ServicesService } from '../../services/ServicesService';
 import { formBuilderHelper } from '../../services/utilities/formBuilderHelper';
 import { langHelper } from '../../services/utilities/language-helper';
@@ -20,7 +21,9 @@ export class CorporateBankingComponent implements OnInit {
   selectedTime
   selectedType
   selectedCode
-  typesEnum = CorporateTypes
+
+  typesEnum = IslamicTypes
+
   selectedNationality
   nationalityList = [
     { name: 'New York' },
