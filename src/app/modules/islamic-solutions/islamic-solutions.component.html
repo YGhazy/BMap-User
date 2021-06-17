@@ -141,20 +141,20 @@
             <div class="inputContainer mb-3">
 
               <label for="timeonly" style="display:block; " class="mb-2 {{langVar.textAlign}}"> {{langVar.placeholder.Time}}</label>
-              <p-calendar [(ngModel)]="selectedTime" [timeOnly]="true" inputId="timeonly" formControlName="timeToCall" dir="auto" class="text-center"></p-calendar>
+              <p-calendar [(ngModel)]="selectedTime" [showTime]="true" inputId="timeonly" formControlName="timeToCall" [touchUI]="true" dir="auto" style="text-align:initial"></p-calendar>
 
               <div *ngIf="applicationFormControls.timeToCall.invalid && (applicationFormControls.timeToCall.dirty|| applicationFormControls.timeToCall.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.timeToCall.errors.required">
                   {{langVar.invalid.requiredTime}}
                 </div>
-               
+
               </div>
             </div>
             <div class="inputContainer my-3">
 
-              <label for="Nationality" style="display:block; " class="{{langVar.textAlign}}"> {{langVar.placeholder.nationality}}</label>
-              <p-dropdown [options]="nationalityList" [(ngModel)]="selectedNationality" placeholder="{{langVar.placeholder.nationality}}" [filter]="true" filterBy="name" optionLabel="name" formControlName="nationality"></p-dropdown>
+              <label for="Nationality" style="display:block; " class=" mb-2  {{langVar.textAlign}}"> {{langVar.placeholder.nationality}}</label>
+              <p-dropdown [options]="nationalityList" [(ngModel)]="selectedNationality" placeholder={{langVar.placeholder.nationality}} formControlName="nationality" [filter]="true" filterBy="name" optionLabel="name" ></p-dropdown>
               <div *ngIf="applicationFormControls.nationality.invalid && (applicationFormControls.nationality.dirty|| applicationFormControls.nationality.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
                 <div *ngIf="applicationFormControls.nationality.errors.required">

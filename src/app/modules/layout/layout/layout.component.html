@@ -138,7 +138,7 @@
                 </h2>
                 <div class="row p-2 " >
                   <ul class="list-group">
-                    <li><a class="smoothscroll {{langVar.textAlign}}">+971 (0) 55 5203117</a></li>
+                    <li dir="ltr"><a class="smoothscroll {{langVar.textAlign}}">+971 (0) 55 5203117</a></li>
                     <li><a class="smoothscroll {{langVar.textAlign}}">info@bmap.ae</a></li>
                     <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/contact')"> Abu Dhabi, United Arab Emirates</a></li>
                   </ul>
@@ -148,9 +148,15 @@
           </div>
         </div>
         <div class=" text-center  d-flex justify-content-center justify-content-xl-between  flex-wrap flex-xl-nowrap;" dir="{{langVar.dir}}">
-          <p dir="{{langVar.dir}}" >
-            {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
-          </p>
+         
+            <p dir="{{langVar.dir}}" class="d-flex {{langVar.textAlign}} align-items-baseline">
+              {{langVar.copyRights2}}
+              <span class="mx-1">
+                &#169;
+              </span>
+              {{langVar.copyRights1}}  <a style="text-decoration:none;">BMap</a>
+            </p>
+          
           <p dir="{{langVar.dir}}">
             <a href="../../../../assets/terms.pdf" target="_blank" rel="noopener noreferrer">{{langVar.terms}}</a>  | <a href="../../../../assets/privacyterms.pdf" rel="noopener noreferrer" target="_blank">{{langVar.policy}}</a>
           </p>

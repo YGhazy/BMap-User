@@ -54,7 +54,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     SharedModule,
     DropdownModule,
     InputNumberModule,
-    InputTextareaModule
+    InputTextareaModule,
+
   ]
 })
 export class LayoutModule { }

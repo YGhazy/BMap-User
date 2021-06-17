@@ -16,7 +16,7 @@ export class formBuilderHelper {
 
     this.controllers = {
       fullName: [Validators.required, Validators.min(1), Validators.max(50), Validators.pattern("^[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z]+[\u0600-\u065F\u066A-\u06EF\u06FA-\u06FFa-zA-Z-_]*$")], //arabic & english letters
-      mobileNumber: [Validators.required, Validators.pattern("^([0-9]{8,})$")],
+      mobileNumber: [Validators.required, Validators.pattern("^([+0-9]{8,})$")],
       calendar: [Validators.required],
       age: [Validators.required],
       timeToCall :[Validators.required],

@@ -1,7 +1,12 @@
 .arabic h1, .arabic h2, .arabic h3, .arabic h4, .arabic h5, .arabic h6, .arabic p, .arabic .nav-link, .arabic a {
   font-family: 'Cairo';
 }
-
+:host::ng-deep .arabic .p-calendar .p-inputtext {
+  text-align: right !important;
+}
+:host::ng-deep.p-calendar .p-datepicker-touch-ui, .p-datepicker-touch-ui {
+  min-width: 25vw;
+}
 .imgContainer {
   width: 70px;
 }

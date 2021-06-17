@@ -74,7 +74,6 @@ export class CorporateBankingComponent implements OnInit {
 
   }
   ViewApply(type) {
-    console.log(type)
     this.selectedType = type
     this.ApplyModal.show()
   }
@@ -93,7 +92,6 @@ export class CorporateBankingComponent implements OnInit {
       type: this.selectedType
     }
 
-    console.log(createServiceRequest);
     this.ServicesService.CreateCorporateServiceRequest(createServiceRequest).subscribe(res => {
       if (res.succeeded) {
         this.toastr.success(this.langVar.response.reqSent, this.langVar.response.success, {
