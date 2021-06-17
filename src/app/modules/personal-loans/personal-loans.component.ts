@@ -20,8 +20,8 @@ export class PersonalLoansComponent implements OnInit {
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
 
-    this.ServicesService.GetAllServices().subscribe(res => {
-      this.Service = res.data[1];
+    this.ServicesService.GetPersonalLoansService().subscribe(res => {
+      this.Service = res.data;
       console.log(this.Service);
     }, error => {
       console.log(error);
