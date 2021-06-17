@@ -12,7 +12,7 @@ export class CreditCardsComponent implements OnInit {
 
   currentLang;
   langVar;
-  Service;
+  Service:any;
   constructor(private langHelper: langHelper, private ServicesService: ServicesService, private router: Router) { }
 
   ngOnInit(): void {
