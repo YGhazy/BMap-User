@@ -3,12 +3,19 @@
 .arabic h1, .arabic h2, .arabic h3, .arabic h4, .arabic h5, .arabic h6, .arabic p, .arabic .nav-link, .arabic a {
   font-family: 'Cairo';
 }
+h2 {
+  font-size: 38px;
+  color: #000000;
+  text-shadow: 0px 0px 4px #000000bc;
+  font-family: 'Roboto', sans-serif;
+  top: -100px
+}
 
 .background {
   background: url(../../../assets/images/contact/cover.png) no-repeat 0 0;
-  background-position: bottom;
   background-size: cover;
-  height: 70vh;
+  background-position: bottom;
+  height: 100vh;
 }
 
 .form-control{
@@ -78,6 +85,22 @@ h1{
 
 
 @media screen and (max-width: 900px) {
+  h2 {
+    top: -50px;
+  }
+  .background {
+    height: 45vh !important;
+    min-height: 45vh !important;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 100%, 0% 72%);
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 72%);
+  }
+
+  .site-blocks-cover {
+    min-height: 50vh;
+    height: calc(50vh);
+  }
+
   form{
     text-align: center;
   }

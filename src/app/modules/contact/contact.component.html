@@ -2,123 +2,131 @@
 </div>
 
 <section class="mb-5 {{langVar.arabicClass}}">
-     <div class="container">
-          <div class="row" dir="{{langVar.dir}}" >
-               <div class="col-lg-7 col-12">
-                    <h1 class="mb-4 ml-4" [ngClass]="{'text-right': currentLang == 'ar'}">{{langVar.contact.title}}</h1>
-                    <form [formGroup]="contactForm">
-                         <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="firstName" placeholder="{{langVar.placeholder.FirstName}}"
-                                   formControlName="contactFirstName" />
-                              <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
-                              <div *ngIf="contactFormControls.contactFirstName.invalid && (contactFormControls.contactFirstName.dirty|| contactFormControls.contactFirstName.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.contactFirstName.errors.required">
-                                        {{langVar.invalid.requiredName}}
-                                   </div>
-                                   <div *ngIf="contactFormControls.contactFirstName.errors.pattern">
-                                        {{langVar.invalid.namePattern}}
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="lastName" placeholder="{{langVar.placeholder.LastName}}"
-                                   formControlName="contactLastName" />
-                                   <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
-                              <div *ngIf="contactFormControls.contactLastName.invalid && (contactFormControls.contactLastName.dirty|| contactFormControls.contactLastName.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.contactLastName.errors.required">
-                                        {{langVar.invalid.requiredName}}
-                                   </div>
-                                   <div *ngIf="contactFormControls.contactLastName.errors.pattern">
-                                        {{langVar.invalid.namePattern}}
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="contactEmail" placeholder="{{langVar.placeholder.email}}"
-                                   formControlName="email" />
-                                   <img src="./assets/images/icons/icon-email.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
-                              <div *ngIf="contactFormControls.email.invalid && (contactFormControls.email.dirty|| contactFormControls.email.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.email.errors.required">
-                                        {{langVar.invalid.requiredEmail}}
-                                   </div>
-                                   <div *ngIf="contactFormControls.email.errors.pattern">
-                                        {{langVar.invalid.emailPattern}}
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="contactNumber"  
-                                   placeholder="{{langVar.placeholder.PhoneNumber}}" formControlName="mobileNumber"  />
-                                   <img src="./assets/images/icons/icon-phone.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
-                              <div *ngIf="contactFormControls.mobileNumber.invalid && (contactFormControls.mobileNumber.dirty|| contactFormControls.mobileNumber.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.mobileNumber.errors.required">
-                                        {{langVar.applicationForm.phoneRequired}}
-                                   </div>
-                                   <div *ngIf="contactFormControls.mobileNumber.errors.pattern">
-                                        {{langVar.applicationForm.phonePattern}}
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="contactSubject" placeholder="{{langVar.contact.subject}}"
-                                   formControlName="contactSubject" />
-                              <div *ngIf="contactFormControls.contactSubject.invalid && (contactFormControls.contactSubject.dirty|| contactFormControls.contactSubject.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.contactSubject.errors.required">
-                                        {{langVar.invalid.required}}
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="input-container mb-4" [ngClass]="{'text-right':currentLang=='ar'}">
-                              <label for="contactMessage">{{langVar.contact.message}}</label>
-                              <textarea class="form-control mb-4" formControlName="contactMessage"></textarea>
-                              <div *ngIf="contactFormControls.contactMessage.invalid && (contactFormControls.contactMessage.dirty|| contactFormControls.contactMessage.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
-                                   <div *ngIf="contactFormControls.contactMessage.errors.required">
-                                        {{langVar.invalid.required}}
-                                   </div>
-                              </div>
-                         </div>
-                         <button type="submit" [disabled]="!contactForm.valid" *ngIf="!disabled"
-                              (click)="CreateContactRequest()" class="btn btn-primary" [ngClass]="{'text-right': currentLang == 'ar'}">{{langVar.contact.contact}}</button>
-                         <label style="color: #31d190;" *ngIf="contactResult == 'success'">{{langVar.contact.messageSent}}</label>
-                         <label style="color: #2c3e50" *ngIf="contactResult == 'failure'">{{langVar.contact.messageError}}</label>
-                    </form>
-               </div>
-               <div class="col-lg-5 col-12 text-center">
-                    <div class="mt-5 infoSection">
-                         <h3><img src="./assets/images/icons/icon-location.png" width="20" height="25" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}" /> {{langVar.contact.findus}}</h3>
-                         <p class="mt-3">Masdar City</p>
-                         <p>Post Box 54115</p>
-                         <p>
-                           Near Presidential Flight / Abu Dhabi International Airport
-                         </p>
-                      <p>
-
-                           Abu Dhabi, United Arab Emirates
-                      </p>
-                    </div>
-                    <div class="infoSection">
-                         <h3><img src="./assets/images/icons/icon-phone-ring.png" width="20" height="20" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}"/>{{langVar.contact.ring}}</h3>
-                         <p class="mt-3"> +971 (0) 55 5203117</p>
-                         <p>T: +971 2 653 3333</p>
-                         <p>
-                           F: +971 2 653 1006
-                         </p>
-                    </div>
-                    <!--<div class="infoSection">
-                         <h3><img src="./assets/images/icons/icon-info.png" width="20" height="20" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}"/>{{langVar.contact.legal}}</h3>
-                         <p class="mt-3">+201133223344</p>
-                         <p>Bmap@gmail.com</p>
-                         <p>Cairo City</p>
-                    </div>-->
-               </div>
+  <div class="container">
+  <section class="position-relative "  >
+    <h2 class="mb-4 text-left {{langVar.textAlign}} position-absolute">
+      {{langVar.layout.contact}}
+    </h2>
+   
+  </section>
+    <div class="row pt-4" dir="{{langVar.dir}}">
+      <div class="col-lg-7 col-12">
+        <h1 class="mb-4 ml-4" [ngClass]="{'text-right': currentLang == 'ar'}">{{langVar.contact.title}}</h1>
+        <form [formGroup]="contactForm">
+          <div class="input-container mb-4">
+            <input class="form-control mb-2" type="text" name="firstName" placeholder="{{langVar.placeholder.FirstName}}"
+                   formControlName="contactFirstName" />
+            <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
+            <div *ngIf="contactFormControls.contactFirstName.invalid && (contactFormControls.contactFirstName.dirty|| contactFormControls.contactFirstName.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.contactFirstName.errors.required">
+                {{langVar.invalid.requiredName}}
+              </div>
+              <div *ngIf="contactFormControls.contactFirstName.errors.pattern">
+                {{langVar.invalid.namePattern}}
+              </div>
+            </div>
           </div>
-     </div>
+          <div class="input-container mb-4">
+            <input class="form-control mb-2" type="text" name="lastName" placeholder="{{langVar.placeholder.LastName}}"
+                   formControlName="contactLastName" />
+            <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
+            <div *ngIf="contactFormControls.contactLastName.invalid && (contactFormControls.contactLastName.dirty|| contactFormControls.contactLastName.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.contactLastName.errors.required">
+                {{langVar.invalid.requiredName}}
+              </div>
+              <div *ngIf="contactFormControls.contactLastName.errors.pattern">
+                {{langVar.invalid.namePattern}}
+              </div>
+            </div>
+          </div>
+          <div class="input-container mb-4">
+            <input class="form-control mb-2" type="text" name="contactEmail" placeholder="{{langVar.placeholder.email}}"
+                   formControlName="email" />
+            <img src="./assets/images/icons/icon-email.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
+            <div *ngIf="contactFormControls.email.invalid && (contactFormControls.email.dirty|| contactFormControls.email.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.email.errors.required">
+                {{langVar.invalid.requiredEmail}}
+              </div>
+              <div *ngIf="contactFormControls.email.errors.pattern">
+                {{langVar.invalid.emailPattern}}
+              </div>
+            </div>
+          </div>
+          <div class="input-container mb-4">
+            <input class="form-control mb-2" type="text" name="contactNumber"
+                   placeholder="{{langVar.placeholder.PhoneNumber}}" formControlName="mobileNumber" />
+            <img src="./assets/images/icons/icon-phone.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
+            <div *ngIf="contactFormControls.mobileNumber.invalid && (contactFormControls.mobileNumber.dirty|| contactFormControls.mobileNumber.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.mobileNumber.errors.required">
+                {{langVar.applicationForm.phoneRequired}}
+              </div>
+              <div *ngIf="contactFormControls.mobileNumber.errors.pattern">
+                {{langVar.applicationForm.phonePattern}}
+              </div>
+            </div>
+          </div>
+          <div class="input-container mb-4">
+            <input class="form-control mb-2" type="text" name="contactSubject" placeholder="{{langVar.contact.subject}}"
+                   formControlName="contactSubject" />
+            <div *ngIf="contactFormControls.contactSubject.invalid && (contactFormControls.contactSubject.dirty|| contactFormControls.contactSubject.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.contactSubject.errors.required">
+                {{langVar.invalid.required}}
+              </div>
+            </div>
+          </div>
+          <div class="input-container mb-4" [ngClass]="{'text-right':currentLang=='ar'}">
+            <label for="contactMessage">{{langVar.contact.message}}</label>
+            <textarea class="form-control mb-4" formControlName="contactMessage"></textarea>
+            <div *ngIf="contactFormControls.contactMessage.invalid && (contactFormControls.contactMessage.dirty|| contactFormControls.contactMessage.touched)"
+                 class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
+              <div *ngIf="contactFormControls.contactMessage.errors.required">
+                {{langVar.invalid.required}}
+              </div>
+            </div>
+          </div>
+          <button type="submit" [disabled]="!contactForm.valid" *ngIf="!disabled"
+                  (click)="CreateContactRequest()" class="btn btn-primary" [ngClass]="{'text-right': currentLang == 'ar'}">
+            {{langVar.contact.contact}}
+          </button>
+          <label style="color: #31d190;" *ngIf="contactResult == 'success'">{{langVar.contact.messageSent}}</label>
+          <label style="color: #2c3e50" *ngIf="contactResult == 'failure'">{{langVar.contact.messageError}}</label>
+        </form>
+      </div>
+      <div class="col-lg-5 col-12 text-center">
+        <div class="mt-5 infoSection">
+          <h3><img src="./assets/images/icons/icon-location.png" width="20" height="25" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}" /> {{langVar.contact.findus}}</h3>
+          <p class="mt-3">Masdar City</p>
+          <p>Post Box 54115</p>
+          <p>
+            Near Presidential Flight / Abu Dhabi International Airport
+          </p>
+          <p>
+
+            Abu Dhabi, United Arab Emirates
+          </p>
+        </div>
+        <div class="infoSection">
+          <h3><img src="./assets/images/icons/icon-phone-ring.png" width="20" height="20" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}" />{{langVar.contact.ring}}</h3>
+          <p class="mt-3"> +971 (0) 55 5203117</p>
+          <p>T: +971 2 653 3333</p>
+          <p>
+            F: +971 2 653 1006
+          </p>
+        </div>
+        <!--<div class="infoSection">
+             <h3><img src="./assets/images/icons/icon-info.png" width="20" height="20" class="mr-2" [ngClass]="{'ar-info-icon': currentLang == 'ar'}"/>{{langVar.contact.legal}}</h3>
+             <p class="mt-3">+201133223344</p>
+             <p>Bmap@gmail.com</p>
+             <p>Cairo City</p>
+        </div>-->
+      </div>
+    </div>
+  </div>
 </section>
 <!--Map section-->
 <section class="mt-5">
