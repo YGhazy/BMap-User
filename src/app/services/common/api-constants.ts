@@ -13,6 +13,11 @@ export const API_CONSTANTS = {
 
     //Services
     GetAllServices: '/Services/GetAllServices',
+  GetCreditCardsService: '/Services/GetCreditCardsService',
+  GetPersonalLoansService: '/Services/GetPersonalLoansService',
+  GetLoansService: '/Services/GetLoansService',
+  GetAccountsService: '/Services/GetAccountsService',
+  GetInvestmentsService :'/Services/GetInvestmentsService',
 
     //Service Types
     GetAllServiceTypesByServiceID: '/ServiceTypes/GetAllServiceTypesByServiceID/',

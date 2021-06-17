@@ -24,6 +24,21 @@ export class ServicesService extends BaseService {
     GetAllServices(): Observable<ApiResponse> {
         return this.get(API_CONSTANTS.GetAllServices);
     }
+  GetAccountsService(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetAccountsService);
+    }
+  GetCreditCardsService(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetCreditCardsService);
+    }
+  GetLoansService(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetLoansService);
+    }
+  GetInvestmentsService(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetInvestmentsService);
+  }
+  GetPersonalLoansService(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetPersonalLoansService);
+    }
 
     GetCustomerServiceRequests(customerID: number): Observable<ApiResponse> {
         return this.get(API_CONSTANTS.GetCustomerServiceRequests + customerID);
