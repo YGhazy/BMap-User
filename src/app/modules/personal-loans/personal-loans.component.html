@@ -17,8 +17,8 @@
   <section class="container pt-2 mb-5  position-relative {{langVar.arabicClass}}" *ngIf="Service!='undefined'">
     <!--Service title / description-->
 
-    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" data-aos="fade" *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
-    <h1 class="m-0 {{langVar.textAlign}} position-absolute" style="top:-50px" data-aos="fade" *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}} position-absolute"  *ngIf="currentLang == 'en'">{{Service.nameEN}}</h1>
+    <h1 class="m-0 {{langVar.textAlign}} position-absolute"  *ngIf="currentLang == 'ar'">{{Service.nameAR}}</h1>
 
     <!--Service types card-->
     <div class="d-flex flex-wrap justify-content-center" dir="{{langVar.dir}}" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500" *ngIf="Service.serviceTypes">

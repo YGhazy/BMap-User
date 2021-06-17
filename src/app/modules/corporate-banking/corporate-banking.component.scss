@@ -14,9 +14,9 @@
 
 .background {
   background: url(../../../assets/images/contact/cover.png) no-repeat 0 0;
-  background-position: bottom;
   background-size: cover;
-  height: 70vh;
+  background-position: center;
+  height: 100vh;
 }
 
 .fa-window-close:hover {
@@ -40,6 +40,7 @@ button:active, button:focus, button:hover {
 h1 {
   font-size: 38px;
   color: #000000;
+  top: -100px;
   text-shadow: 0px 0px 4px #000000bc;
   font-family: 'Roboto', sans-serif;
 }
@@ -260,12 +261,7 @@ p {
   line-height: 1.2;
 }
 
-.background {
-  height: 64px;
-  background: url(../../../assets/images/offerCover.png) no-repeat 0 0;
-  background-position: bottom;
-  background-size: cover;
-}
+
 
 p, label {
   margin: 0;
@@ -496,6 +492,9 @@ h4 {
 }
 
 @media screen and (max-width: 1240px) {
+    h1{
+        top:-50px;
+    }
   .imgContainer {
     width: 50px;
   }

@@ -13,9 +13,10 @@
 
 .background {
   background: url(../../../assets/images/contact/cover.png) no-repeat 0 0;
-  background-position: bottom;
   background-size: cover;
-  height: 70vh;
+  background-position: center;
+  height: 100vh;
+
 }
 
 .fa-window-close:hover {
@@ -41,6 +42,7 @@ h1 {
   color: #000000;
   text-shadow: 0px 0px 4px #000000bc;
   font-family: 'Roboto', sans-serif;
+  top: -100px;
 }
 
 p {
@@ -216,6 +218,9 @@ p {
     min-height: 60vh;
     -webkit-clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
     clip-path: polygon(0 0, 100% 0%, 102% 79%, -1% 55%);
+  }
+  h1 {
+    top: -50px
   }
 }
 
