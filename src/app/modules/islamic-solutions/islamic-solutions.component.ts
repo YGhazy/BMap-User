@@ -225,19 +225,16 @@ export class IslamicSolutionsComponent implements OnInit {
 
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
-
   }
 
   ViewApply(type) {
-    console.log(type)
     this.selectedType = type
     this.ApplyModal.show()
   }
 
 
   Apply() {
-    console.log(this.applicationForm.value.nationality)
-    console.log(this.selectedNationality)
+
     const createServiceRequest = {
       date: new Date(),
       firstName: this.applicationForm.value.firstName,
@@ -250,7 +247,6 @@ export class IslamicSolutionsComponent implements OnInit {
       type: this.selectedType
     }
 
-    console.log(createServiceRequest);
     this.ServicesService.CreateIslamicServiceRequest(createServiceRequest).subscribe(res => {
       if (res.succeeded) {
         this.toastr.success(this.langVar.response.reqSent, this.langVar.response.success, {

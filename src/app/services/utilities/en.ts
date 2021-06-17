@@ -13,7 +13,8 @@ export const English: any = {
   navFloat: "float-right",
   quickLinks: "Quick Links",
   followUs: "Follow Us",
-  copyRights1: "Copyright &copy; 2021, All rights reserved |",
+  copyRights1: "All rights reserved |",
+  copyRights2: "Copyright ",
   terms:"Terms and Conditions",
   policy: "Privacy Policy",
   NoRequest: "No Requests Found",
@@ -143,7 +144,8 @@ export const English: any = {
     salary: "Salary",
     Time:"Time to call",
     CompanyName:"Company Name",
-    Comment:"Comment",
+    Comment: "Comment",
+    nationality:'Nationality'
   },
   applicationForm:{
     title: 'Please fill in the details to receive a call back with more details about this product ',

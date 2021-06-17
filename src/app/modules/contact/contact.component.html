@@ -12,7 +12,7 @@
                                    formControlName="contactFirstName" />
                               <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
                               <div *ngIf="contactFormControls.contactFirstName.invalid && (contactFormControls.contactFirstName.dirty|| contactFormControls.contactFirstName.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.contactFirstName.errors.required">
                                         {{langVar.invalid.requiredName}}
                                    </div>
@@ -26,7 +26,7 @@
                                    formControlName="contactLastName" />
                                    <img src="./assets/images/icons/icon-user.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
                               <div *ngIf="contactFormControls.contactLastName.invalid && (contactFormControls.contactLastName.dirty|| contactFormControls.contactLastName.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.contactLastName.errors.required">
                                         {{langVar.invalid.requiredName}}
                                    </div>
@@ -40,21 +40,21 @@
                                    formControlName="email" />
                                    <img src="./assets/images/icons/icon-email.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
                               <div *ngIf="contactFormControls.email.invalid && (contactFormControls.email.dirty|| contactFormControls.email.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.email.errors.required">
                                         {{langVar.invalid.requiredEmail}}
                                    </div>
-                                   <div *ngIf="contactFormControls.email.errors.email">
+                                   <div *ngIf="contactFormControls.email.errors.pattern">
                                         {{langVar.invalid.emailPattern}}
                                    </div>
                               </div>
                          </div>
                          <div class="input-container mb-4">
-                              <input class="form-control mb-2" type="text" name="contactNumber"
-                                   placeholder="{{langVar.placeholder.PhoneNumber}}" formControlName="mobileNumber" />
+                              <input class="form-control mb-2" type="text" name="contactNumber"  
+                                   placeholder="{{langVar.placeholder.PhoneNumber}}" formControlName="mobileNumber"  />
                                    <img src="./assets/images/icons/icon-phone.png" width="20" height="20" [ngClass]="{'ar-icon': currentLang == 'ar'}" />
                               <div *ngIf="contactFormControls.mobileNumber.invalid && (contactFormControls.mobileNumber.dirty|| contactFormControls.mobileNumber.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.mobileNumber.errors.required">
                                         {{langVar.applicationForm.phoneRequired}}
                                    </div>
@@ -67,7 +67,7 @@
                               <input class="form-control mb-2" type="text" name="contactSubject" placeholder="{{langVar.contact.subject}}"
                                    formControlName="contactSubject" />
                               <div *ngIf="contactFormControls.contactSubject.invalid && (contactFormControls.contactSubject.dirty|| contactFormControls.contactSubject.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.contactSubject.errors.required">
                                         {{langVar.invalid.required}}
                                    </div>
@@ -77,7 +77,7 @@
                               <label for="contactMessage">{{langVar.contact.message}}</label>
                               <textarea class="form-control mb-4" formControlName="contactMessage"></textarea>
                               <div *ngIf="contactFormControls.contactMessage.invalid && (contactFormControls.contactMessage.dirty|| contactFormControls.contactMessage.touched)"
-                                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                                   class="alert alert-danger mt-1 px-2 py-0 mb-0  {{langVar.textAlign}}" style="display:block; ">
                                    <div *ngIf="contactFormControls.contactMessage.errors.required">
                                         {{langVar.invalid.required}}
                                    </div>

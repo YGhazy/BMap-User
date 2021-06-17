@@ -30,10 +30,6 @@
         <p class="m-0"> {{langVar.IslamicSolutions.type2}}</p>
       </div>
 
-
-
-
-    
     </div>
 
   </section>
@@ -42,7 +38,7 @@
 
 <div bsModal #ApplyModal="bs-modal" class="modal fade  {{langVar.arabicClass}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content mb-5">
       <div class="modal-header  mx-3 mt-2 pb-0 {{langVar.rowReverse}}">
         <h3 class="modal-title ">{{langVar.offers.Modaltitle}}</h3>
 
@@ -72,7 +68,7 @@
             <div class="inputContainer mb-3">
 
               <label>{{langVar.placeholder.LastName}}</label>
-              <input  type="text" class="form-control" formControlName="lastName"
+              <input type="text" class="form-control" formControlName="lastName"
                      placeholder="{{langVar.placeholder.LastName}}" />
               <div *ngIf="applicationFormControls.lastName.invalid && (applicationFormControls.lastName.dirty|| applicationFormControls.lastName.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
@@ -127,7 +123,7 @@
             <div class="inputContainer mb-3">
 
               <label for="timeonly" style="display:block; " class="mb-2"> {{langVar.placeholder.Time}}</label>
-              <p-calendar [(ngModel)]="selectedTime" [timeOnly]="true" inputId="timeonly" formControlName="timeToCall" dir="auto" class="text-center"></p-calendar>
+              <p-calendar [(ngModel)]="selectedTime" [showTime]="true" inputId="timeonly" formControlName="timeToCall" [touchUI]="true" dir="auto"style="text-align:initial"></p-calendar>
 
               <div *ngIf="applicationFormControls.timeToCall.invalid && (applicationFormControls.timeToCall.dirty|| applicationFormControls.timeToCall.touched)"
                    class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
@@ -158,15 +154,15 @@
 
               <!--<input id="firstName" type="text" class="form-control" formControlName="comment"
                      placeholder="{{langVar.placeholder.Comment}}" />-->
-              <textarea [rows]="5" [cols]="30" pInputTextarea  placeholder="{{langVar.placeholder.Comment}}" class="form-control" formControlName="comment"></textarea>
+              <textarea [rows]="5" [cols]="30" pInputTextarea placeholder="{{langVar.placeholder.Comment}}" class="form-control p-3" formControlName="comment"></textarea>
 
               <!--<div *ngIf="applicationFormControls.comment.invalid && (applicationFormControls.firstName.dirty|| applicationFormControls.firstName.touched)"
-       class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-    <div *ngIf="applicationFormControls.comment.errors.required">
-      {{langVar.invalid.requiredName}}
-    </div>
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.comment.errors.required">
+                  {{langVar.invalid.requiredName}}
+                </div>
 
-  </div>-->
+              </div>-->
             </div>
 
           </div>
