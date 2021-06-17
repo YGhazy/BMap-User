@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\enums",
     "\\src\\app\\modules",
-    "\\src\\app\\modules\\profile",
-    "\\src\\app\\modules\\shared\\service-slider",
+    "\\src\\app\\modules\\accounts",
+    "\\src\\app\\modules\\investments",
+    "\\src\\app\\modules\\offers",
     "\\src\\app\\services",
-    "\\src\\app\\services\\utilities"
+    "\\src\\app\\services\\common",
+    "\\src\\app\\services\\http-services"
   ],
-  "SelectedNode": "\\src\\app\\modules\\profile\\profile.component.ts",
+  "SelectedNode": "\\src\\app\\modules\\offers\\offers.component.ts",
   "PreviewInSolutionExplorer": false
 }
