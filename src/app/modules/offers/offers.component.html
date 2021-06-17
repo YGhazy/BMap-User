@@ -1,5 +1,5 @@
 
-<div id="centerdiv" *ngIf="!ServiceType">
+<div id="centerdiv" *ngIf="ServiceType==undefined">
   <ul>
     <li></li>
     <li></li>
@@ -10,10 +10,10 @@
   </ul>
 </div>
 
-<div class="background" *ngIf="ServiceType">
+<div class="background"  *ngIf="ServiceType!=undefined">
 </div>
 
-<section class="mx-xl-4 my-5 {{langVar.textAlign}} {{langVar.arabicClass}}" *ngIf="ServiceType">
+<section class="mx-xl-4 my-5 {{langVar.textAlign}} {{langVar.arabicClass}}" *ngIf="ServiceType!=undefined">
   <h1 *ngIf="currentLang=='en'" class="mx-4 mx-xl-0">
     {{ServiceType.nameEN}}
 
