@@ -25,6 +25,27 @@
 
   <hr />
   <div class="row {{langVar.rowReverse}}">
+    <div class="col-3 webView pt-4">
+
+      <div class="card offer-details types">
+        <div class="card-body d-flex flex-column justify-content-around">
+          <div class="types-container">
+
+            <h3 class="text-center mb-3" *ngIf="currentLang=='en'"> {{serviceNameEN}} {{langVar.offers.types}} </h3>
+            <h3 class="text-center  mb-3 " *ngIf="currentLang=='ar'">{{langVar.offers.types}} {{serviceNameAR}}</h3>
+            <div *ngFor="let type of ServiceTypes , let i=index" class="type">
+              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='en'" style="cursor:pointer">{{type.nameEN}}</p>
+              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='ar'" style="cursor:pointer">{{type.nameAR}}</p>
+              <hr *ngIf="i!=ServiceTypes.length-1" />
+            </div>
+
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
     <div class="col-12 col-xl-9">
 
       <div class="d-flex flex-wrap justify-content-center">
@@ -106,27 +127,8 @@
       </div>
 
     </div>
-    <div class="col-3 webView pt-4">
-
-      <div class="card offer-details types">
-        <div class="card-body d-flex flex-column justify-content-around">
-          <div class="types-container">
-
-            <h3 class="text-center mb-3" *ngIf="currentLang=='en'"> {{serviceNameEN}} {{langVar.offers.types}} </h3>
-            <h3 class="text-center  mb-3 " *ngIf="currentLang=='ar'">{{langVar.offers.types}} {{serviceNameAR}}</h3>
-            <div *ngFor="let type of ServiceTypes , let i=index" class="type">
-              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='en'" style="cursor:pointer">{{type.nameEN}}</p>
-              <p class="text-center" (click)="routeToOffer(type.id)" *ngIf="currentLang=='ar'" style="cursor:pointer">{{type.nameAR}}</p>
-              <hr *ngIf="i!=ServiceTypes.length-1" />
-            </div>
-
-          </div>
 
 
-
-        </div>
-      </div>
-    </div>
   </div>
 
 </section>
