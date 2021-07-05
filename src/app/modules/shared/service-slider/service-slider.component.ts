@@ -125,7 +125,7 @@ export class ServiceSliderComponent implements OnInit {
     this.fifthService.descriptionEN = " Lorem Ipsum";
     this.fifthService.descriptionAR = " ضصثضصثضصثضص";
     this.fifthService.descriptionAR = " ضصثضصثضصثضص";
-    this.fifthService.icon = "../../../../assets/images/landing/Accounts.png";
+    this.fifthService.icon = "../../../../assets/images/landing/accounts.png";
 
     this.sixthService.id = 5;
     this.sixthService.nameEN = "Corporate";
@@ -133,7 +133,7 @@ export class ServiceSliderComponent implements OnInit {
     this.sixthService.descriptionEN = " Lorem Ipsum";
     this.sixthService.descriptionAR = " ضصثضصثضصثضص";
     this.sixthService.descriptionAR = " ضصثضصثضصثضص";
-    this.sixthService.icon = "../../../../assets/images/icons/Flat.png";
+    this.sixthService.icon = "../../../../assets/images/landing/Corporate.png";
 
     this.seventhService.id = 5;
     this.seventhService.nameEN = "Islamic Solutions";
@@ -141,7 +141,7 @@ export class ServiceSliderComponent implements OnInit {
     this.seventhService.descriptionEN = " Lorem Ipsum";
     this.seventhService.descriptionAR = " ضصثضصثضصثضص";
     this.seventhService.descriptionAR = " ضصثضصثضصثضص";
-    this.seventhService.icon = "../../../../assets/images/icons/credit-card-payment.png";
+    this.seventhService.icon = "../../../../assets/images/landing/Islamic.png";
 
     this.serviceList.push(this.seventhService);
     this.serviceList.push(this.sixthService);

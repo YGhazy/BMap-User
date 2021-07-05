@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { ServiceComponent } from '../service/service.component';
 import { ContactComponent } from '../contact/contact.component';
-import { RegisterComponent } from '../register/register.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { RequestsComponent } from '../requests/requests.component';
@@ -39,7 +38,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     InvestmentsComponent,
     CorporateBankingComponent,
     IslamicSolutionsComponent,
-    RegisterComponent, AboutUsComponent, ProfileComponent],
+     AboutUsComponent, ProfileComponent],
   imports: [
     ModalModule.forRoot(),
     BrowserModule, 

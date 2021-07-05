@@ -35,6 +35,8 @@ export class OffersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
+
     let currentSeriveid = localStorage.getItem('serviceID')
     this.serviceNameEN = localStorage.getItem('serviceNameEN')
     this.serviceNameAR = localStorage.getItem('serviceNameAR')

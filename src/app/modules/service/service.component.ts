@@ -40,6 +40,8 @@ export class ServiceComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
+
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;
 

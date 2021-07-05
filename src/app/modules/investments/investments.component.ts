@@ -16,6 +16,8 @@ export class InvestmentsComponent implements OnInit {
   constructor(private langHelper: langHelper, private ServicesService: ServicesService, private router: Router) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0)
+
     console.log(this.Service)
     this.langVar = this.langHelper.initializeMode();
     this.currentLang = this.langHelper.currentLang;

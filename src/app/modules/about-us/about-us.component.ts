@@ -14,6 +14,7 @@ export class AboutUsComponent implements OnInit {
   ngOnInit(): void {
     this.langVar = this.langHelper.initializeMode()
     AOS.refresh();
+    window.scrollTo(0, 0)
 
   }
 
