@@ -57,8 +57,14 @@ export class LayoutComponent implements OnInit {
       });
 
     }
-    //
 
+
+    this.ServicesService.GetAllServices().subscribe(res => {
+      this.ServicesList = res.data;
+      console.log(this.ServicesList);
+    }, error => {
+      console.log(error);
+    });
 
     //console.log(this.isAuthorized)
     //this.ServicesService.GetAllServices().subscribe(res => {
@@ -90,18 +96,6 @@ export class LayoutComponent implements OnInit {
     window.location.reload()
   }
 
-  ToService(selectedServiceID , route) {
-    localStorage.setItem('selectedServiceID', selectedServiceID)
-    if (this.router.url != "/" + route)
-      this.router.navigateByUrl(route)
-    else
-      window.location.reload()
-
-    console.log(this.router.url)
-
-    this.ClearNavigationHighLight();
-    document.getElementById(route)?.classList.add('highlighted'); // Append Selected class to clicked element
-  }
 
   logout() {
     this.auth.logout()
@@ -121,9 +115,38 @@ export class LayoutComponent implements OnInit {
       }
     }
   }
+  RouteToService(service) {
+    if (service.nameEN == 'Accounts')
+      this.router.navigateByUrl('/Accounts')
+    else if (service.nameEN == 'Personal Loans')
+      this.router.navigateByUrl('/personal-Loans')
+    else if (service.nameEN == 'Credit Cards')
+      this.router.navigateByUrl('/credit-cards')
+    else if (service.nameEN == 'Loans')
+      this.router.navigateByUrl('/Loans')
+    else if (service.nameEN == 'Investments')
+      this.router.navigateByUrl('/investment')
+    else if (service.nameEN == 'Islamic Solutions')
+      this.router.navigateByUrl('/islamic-solutions')
+    else if (service.nameEN == 'Corporate')
+      this.router.navigateByUrl('/corporate-banks')
+  }
+
+
+  routeToOffer(Service, typeID) {
+
+    localStorage.setItem('serviceID', Service.id)
+    localStorage.setItem('serviceNameEN', Service.nameEN)
+    localStorage.setItem('serviceNameAR', Service.nameAR)
+    localStorage.setItem('typeID', typeID)
+    console.log("type", typeID)
+    window.scroll(0, 0)
+    if (this.router.url == '/Offers')
+      location.reload()
+    this.router.navigateByUrl('/Offers')
+  }
+
 }
-
-
 // DownloadPDF(event) {
 
 //   const linkSource = this.jobApplicationToDownloadDDF.cv;

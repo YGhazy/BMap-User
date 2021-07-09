@@ -53,7 +53,8 @@ export const English: any = {
   Home: {
     More: "Explore More",
     aboutTitle: "Why BMAP",
-    AboutContent: "We are committed to providing a best-in-class Financial brokerage service in terms of trading and research.",
+    AboutContent: "In terms of trading and research, we are committed to providing the best-in-class Financial brokerage service. Accurate and Transparent information You can now consult well- researched and organized product details, as well as comparison tools, before making an educated personal finance decision.",
+    AboutContent1: "We are advocating on your behalf! We offer a neutral and unbiased opinion on all personal finance services, presenting you with all available options for selecting the best credit cards, loan offers, and the most exclusive financial solution.",
     creditTitle: " LOOKING FOR A SPECIFIC CREDIT CARD FEATURE?",
     creditDesc: "We work as a partner to provide financial products and services that make banking safe, simple and convenient.",
   },

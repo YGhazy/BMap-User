@@ -17,15 +17,12 @@
     <div class="site-mobile-menu-body">
       <ul class="site-nav-wrap">
 
-        <li><a (click)="route('islamic-solutions')"
-            class="nav-link clickableLink">{{langVar.layout.IslamicSolutions}}</a></li>
-        <li><a (click)="route('corporate-banks')" class="nav-link clickableLink">{{langVar.layout.CorporateBanking}}</a>
-        </li>
+        <li><a (click)="route('islamic-solutions')" class="nav-link clickableLink">{{langVar.layout.IslamicSolutions}}</a></li>
+        <li><a (click)="route('corporate-banks')" class="nav-link clickableLink">{{langVar.layout.CorporateBanking}}</a></li>
         <li><a (click)="route('Accounts')" class="nav-link clickableLink">{{langVar.layout.accounts}}</a></li>
         <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.investments}}</a></li>
         <li><a (click)="route('Loans')" class="nav-link clickableLink">{{langVar.layout.Loans}}</a></li>
-        <li><a (click)="route('personal-Loans')" class="nav-link clickableLink">{{langVar.layout.personalLoans}}</a>
-        </li>
+        <li><a (click)="route('personal-Loans')" class="nav-link clickableLink">{{langVar.layout.personalLoans}}</a></li>
         <li><a (click)="route('credit-cards')" class="nav-link clickableLink">{{langVar.layout.creditCards}}</a></li>
 
 
@@ -33,62 +30,71 @@
 
         <!--<li class="social  "><a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="nav-link clickableLink"><span class="icon-facebook"></span></a></li>-->
         <!--<li class="social"><a href="https://www.instagram.com/bmap.ae/" target="_blank" class="nav-link clickableLink"><span class="icon-instagram p-0"></span></a></li>-->
-
         <!--<li class="social"><a href="https://twitter.com/BMAP73092457" target="_blank" class="nav-link clickableLink"><span class="icon-linkedin p-0"></span></a></li>-->
       </ul>
       <div class="ml-2 mt-2 text-center" dir="{{langVar.dir}}">
-        <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span
-            class="icon-facebook clickableLink"></span></a>
-        <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span
-            class="icon-instagram clickableLink"></span></a>
-        <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span
-            class="icon-twitter clickableLink"></span></a>
+        <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span class="icon-facebook clickableLink"></span></a>
+        <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span class="icon-instagram clickableLink"></span></a>
+        <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span class="icon-twitter clickableLink"></span></a>
       </div>
     </div>
   </div>
   <!--End of mobile menu section-->
 
-  <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+  <header class="site-navbar js-sticky-header site-navbar-target" role="banner"  >
 
     <div class="container">
       <div class="row align-items-center">
 
         <div class="col-6 col-xl-2">
-          <h1 class="mb-0 site-logo"><a routerLink="/home" class="h2 mb-0">
-              <div class="logo-image"></div>
-            </a></h1>
+          <h1 class="mb-0 site-logo"><a routerLink="/home" class="h2 mb-0"><div class="logo-image"></div></a></h1>
         </div>
-        <div class="col-12 col-md-10 d-none d-xl-block">
+        <div class="col-12 col-md-10 d-none d-xl-block" *ngIf="ServicesList">
           <nav class="site-navigation position-relative text-right " role="navigation">
-            <ul
-              class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center"
-              dir="{{langVar.dir}}">
-              <li><a (click)="route('islamic-solutions')" class="nav-link ">{{langVar.layout.IslamicSolutions}}</a></li>
-              <li><a (click)="route('corporate-banks')" class="nav-link ">{{langVar.layout.CorporateBanking}}</a></li>
-              <li><a (click)="route('Accounts')" class="nav-link ">{{langVar.layout.accounts}}</a></li>
-              <li><a (click)="route('investment')" class="nav-link ">{{langVar.layout.investments}}</a></li>
-              <li class="has-children"> <!--Loans dropdown-->
-                <a class="nav-link " id="loans">{{langVar.layout.Loans}}</a>
+            <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-flex align-items-center justify-content-center" dir="{{langVar.dir}}">
+              <li class="has-children">
+                <a (click)="route('islamic-solutions')" class="nav-link ">{{langVar.layout.IslamicSolutions}}</a>
                 <ul class="dropdown">
                   <li>
-                    <a (click)="route('Loans')" class="nav-link ">{{langVar.layout.Loans}}</a>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.CorporateBanking.type1}}</a>
                   </li>
-                  <li><a (click)="route('personal-Loans')" class="nav-link ">{{langVar.layout.personalLoans}}</a></li>
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.CorporateBanking.type2}}</a>
+                  </li>
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.CorporateBanking.type3}}</a>
+                  </li>
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.CorporateBanking.type4}}</a>
+                  </li>
                 </ul>
               </li>
-              
-              <li><a (click)="route('credit-cards')" class="nav-link ">{{langVar.layout.creditCards}}</a></li>
+              <li class="has-children">
+                <a (click)="route('corporate-banks')" class="nav-link ">{{langVar.layout.CorporateBanking}}</a>
+                <ul class="dropdown">
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.IslamicSolutions.type1}}</a>
+                  </li>
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.IslamicSolutions.type2}}</a>
+                  </li>
+                  <li>
+                    <a class="nav-link {{langVar.textAlign}}"> {{langVar.IslamicSolutions.type3}}</a>
+                  </li>
+                </ul>
+              </li>
 
-              <!--<li><a (click)="route('about-us')" class="nav-link" id="about-us">{{langVar.layout.about}}</a></li>-->
-              <!-- <li class="has-children">
-    <a class="nav-link " id="service">{{langVar.layout.service}}</a>
-    <ul class="dropdown" *ngIf="ServicesList">
-      <li *ngFor="let service of ServicesList">
-        <a class="nav-link" (click)="ToService(service.id)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
-        <a class="nav-link {{langVar.textAlign}}" (click)="ToService(service.id)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
-      </li>
-    </ul>
-  </li> -->
+              <li class="has-children" *ngFor="let service of ServicesList">
+                <a class="nav-link" (click)="RouteToService(service)" *ngIf="currentLang=='en'">{{service.nameEN}}</a>
+                <a class="nav-link {{langVar.textAlign}}" (click)="RouteToService(service)" *ngIf="currentLang=='ar'">{{service.nameAR}}</a>
+                <ul class="dropdown" *ngIf="service.serviceTypes">
+                  <li *ngFor="let type of service.serviceTypes">
+                    <a class="nav-link" (click)="routeToOffer(service,type.id)" *ngIf="currentLang=='en'">{{type.nameEN}}</a>
+                    <a class="nav-link {{langVar.textAlign}}" (click)="routeToOffer(service,type.id)" *ngIf="currentLang=='ar'">{{type.nameAR}}</a>
+                  </li>
+                </ul>
+              </li>
+
               <!--<li><a (click)="route('requested-services')" class="nav-link" *ngIf="isAuthorized" id="requested-services">{{langVar.layout.requests}}</a></li>
   <li><a (click)="route('contact')" class="nav-link" id="contact"> {{langVar.layout.contact}}</a></li>-->
               <!--<li><a (click)="route('login')" class="nav-link " *ngIf="!isAuthorized" id="login"> {{langVar.layout.login}}</a></li>
@@ -103,25 +109,22 @@
     </a>
   </li>-->
               <!--<li class="">
-                  <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
-                  </a>-->
+  <a (click)="route('profile')" class="nav-link imageContainer p-0" style=" padding: 15px 15px; background-image: url({{user.customer.profilePicture}});border: none;" *ngIf="isAuthorized" id="profile">
+  </a>-->
               <!--<a (click)="route('profile')" class="nav-link " style="padding:15px 15px;" *ngIf="isAuthorized &&!hadImg" id="profile">
-      <div class="initials">
-        <a>
-          {{initials}}
-        </a>
-      </div>
-    </a>-->
+    <div class="initials">
+      <a>
+        {{initials}}
+      </a>
+    </div>
+  </a>-->
               <!--</li>-->
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
-              <!--Search bar-->
-              <!--/Search bar-->
             </ul>
           </nav>
         </div>
         <!--Mobile navigation button-->
-        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a
-            class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
+        <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
       </div>
     </div>
   </header>
@@ -136,26 +139,20 @@
         <div class="col-md-12">
           <div class="row" dir="{{langVar.dir}}">
             <div class="col-md-4 pr-4">
-              <div class="imgContainer mb-3"><img src="./assets/images/bmap logo 2.png" /></div>
+              <div class="imgContainer mb-3"><img src="./assets/images/logo.png" /></div>
               <div class="ml-2 mb-2 {{langVar.textAlign}}" dir="{{langVar.dir}}">
-                <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span
-                    class="icon-facebook"></span></a>
-                <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span
-                    class="icon-instagram"></span></a>
-                <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span
-                    class="icon-twitter"></span></a>
+                <a href="https://www.facebook.com/BMAP.Admin" target="_blank" class="pl-0"><span class="icon-facebook"></span></a>
+                <a href="https://www.instagram.com/bmap.ae/" target="_blank" class="pl-3"><span class="icon-instagram"></span></a>
+                <a href="https://twitter.com/BMAP73092457" target="_blank" class="pl-3"><span class="icon-twitter"></span></a>
               </div>
             </div>
             <div class="col-md-4 ml-auto {{langVar.textAlign}}">
               <h2 class="footer-heading mb-2"> {{langVar.layout.links}}</h2>
               <div class="row p-2  " dir="{{langVar.dir}}">
                 <ul class="col-4">
-                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')">
-                      {{langVar.layout.Home}}</a></li>
-                  <li><a (click)="route('contact')" class="smoothscroll {{langVar.textAlign}}">
-                      {{langVar.layout.contact}}</a></li>
-                  <li><a class="smoothscroll {{langVar.textAlign}}"
-                      (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/home')"> {{langVar.layout.Home}}</a></li>
+                  <li><a (click)="route('contact')" class="smoothscroll {{langVar.textAlign}}"> {{langVar.layout.contact}}</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/about-us')">{{langVar.layout.about}}</a></li>
                 </ul>
               </div>
             </div>
@@ -165,31 +162,27 @@
               </h2>
               <div class="row p-2 ">
                 <ul class="list-group px-3">
-                  <li dir="ltr"><a class="smoothscroll {{langVar.textAlign}}" href="tel:+9710555203117">+971 (0) 55
-                      5203117</a></li>
+                  <li dir="ltr"><a class="smoothscroll {{langVar.textAlign}}" href="tel:+9710555203117">+971 (0) 55 5203117</a></li>
                   <li><a class="smoothscroll {{langVar.textAlign}}" href="mailto: info@bmap.ae">info@bmap.ae</a></li>
-                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/contact')"> Abu Dhabi, United Arab
-                      Emirates</a></li>
+                  <li><a class="smoothscroll {{langVar.textAlign}}" (click)="route('/contact')"> Abu Dhabi, United Arab Emirates</a></li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class=" text-center  d-flex justify-content-center justify-content-xl-between  flex-wrap flex-xl-nowrap;"
-        dir="{{langVar.dir}}">
+      <div class=" text-center  d-flex justify-content-center justify-content-xl-between  flex-wrap flex-xl-nowrap;" dir="{{langVar.dir}}">
 
         <p dir="{{langVar.dir}}" class="d-flex {{langVar.textAlign}} align-items-baseline">
           {{langVar.copyRights2}}
           <span class="mx-1">
             &#169;
           </span>
-          {{langVar.copyRights1}} <a style="text-decoration:none;">BMap</a>
+          {{langVar.copyRights1}}  <a style="text-decoration:none;">BMap</a>
         </p>
 
         <p dir="{{langVar.dir}}">
-          <a href="../../../../assets/terms.pdf" target="_blank" rel="noopener noreferrer">{{langVar.terms}}</a> | <a
-            href="../../../../assets/privacyterms.pdf" rel="noopener noreferrer" target="_blank">{{langVar.policy}}</a>
+          <a href="../../../../assets/terms.pdf" target="_blank" rel="noopener noreferrer">{{langVar.terms}}</a>  | <a href="../../../../assets/privacyterms.pdf" rel="noopener noreferrer" target="_blank">{{langVar.policy}}</a>
         </p>
       </div>
     </div>

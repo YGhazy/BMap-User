@@ -125,7 +125,7 @@ export class ServiceSliderComponent implements OnInit {
     this.fifthService.descriptionEN = " Lorem Ipsum";
     this.fifthService.descriptionAR = " ضصثضصثضصثضص";
     this.fifthService.descriptionAR = " ضصثضصثضصثضص";
-    this.fifthService.icon = "../../../../assets/images/landing/accounts.png";
+    this.fifthService.icon = "../../../../assets/images/landing/Accounts.png";
 
     this.sixthService.id = 5;
     this.sixthService.nameEN = "Corporate";

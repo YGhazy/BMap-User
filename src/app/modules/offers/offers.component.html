@@ -1,3 +1,5 @@
+<div class="background">
+</div>
 
 <div id="centerdiv" *ngIf="ServiceType==undefined">
   <ul>
@@ -10,8 +12,6 @@
   </ul>
 </div>
 
-<div class="background"  >
-</div>
 
 <section class="mx-xl-4 my-5 {{langVar.textAlign}} {{langVar.arabicClass}}" *ngIf="ServiceType!=undefined">
   <h1 *ngIf="currentLang=='en'" class="mx-4 mx-xl-0">
@@ -27,7 +27,7 @@
   <div class="row {{langVar.rowReverse}}">
     <div class="col-3 webView pt-4">
 
-      <div class="card offer-details types">
+      <div class="card offer-details types m-auto">
         <div class="card-body d-flex flex-column justify-content-around">
           <div class="types-container">
 
@@ -56,31 +56,32 @@
         <div class="offer-container p-4" *ngFor="let offer of ServiceType.offers ,let i=index">
           <div class="d-flex justify-content-around {{langVar.rowReverse}}">
             <!--[ngClass]="i%2==0 && i!=0 ? 'mt-5':''"-->
-            <div class="">
+            <div class="card offer-details d-flex flex-row" style=" border-radius: 11px;">
 
-              <div class="icon-container">
-                <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
+              <div class="card-body d-flex flex-column justify-content-around">
+
+                <div class="icon-container">
+                  <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
+                </div>
+
+                <div class="offer-benefits webView" *ngIf="currentLang=='en' && offer.offerBenefits.length!=0">
+                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                  <p *ngFor="let benefit of offer.offerBenefits">
+                    - {{benefit.descriptionEN}}
+                  </p>
+
+                </div>
+                <div class="offer-benefits webView" *ngIf="currentLang=='ar' && offer.offerBenefits.length!=0">
+                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                  <p *ngFor="let benefit of offer.offerBenefits">
+                    {{benefit.descriptionAR}} -
+                  </p>
+
+                </div>
               </div>
 
-              <div class="offer-benefits webView" *ngIf="currentLang=='en' && offer.offerBenefits.length!=0">
-                <h3 class="mt-2">{{langVar.offers.keys}}</h3>
-
-                <p *ngFor="let benefit of offer.offerBenefits">
-                  - {{benefit.descriptionEN}}
-                </p>
-
-              </div>
-              <div class="offer-benefits webView" *ngIf="currentLang=='ar' && offer.offerBenefits.length!=0">
-                <h3 class="mt-2">{{langVar.offers.keys}}</h3>
-
-                <p *ngFor="let benefit of offer.offerBenefits">
-                  {{benefit.descriptionAR}} -
-                </p>
-
-              </div>
-            </div>
-
-            <div class="card offer-details" style=" border-radius: 11px;">
               <div class="card-body d-flex flex-column justify-content-around">
                 <div class="offer-details-container">
 
@@ -140,10 +141,10 @@
     <div class="modal-content">
       <div class="modal-header  m-3 {{langVar.rowReverse}}">
         <h3 class="modal-title ">{{langVar.offers.Modaltitle}}</h3>
-       
+
       </div>
       <div class="modal-body  mx-xl-3" *ngIf="currentOffer">
-        <div class="row" >
+        <div class="row">
           <div class="col-12 col-xl-6 mb-4 mb-xl-0 {{langVar.textAlign}}">
             <div class="d-flex flex-xl-wrap {{langVar.rowReverse}} ">
               <div class="icon-container">
@@ -152,7 +153,7 @@
               <div class="pl-xl-3 pr-2 ">
                 <h3 *ngIf="currentLang=='en'">{{currentOffer.nameEN}}</h3>
                 <h3 *ngIf="currentLang=='ar'">{{currentOffer.nameAR}}</h3>
-                <h4 >{{currentOffer.bankName}}</h4>
+                <h4>{{currentOffer.bankName}}</h4>
               </div>
             </div>
             <label>{{langVar.offers.Salary}}</label>
@@ -161,23 +162,23 @@
             <p>{{currentOffer.rate}}%</p>
             <label>{{langVar.offers.Annual}}</label>
             <p>{{currentOffer.annualFee}}</p>
-           
-              <div class="row privacy d-flex mt-3" dir="{{langVar.dir}}"  [formGroup]="applicationForm">
-                <input type="checkbox" id="privacyCheckbox" class="col-1" formControlName="acknowledgment">
-                <label for="privacyCheckbox" class="checkboxLabel col-10" >
-                  {{langVar.applicationForm.acknowledgment}}
-                </label>
-                <!--<div *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
-                     class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
-                  <div *ngIf="applicationFormControls.acknowledgment.errors.required">
-                    {{langVar.applicationForm.terms}}
-                  </div>
-                </div>-->
-              </div>
-           
+
+            <div class="row privacy d-flex mt-3" dir="{{langVar.dir}}" [formGroup]="applicationForm">
+              <input type="checkbox" id="privacyCheckbox" class="col-1" formControlName="acknowledgment">
+              <label for="privacyCheckbox" class="checkboxLabel col-10">
+                {{langVar.applicationForm.acknowledgment}}
+              </label>
+              <!--<div *ngIf="applicationFormControls.acknowledgment.invalid && (applicationFormControls.acknowledgment.dirty|| applicationFormControls.acknowledgment.touched)"
+                   class="alert alert-danger mt-1 px-2 py-0 mb-0" style="display:block; ">
+                <div *ngIf="applicationFormControls.acknowledgment.errors.required">
+                  {{langVar.applicationForm.terms}}
+                </div>
+              </div>-->
+            </div>
+
           </div>
           <div class="col-12 col-xl-6">
-            <form data-aos="fade-up" class="mb-5" >
+            <form data-aos="fade-up" class="mb-5">
               <div class="container" dir="{{langVar.dir}}" [ngClass]="{'text-right': currentLang == 'ar'}">
 
                 <div class="inputContainer" [formGroup]="applicationForm">
@@ -248,7 +249,7 @@
             </form>
           </div>
         </div>
-        
+
       </div>
       <div class="modal-footer {{langVar.rowReverse}}">
         <button type="button" class="btn btn-primary" (click)="Apply()" [disabled]="!applicationForm.valid">{{langVar.applicationForm.applyNow}}</button>
