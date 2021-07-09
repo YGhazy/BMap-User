@@ -15,7 +15,7 @@ export class LayoutComponent implements OnInit {
   initials
   langVar;
   currentLang;
-  ServicesList;
+  ServicesList: any [];
   user;
   hadImg: boolean
   isLoading: boolean = true
@@ -61,6 +61,8 @@ export class LayoutComponent implements OnInit {
 
     this.ServicesService.GetAllServices().subscribe(res => {
       this.ServicesList = res.data;
+      this.ServicesList = this.ServicesList.filter(s => s.nameEN != "Personal Loans");
+      this.ServicesList = this.ServicesList.filter(s => s.nameEN != "Loans");
       console.log(this.ServicesList);
     }, error => {
       console.log(error);
