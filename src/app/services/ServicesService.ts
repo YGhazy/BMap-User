@@ -12,53 +12,58 @@ import { API_CONSTANTS } from './common/api-constants';
 import { BaseService } from './common/base-service';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 
 export class ServicesService extends BaseService {
 
-    constructor(private httpClient: HttpClient) {
-        super(httpClient);
-    }
+  constructor(private httpClient: HttpClient) {
+    super(httpClient);
+  }
 
-    GetAllServices(): Observable<ApiResponse> {
-        return this.get(API_CONSTANTS.GetAllServices);
-    }
+  GetAllServices(): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetAllServices);
+  }
   GetAccountsService(): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetAccountsService);
-    }
+  }
   GetCreditCardsService(): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetCreditCardsService);
-    }
+  }
   GetLoansService(): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetLoansService);
-    }
+  }
   GetInvestmentsService(): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetInvestmentsService);
   }
   GetPersonalLoansService(): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetPersonalLoansService);
-    }
+  }
 
-    GetCustomerServiceRequests(customerID: number): Observable<ApiResponse> {
-        return this.get(API_CONSTANTS.GetCustomerServiceRequests + customerID);
-    }
+  GetCustomerServiceRequests(customerID: number): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.GetCustomerServiceRequests + customerID);
+  }
   GetServiceTypesById(serviceID: number): Observable<ApiResponse> {
     return this.get(API_CONSTANTS.GetAllServiceTypesByServiceID + serviceID);
   }
-    DeleteServiceRequest(requestID: DeleteObjectModel): Observable<ApiResponse> {
-        return this.post(API_CONSTANTS.DeleteServiceRequest, requestID);
-    }
-
-    SubmitServiceRequest(request: CreateServiceRequest): Observable<ApiResponse> {
-        return this.post(API_CONSTANTS.SubmitServiceRequest, request);
+  DeleteServiceRequest(requestID: DeleteObjectModel): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.DeleteServiceRequest, requestID);
   }
 
- CreateIslamicServiceRequest(request): Observable<ApiResponse> {
-   return this.post(API_CONSTANTS.CreateIslamicServiceRequest, request);
+  SubmitServiceRequest(request: CreateServiceRequest): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.SubmitServiceRequest, request);
+  }
+
+  CreateIslamicServiceRequest(request): Observable<ApiResponse> {
+    return this.post(API_CONSTANTS.CreateIslamicServiceRequest, request);
   }
   CreateCorporateServiceRequest(request): Observable<ApiResponse> {
     return this.post(API_CONSTANTS.CreateCorporateServiceRequest, request);
+  }
+
+
+  Search(keyword): Observable<ApiResponse> {
+    return this.get(API_CONSTANTS.Search + keyword);
   }
 
 }

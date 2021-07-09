@@ -57,7 +57,6 @@
     }
   }
 
-
   @keyframes bounce {
     0% {
       transform: translateY(0px);
@@ -71,6 +70,14 @@
       transform: translateY(0px);
     }
   }
+}
+
+
+.searchResItem{
+  cursor: pointer !important;
+}
+.searchResItem:hover{
+  color: black !important;
 }
 
 .site-navbar .site-navigation .site-menu a {

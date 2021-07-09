@@ -23,7 +23,8 @@
         </li>
         <li><a (click)="route('Accounts')" class="nav-link clickableLink">{{langVar.layout.accounts}}</a></li>
         <li><a (click)="route('investment')" class="nav-link clickableLink">{{langVar.layout.investments}}</a></li>
-        <li class="has-children"> <!--Loans dropdown-->
+        <li class="has-children">
+          <!--Loans dropdown-->
           <a class="nav-link " id="loans">{{langVar.layout.Loans}}</a>
           <ul class="dropdown">
             <li>
@@ -114,7 +115,8 @@
                 </ul>
               </li>
 
-              <li class="has-children"> <!--Loans dropdown-->
+              <li class="has-children">
+                <!--Loans dropdown-->
                 <a class="nav-link " id="loans">{{langVar.layout.Loans}}</a>
                 <ul class="dropdown">
                   <li>
@@ -149,6 +151,27 @@
   </a>-->
               <!--</li>-->
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" style="height: 30px;
+                width: 160px;" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchKeyword"
+                  [ngModelOptions]="{standalone: true}">
+                <div class="card" id="searchRes" style="position: absolute;
+                top: 60px;" [ngClass]="{'text-left': currentLang == 'en', 'text-right': currentLang == 'ar'}" *ngIf="canViewSearchResults && searchResult">
+                  <div class="card-body">
+                    <p (click)="RouteToSearchResult(matchedOffer)" class="searchResItem" *ngFor="let matchedOffer of searchResult.offers">{{matchedOffer.nameEN}}</p>
+                  </div>
+                  <div class="card-body" *ngIf="searchResult.serviceTypes && searchResult.serviceTypes.length > 0">
+                    <p (click)="RouteToSearchResult(matchedType)" class="searchResItem" *ngFor="let matchedType of searchResult.serviceTypes">{{matchedType.nameEN}}</p>
+                  </div>
+                </div>
+                <button style="padding: 3px;
+                position: absolute;
+                right: 5px;
+                outline: none;
+                background-color: transparent;
+                " class="btn btn-pill btn-success my-2 my-sm-0" type="submit"
+                  (click)="Search()"><img style="width: 21px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABRklEQVRIie2Wa7GDMBCFPwmRgAQkrAQkIAEJOEACEiqhEiqhEpDQ+yNhekh5JDzu9EfPTIaZZDdn9yS7AX6YhwMMqIEmfO1qwg4YgNfC6M4mNeC5QqhjAKozSFumWd7DXIlXocJLfosCaI+QGtNMmg37OgpyV+YOeAhpGa1ZCMRm/Abxc7nEHe/INVPj87wHfLYjKlnrc0idbH5bCSgeKu145kMOsTGfrZK3QBHWVdoi2GjWlkpck3dBNNA6zLmN4GfRiFPq5WjDMJnLLi2VqdywXUJJnmofxMkyRahljyLVSWvxvpNYb3VWLffs70CqWPbDobWsZXKV3wTGcndasteuduiZjDtVj79w4+tU4qXtI7vs5jEHY/0HIO7bcbCHyB3LWY2EPe8ztTPJR1T4826Zyh7jEvJUfA356T+EKeT/TvrDd+APJtaxficRQq4AAAAASUVORK5CYII="/></button>
+              </form>
             </ul>
           </nav>
         </div>

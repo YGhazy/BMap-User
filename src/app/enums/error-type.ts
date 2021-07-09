@@ -1,4 +1,5 @@
 export enum ErrorType {
-    LogicalError,
-    SystemError
+    LogicalError = 0,
+    SystemError = 1,
+    NoResultsFound = 2
 }

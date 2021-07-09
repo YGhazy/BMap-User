@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
+import { ErrorType } from 'src/app/enums/error-type';
+import { SearchResult } from 'src/app/models/http-models/search-result';
+import { ServiceType } from 'src/app/models/http-models/service-type';
 import { langHelper } from 'src/app/services/utilities/language-helper';
 import { AuthenticationService } from '../../../services/authentication.service';
 import { ServicesService } from '../../../services/ServicesService';
@@ -15,11 +18,16 @@ export class LayoutComponent implements OnInit {
   initials
   langVar;
   currentLang;
-  ServicesList: any [];
+  ServicesList: any[];
   user;
   hadImg: boolean
   isLoading: boolean = true
   isAuthorized: boolean
+  //Search var
+  searchKeyword: string;
+  searchResult: SearchResult;
+  canViewSearchResults: boolean = false;
+
   constructor(private auth: AuthenticationService, private jsLoader: JSInitializer, private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
   ngOnInit(): void {
     //set navigation arrow
@@ -55,9 +63,7 @@ export class LayoutComponent implements OnInit {
       }, error => {
         console.log(error);
       });
-
     }
-
 
     this.ServicesService.GetAllServices().subscribe(res => {
       this.ServicesList = res.data;
@@ -67,37 +73,84 @@ export class LayoutComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-
-    //console.log(this.isAuthorized)
-    //this.ServicesService.GetAllServices().subscribe(res => {
-    //  this.ServicesList = res.data;
-    //  console.log(this.ServicesList);
-    //}, error => {
-    //  console.log(error);
-    //});
-
   }
-  route(url) {
 
+
+  Search() {
+    console.log(this.searchKeyword)
+    if (this.searchKeyword) {
+      this.ServicesService.Search(this.searchKeyword).subscribe(res => {
+        if (res.succeeded) {
+          if (res.errorType == ErrorType.NoResultsFound) {
+            this.canViewSearchResults = false;
+            return;
+          }
+          this.searchResult = res.data;
+          console.log(this.searchResult);
+          this.canViewSearchResults = true;
+        }
+      }, error => {
+
+      });
+    }
+    else {
+      return;
+    }
+  }
+
+  fetchedTypes: any[] = [];
+  RouteToSearchResult(result) {
+    if (result.rate) {
+      console.log(result.serviceTypesId)
+      localStorage.setItem('typeID', result.serviceTypesId)
+
+      this.ServicesList.forEach(element => {
+        if (element.serviceTypes && element.serviceTypes.length > 0)
+          this.fetchedTypes.push(
+            element.serviceTypes
+          );
+      });
+
+      console.log(this.fetchedTypes[0]);
+      var offerServiceID;
+      console.log(this.fetchedTypes[0].find(t => t.id == result.serviceTypesId))
+      offerServiceID = this.fetchedTypes[0].find(t => t.id == result.serviceTypesId).servicesId;
+      this.searchKeyword = "";
+      this.canViewSearchResults = false;
+      this.fetchedTypes = [];
+      localStorage.setItem('serviceID', offerServiceID);
+      if (this.router.url == '/Offers')
+        location.reload()
+      this.router.navigateByUrl('/Offers')
+    }
+    else {
+      localStorage.setItem('typeID', result.serviceTypesId)
+      var service = this.ServicesList.find(s => s.id == result.servicesId);
+      this.RouteToService(service.nameEN);
+      this.searchKeyword = "";
+      this.canViewSearchResults = false;
+      this.fetchedTypes = [];
+    }
+  }
+
+  route(url) {
     if (url == this.router.url) {
       window.scrollTo(0, 0)
     }
     else {
       this.router.navigateByUrl(url)
-
     }
-
     this.ClearNavigationHighLight();
     document.getElementById(url)?.classList.add('highlighted');
     var currentUrl = this.router.url.toString();
     currentUrl = currentUrl.replace("/", "");
   }
+
   changeLanguage() {
     this.langHelper.switchLanguage()
     this.langVar = this.langHelper.initializeMode();
     window.location.reload()
   }
-
 
   logout() {
     this.auth.logout()
@@ -105,7 +158,6 @@ export class LayoutComponent implements OnInit {
       this.router.navigateByUrl('/home');
     window.location.reload();
   }
-
 
   //Clear Highlighted class from navigation items
   ClearNavigationHighLight() {
@@ -117,6 +169,7 @@ export class LayoutComponent implements OnInit {
       }
     }
   }
+
   RouteToService(service) {
     if (service.nameEN == 'Accounts')
       this.router.navigateByUrl('/Accounts')
