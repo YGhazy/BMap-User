@@ -12,8 +12,8 @@ import { langHelper } from '../../services/utilities/language-helper';
   templateUrl: './offers.component.html',
   styleUrls: ['./offers.component.scss']
 })
-export class OffersComponent implements OnInit {  
-
+export class OffersComponent implements OnInit {
+  show: boolean=false
   currentLang;
   langVar;
   ServiceTypes;
@@ -103,5 +103,7 @@ export class OffersComponent implements OnInit {
     console.log(this.currentOffer)
     this.ApplyModal.show()
   }
-
+  showQuickView() {
+    this.show ? this.show = false : this.show=true
+  }
 }

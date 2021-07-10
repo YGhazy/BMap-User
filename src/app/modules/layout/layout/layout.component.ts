@@ -118,6 +118,7 @@ export class LayoutComponent implements OnInit {
     }
   }
   RouteToService(service) {
+  
     if (service.nameEN == 'Accounts')
       this.router.navigateByUrl('/Accounts')
     else if (service.nameEN == 'Personal Loans')

@@ -46,89 +46,144 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-9">
+    <div class="col-12 col-xl-8">
 
       <div class="d-flex flex-wrap justify-content-center">
         <!-- data-aos="fade-up" data-aos-delay="200" data-aos-duration="500"-->
         <h3 style="font-size: 1rem;" *ngIf="ServiceType.offers.length == 0">
           {{langVar.offers.noOffers}}
         </h3>
-        <div class="offer-container p-4" *ngFor="let offer of ServiceType.offers ,let i=index">
+        <div class="offer-container p-4 w-100" *ngFor="let offer of ServiceType.offers ,let i=index">
           <div class="d-flex justify-content-around {{langVar.rowReverse}}">
             <!--[ngClass]="i%2==0 && i!=0 ? 'mt-5':''"-->
-            <div class="card offer-details d-flex flex-row" style=" border-radius: 11px;">
+            <div class="card offer-details w-100" style=" border-radius: 11px;">
+              <div class=" d-flex {{langVar.rowReverse}}">
 
-              <div class="card-body d-flex flex-column justify-content-around">
 
-                <div class="icon-container">
-                  <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
-                </div>
+                <div class="card-body d-flex flex-column justify-content-around mb-0 pb-0">
+                  <div>
 
-                <div class="offer-benefits webView" *ngIf="currentLang=='en' && offer.offerBenefits.length!=0">
-                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
-
-                  <p *ngFor="let benefit of offer.offerBenefits">
-                    - {{benefit.descriptionEN}}
-                  </p>
-
-                </div>
-                <div class="offer-benefits webView" *ngIf="currentLang=='ar' && offer.offerBenefits.length!=0">
-                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
-
-                  <p *ngFor="let benefit of offer.offerBenefits">
-                    {{benefit.descriptionAR}} -
-                  </p>
-
-                </div>
-              </div>
-
-              <div class="card-body d-flex flex-column justify-content-around">
-                <div class="offer-details-container">
-
-                  <h3 *ngIf="currentLang=='en'">{{offer.nameEN}}</h3>
-                  <h3 *ngIf="currentLang=='ar'">{{offer.nameAR}}</h3>
-                  <h4>{{offer.bankName}}</h4>
-                  <label>{{langVar.offers.Salary}}</label>
-                  <p>{{offer.minimumSalary}}</p>
-                  <label>{{langVar.offers.Rate}}</label>
-                  <p>{{offer.rate}}%</p>
-                  <label>{{langVar.offers.Annual}}</label>
-                  <p>{{offer.annualFee}}</p>
+                    <div class="icon-container mb-2 ml-auto" *ngIf="currentLang=='ar'">
+                      <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
+                    </div>
+                    <div class="icon-container mb-2" *ngIf="currentLang=='en'">
+                      <img src="{{offer.icon}}" alt="{{offer.nameEN}}" />
+                    </div>
+                    <h3 *ngIf="currentLang=='en'">{{offer.nameEN}}</h3>
+                    <h3 *ngIf="currentLang=='ar'">{{offer.nameAR}}</h3>
+                    <h4>{{offer.bankName}}</h4>
+                  </div>
 
                 </div>
 
-                <div class="offer-benefits mobView" *ngIf="currentLang=='en'">
-                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
 
-                  <p *ngFor="let benefit of offer.offerBenefits">
-                    - {{benefit.descriptionEN}}
-                  </p>
+                <div class="card-body d-flex flex-column">
+                  <div class="offer-details-container">
+
+                    <div class="mt-2 mb-1">
+                      <label>{{langVar.offers.Salary}}</label>
+                      <p>{{offer.minimumSalary}}</p>
+                    </div>
+
+                    <div class="mb-1">
+                      <label>{{langVar.offers.Rate}}</label>
+                      <p>{{offer.rate}}%</p>
+                    </div>
+
+                    <div class="mb-1">
+
+                      <label>{{langVar.offers.Annual}}</label>
+                      <p>{{offer.annualFee}}</p>
+                    </div>
+
+                  </div>
+
+                  <div class="offer-benefits mobView" *ngIf="currentLang=='en'">
+                    <h3 class=" my-0">{{langVar.offers.keys}}</h3>
+
+                    <p *ngFor="let benefit of offer.offerBenefits">
+                      - {{benefit.descriptionEN}}
+                    </p>
+
+                  </div>
+                  <div class="offer-benefits mobView" *ngIf="currentLang=='ar'">
+                    <h3 class="my-0">{{langVar.offers.keys}}</h3>
+
+                    <p *ngFor="let benefit of offer.offerBenefits">
+                      {{benefit.descriptionAR}} -
+                    </p>
+
+                  </div>
 
                 </div>
-                <div class="offer-benefits mobView" *ngIf="currentLang=='ar'">
-                  <h3 class="mt-2">{{langVar.offers.keys}}</h3>
 
-                  <p *ngFor="let benefit of offer.offerBenefits">
-                    {{benefit.descriptionAR}} -
-                  </p>
+                <div class="card-body d-flex flex-column">
 
+                  <div class="offer-benefits webView" *ngIf="currentLang=='en' && offer.offerBenefits.length!=0">
+                    <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                    <p *ngFor="let benefit of offer.offerBenefits" >
+                      - {{benefit.descriptionEN}}
+                    </p>
+
+                  </div>
+                  <div class="offer-benefits webView ml-auto" *ngIf="currentLang=='ar' && offer.offerBenefits.length!=0">
+                    <h3 class="mt-2">{{langVar.offers.keys}}</h3>
+
+                    <p *ngFor="let benefit of offer.offerBenefits">
+                      {{benefit.descriptionAR}} -
+                    </p>
+
+                  </div>
                 </div>
-                <div class="{{langVar.textAlignReverse}}">
+
+
+                <div class="{{langVar.textAlignReverse}} align-self-end m-3">
 
                   <button type="button" class="btn btn-primary mt-2" (click)="showApplyModal(offer)">
                     {{langVar.offers.apply}}
                   </button>
                 </div>
               </div>
+              <div class="Quick">
 
+              <p class="p-3" style="cursor:pointer;" (click)="showQuickView()">
+                {{langVar.offers.Quick}}
+               
+              </p>
+              <div *ngIf="show" class="px-3">
+                <h3 class="mb-0"> {{langVar.offers.JoiningOffers}}</h3>
+                <p class="mx-2 mb-2" style="font-size:.8rem;">
+                  some text
+                </p>
+                <hr />
+                <h3> {{langVar.offers.KeyFeatures}}</h3>
+                <p class="mx-2 mb-2" style="font-size:.8rem;">
+                  some text
+                </p>
+                <hr />
+
+                <h3> {{langVar.offers.RewardFeatures}}</h3>
+                <p class="mx-2 mb-2" style="font-size:.8rem;">
+                  some text
+                </p>
+                <hr />
+
+                <h3> {{langVar.offers.Things}}</h3>
+                <p class="mx-2 mb-2" style="font-size:.8rem;">
+                  some text
+                </p>
+              </div>
+              </div>
             </div>
+            </div>
+            <div>
           </div>
         </div>
 
       </div>
 
     </div>
-
 
   </div>
 

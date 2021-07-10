@@ -241,7 +241,11 @@ export const English: any = {
     types: "Types",
     noOffers: "There are no offers for this service yet",
     Modaltitle: "APPLY ONLINE",
-
+    Quick: "Quick View",
+    JoiningOffers: "Joining Offers ",
+    KeyFeatures: "Key Features ",
+    RewardFeatures: "Reward Features ",
+    Things: "Things To Be Aware Of ",
   }
 
 }

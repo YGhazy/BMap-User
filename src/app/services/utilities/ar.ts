@@ -235,6 +235,11 @@ export const Arabic: any = {
     types: "أنواع",
     noOffers: "لا توجد عروض لهذه الخدمة بعد",
     Modaltitle:"تقديم طلب",
+    Quick: "عرض سريع ",
+    JoiningOffers: "الانضمام إلى العروض ",
+    KeyFeatures: "ميزات ",
+    RewardFeatures: "ميزات المكافأة ",
+    Things: "أشياء يجب أن تكون على دراية بها ",
 
   }
 }
