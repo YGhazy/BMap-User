@@ -110,6 +110,10 @@ export class LayoutComponent implements OnInit {
     }
   }
 
+  CancelSearch(){
+    this.canViewSearchResults = false;
+  }
+
   scrollToTop() {
     this.scroll.scrollToPosition([0, 0]);
   }

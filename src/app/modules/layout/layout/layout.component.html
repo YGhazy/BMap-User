@@ -151,10 +151,14 @@
   </a>-->
               <!--</li>-->
               <li><a (click)="changeLanguage()" class="nav-link"> {{langVar.lang}}</a></li>
+
+              <!--Search-->
               <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" style="height: 30px;
                 width: 160px;" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="searchKeyword"
                   [ngModelOptions]="{standalone: true}">
+
+                  <!--Search results container-->
                 <div class="card" id="searchRes" style="position: absolute;
                 top: 60px;" [ngClass]="{'text-left': currentLang == 'en', 'text-right': currentLang == 'ar'}"
                   *ngIf="canViewSearchResults && searchResult">
@@ -167,15 +171,29 @@
                       *ngFor="let matchedType of searchResult.serviceTypes">{{matchedType.nameEN}}</p>
                   </div>
                 </div>
+
+                <!--Search button-->
                 <button style="padding: 3px;
                 position: absolute;
                 right: 5px;
                 outline: none;
                 background-color: transparent;
                 border: none;
-                " class="btn btn-pill btn-success my-2 my-sm-0" type="submit" (click)="Search()"><img
+                " *ngIf="!canViewSearchResults" class="btn btn-pill btn-success my-2 my-sm-0" type="submit" (click)="Search()"><img
                     style="width: 21px;"
                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAABRklEQVRIie2Wa7GDMBCFPwmRgAQkrAQkIAEJOEACEiqhEiqhEpDQ+yNhekh5JDzu9EfPTIaZZDdn9yS7AX6YhwMMqIEmfO1qwg4YgNfC6M4mNeC5QqhjAKozSFumWd7DXIlXocJLfosCaI+QGtNMmg37OgpyV+YOeAhpGa1ZCMRm/Abxc7nEHe/INVPj87wHfLYjKlnrc0idbH5bCSgeKu145kMOsTGfrZK3QBHWVdoi2GjWlkpck3dBNNA6zLmN4GfRiFPq5WjDMJnLLi2VqdywXUJJnmofxMkyRahljyLVSWvxvpNYb3VWLffs70CqWPbDobWsZXKV3wTGcndasteuduiZjDtVj79w4+tU4qXtI7vs5jEHY/0HIO7bcbCHyB3LWY2EPe8ztTPJR1T4826Zyh7jEvJUfA356T+EKeT/TvrDd+APJtaxficRQq4AAAAASUVORK5CYII=" /></button>
+                    
+                    <!--Cancel search button-->
+                    <button *ngIf="canViewSearchResults" style="padding: 3px;
+                    position: absolute;
+                    right: 12px;
+                    outline: none;
+                    background-color: transparent;
+                    border: none;
+                    " class="btn btn-pill btn-success my-2 my-sm-0" type="submit" (click)="CancelSearch()">
+                      <img style="width: 21px;"
+                       src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAzklEQVRIie3W4Q2DIBCG4XcERmCEjsAIHcERHMENGMEROoKjdARHaH8QEkoBTb1Tm/gl9wdinoRDT7hyYAzghMsuoSPwUqqxht4V0VhdCe53gIcSPJwBnoRrNSyd/4UN5XeytCYGG+ABzMAtQ5+EXqrAXbIf8YjG9V4DBvAZnqK+8ZzI5UrxNagYbDM077kKbPk83rX4JjhHPd89r+GbYEe5pxGfCRNOHI546SL5BioC/5rzw064mvBhvz4QhoAWOhEGTTUW+aNe+rJd0csbWEcvap8eKWoAAAAASUVORK5CYII="/>
+                    </button>
               </form>
             </ul>
           </nav>
