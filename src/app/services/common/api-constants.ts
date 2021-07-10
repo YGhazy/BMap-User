@@ -41,5 +41,7 @@ export const API_CONSTANTS = {
 
   //
   CreateIslamicServiceRequest:"/ServiceRequests/CreateIslamicServiceRequest",
-  CreateCorporateServiceRequest:"/ServiceRequests/CreateCorporateServiceRequest"
+  CreateCorporateServiceRequest:"/ServiceRequests/CreateCorporateServiceRequest",
+
+  Search: "/Services/Search/",
 }
