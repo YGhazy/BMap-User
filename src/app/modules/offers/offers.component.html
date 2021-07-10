@@ -196,6 +196,10 @@
     <div class="modal-content">
       <div class="modal-header  m-3 {{langVar.rowReverse}}">
         <h3 class="modal-title ">{{langVar.offers.Modaltitle}}</h3>
+        <button type="button" class="close" style="margin-left: 0 !important; background-image: none  ;
+        margin-top: -1rem; " aria-label="Close" (click)="ApplyModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
 
       </div>
       <div class="modal-body  mx-xl-3" *ngIf="currentOffer">
@@ -218,8 +222,10 @@
             <label>{{langVar.offers.Annual}}</label>
             <p>{{currentOffer.annualFee}}</p>
 
-            <div class="row privacy d-flex mt-3" dir="{{langVar.dir}}" [formGroup]="applicationForm">
+            <div class="row privacy d-flex mt-3" dir="{{langVar.dir}}" style="    display: flex !important;
+            align-items: baseline;" [formGroup]="applicationForm">
               <input type="checkbox" id="privacyCheckbox" class="col-1" formControlName="acknowledgment">
+              <br>
               <label for="privacyCheckbox" class="checkboxLabel col-10">
                 {{langVar.applicationForm.acknowledgment}}
               </label>
