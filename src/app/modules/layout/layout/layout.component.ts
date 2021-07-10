@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ViewportScroller } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { ErrorType } from 'src/app/enums/error-type';
@@ -27,8 +28,19 @@ export class LayoutComponent implements OnInit {
   searchKeyword: string;
   searchResult: SearchResult;
   canViewSearchResults: boolean = false;
+  offsetFlag: boolean;
 
-  constructor(private auth: AuthenticationService, private jsLoader: JSInitializer, private router: Router, private langHelper: langHelper, private ServicesService: ServicesService) { }
+  constructor(private auth: AuthenticationService, private jsLoader: JSInitializer,
+    private router: Router, private langHelper: langHelper,
+    private ServicesService: ServicesService, private scroll: ViewportScroller) { }
+
+  @HostListener('window:scroll', ['$event']) getScrollHeight(event) {
+    if(window.pageYOffset> 0 )
+     this.offsetFlag = false;
+    else
+      this.offsetFlag = true;
+ }
+ 
   ngOnInit(): void {
     //set navigation arrow
     this.ClearNavigationHighLight();
@@ -96,6 +108,10 @@ export class LayoutComponent implements OnInit {
     else {
       return;
     }
+  }
+
+  scrollToTop() {
+    this.scroll.scrollToPosition([0, 0]);
   }
 
   fetchedTypes: any[] = [];

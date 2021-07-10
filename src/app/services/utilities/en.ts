@@ -102,7 +102,7 @@ export const English: any = {
   },
   subscribe: {
     send: "Send",
-    subscribeNw: "Need help",
+    subscribeNw: "Need Help?",
     subscribed: "you are already subscribed to our newsletter !",
     subscribtionValidate:"please enter valide e-mail or phone number"
   },
